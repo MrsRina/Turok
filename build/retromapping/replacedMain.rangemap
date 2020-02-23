@@ -1,0 +1,1361 @@
+Unsupposrted library path: C:\Users\SrRina\Documents\Turok\Turok\build\classes\api
+Unsupposrted library path: C:\Users\SrRina\Documents\Turok\Turok\build\resources\api
+Symbol range map extraction starting
+Processing 25 files
+startProcessing "com/oldturok/turok/Turok.java" md5: 448d59b8742ca15550b4443a259ee294
+@|com/oldturok/turok/Turok.java|8|26|com.oldturok.turok|package|com.oldturok.turok|(file)
+Class Start: com.oldturok.turok.Turok
+   @|com/oldturok/turok/Turok.java|342|345|Mod|class|net.minecraftforge.fml.common.Mod|false
+   @|com/oldturok/turok/Turok.java|355|360|modid|method|net.minecraftforge.fml.common.Mod|modid|()Ljava/lang/String;
+   @|com/oldturok/turok/Turok.java|380|387|version|method|net.minecraftforge.fml.common.Mod|version|()Ljava/lang/String;
+   @|com/oldturok/turok/Turok.java|405|430|acceptedMinecraftVersions|method|net.minecraftforge.fml.common.Mod|acceptedMinecraftVersions|()Ljava/lang/String;
+   @|com/oldturok/turok/Turok.java|459|464|Turok|class|com.oldturok.turok.Turok|false
+   @|com/oldturok/turok/Turok.java|485|496|TurokClient|class|com.oldturok.turok.client.TurokClient|false
+   @|com/oldturok/turok/Turok.java|485|496|TurokClient|class|com.oldturok.turok.client.TurokClient|false
+   @|com/oldturok/turok/Turok.java|497|503|client|field|com.oldturok.turok.Turok|client|
+   @|com/oldturok/turok/Turok.java|523|536|TurokCommands|class|com.oldturok.turok.client.TurokCommands|false
+   @|com/oldturok/turok/Turok.java|523|536|TurokCommands|class|com.oldturok.turok.client.TurokCommands|false
+   @|com/oldturok/turok/Turok.java|537|545|commands|field|com.oldturok.turok.Turok|commands|
+   Method Start: postInit(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
+      @|com/oldturok/turok/Turok.java|618|623|event|param|com.oldturok.turok.Turok|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V|event|0
+      @|com/oldturok/turok/Turok.java|553|565|EventHandler|class|net.minecraftforge.fml.common.Mod.EventHandler|false
+      @|com/oldturok/turok/Turok.java|582|590|postInit|method|com.oldturok.turok.Turok|postInit|(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
+      @|com/oldturok/turok/Turok.java|591|617|FMLPostInitializationEvent|class|net.minecraftforge.fml.common.event.FMLPostInitializationEvent|false
+      @|com/oldturok/turok/Turok.java|635|649|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|com/oldturok/turok/Turok.java|650|659|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|com/oldturok/turok/Turok.java|660|668|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|com/oldturok/turok/Turok.java|669|675|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/Turok.java|682|693|TurokClient|class|com.oldturok.turok.client.TurokClient|false
+      @|com/oldturok/turok/Turok.java|706|720|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|com/oldturok/turok/Turok.java|721|730|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|com/oldturok/turok/Turok.java|731|739|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+      @|com/oldturok/turok/Turok.java|740|748|commands|field|com.oldturok.turok.Turok|commands
+      @|com/oldturok/turok/Turok.java|755|768|TurokCommands|class|com.oldturok.turok.client.TurokCommands|false
+   Method End: postInit(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V
+Class End  : com.oldturok.turok.Turok
+endProcessing "com/oldturok/turok/Turok.java"
+
+startProcessing "com/oldturok/turok/client/TurokClient.java" md5: bb4384c95922a01d7dc562d743bcc2ea
+@|com/oldturok/turok/client/TurokClient.java|8|33|com.oldturok.turok.client|package|com.oldturok.turok.client|(file)
+Class Start: com.oldturok.turok.client.TurokClient
+   @|com/oldturok/turok/client/TurokClient.java|527|538|TurokClient|class|com.oldturok.turok.client.TurokClient|false
+   @|com/oldturok/turok/client/TurokClient.java|558|564|String|class|java.lang.String|false
+   @|com/oldturok/turok/client/TurokClient.java|558|564|String|class|java.lang.String|false
+   @|com/oldturok/turok/client/TurokClient.java|565|576|CLIENT_NAME|field|com.oldturok.turok.client.TurokClient|CLIENT_NAME|
+   @|com/oldturok/turok/client/TurokClient.java|612|626|CLIENT_VERSION|field|com.oldturok.turok.client.TurokClient|CLIENT_VERSION|
+   @|com/oldturok/turok/client/TurokClient.java|646|659|ModuleManager|class|com.oldturok.turok.managers.ModuleManager|false
+   @|com/oldturok/turok/client/TurokClient.java|646|659|ModuleManager|class|com.oldturok.turok.managers.ModuleManager|false
+   @|com/oldturok/turok/client/TurokClient.java|660|673|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager|
+   @|com/oldturok/turok/client/TurokClient.java|686|695|UIManager|class|com.oldturok.turok.managers.UIManager|false
+   @|com/oldturok/turok/client/TurokClient.java|686|695|UIManager|class|com.oldturok.turok.managers.UIManager|false
+   @|com/oldturok/turok/client/TurokClient.java|696|705|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager|
+   Method Start: TurokClient()V
+      @|com/oldturok/turok/client/TurokClient.java|719|730|TurokClient|method|com.oldturok.turok.client.TurokClient|TurokClient|()V
+      @|com/oldturok/turok/client/TurokClient.java|743|756|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/client/TurokClient.java|763|776|ModuleManager|class|com.oldturok.turok.managers.ModuleManager|false
+      @|com/oldturok/turok/client/TurokClient.java|788|797|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager
+      @|com/oldturok/turok/client/TurokClient.java|804|813|UIManager|class|com.oldturok.turok.managers.UIManager|false
+      @|com/oldturok/turok/client/TurokClient.java|826|833|Display|class|org.lwjgl.opengl.Display|false
+      @|com/oldturok/turok/client/TurokClient.java|834|842|setTitle|method|org.lwjgl.opengl.Display|setTitle|(Ljava/lang/String;)V
+      @|com/oldturok/turok/client/TurokClient.java|843|854|CLIENT_NAME|field|com.oldturok.turok.client.TurokClient|CLIENT_NAME
+      @|com/oldturok/turok/client/TurokClient.java|880|894|CLIENT_VERSION|field|com.oldturok.turok.client.TurokClient|CLIENT_VERSION
+   Method End: TurokClient()V
+   Method Start: onGui(Lnet/minecraftforge/client/event/RenderGameOverlayEvent;)V
+      @|com/oldturok/turok/client/TurokClient.java|969|974|event|param|com.oldturok.turok.client.TurokClient|onGui|(Lnet/minecraftforge/client/event/RenderGameOverlayEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokClient.java|909|923|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|com/oldturok/turok/client/TurokClient.java|940|945|onGui|method|com.oldturok.turok.client.TurokClient|onGui|(Lnet/minecraftforge/client/event/RenderGameOverlayEvent;)V
+      @|com/oldturok/turok/client/TurokClient.java|946|968|RenderGameOverlayEvent|class|net.minecraftforge.client.event.RenderGameOverlayEvent|false
+      @|com/oldturok/turok/client/TurokClient.java|990|995|event|param|com.oldturok.turok.client.TurokClient|onGui|(Lnet/minecraftforge/client/event/RenderGameOverlayEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokClient.java|996|1003|getType|method|net.minecraftforge.client.event.RenderGameOverlayEvent|getType|()Lnet/minecraftforge/client/event/RenderGameOverlayEvent$ElementType;
+      @|com/oldturok/turok/client/TurokClient.java|1009|1043|RenderGameOverlayEvent.ElementType|class|net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType|false
+      @|com/oldturok/turok/client/TurokClient.java|1044|1048|TEXT|field|net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType|TEXT
+      @|com/oldturok/turok/client/TurokClient.java|1064|1073|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager
+      @|com/oldturok/turok/client/TurokClient.java|1074|1078|Draw|method|com.oldturok.turok.managers.UIManager|Draw|()V
+      @|com/oldturok/turok/client/TurokClient.java|1114|1127|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/client/TurokClient.java|1128|1145|getEnabledModules|method|com.oldturok.turok.managers.ModuleManager|getEnabledModules|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/client/TurokClient.java|1148|1152|size|method|java.util.Collection|size|()I
+      @|com/oldturok/turok/client/TurokClient.java|1179|1192|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/client/TurokClient.java|1193|1210|getEnabledModules|method|com.oldturok.turok.managers.ModuleManager|getEnabledModules|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/client/TurokClient.java|1213|1216|get|method|java.util.List|get|(I)Ljava/lang/Object;
+      @|com/oldturok/turok/client/TurokClient.java|1220|1225|onGui|method|com.oldturok.turok.modules.api.Module|onGui|(I)V
+   Method End: onGui(Lnet/minecraftforge/client/event/RenderGameOverlayEvent;)V
+   Method Start: onUpdate(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V
+      @|com/oldturok/turok/client/TurokClient.java|1332|1337|event|param|com.oldturok.turok.client.TurokClient|onUpdate|(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokClient.java|1266|1280|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|com/oldturok/turok/client/TurokClient.java|1297|1305|onUpdate|method|com.oldturok.turok.client.TurokClient|onUpdate|(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V
+      @|com/oldturok/turok/client/TurokClient.java|1306|1331|TickEvent.PlayerTickEvent|class|net.minecraftforge.fml.common.gameevent.TickEvent.PlayerTickEvent|false
+      @|com/oldturok/turok/client/TurokClient.java|1353|1358|event|param|com.oldturok.turok.client.TurokClient|onUpdate|(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokClient.java|1359|1363|type|field|net.minecraftforge.fml.common.gameevent.TickEvent|type
+      @|com/oldturok/turok/client/TurokClient.java|1367|1381|TickEvent.Type|class|net.minecraftforge.fml.common.gameevent.TickEvent.Type|false
+      @|com/oldturok/turok/client/TurokClient.java|1382|1388|PLAYER|field|net.minecraftforge.fml.common.gameevent.TickEvent.Type|PLAYER
+      @|com/oldturok/turok/client/TurokClient.java|1409|1415|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/client/TurokClient.java|1425|1438|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/client/TurokClient.java|1439|1456|getEnabledModules|method|com.oldturok.turok.managers.ModuleManager|getEnabledModules|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/client/TurokClient.java|1485|1493|onUpdate|method|com.oldturok.turok.modules.api.Module|onUpdate|()V
+   Method End: onUpdate(Lnet/minecraftforge/fml/common/gameevent/TickEvent$PlayerTickEvent;)V
+   Method Start: onRender(Lnet/minecraftforge/client/event/RenderHandEvent;)V
+      @|com/oldturok/turok/client/TurokClient.java|1589|1594|event|param|com.oldturok.turok.client.TurokClient|onRender|(Lnet/minecraftforge/client/event/RenderHandEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokClient.java|1533|1547|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|com/oldturok/turok/client/TurokClient.java|1564|1572|onRender|method|com.oldturok.turok.client.TurokClient|onRender|(Lnet/minecraftforge/client/event/RenderHandEvent;)V
+      @|com/oldturok/turok/client/TurokClient.java|1573|1588|RenderHandEvent|class|net.minecraftforge.client.event.RenderHandEvent|false
+      @|com/oldturok/turok/client/TurokClient.java|1611|1617|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/client/TurokClient.java|1627|1640|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/client/TurokClient.java|1641|1658|getEnabledModules|method|com.oldturok.turok.managers.ModuleManager|getEnabledModules|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/client/TurokClient.java|1683|1691|onRender|method|com.oldturok.turok.modules.api.Module|onRender|()V
+   Method End: onRender(Lnet/minecraftforge/client/event/RenderHandEvent;)V
+   Method Start: onKey(Lnet/minecraftforge/fml/common/gameevent/InputEvent$KeyInputEvent;)V
+      @|com/oldturok/turok/client/TurokClient.java|1779|1784|event|param|com.oldturok.turok.client.TurokClient|onKey|(Lnet/minecraftforge/fml/common/gameevent/InputEvent$KeyInputEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokClient.java|1717|1731|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|com/oldturok/turok/client/TurokClient.java|1748|1753|onKey|method|com.oldturok.turok.client.TurokClient|onKey|(Lnet/minecraftforge/fml/common/gameevent/InputEvent$KeyInputEvent;)V
+      @|com/oldturok/turok/client/TurokClient.java|1754|1778|InputEvent.KeyInputEvent|class|net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent|false
+      @|com/oldturok/turok/client/TurokClient.java|1801|1807|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/client/TurokClient.java|1817|1830|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/client/TurokClient.java|1831|1841|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/client/TurokClient.java|1864|1869|onKey|method|com.oldturok.turok.modules.api.Module|onKey|()V
+   Method End: onKey(Lnet/minecraftforge/fml/common/gameevent/InputEvent$KeyInputEvent;)V
+Class End  : com.oldturok.turok.client.TurokClient
+endProcessing "com/oldturok/turok/client/TurokClient.java"
+
+startProcessing "com/oldturok/turok/client/TurokCommands.java" md5: 7d5bfb94f06fe601258ddc970b79f854
+@|com/oldturok/turok/client/TurokCommands.java|8|33|com.oldturok.turok.client|package|com.oldturok.turok.client|(file)
+Class Start: com.oldturok.turok.client.TurokCommands
+   @|com/oldturok/turok/client/TurokCommands.java|447|460|TurokCommands|class|com.oldturok.turok.client.TurokCommands|false
+   @|com/oldturok/turok/client/TurokCommands.java|474|488|CommandManager|class|com.oldturok.turok.managers.CommandManager|false
+   @|com/oldturok/turok/client/TurokCommands.java|474|488|CommandManager|class|com.oldturok.turok.managers.CommandManager|false
+   @|com/oldturok/turok/client/TurokCommands.java|489|503|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager|
+   Method Start: TurokCommands()V
+      @|com/oldturok/turok/client/TurokCommands.java|517|530|TurokCommands|method|com.oldturok.turok.client.TurokCommands|TurokCommands|()V
+      @|com/oldturok/turok/client/TurokCommands.java|543|557|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/client/TurokCommands.java|564|578|CommandManager|class|com.oldturok.turok.managers.CommandManager|false
+      @|com/oldturok/turok/client/TurokCommands.java|588|593|Style|class|net.minecraft.util.text.Style|false
+      @|com/oldturok/turok/client/TurokCommands.java|596|604|setColor|method|net.minecraft.util.text.Style|setColor|(Lnet/minecraft/util/text/TextFormatting;)Lnet/minecraft/util/text/Style;
+      @|com/oldturok/turok/client/TurokCommands.java|605|619|TextFormatting|class|net.minecraft.util.text.TextFormatting|false
+      @|com/oldturok/turok/client/TurokCommands.java|620|624|GRAY|field|net.minecraft.util.text.TextFormatting|GRAY
+   Method End: TurokCommands()V
+   Method Start: onChat(Lnet/minecraftforge/client/event/ClientChatEvent;)V
+      @|com/oldturok/turok/client/TurokCommands.java|694|699|event|param|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokCommands.java|640|654|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|com/oldturok/turok/client/TurokCommands.java|671|677|onChat|method|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V
+      @|com/oldturok/turok/client/TurokCommands.java|678|693|ClientChatEvent|class|net.minecraftforge.client.event.ClientChatEvent|false
+      @|com/oldturok/turok/client/TurokCommands.java|711|717|String|class|java.lang.String|false
+      @|com/oldturok/turok/client/TurokCommands.java|731|736|event|param|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokCommands.java|737|747|getMessage|method|net.minecraftforge.client.event.ClientChatEvent|getMessage|()Ljava/lang/String;
+      @|com/oldturok/turok/client/TurokCommands.java|759|765|String|class|java.lang.String|false
+      @|com/oldturok/turok/client/TurokCommands.java|782|796|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/client/TurokCommands.java|797|804|GetArgs|method|com.oldturok.turok.managers.CommandManager|GetArgs|(Ljava/lang/String;)[Ljava/lang/String;
+      @|com/oldturok/turok/client/TurokCommands.java|805|810|event|param|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokCommands.java|811|821|getMessage|method|net.minecraftforge.client.event.ClientChatEvent|getMessage|()Ljava/lang/String;
+      Field: Array Length, skipping
+      @|com/oldturok/turok/client/TurokCommands.java|922|929|Command|class|com.oldturok.turok.commands.api.Command|false
+      @|com/oldturok/turok/client/TurokCommands.java|940|954|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/client/TurokCommands.java|955|966|commandList|field|com.oldturok.turok.managers.CommandManager|commandList
+      @|com/oldturok/turok/client/TurokCommands.java|990|1004|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/client/TurokCommands.java|1005|1012|GetArgs|method|com.oldturok.turok.managers.CommandManager|GetArgs|(Ljava/lang/String;)[Ljava/lang/String;
+      @|com/oldturok/turok/client/TurokCommands.java|1013|1018|event|param|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokCommands.java|1019|1029|getMessage|method|net.minecraftforge.client.event.ClientChatEvent|getMessage|()Ljava/lang/String;
+      @|com/oldturok/turok/client/TurokCommands.java|1036|1052|equalsIgnoreCase|method|java.lang.String|equalsIgnoreCase|(Ljava/lang/String;)Z
+      @|com/oldturok/turok/client/TurokCommands.java|1061|1065|name|field|com.oldturok.turok.commands.api.Command|name
+      @|com/oldturok/turok/client/TurokCommands.java|1114|1123|DoCommand|method|com.oldturok.turok.commands.api.Command|DoCommand|([Ljava/lang/String;)Z
+      @|com/oldturok/turok/client/TurokCommands.java|1124|1138|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/client/TurokCommands.java|1139|1146|GetArgs|method|com.oldturok.turok.managers.CommandManager|GetArgs|(Ljava/lang/String;)[Ljava/lang/String;
+      @|com/oldturok/turok/client/TurokCommands.java|1147|1152|event|param|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokCommands.java|1153|1163|getMessage|method|net.minecraftforge.client.event.ClientChatEvent|getMessage|()Ljava/lang/String;
+      @|com/oldturok/turok/client/TurokCommands.java|1236|1250|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/client/TurokCommands.java|1251|1265|ContainsPrefix|method|com.oldturok.turok.managers.CommandManager|ContainsPrefix|(Ljava/lang/String;)Z
+      @|com/oldturok/turok/client/TurokCommands.java|1266|1271|event|param|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokCommands.java|1272|1282|getMessage|method|net.minecraftforge.client.event.ClientChatEvent|getMessage|()Ljava/lang/String;
+      @|com/oldturok/turok/client/TurokCommands.java|1305|1324|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+      @|com/oldturok/turok/client/TurokCommands.java|1333|1352|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+      @|com/oldturok/turok/client/TurokCommands.java|1380|1394|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/client/TurokCommands.java|1395|1408|commandPrefix|field|com.oldturok.turok.managers.CommandManager|commandPrefix
+      @|com/oldturok/turok/client/TurokCommands.java|1461|1469|setStyle|method|net.minecraft.util.text.ITextComponent|setStyle|(Lnet/minecraft/util/text/Style;)Lnet/minecraft/util/text/ITextComponent;
+      @|com/oldturok/turok/client/TurokCommands.java|1474|1479|Style|class|net.minecraft.util.text.Style|false
+      @|com/oldturok/turok/client/TurokCommands.java|1482|1490|setColor|method|net.minecraft.util.text.Style|setColor|(Lnet/minecraft/util/text/TextFormatting;)Lnet/minecraft/util/text/Style;
+      @|com/oldturok/turok/client/TurokCommands.java|1491|1505|TextFormatting|class|net.minecraft.util.text.TextFormatting|false
+      @|com/oldturok/turok/client/TurokCommands.java|1506|1510|GRAY|field|net.minecraft.util.text.TextFormatting|GRAY
+      @|com/oldturok/turok/client/TurokCommands.java|1530|1539|Minecraft|class|net.minecraft.client.Minecraft|false
+      @|com/oldturok/turok/client/TurokCommands.java|1540|1552|getMinecraft|method|net.minecraft.client.Minecraft|getMinecraft|()Lnet/minecraft/client/Minecraft;
+      @|com/oldturok/turok/client/TurokCommands.java|1555|1564|ingameGUI|field|net.minecraft.client.Minecraft|ingameGUI
+      @|com/oldturok/turok/client/TurokCommands.java|1565|1575|getChatGUI|method|net.minecraft.client.gui.GuiIngame|getChatGUI|()Lnet/minecraft/client/gui/GuiNewChat;
+      @|com/oldturok/turok/client/TurokCommands.java|1578|1594|printChatMessage|method|net.minecraft.client.gui.GuiNewChat|printChatMessage|(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/client/TurokCommands.java|1599|1618|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+      @|com/oldturok/turok/client/TurokCommands.java|1619|1633|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/client/TurokCommands.java|1634|1648|responsePrefix|field|com.oldturok.turok.managers.CommandManager|responsePrefix
+      @|com/oldturok/turok/client/TurokCommands.java|1653|1669|getFormattedText|method|net.minecraft.util.text.ITextComponent|getFormattedText|()Ljava/lang/String;
+      @|com/oldturok/turok/client/TurokCommands.java|1767|1772|event|param|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokCommands.java|1773|1783|setMessage|method|net.minecraftforge.client.event.ClientChatEvent|setMessage|(Ljava/lang/String;)V
+      @|com/oldturok/turok/client/TurokCommands.java|1798|1803|event|param|com.oldturok.turok.client.TurokCommands|onChat|(Lnet/minecraftforge/client/event/ClientChatEvent;)V|event|0
+      @|com/oldturok/turok/client/TurokCommands.java|1804|1814|setMessage|method|net.minecraftforge.client.event.ClientChatEvent|setMessage|(Ljava/lang/String;)V
+   Method End: onChat(Lnet/minecraftforge/client/event/ClientChatEvent;)V
+Class End  : com.oldturok.turok.client.TurokCommands
+endProcessing "com/oldturok/turok/client/TurokCommands.java"
+
+startProcessing "com/oldturok/turok/commands/Bind.java" md5: b9590f0bbd69e8db2c0c5a609e164bbb
+@|com/oldturok/turok/commands/Bind.java|8|35|com.oldturok.turok.commands|package|com.oldturok.turok.commands|(file)
+Class Start: com.oldturok.turok.commands.Bind
+   @|com/oldturok/turok/commands/Bind.java|294|298|Bind|class|com.oldturok.turok.commands.Bind|false
+   @|com/oldturok/turok/commands/Bind.java|307|314|Command|class|com.oldturok.turok.commands.api.Command|false
+   Method Start: Bind()V
+      @|com/oldturok/turok/commands/Bind.java|328|332|Bind|method|com.oldturok.turok.commands.Bind|Bind|()V
+   Method End: Bind()V
+   Method Start: DoCommand([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Bind.java|455|466|commandArgs|param|com.oldturok.turok.commands.Bind|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/Bind.java|408|416|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/commands/Bind.java|436|445|DoCommand|method|com.oldturok.turok.commands.api.Command|DoCommand|([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Bind.java|446|452|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/Bind.java|482|493|commandArgs|param|com.oldturok.turok.commands.Bind|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      Field: Array Length, skipping
+      @|com/oldturok/turok/commands/Bind.java|520|526|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/commands/Bind.java|536|541|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/commands/Bind.java|542|548|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/commands/Bind.java|549|562|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/commands/Bind.java|563|572|getModule|method|com.oldturok.turok.managers.ModuleManager|getModule|(Ljava/lang/String;)Lcom/oldturok/turok/modules/api/Module;
+      @|com/oldturok/turok/commands/Bind.java|573|584|commandArgs|param|com.oldturok.turok.commands.Bind|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/Bind.java|624|635|commandArgs|param|com.oldturok.turok.commands.Bind|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      Field: Array Length, skipping
+      @|com/oldturok/turok/commands/Bind.java|666|671|Class|class|java.lang.Class|false
+      @|com/oldturok/turok/commands/Bind.java|672|680|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/commands/Bind.java|689|697|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/commands/Bind.java|721|726|Field|class|java.lang.reflect.Field|false
+      @|com/oldturok/turok/commands/Bind.java|786|794|getField|method|java.lang.Class|getField|(Ljava/lang/String;)Ljava/lang/reflect/Field;
+      @|com/oldturok/turok/commands/Bind.java|804|815|commandArgs|param|com.oldturok.turok.commands.Bind|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/Bind.java|819|830|toUpperCase|method|java.lang.String|toUpperCase|()Ljava/lang/String;
+      @|com/oldturok/turok/commands/Bind.java|862|868|module|field|com.oldturok.turok.modules.api.Module|module
+      @|com/oldturok/turok/commands/Bind.java|869|879|setKeyCode|method|net.minecraft.client.settings.KeyBinding|setKeyCode|(I)V
+      @|com/oldturok/turok/commands/Bind.java|884|890|getInt|method|java.lang.reflect.Field|getInt|(Ljava/lang/Object;)I
+      @|com/oldturok/turok/commands/Bind.java|919|929|KeyBinding|class|net.minecraft.client.settings.KeyBinding|false
+      @|com/oldturok/turok/commands/Bind.java|930|957|resetKeyBindingArrayAndHash|method|net.minecraft.client.settings.KeyBinding|resetKeyBindingArrayAndHash|()V
+      @|com/oldturok/turok/commands/Bind.java|981|995|clientResponse|method|com.oldturok.turok.commands.api.Command|clientResponse|(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/commands/Bind.java|996|1011|responseBuilder|method|com.oldturok.turok.commands.api.Command|responseBuilder|(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+      @|com/oldturok/turok/commands/Bind.java|1019|1023|name|field|com.oldturok.turok.modules.api.Module|name
+      @|com/oldturok/turok/commands/Bind.java|1051|1059|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/commands/Bind.java|1060|1070|getKeyName|method|org.lwjgl.input.Keyboard|getKeyName|(I)Ljava/lang/String;
+      @|com/oldturok/turok/commands/Bind.java|1078|1084|module|field|com.oldturok.turok.modules.api.Module|module
+      @|com/oldturok/turok/commands/Bind.java|1085|1095|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+      @|com/oldturok/turok/commands/Bind.java|1127|1149|IllegalAccessException|class|java.lang.IllegalAccessException|false
+      @|com/oldturok/turok/commands/Bind.java|1177|1192|printStackTrace|method|java.lang.Throwable|printStackTrace|()V
+      @|com/oldturok/turok/commands/Bind.java|1221|1241|NoSuchFieldException|class|java.lang.NoSuchFieldException|false
+      @|com/oldturok/turok/commands/Bind.java|1267|1281|clientResponse|method|com.oldturok.turok.commands.api.Command|clientResponse|(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/commands/Bind.java|1282|1297|responseBuilder|method|com.oldturok.turok.commands.api.Command|responseBuilder|(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+   Method End: DoCommand([Ljava/lang/String;)Z
+Class End  : com.oldturok.turok.commands.Bind
+endProcessing "com/oldturok/turok/commands/Bind.java"
+
+startProcessing "com/oldturok/turok/commands/Clear.java" md5: 7cf83091b3608def4f662e4a9981bdc8
+@|com/oldturok/turok/commands/Clear.java|8|35|com.oldturok.turok.commands|package|com.oldturok.turok.commands|(file)
+Class Start: com.oldturok.turok.commands.Clear
+   @|com/oldturok/turok/commands/Clear.java|100|105|Clear|class|com.oldturok.turok.commands.Clear|false
+   @|com/oldturok/turok/commands/Clear.java|114|121|Command|class|com.oldturok.turok.commands.api.Command|false
+   Method Start: Clear()V
+      @|com/oldturok/turok/commands/Clear.java|135|140|Clear|method|com.oldturok.turok.commands.Clear|Clear|()V
+   Method End: Clear()V
+   Method Start: DoCommand([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Clear.java|262|273|commandArgs|param|com.oldturok.turok.commands.Clear|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/Clear.java|215|223|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/commands/Clear.java|243|252|DoCommand|method|com.oldturok.turok.commands.api.Command|DoCommand|([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Clear.java|253|259|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/Clear.java|285|294|minecraft|field|com.oldturok.turok.commands.api.Command|minecraft
+      @|com/oldturok/turok/commands/Clear.java|295|304|ingameGUI|field|net.minecraft.client.Minecraft|ingameGUI
+      @|com/oldturok/turok/commands/Clear.java|305|315|getChatGUI|method|net.minecraft.client.gui.GuiIngame|getChatGUI|()Lnet/minecraft/client/gui/GuiNewChat;
+      @|com/oldturok/turok/commands/Clear.java|318|335|clearChatMessages|method|net.minecraft.client.gui.GuiNewChat|clearChatMessages|(Z)V
+      @|com/oldturok/turok/commands/Clear.java|352|366|clientResponse|method|com.oldturok.turok.commands.api.Command|clientResponse|(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/commands/Clear.java|367|382|responseBuilder|method|com.oldturok.turok.commands.api.Command|responseBuilder|(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+   Method End: DoCommand([Ljava/lang/String;)Z
+Class End  : com.oldturok.turok.commands.Clear
+endProcessing "com/oldturok/turok/commands/Clear.java"
+
+startProcessing "com/oldturok/turok/commands/Help.java" md5: a1c645239409a5df169e3a1e19f2015e
+@|com/oldturok/turok/commands/Help.java|8|35|com.oldturok.turok.commands|package|com.oldturok.turok.commands|(file)
+Class Start: com.oldturok.turok.commands.Help
+   @|com/oldturok/turok/commands/Help.java|133|137|Help|class|com.oldturok.turok.commands.Help|false
+   @|com/oldturok/turok/commands/Help.java|146|153|Command|class|com.oldturok.turok.commands.api.Command|false
+   Method Start: Help()V
+      @|com/oldturok/turok/commands/Help.java|167|171|Help|method|com.oldturok.turok.commands.Help|Help|()V
+   Method End: Help()V
+   Method Start: DoCommand([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Help.java|289|300|commandArgs|param|com.oldturok.turok.commands.Help|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/Help.java|242|250|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/commands/Help.java|270|279|DoCommand|method|com.oldturok.turok.commands.api.Command|DoCommand|([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Help.java|280|286|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/Help.java|317|324|Command|class|com.oldturok.turok.commands.api.Command|false
+      @|com/oldturok/turok/commands/Help.java|335|340|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/commands/Help.java|341|349|commands|field|com.oldturok.turok.Turok|commands
+      @|com/oldturok/turok/commands/Help.java|350|364|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/commands/Help.java|365|376|commandList|field|com.oldturok.turok.managers.CommandManager|commandList
+      @|com/oldturok/turok/commands/Help.java|392|406|clientResponse|method|com.oldturok.turok.commands.api.Command|clientResponse|(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/commands/Help.java|407|422|responseBuilder|method|com.oldturok.turok.commands.api.Command|responseBuilder|(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+      @|com/oldturok/turok/commands/Help.java|431|435|name|field|com.oldturok.turok.commands.api.Command|name
+      @|com/oldturok/turok/commands/Help.java|453|464|description|field|com.oldturok.turok.commands.api.Command|description
+   Method End: DoCommand([Ljava/lang/String;)Z
+Class End  : com.oldturok.turok.commands.Help
+endProcessing "com/oldturok/turok/commands/Help.java"
+
+startProcessing "com/oldturok/turok/commands/Say.java" md5: 3fdb29a2337d62b23cd996529d5932a9
+@|com/oldturok/turok/commands/Say.java|8|35|com.oldturok.turok.commands|package|com.oldturok.turok.commands|(file)
+Class Start: com.oldturok.turok.commands.Say
+   @|com/oldturok/turok/commands/Say.java|100|103|Say|class|com.oldturok.turok.commands.Say|false
+   @|com/oldturok/turok/commands/Say.java|112|119|Command|class|com.oldturok.turok.commands.api.Command|false
+   Method Start: Say()V
+      @|com/oldturok/turok/commands/Say.java|133|136|Say|method|com.oldturok.turok.commands.Say|Say|()V
+   Method End: Say()V
+   Method Start: DoCommand([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Say.java|255|266|commandArgs|param|com.oldturok.turok.commands.Say|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/Say.java|208|216|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/commands/Say.java|236|245|DoCommand|method|com.oldturok.turok.commands.api.Command|DoCommand|([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Say.java|246|252|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/Say.java|278|284|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/Say.java|331|342|commandArgs|param|com.oldturok.turok.commands.Say|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      Field: Array Length, skipping
+      @|com/oldturok/turok/commands/Say.java|385|396|commandArgs|param|com.oldturok.turok.commands.Say|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/Say.java|443|449|equals|method|java.lang.String|equals|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/commands/Say.java|469|478|minecraft|field|com.oldturok.turok.commands.api.Command|minecraft
+      @|com/oldturok/turok/commands/Say.java|479|485|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/commands/Say.java|486|501|sendChatMessage|method|net.minecraft.client.entity.EntityPlayerSP|sendChatMessage|(Ljava/lang/String;)V
+   Method End: DoCommand([Ljava/lang/String;)Z
+Class End  : com.oldturok.turok.commands.Say
+endProcessing "com/oldturok/turok/commands/Say.java"
+
+startProcessing "com/oldturok/turok/commands/Version.java" md5: 0453fa927bbfe5dcc63a1f6b2d85cab6
+@|com/oldturok/turok/commands/Version.java|8|35|com.oldturok.turok.commands|package|com.oldturok.turok.commands|(file)
+Class Start: com.oldturok.turok.commands.Version
+   @|com/oldturok/turok/commands/Version.java|133|140|Version|class|com.oldturok.turok.commands.Version|false
+   @|com/oldturok/turok/commands/Version.java|149|156|Command|class|com.oldturok.turok.commands.api.Command|false
+   Method Start: Version()V
+      @|com/oldturok/turok/commands/Version.java|170|177|Version|method|com.oldturok.turok.commands.Version|Version|()V
+   Method End: Version()V
+   Method Start: DoCommand([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Version.java|309|320|commandArgs|param|com.oldturok.turok.commands.Version|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/Version.java|262|270|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/commands/Version.java|290|299|DoCommand|method|com.oldturok.turok.commands.api.Command|DoCommand|([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/Version.java|300|306|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/Version.java|332|346|clientResponse|method|com.oldturok.turok.commands.api.Command|clientResponse|(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/commands/Version.java|347|362|responseBuilder|method|com.oldturok.turok.commands.api.Command|responseBuilder|(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+      @|com/oldturok/turok/commands/Version.java|384|389|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/commands/Version.java|390|396|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/commands/Version.java|397|408|CLIENT_NAME|field|com.oldturok.turok.client.TurokClient|CLIENT_NAME
+      @|com/oldturok/turok/commands/Version.java|417|422|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/commands/Version.java|423|429|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/commands/Version.java|430|444|CLIENT_VERSION|field|com.oldturok.turok.client.TurokClient|CLIENT_VERSION
+   Method End: DoCommand([Ljava/lang/String;)Z
+Class End  : com.oldturok.turok.commands.Version
+endProcessing "com/oldturok/turok/commands/Version.java"
+
+startProcessing "com/oldturok/turok/commands/api/Command.java" md5: 8550095e4c7b3a98285883431d5f2f0f
+@|com/oldturok/turok/commands/api/Command.java|8|39|com.oldturok.turok.commands.api|package|com.oldturok.turok.commands.api|(file)
+Class Start: com.oldturok.turok.commands.api.Command
+   @|com/oldturok/turok/commands/api/Command.java|227|234|Command|class|com.oldturok.turok.commands.api.Command|false
+   @|com/oldturok/turok/commands/api/Command.java|248|254|String|class|java.lang.String|false
+   @|com/oldturok/turok/commands/api/Command.java|248|254|String|class|java.lang.String|false
+   @|com/oldturok/turok/commands/api/Command.java|255|259|name|field|com.oldturok.turok.commands.api.Command|name|
+   @|com/oldturok/turok/commands/api/Command.java|272|278|String|class|java.lang.String|false
+   @|com/oldturok/turok/commands/api/Command.java|272|278|String|class|java.lang.String|false
+   @|com/oldturok/turok/commands/api/Command.java|279|290|description|field|com.oldturok.turok.commands.api.Command|description|
+   @|com/oldturok/turok/commands/api/Command.java|307|316|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/commands/api/Command.java|307|316|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/commands/api/Command.java|317|326|minecraft|field|com.oldturok.turok.commands.api.Command|minecraft|
+   @|com/oldturok/turok/commands/api/Command.java|329|338|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/commands/api/Command.java|339|351|getMinecraft|method|net.minecraft.client.Minecraft|getMinecraft|()Lnet/minecraft/client/Minecraft;
+   Method Start: Command(Ljava/lang/String;Ljava/lang/String;)V
+      @|com/oldturok/turok/commands/api/Command.java|382|386|name|param|com.oldturok.turok.commands.api.Command|Command|(Ljava/lang/String;Ljava/lang/String;)V|name|0
+      @|com/oldturok/turok/commands/api/Command.java|395|406|description|param|com.oldturok.turok.commands.api.Command|Command|(Ljava/lang/String;Ljava/lang/String;)V|description|1
+      @|com/oldturok/turok/commands/api/Command.java|367|374|Command|method|com.oldturok.turok.commands.api.Command|Command|(Ljava/lang/String;Ljava/lang/String;)V
+      @|com/oldturok/turok/commands/api/Command.java|375|381|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/api/Command.java|388|394|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/api/Command.java|423|427|name|field|com.oldturok.turok.commands.api.Command|name
+      @|com/oldturok/turok/commands/api/Command.java|430|434|name|param|com.oldturok.turok.commands.api.Command|Command|(Ljava/lang/String;Ljava/lang/String;)V|name|0
+      @|com/oldturok/turok/commands/api/Command.java|449|460|description|field|com.oldturok.turok.commands.api.Command|description
+      @|com/oldturok/turok/commands/api/Command.java|463|474|description|param|com.oldturok.turok.commands.api.Command|Command|(Ljava/lang/String;Ljava/lang/String;)V|description|1
+   Method End: Command(Ljava/lang/String;Ljava/lang/String;)V
+   Method Start: DoCommand([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/api/Command.java|521|532|commandArgs|param|com.oldturok.turok.commands.api.Command|DoCommand|([Ljava/lang/String;)Z|commandArgs|0
+      @|com/oldturok/turok/commands/api/Command.java|502|511|DoCommand|method|com.oldturok.turok.commands.api.Command|DoCommand|([Ljava/lang/String;)Z
+      @|com/oldturok/turok/commands/api/Command.java|512|518|String|class|java.lang.String|false
+   Method End: DoCommand([Ljava/lang/String;)Z
+   Method Start: clientResponse(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/commands/api/Command.java|602|610|response|param|com.oldturok.turok.commands.api.Command|clientResponse|(Lnet/minecraft/util/text/ITextComponent;)V|response|0
+      @|com/oldturok/turok/commands/api/Command.java|572|586|clientResponse|method|com.oldturok.turok.commands.api.Command|clientResponse|(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/commands/api/Command.java|587|601|ITextComponent|class|net.minecraft.util.text.ITextComponent|false
+      @|com/oldturok/turok/commands/api/Command.java|622|631|minecraft|field|com.oldturok.turok.commands.api.Command|minecraft
+      @|com/oldturok/turok/commands/api/Command.java|632|641|ingameGUI|field|net.minecraft.client.Minecraft|ingameGUI
+      @|com/oldturok/turok/commands/api/Command.java|642|652|getChatGUI|method|net.minecraft.client.gui.GuiIngame|getChatGUI|()Lnet/minecraft/client/gui/GuiNewChat;
+      @|com/oldturok/turok/commands/api/Command.java|655|671|printChatMessage|method|net.minecraft.client.gui.GuiNewChat|printChatMessage|(Lnet/minecraft/util/text/ITextComponent;)V
+      @|com/oldturok/turok/commands/api/Command.java|676|695|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+      @|com/oldturok/turok/commands/api/Command.java|696|701|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/commands/api/Command.java|702|710|commands|field|com.oldturok.turok.Turok|commands
+      @|com/oldturok/turok/commands/api/Command.java|711|725|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/commands/api/Command.java|726|740|responsePrefix|field|com.oldturok.turok.managers.CommandManager|responsePrefix
+      @|com/oldturok/turok/commands/api/Command.java|743|751|response|param|com.oldturok.turok.commands.api.Command|clientResponse|(Lnet/minecraft/util/text/ITextComponent;)V|response|0
+      @|com/oldturok/turok/commands/api/Command.java|752|768|getFormattedText|method|net.minecraft.util.text.ITextComponent|getFormattedText|()Ljava/lang/String;
+   Method End: clientResponse(Lnet/minecraft/util/text/ITextComponent;)V
+   Method Start: responseBuilder(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+      @|com/oldturok/turok/commands/api/Command.java|833|840|message|param|com.oldturok.turok.commands.api.Command|responseBuilder|(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;|message|0
+      @|com/oldturok/turok/commands/api/Command.java|795|809|ITextComponent|class|net.minecraft.util.text.ITextComponent|false
+      @|com/oldturok/turok/commands/api/Command.java|810|825|responseBuilder|method|com.oldturok.turok.commands.api.Command|responseBuilder|(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+      @|com/oldturok/turok/commands/api/Command.java|826|832|String|class|java.lang.String|false
+      @|com/oldturok/turok/commands/api/Command.java|863|882|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+      @|com/oldturok/turok/commands/api/Command.java|883|890|message|param|com.oldturok.turok.commands.api.Command|responseBuilder|(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;|message|0
+      @|com/oldturok/turok/commands/api/Command.java|892|900|setStyle|method|net.minecraft.util.text.ITextComponent|setStyle|(Lnet/minecraft/util/text/Style;)Lnet/minecraft/util/text/ITextComponent;
+      @|com/oldturok/turok/commands/api/Command.java|901|906|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/commands/api/Command.java|907|915|commands|field|com.oldturok.turok.Turok|commands
+      @|com/oldturok/turok/commands/api/Command.java|916|930|commandManager|field|com.oldturok.turok.client.TurokCommands|commandManager
+      @|com/oldturok/turok/commands/api/Command.java|931|941|chatFormat|field|com.oldturok.turok.managers.CommandManager|chatFormat
+   Method End: responseBuilder(Ljava/lang/String;)Lnet/minecraft/util/text/ITextComponent;
+Class End  : com.oldturok.turok.commands.api.Command
+endProcessing "com/oldturok/turok/commands/api/Command.java"
+
+startProcessing "com/oldturok/turok/helpers/DelayTimer.java" md5: 0c861b9732235c80dd1eaaa2b15dd8bc
+@|com/oldturok/turok/helpers/DelayTimer.java|8|34|com.oldturok.turok.helpers|package|com.oldturok.turok.helpers|(file)
+Class Start: com.oldturok.turok.helpers.DelayTimer
+   @|com/oldturok/turok/helpers/DelayTimer.java|50|60|DelayTimer|class|com.oldturok.turok.helpers.DelayTimer|false
+   @|com/oldturok/turok/helpers/DelayTimer.java|79|83|time|field|com.oldturok.turok.helpers.DelayTimer|time|
+   Method Start: DelayTimer()V
+      @|com/oldturok/turok/helpers/DelayTimer.java|97|107|DelayTimer|method|com.oldturok.turok.helpers.DelayTimer|DelayTimer|()V
+      @|com/oldturok/turok/helpers/DelayTimer.java|125|129|time|field|com.oldturok.turok.helpers.DelayTimer|time
+      @|com/oldturok/turok/helpers/DelayTimer.java|133|139|System|class|java.lang.System|false
+      @|com/oldturok/turok/helpers/DelayTimer.java|140|148|nanoTime|method|java.lang.System|nanoTime|()J
+   Method End: DelayTimer()V
+   Method Start: hasTimeElapsed(JZ)Z
+      @|com/oldturok/turok/helpers/DelayTimer.java|210|214|time|param|com.oldturok.turok.helpers.DelayTimer|hasTimeElapsed|(JZ)Z|time|0
+      @|com/oldturok/turok/helpers/DelayTimer.java|224|229|reset|param|com.oldturok.turok.helpers.DelayTimer|hasTimeElapsed|(JZ)Z|reset|1
+      @|com/oldturok/turok/helpers/DelayTimer.java|190|204|hasTimeElapsed|method|com.oldturok.turok.helpers.DelayTimer|hasTimeElapsed|(JZ)Z
+      @|com/oldturok/turok/helpers/DelayTimer.java|259|266|getTime|method|com.oldturok.turok.helpers.DelayTimer|getTime|()J
+      @|com/oldturok/turok/helpers/DelayTimer.java|272|276|time|param|com.oldturok.turok.helpers.DelayTimer|hasTimeElapsed|(JZ)Z|time|0
+      @|com/oldturok/turok/helpers/DelayTimer.java|301|306|reset|param|com.oldturok.turok.helpers.DelayTimer|hasTimeElapsed|(JZ)Z|reset|1
+      @|com/oldturok/turok/helpers/DelayTimer.java|322|331|resetTime|method|com.oldturok.turok.helpers.DelayTimer|resetTime|()V
+   Method End: hasTimeElapsed(JZ)Z
+   Method Start: getTime()J
+      @|com/oldturok/turok/helpers/DelayTimer.java|392|399|getTime|method|com.oldturok.turok.helpers.DelayTimer|getTime|()J
+      @|com/oldturok/turok/helpers/DelayTimer.java|419|425|System|class|java.lang.System|false
+      @|com/oldturok/turok/helpers/DelayTimer.java|426|434|nanoTime|method|java.lang.System|nanoTime|()J
+      @|com/oldturok/turok/helpers/DelayTimer.java|455|459|time|field|com.oldturok.turok.helpers.DelayTimer|time
+   Method End: getTime()J
+   Method Start: resetTime()V
+      @|com/oldturok/turok/helpers/DelayTimer.java|484|493|resetTime|method|com.oldturok.turok.helpers.DelayTimer|resetTime|()V
+      @|com/oldturok/turok/helpers/DelayTimer.java|511|515|time|field|com.oldturok.turok.helpers.DelayTimer|time
+      @|com/oldturok/turok/helpers/DelayTimer.java|519|525|System|class|java.lang.System|false
+      @|com/oldturok/turok/helpers/DelayTimer.java|526|534|nanoTime|method|java.lang.System|nanoTime|()J
+   Method End: resetTime()V
+Class End  : com.oldturok.turok.helpers.DelayTimer
+endProcessing "com/oldturok/turok/helpers/DelayTimer.java"
+
+startProcessing "com/oldturok/turok/helpers/MultiColor.java" md5: 8877a8bf49f86e91f116e91b6333d15a
+@|com/oldturok/turok/helpers/MultiColor.java|8|34|com.oldturok.turok.helpers|package|com.oldturok.turok.helpers|(file)
+Class Start: com.oldturok.turok.helpers.MultiColor
+   @|com/oldturok/turok/helpers/MultiColor.java|104|114|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+   @|com/oldturok/turok/helpers/MultiColor.java|132|135|red|field|com.oldturok.turok.helpers.MultiColor|red|
+   @|com/oldturok/turok/helpers/MultiColor.java|152|157|green|field|com.oldturok.turok.helpers.MultiColor|green|
+   @|com/oldturok/turok/helpers/MultiColor.java|174|178|blue|field|com.oldturok.turok.helpers.MultiColor|blue|
+   @|com/oldturok/turok/helpers/MultiColor.java|197|200|rgb|field|com.oldturok.turok.helpers.MultiColor|rgb|
+   Method Start: MultiColor(Ljava/awt/Color;)V
+      @|com/oldturok/turok/helpers/MultiColor.java|231|236|color|param|com.oldturok.turok.helpers.MultiColor|MultiColor|(Ljava/awt/Color;)V|color|0
+      @|com/oldturok/turok/helpers/MultiColor.java|214|224|MultiColor|method|com.oldturok.turok.helpers.MultiColor|MultiColor|(Ljava/awt/Color;)V
+      @|com/oldturok/turok/helpers/MultiColor.java|225|230|Color|class|java.awt.Color|false
+      @|com/oldturok/turok/helpers/MultiColor.java|253|256|red|field|com.oldturok.turok.helpers.MultiColor|red
+      @|com/oldturok/turok/helpers/MultiColor.java|259|264|color|param|com.oldturok.turok.helpers.MultiColor|MultiColor|(Ljava/awt/Color;)V|color|0
+      @|com/oldturok/turok/helpers/MultiColor.java|265|271|getRed|method|java.awt.Color|getRed|()I
+      @|com/oldturok/turok/helpers/MultiColor.java|288|293|green|field|com.oldturok.turok.helpers.MultiColor|green
+      @|com/oldturok/turok/helpers/MultiColor.java|296|301|color|param|com.oldturok.turok.helpers.MultiColor|MultiColor|(Ljava/awt/Color;)V|color|0
+      @|com/oldturok/turok/helpers/MultiColor.java|302|310|getGreen|method|java.awt.Color|getGreen|()I
+      @|com/oldturok/turok/helpers/MultiColor.java|327|331|blue|field|com.oldturok.turok.helpers.MultiColor|blue
+      @|com/oldturok/turok/helpers/MultiColor.java|334|339|color|param|com.oldturok.turok.helpers.MultiColor|MultiColor|(Ljava/awt/Color;)V|color|0
+      @|com/oldturok/turok/helpers/MultiColor.java|340|347|getBlue|method|java.awt.Color|getBlue|()I
+      @|com/oldturok/turok/helpers/MultiColor.java|365|368|rgb|field|com.oldturok.turok.helpers.MultiColor|rgb
+      @|com/oldturok/turok/helpers/MultiColor.java|371|376|color|param|com.oldturok.turok.helpers.MultiColor|MultiColor|(Ljava/awt/Color;)V|color|0
+      @|com/oldturok/turok/helpers/MultiColor.java|377|383|getRGB|method|java.awt.Color|getRGB|()I
+   Method End: MultiColor(Ljava/awt/Color;)V
+   Method Start: getRainbow()Lcom/oldturok/turok/helpers/MultiColor;
+      @|com/oldturok/turok/helpers/MultiColor.java|412|422|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+      @|com/oldturok/turok/helpers/MultiColor.java|423|433|getRainbow|method|com.oldturok.turok.helpers.MultiColor|getRainbow|()Lcom/oldturok/turok/helpers/MultiColor;
+      @|com/oldturok/turok/helpers/MultiColor.java|446|456|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+      @|com/oldturok/turok/helpers/MultiColor.java|475|485|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+      @|com/oldturok/turok/helpers/MultiColor.java|486|491|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/helpers/MultiColor.java|492|498|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/helpers/MultiColor.java|499|512|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/helpers/MultiColor.java|513|522|getModule|method|com.oldturok.turok.managers.ModuleManager|getModule|(Ljava/lang/String;)Lcom/oldturok/turok/modules/api/Module;
+      @|com/oldturok/turok/helpers/MultiColor.java|534|542|getState|method|com.oldturok.turok.modules.api.Module|getState|()Z
+      @|com/oldturok/turok/helpers/MultiColor.java|547|552|Color|class|java.awt.Color|false
+      @|com/oldturok/turok/helpers/MultiColor.java|553|564|getHSBColor|method|java.awt.Color|getHSBColor|(FFF)Ljava/awt/Color;
+      @|com/oldturok/turok/helpers/MultiColor.java|573|579|System|class|java.lang.System|false
+      @|com/oldturok/turok/helpers/MultiColor.java|580|597|currentTimeMillis|method|java.lang.System|currentTimeMillis|()J
+      @|com/oldturok/turok/helpers/MultiColor.java|636|641|Color|class|java.awt.Color|false
+   Method End: getRainbow()Lcom/oldturok/turok/helpers/MultiColor;
+   Method Start: getRGB()I
+      @|com/oldturok/turok/helpers/MultiColor.java|710|716|getRGB|method|com.oldturok.turok.helpers.MultiColor|getRGB|()I
+      @|com/oldturok/turok/helpers/MultiColor.java|736|739|rgb|field|com.oldturok.turok.helpers.MultiColor|rgb
+   Method End: getRGB()I
+Class End  : com.oldturok.turok.helpers.MultiColor
+endProcessing "com/oldturok/turok/helpers/MultiColor.java"
+
+startProcessing "com/oldturok/turok/helpers/UIPosition.java" md5: b35b114b1abe773120999756463516cb
+@|com/oldturok/turok/helpers/UIPosition.java|8|34|com.oldturok.turok.helpers|package|com.oldturok.turok.helpers|(file)
+Class Start: com.oldturok.turok.helpers.UIPosition
+   @|com/oldturok/turok/helpers/UIPosition.java|143|153|UIPosition|class|com.oldturok.turok.helpers.UIPosition|false
+   @|com/oldturok/turok/helpers/UIPosition.java|173|183|x_position|field|com.oldturok.turok.helpers.UIPosition|x_position|
+   @|com/oldturok/turok/helpers/UIPosition.java|202|212|y_position|field|com.oldturok.turok.helpers.UIPosition|y_position|
+   @|com/oldturok/turok/helpers/UIPosition.java|227|236|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/helpers/UIPosition.java|227|236|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/helpers/UIPosition.java|237|239|mc|field|com.oldturok.turok.helpers.UIPosition|mc|
+   @|com/oldturok/turok/helpers/UIPosition.java|242|251|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/helpers/UIPosition.java|252|264|getMinecraft|method|net.minecraft.client.Minecraft|getMinecraft|()Lnet/minecraft/client/Minecraft;
+   Method Start: positionText(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V
+      @|com/oldturok/turok/helpers/UIPosition.java|317|335|position_on_screen|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|position_on_screen|0
+      @|com/oldturok/turok/helpers/UIPosition.java|344|348|text|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|text|1
+      @|com/oldturok/turok/helpers/UIPosition.java|356|364|offset_x|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_x|2
+      @|com/oldturok/turok/helpers/UIPosition.java|372|380|offset_y|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_y|3
+      @|com/oldturok/turok/helpers/UIPosition.java|388|393|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|285|297|positionText|method|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V
+      @|com/oldturok/turok/helpers/UIPosition.java|298|316|POSITION_ON_SCREEN|class|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|false
+      @|com/oldturok/turok/helpers/UIPosition.java|337|343|String|class|java.lang.String|false
+      @|com/oldturok/turok/helpers/UIPosition.java|413|431|position_on_screen|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|position_on_screen|0
+      @|com/oldturok/turok/helpers/UIPosition.java|452|460|TOP_LEFT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|TOP_LEFT
+      @|com/oldturok/turok/helpers/UIPosition.java|478|488|x_position|field|com.oldturok.turok.helpers.UIPosition|x_position
+      @|com/oldturok/turok/helpers/UIPosition.java|496|504|offset_x|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_x|2
+      @|com/oldturok/turok/helpers/UIPosition.java|508|513|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|531|541|y_position|field|com.oldturok.turok.helpers.UIPosition|y_position
+      @|com/oldturok/turok/helpers/UIPosition.java|549|557|offset_y|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_y|3
+      @|com/oldturok/turok/helpers/UIPosition.java|561|566|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|608|617|TOP_RIGHT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|TOP_RIGHT
+      @|com/oldturok/turok/helpers/UIPosition.java|635|645|x_position|field|com.oldturok.turok.helpers.UIPosition|x_position
+      @|com/oldturok/turok/helpers/UIPosition.java|651|653|mc|field|com.oldturok.turok.helpers.UIPosition|mc
+      @|com/oldturok/turok/helpers/UIPosition.java|654|666|displayWidth|field|net.minecraft.client.Minecraft|displayWidth
+      @|com/oldturok/turok/helpers/UIPosition.java|675|677|mc|field|com.oldturok.turok.helpers.UIPosition|mc
+      @|com/oldturok/turok/helpers/UIPosition.java|678|690|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/helpers/UIPosition.java|691|705|getStringWidth|method|net.minecraft.client.gui.FontRenderer|getStringWidth|(Ljava/lang/String;)I
+      @|com/oldturok/turok/helpers/UIPosition.java|706|710|text|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|text|1
+      @|com/oldturok/turok/helpers/UIPosition.java|714|719|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|724|732|offset_x|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_x|2
+      @|com/oldturok/turok/helpers/UIPosition.java|736|741|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|759|769|y_position|field|com.oldturok.turok.helpers.UIPosition|y_position
+      @|com/oldturok/turok/helpers/UIPosition.java|777|785|offset_y|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_y|3
+      @|com/oldturok/turok/helpers/UIPosition.java|789|794|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|836|847|BOTTOM_LEFT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|BOTTOM_LEFT
+      @|com/oldturok/turok/helpers/UIPosition.java|865|875|x_position|field|com.oldturok.turok.helpers.UIPosition|x_position
+      @|com/oldturok/turok/helpers/UIPosition.java|883|891|offset_x|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_x|2
+      @|com/oldturok/turok/helpers/UIPosition.java|895|900|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|918|928|y_position|field|com.oldturok.turok.helpers.UIPosition|y_position
+      @|com/oldturok/turok/helpers/UIPosition.java|934|936|mc|field|com.oldturok.turok.helpers.UIPosition|mc
+      @|com/oldturok/turok/helpers/UIPosition.java|937|950|displayHeight|field|net.minecraft.client.Minecraft|displayHeight
+      @|com/oldturok/turok/helpers/UIPosition.java|959|961|mc|field|com.oldturok.turok.helpers.UIPosition|mc
+      @|com/oldturok/turok/helpers/UIPosition.java|962|974|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/helpers/UIPosition.java|975|986|FONT_HEIGHT|field|net.minecraft.client.gui.FontRenderer|FONT_HEIGHT
+      @|com/oldturok/turok/helpers/UIPosition.java|989|994|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|999|1007|offset_y|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_y|3
+      @|com/oldturok/turok/helpers/UIPosition.java|1011|1016|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|1058|1070|BOTTOM_RIGHT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|BOTTOM_RIGHT
+      @|com/oldturok/turok/helpers/UIPosition.java|1088|1098|x_position|field|com.oldturok.turok.helpers.UIPosition|x_position
+      @|com/oldturok/turok/helpers/UIPosition.java|1104|1106|mc|field|com.oldturok.turok.helpers.UIPosition|mc
+      @|com/oldturok/turok/helpers/UIPosition.java|1107|1119|displayWidth|field|net.minecraft.client.Minecraft|displayWidth
+      @|com/oldturok/turok/helpers/UIPosition.java|1128|1130|mc|field|com.oldturok.turok.helpers.UIPosition|mc
+      @|com/oldturok/turok/helpers/UIPosition.java|1131|1143|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/helpers/UIPosition.java|1144|1158|getStringWidth|method|net.minecraft.client.gui.FontRenderer|getStringWidth|(Ljava/lang/String;)I
+      @|com/oldturok/turok/helpers/UIPosition.java|1159|1163|text|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|text|1
+      @|com/oldturok/turok/helpers/UIPosition.java|1167|1172|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|1177|1185|offset_x|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_x|2
+      @|com/oldturok/turok/helpers/UIPosition.java|1189|1194|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|1212|1222|y_position|field|com.oldturok.turok.helpers.UIPosition|y_position
+      @|com/oldturok/turok/helpers/UIPosition.java|1228|1230|mc|field|com.oldturok.turok.helpers.UIPosition|mc
+      @|com/oldturok/turok/helpers/UIPosition.java|1231|1244|displayHeight|field|net.minecraft.client.Minecraft|displayHeight
+      @|com/oldturok/turok/helpers/UIPosition.java|1253|1255|mc|field|com.oldturok.turok.helpers.UIPosition|mc
+      @|com/oldturok/turok/helpers/UIPosition.java|1256|1268|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/helpers/UIPosition.java|1269|1280|FONT_HEIGHT|field|net.minecraft.client.gui.FontRenderer|FONT_HEIGHT
+      @|com/oldturok/turok/helpers/UIPosition.java|1283|1288|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+      @|com/oldturok/turok/helpers/UIPosition.java|1293|1301|offset_y|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|offset_y|3
+      @|com/oldturok/turok/helpers/UIPosition.java|1305|1310|scale|param|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V|scale|4
+   Method End: positionText(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V
+   Method Start: GLScale(F)V
+      @|com/oldturok/turok/helpers/UIPosition.java|1382|1393|scaleFactor|param|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V|scaleFactor|0
+      @|com/oldturok/turok/helpers/UIPosition.java|1368|1375|GLScale|method|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V
+      @|com/oldturok/turok/helpers/UIPosition.java|1405|1419|GlStateManager|class|net.minecraft.client.renderer.GlStateManager|false
+      @|com/oldturok/turok/helpers/UIPosition.java|1420|1425|scale|method|net.minecraft.client.renderer.GlStateManager|scale|(FFF)V
+      @|com/oldturok/turok/helpers/UIPosition.java|1426|1437|scaleFactor|param|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V|scaleFactor|0
+      @|com/oldturok/turok/helpers/UIPosition.java|1439|1450|scaleFactor|param|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V|scaleFactor|0
+      @|com/oldturok/turok/helpers/UIPosition.java|1452|1463|scaleFactor|param|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V|scaleFactor|0
+   Method End: GLScale(F)V
+   Enum Start: com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN
+      @|com/oldturok/turok/helpers/UIPosition.java|1489|1507|POSITION_ON_SCREEN|class|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|false
+      @|com/oldturok/turok/helpers/UIPosition.java|1518|1527|TOP_RIGHT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|TOP_RIGHT
+      @|com/oldturok/turok/helpers/UIPosition.java|1537|1545|TOP_LEFT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|TOP_LEFT
+      @|com/oldturok/turok/helpers/UIPosition.java|1555|1567|BOTTOM_RIGHT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|BOTTOM_RIGHT
+      @|com/oldturok/turok/helpers/UIPosition.java|1577|1588|BOTTOM_LEFT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|BOTTOM_LEFT
+   Enum End  : com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN
+Class End  : com.oldturok.turok.helpers.UIPosition
+endProcessing "com/oldturok/turok/helpers/UIPosition.java"
+
+startProcessing "com/oldturok/turok/managers/CommandManager.java" md5: 4b183c9d93b37ae293a1cd64eb298616
+@|com/oldturok/turok/managers/CommandManager.java|8|35|com.oldturok.turok.managers|package|com.oldturok.turok.managers|(file)
+Class Start: com.oldturok.turok.managers.CommandManager
+   @|com/oldturok/turok/managers/CommandManager.java|337|351|CommandManager|class|com.oldturok.turok.managers.CommandManager|false
+   @|com/oldturok/turok/managers/CommandManager.java|375|382|Command|class|com.oldturok.turok.commands.api.Command|false
+   @|com/oldturok/turok/managers/CommandManager.java|365|374|ArrayList|class|java.util.ArrayList|false
+   @|com/oldturok/turok/managers/CommandManager.java|365|374|ArrayList|class|java.util.ArrayList|false
+   @|com/oldturok/turok/managers/CommandManager.java|375|382|Command|class|com.oldturok.turok.commands.api.Command|false
+   @|com/oldturok/turok/managers/CommandManager.java|384|395|commandList|field|com.oldturok.turok.managers.CommandManager|commandList|
+   @|com/oldturok/turok/managers/CommandManager.java|402|411|ArrayList|class|java.util.ArrayList|false
+   @|com/oldturok/turok/managers/CommandManager.java|412|419|Command|class|com.oldturok.turok.commands.api.Command|false
+   @|com/oldturok/turok/managers/CommandManager.java|441|447|String|class|java.lang.String|false
+   @|com/oldturok/turok/managers/CommandManager.java|441|447|String|class|java.lang.String|false
+   @|com/oldturok/turok/managers/CommandManager.java|448|461|commandPrefix|field|com.oldturok.turok.managers.CommandManager|commandPrefix|
+   @|com/oldturok/turok/managers/CommandManager.java|480|485|Style|class|net.minecraft.util.text.Style|false
+   @|com/oldturok/turok/managers/CommandManager.java|480|485|Style|class|net.minecraft.util.text.Style|false
+   @|com/oldturok/turok/managers/CommandManager.java|486|496|chatFormat|field|com.oldturok.turok.managers.CommandManager|chatFormat|
+   @|com/oldturok/turok/managers/CommandManager.java|515|521|String|class|java.lang.String|false
+   @|com/oldturok/turok/managers/CommandManager.java|515|521|String|class|java.lang.String|false
+   @|com/oldturok/turok/managers/CommandManager.java|522|536|responsePrefix|field|com.oldturok.turok.managers.CommandManager|responsePrefix|
+   @|com/oldturok/turok/managers/CommandManager.java|543|562|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+   @|com/oldturok/turok/managers/CommandManager.java|567|586|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+   @|com/oldturok/turok/managers/CommandManager.java|592|600|setStyle|method|net.minecraft.util.text.ITextComponent|setStyle|(Lnet/minecraft/util/text/Style;)Lnet/minecraft/util/text/ITextComponent;
+   @|com/oldturok/turok/managers/CommandManager.java|605|610|Style|class|net.minecraft.util.text.Style|false
+   @|com/oldturok/turok/managers/CommandManager.java|613|621|setColor|method|net.minecraft.util.text.Style|setColor|(Lnet/minecraft/util/text/TextFormatting;)Lnet/minecraft/util/text/Style;
+   @|com/oldturok/turok/managers/CommandManager.java|622|636|TextFormatting|class|net.minecraft.util.text.TextFormatting|false
+   @|com/oldturok/turok/managers/CommandManager.java|637|641|GRAY|field|net.minecraft.util.text.TextFormatting|GRAY
+   @|com/oldturok/turok/managers/CommandManager.java|644|660|getFormattedText|method|net.minecraft.util.text.ITextComponent|getFormattedText|()Ljava/lang/String;
+   @|com/oldturok/turok/managers/CommandManager.java|673|692|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+   @|com/oldturok/turok/managers/CommandManager.java|693|698|Turok|class|com.oldturok.turok.Turok|false
+   @|com/oldturok/turok/managers/CommandManager.java|699|705|client|field|com.oldturok.turok.Turok|client
+   @|com/oldturok/turok/managers/CommandManager.java|706|717|CLIENT_NAME|field|com.oldturok.turok.client.TurokClient|CLIENT_NAME
+   @|com/oldturok/turok/managers/CommandManager.java|719|727|setStyle|method|net.minecraft.util.text.ITextComponent|setStyle|(Lnet/minecraft/util/text/Style;)Lnet/minecraft/util/text/ITextComponent;
+   @|com/oldturok/turok/managers/CommandManager.java|732|737|Style|class|net.minecraft.util.text.Style|false
+   @|com/oldturok/turok/managers/CommandManager.java|740|748|setColor|method|net.minecraft.util.text.Style|setColor|(Lnet/minecraft/util/text/TextFormatting;)Lnet/minecraft/util/text/Style;
+   @|com/oldturok/turok/managers/CommandManager.java|749|763|TextFormatting|class|net.minecraft.util.text.TextFormatting|false
+   @|com/oldturok/turok/managers/CommandManager.java|764|768|GOLD|field|net.minecraft.util.text.TextFormatting|GOLD
+   @|com/oldturok/turok/managers/CommandManager.java|771|787|getFormattedText|method|net.minecraft.util.text.ITextComponent|getFormattedText|()Ljava/lang/String;
+   @|com/oldturok/turok/managers/CommandManager.java|800|819|TextComponentString|class|net.minecraft.util.text.TextComponentString|false
+   @|com/oldturok/turok/managers/CommandManager.java|826|834|setStyle|method|net.minecraft.util.text.ITextComponent|setStyle|(Lnet/minecraft/util/text/Style;)Lnet/minecraft/util/text/ITextComponent;
+   @|com/oldturok/turok/managers/CommandManager.java|839|844|Style|class|net.minecraft.util.text.Style|false
+   @|com/oldturok/turok/managers/CommandManager.java|847|855|setColor|method|net.minecraft.util.text.Style|setColor|(Lnet/minecraft/util/text/TextFormatting;)Lnet/minecraft/util/text/Style;
+   @|com/oldturok/turok/managers/CommandManager.java|856|870|TextFormatting|class|net.minecraft.util.text.TextFormatting|false
+   @|com/oldturok/turok/managers/CommandManager.java|871|875|GRAY|field|net.minecraft.util.text.TextFormatting|GRAY
+   @|com/oldturok/turok/managers/CommandManager.java|878|894|getFormattedText|method|net.minecraft.util.text.ITextComponent|getFormattedText|()Ljava/lang/String;
+   @|com/oldturok/turok/managers/CommandManager.java|898|914|getFormattedText|method|net.minecraft.util.text.ITextComponent|getFormattedText|()Ljava/lang/String;
+   Method Start: CommandManager(Ljava/lang/String;Lnet/minecraft/util/text/Style;)V
+      @|com/oldturok/turok/managers/CommandManager.java|952|958|prefix|param|com.oldturok.turok.managers.CommandManager|CommandManager|(Ljava/lang/String;Lnet/minecraft/util/text/Style;)V|prefix|0
+      @|com/oldturok/turok/managers/CommandManager.java|966|972|format|param|com.oldturok.turok.managers.CommandManager|CommandManager|(Ljava/lang/String;Lnet/minecraft/util/text/Style;)V|format|1
+      @|com/oldturok/turok/managers/CommandManager.java|930|944|CommandManager|method|com.oldturok.turok.managers.CommandManager|CommandManager|(Ljava/lang/String;Lnet/minecraft/util/text/Style;)V
+      @|com/oldturok/turok/managers/CommandManager.java|945|951|String|class|java.lang.String|false
+      @|com/oldturok/turok/managers/CommandManager.java|960|965|Style|class|net.minecraft.util.text.Style|false
+      @|com/oldturok/turok/managers/CommandManager.java|984|997|commandPrefix|field|com.oldturok.turok.managers.CommandManager|commandPrefix
+      @|com/oldturok/turok/managers/CommandManager.java|1000|1006|prefix|param|com.oldturok.turok.managers.CommandManager|CommandManager|(Ljava/lang/String;Lnet/minecraft/util/text/Style;)V|prefix|0
+      @|com/oldturok/turok/managers/CommandManager.java|1016|1026|chatFormat|field|com.oldturok.turok.managers.CommandManager|chatFormat
+      @|com/oldturok/turok/managers/CommandManager.java|1029|1035|format|param|com.oldturok.turok.managers.CommandManager|CommandManager|(Ljava/lang/String;Lnet/minecraft/util/text/Style;)V|format|1
+      @|com/oldturok/turok/managers/CommandManager.java|1046|1057|commandList|field|com.oldturok.turok.managers.CommandManager|commandList
+      @|com/oldturok/turok/managers/CommandManager.java|1058|1061|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1066|1073|Version|class|com.oldturok.turok.commands.Version|false
+      @|com/oldturok/turok/managers/CommandManager.java|1086|1097|commandList|field|com.oldturok.turok.managers.CommandManager|commandList
+      @|com/oldturok/turok/managers/CommandManager.java|1098|1101|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1106|1111|Clear|class|com.oldturok.turok.commands.Clear|false
+      @|com/oldturok/turok/managers/CommandManager.java|1124|1135|commandList|field|com.oldturok.turok.managers.CommandManager|commandList
+      @|com/oldturok/turok/managers/CommandManager.java|1136|1139|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1144|1148|Bind|class|com.oldturok.turok.commands.Bind|false
+      @|com/oldturok/turok/managers/CommandManager.java|1161|1172|commandList|field|com.oldturok.turok.managers.CommandManager|commandList
+      @|com/oldturok/turok/managers/CommandManager.java|1173|1176|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1181|1184|Say|class|com.oldturok.turok.commands.Say|false
+      @|com/oldturok/turok/managers/CommandManager.java|1198|1209|commandList|field|com.oldturok.turok.managers.CommandManager|commandList
+      @|com/oldturok/turok/managers/CommandManager.java|1210|1213|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1218|1222|Help|class|com.oldturok.turok.commands.Help|false
+   Method End: CommandManager(Ljava/lang/String;Lnet/minecraft/util/text/Style;)V
+   Method Start: GetArgs(Ljava/lang/String;)[Ljava/lang/String;
+      @|com/oldturok/turok/managers/CommandManager.java|1269|1276|message|param|com.oldturok.turok.managers.CommandManager|GetArgs|(Ljava/lang/String;)[Ljava/lang/String;|message|0
+      @|com/oldturok/turok/managers/CommandManager.java|1245|1251|String|class|java.lang.String|false
+      @|com/oldturok/turok/managers/CommandManager.java|1254|1261|GetArgs|method|com.oldturok.turok.managers.CommandManager|GetArgs|(Ljava/lang/String;)[Ljava/lang/String;
+      @|com/oldturok/turok/managers/CommandManager.java|1262|1268|String|class|java.lang.String|false
+      @|com/oldturok/turok/managers/CommandManager.java|1288|1294|String|class|java.lang.String|false
+      @|com/oldturok/turok/managers/CommandManager.java|1325|1332|message|param|com.oldturok.turok.managers.CommandManager|GetArgs|(Ljava/lang/String;)[Ljava/lang/String;|message|0
+      @|com/oldturok/turok/managers/CommandManager.java|1333|1343|startsWith|method|java.lang.String|startsWith|(Ljava/lang/String;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1344|1357|commandPrefix|field|com.oldturok.turok.managers.CommandManager|commandPrefix
+      @|com/oldturok/turok/managers/CommandManager.java|1386|1393|message|param|com.oldturok.turok.managers.CommandManager|GetArgs|(Ljava/lang/String;)[Ljava/lang/String;|message|0
+      @|com/oldturok/turok/managers/CommandManager.java|1394|1406|replaceFirst|method|java.lang.String|replaceFirst|(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      @|com/oldturok/turok/managers/CommandManager.java|1407|1420|commandPrefix|field|com.oldturok.turok.managers.CommandManager|commandPrefix
+      @|com/oldturok/turok/managers/CommandManager.java|1426|1431|split|method|java.lang.String|split|(Ljava/lang/String;)[Ljava/lang/String;
+   Method End: GetArgs(Ljava/lang/String;)[Ljava/lang/String;
+   Method Start: ContainsPrefix(Ljava/lang/String;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1523|1530|message|param|com.oldturok.turok.managers.CommandManager|ContainsPrefix|(Ljava/lang/String;)Z|message|0
+      @|com/oldturok/turok/managers/CommandManager.java|1501|1515|ContainsPrefix|method|com.oldturok.turok.managers.CommandManager|ContainsPrefix|(Ljava/lang/String;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1516|1522|String|class|java.lang.String|false
+      @|com/oldturok/turok/managers/CommandManager.java|1549|1556|message|param|com.oldturok.turok.managers.CommandManager|ContainsPrefix|(Ljava/lang/String;)Z|message|0
+      @|com/oldturok/turok/managers/CommandManager.java|1557|1567|startsWith|method|java.lang.String|startsWith|(Ljava/lang/String;)Z
+      @|com/oldturok/turok/managers/CommandManager.java|1568|1581|commandPrefix|field|com.oldturok.turok.managers.CommandManager|commandPrefix
+   Method End: ContainsPrefix(Ljava/lang/String;)Z
+Class End  : com.oldturok.turok.managers.CommandManager
+endProcessing "com/oldturok/turok/managers/CommandManager.java"
+
+startProcessing "com/oldturok/turok/managers/GUIManager.java" md5: 3b2f2d6aee8b0fca35e37a2d39f6cb64
+@|com/oldturok/turok/managers/GUIManager.java|8|35|com.oldturok.turok.managers|package|com.oldturok.turok.managers|(file)
+Class Start: com.oldturok.turok.managers.GUIManager
+   @|com/oldturok/turok/managers/GUIManager.java|318|328|GUIManager|class|com.oldturok.turok.managers.GUIManager|false
+   @|com/oldturok/turok/managers/GUIManager.java|337|346|GuiScreen|class|net.minecraft.client.gui.GuiScreen|false
+   @|com/oldturok/turok/managers/GUIManager.java|373|384|scaleFactor|field|com.oldturok.turok.managers.GUIManager|scaleFactor|
+   @|com/oldturok/turok/managers/GUIManager.java|415|420|x_pos|field|com.oldturok.turok.managers.GUIManager|x_pos|
+   Method Start: drawScreen(IIF)V
+      @|com/oldturok/turok/managers/GUIManager.java|472|478|mouseX|param|com.oldturok.turok.managers.GUIManager|drawScreen|(IIF)V|mouseX|0
+      @|com/oldturok/turok/managers/GUIManager.java|484|490|mouseY|param|com.oldturok.turok.managers.GUIManager|drawScreen|(IIF)V|mouseY|1
+      @|com/oldturok/turok/managers/GUIManager.java|498|510|partialTicks|param|com.oldturok.turok.managers.GUIManager|drawScreen|(IIF)V|partialTicks|2
+      @|com/oldturok/turok/managers/GUIManager.java|432|440|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/managers/GUIManager.java|457|467|drawScreen|method|net.minecraft.client.gui.GuiScreen|drawScreen|(IIF)V
+      @|com/oldturok/turok/managers/GUIManager.java|522|543|drawDefaultBackground|method|net.minecraft.client.gui.GuiScreen|drawDefaultBackground|()V
+      @|com/oldturok/turok/managers/GUIManager.java|555|569|GlStateManager|class|net.minecraft.client.renderer.GlStateManager|false
+      @|com/oldturok/turok/managers/GUIManager.java|570|575|scale|method|net.minecraft.client.renderer.GlStateManager|scale|(FFF)V
+      @|com/oldturok/turok/managers/GUIManager.java|576|587|scaleFactor|field|com.oldturok.turok.managers.GUIManager|scaleFactor
+      @|com/oldturok/turok/managers/GUIManager.java|589|600|scaleFactor|field|com.oldturok.turok.managers.GUIManager|scaleFactor
+      @|com/oldturok/turok/managers/GUIManager.java|602|613|scaleFactor|field|com.oldturok.turok.managers.GUIManager|scaleFactor
+      @|com/oldturok/turok/managers/GUIManager.java|624|632|drawRect|method|net.minecraft.client.gui.Gui|drawRect|(IIIII)V
+      @|com/oldturok/turok/managers/GUIManager.java|633|638|x_pos|field|com.oldturok.turok.managers.GUIManager|x_pos
+      @|com/oldturok/turok/managers/GUIManager.java|647|649|mc|field|net.minecraft.client.gui.GuiScreen|mc
+      @|com/oldturok/turok/managers/GUIManager.java|650|662|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/managers/GUIManager.java|663|674|FONT_HEIGHT|field|net.minecraft.client.gui.FontRenderer|FONT_HEIGHT
+      @|com/oldturok/turok/managers/GUIManager.java|684|689|Color|class|java.awt.Color|false
+      @|com/oldturok/turok/managers/GUIManager.java|705|711|getRGB|method|java.awt.Color|getRGB|()I
+      @|com/oldturok/turok/managers/GUIManager.java|724|726|mc|field|net.minecraft.client.gui.GuiScreen|mc
+      @|com/oldturok/turok/managers/GUIManager.java|727|739|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/managers/GUIManager.java|740|750|drawString|method|net.minecraft.client.gui.FontRenderer|drawString|(Ljava/lang/String;III)I
+      @|com/oldturok/turok/managers/GUIManager.java|769|771|mc|field|net.minecraft.client.gui.GuiScreen|mc
+      @|com/oldturok/turok/managers/GUIManager.java|772|784|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/managers/GUIManager.java|785|796|FONT_HEIGHT|field|net.minecraft.client.gui.FontRenderer|FONT_HEIGHT
+      @|com/oldturok/turok/managers/GUIManager.java|807|812|Color|class|java.awt.Color|false
+      @|com/oldturok/turok/managers/GUIManager.java|828|834|getRGB|method|java.awt.Color|getRGB|()I
+      @|com/oldturok/turok/managers/GUIManager.java|847|861|GlStateManager|class|net.minecraft.client.renderer.GlStateManager|false
+      @|com/oldturok/turok/managers/GUIManager.java|862|867|scale|method|net.minecraft.client.renderer.GlStateManager|scale|(FFF)V
+      @|com/oldturok/turok/managers/GUIManager.java|872|883|scaleFactor|field|com.oldturok.turok.managers.GUIManager|scaleFactor
+      @|com/oldturok/turok/managers/GUIManager.java|889|900|scaleFactor|field|com.oldturok.turok.managers.GUIManager|scaleFactor
+      @|com/oldturok/turok/managers/GUIManager.java|906|917|scaleFactor|field|com.oldturok.turok.managers.GUIManager|scaleFactor
+      @|com/oldturok/turok/managers/GUIManager.java|935|945|drawScreen|method|net.minecraft.client.gui.GuiScreen|drawScreen|(IIF)V
+      @|com/oldturok/turok/managers/GUIManager.java|946|952|mouseX|param|com.oldturok.turok.managers.GUIManager|drawScreen|(IIF)V|mouseX|0
+      @|com/oldturok/turok/managers/GUIManager.java|954|960|mouseY|param|com.oldturok.turok.managers.GUIManager|drawScreen|(IIF)V|mouseY|1
+      @|com/oldturok/turok/managers/GUIManager.java|962|974|partialTicks|param|com.oldturok.turok.managers.GUIManager|drawScreen|(IIF)V|partialTicks|2
+   Method End: drawScreen(IIF)V
+   Method Start: doesGuiPauseGame()Z
+      @|com/oldturok/turok/managers/GUIManager.java|989|997|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/managers/GUIManager.java|1017|1033|doesGuiPauseGame|method|net.minecraft.client.gui.GuiScreen|doesGuiPauseGame|()Z
+   Method End: doesGuiPauseGame()Z
+   Method Start: initGui()V
+      @|com/oldturok/turok/managers/GUIManager.java|1072|1080|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/managers/GUIManager.java|1097|1104|initGui|method|net.minecraft.client.gui.GuiScreen|initGui|()V
+      @|com/oldturok/turok/managers/GUIManager.java|1137|1150|getModuleList|method|com.oldturok.turok.managers.GUIManager|getModuleList|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/GUIManager.java|1153|1157|size|method|java.util.Collection|size|()I
+      @|com/oldturok/turok/managers/GUIManager.java|1184|1197|getModuleList|method|com.oldturok.turok.managers.GUIManager|getModuleList|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/GUIManager.java|1200|1203|get|method|java.util.List|get|(I)Ljava/lang/Object;
+      @|com/oldturok/turok/managers/GUIManager.java|1207|1211|name|field|com.oldturok.turok.modules.api.Module|name
+      @|com/oldturok/turok/managers/GUIManager.java|1245|1255|buttonList|field|net.minecraft.client.gui.GuiScreen|buttonList
+      @|com/oldturok/turok/managers/GUIManager.java|1256|1259|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/GUIManager.java|1264|1273|GuiButton|class|net.minecraft.client.gui.GuiButton|false
+      @|com/oldturok/turok/managers/GUIManager.java|1277|1282|x_pos|field|com.oldturok.turok.managers.GUIManager|x_pos
+      @|com/oldturok/turok/managers/GUIManager.java|1290|1292|mc|field|net.minecraft.client.gui.GuiScreen|mc
+      @|com/oldturok/turok/managers/GUIManager.java|1293|1305|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/managers/GUIManager.java|1306|1317|FONT_HEIGHT|field|net.minecraft.client.gui.FontRenderer|FONT_HEIGHT
+      @|com/oldturok/turok/managers/GUIManager.java|1340|1342|mc|field|net.minecraft.client.gui.GuiScreen|mc
+      @|com/oldturok/turok/managers/GUIManager.java|1343|1355|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/managers/GUIManager.java|1356|1367|FONT_HEIGHT|field|net.minecraft.client.gui.FontRenderer|FONT_HEIGHT
+      @|com/oldturok/turok/managers/GUIManager.java|1373|1386|getModuleList|method|com.oldturok.turok.managers.GUIManager|getModuleList|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/GUIManager.java|1389|1392|get|method|java.util.List|get|(I)Ljava/lang/Object;
+      @|com/oldturok/turok/managers/GUIManager.java|1396|1400|name|field|com.oldturok.turok.modules.api.Module|name
+   Method End: initGui()V
+   Method Start: actionPerformed(Lnet/minecraft/client/gui/GuiButton;)V
+      @|com/oldturok/turok/managers/GUIManager.java|1494|1500|button|param|com.oldturok.turok.managers.GUIManager|actionPerformed|(Lnet/minecraft/client/gui/GuiButton;)V|button|0
+      @|com/oldturok/turok/managers/GUIManager.java|1440|1448|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/managers/GUIManager.java|1468|1483|actionPerformed|method|net.minecraft.client.gui.GuiScreen|actionPerformed|(Lnet/minecraft/client/gui/GuiButton;)V
+      @|com/oldturok/turok/managers/GUIManager.java|1484|1493|GuiButton|class|net.minecraft.client.gui.GuiButton|false
+      @|com/oldturok/turok/managers/GUIManager.java|1532|1545|getModuleList|method|com.oldturok.turok.managers.GUIManager|getModuleList|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/GUIManager.java|1548|1552|size|method|java.util.Collection|size|()I
+      @|com/oldturok/turok/managers/GUIManager.java|1579|1585|button|param|com.oldturok.turok.managers.GUIManager|actionPerformed|(Lnet/minecraft/client/gui/GuiButton;)V|button|0
+      @|com/oldturok/turok/managers/GUIManager.java|1586|1588|id|field|net.minecraft.client.gui.GuiButton|id
+      @|com/oldturok/turok/managers/GUIManager.java|1613|1626|getModuleList|method|com.oldturok.turok.managers.GUIManager|getModuleList|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/GUIManager.java|1629|1632|get|method|java.util.List|get|(I)Ljava/lang/Object;
+      @|com/oldturok/turok/managers/GUIManager.java|1636|1642|Toggle|method|com.oldturok.turok.modules.api.Module|Toggle|()V
+   Method End: actionPerformed(Lnet/minecraft/client/gui/GuiButton;)V
+   Method Start: getModuleList()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/GUIManager.java|1689|1698|ArrayList|class|java.util.ArrayList|false
+      @|com/oldturok/turok/managers/GUIManager.java|1699|1705|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/managers/GUIManager.java|1707|1720|getModuleList|method|com.oldturok.turok.managers.GUIManager|getModuleList|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/GUIManager.java|1740|1745|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/managers/GUIManager.java|1746|1752|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/managers/GUIManager.java|1753|1766|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/managers/GUIManager.java|1767|1777|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+   Method End: getModuleList()Ljava/util/ArrayList;
+Class End  : com.oldturok.turok.managers.GUIManager
+endProcessing "com/oldturok/turok/managers/GUIManager.java"
+
+startProcessing "com/oldturok/turok/managers/ModuleManager.java" md5: d195a755d597fb499c444f10b99e8a09
+@|com/oldturok/turok/managers/ModuleManager.java|8|35|com.oldturok.turok.managers|package|com.oldturok.turok.managers|(file)
+Class Start: com.oldturok.turok.managers.ModuleManager
+   @|com/oldturok/turok/managers/ModuleManager.java|164|177|ModuleManager|class|com.oldturok.turok.managers.ModuleManager|false
+   @|com/oldturok/turok/managers/ModuleManager.java|201|207|Module|class|com.oldturok.turok.modules.api.Module|false
+   @|com/oldturok/turok/managers/ModuleManager.java|191|200|ArrayList|class|java.util.ArrayList|false
+   @|com/oldturok/turok/managers/ModuleManager.java|191|200|ArrayList|class|java.util.ArrayList|false
+   @|com/oldturok/turok/managers/ModuleManager.java|201|207|Module|class|com.oldturok.turok.modules.api.Module|false
+   @|com/oldturok/turok/managers/ModuleManager.java|209|219|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList|
+   @|com/oldturok/turok/managers/ModuleManager.java|226|235|ArrayList|class|java.util.ArrayList|false
+   @|com/oldturok/turok/managers/ModuleManager.java|236|242|Module|class|com.oldturok.turok.modules.api.Module|false
+   Method Start: ModuleManager()V
+      @|com/oldturok/turok/managers/ModuleManager.java|259|272|ModuleManager|method|com.oldturok.turok.managers.ModuleManager|ModuleManager|()V
+      @|com/oldturok/turok/managers/ModuleManager.java|285|295|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|296|299|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|304|310|Sprint|class|com.oldturok.turok.modules.Sprint|false
+      @|com/oldturok/turok/managers/ModuleManager.java|323|333|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|334|337|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|342|352|Fullbright|class|com.oldturok.turok.modules.Fullbright|false
+      @|com/oldturok/turok/managers/ModuleManager.java|365|375|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|376|379|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|384|395|AutoClicker|class|com.oldturok.turok.modules.AutoClicker|false
+      @|com/oldturok/turok/managers/ModuleManager.java|408|418|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|419|422|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|427|432|NoFOV|class|com.oldturok.turok.modules.NoFOV|false
+      @|com/oldturok/turok/managers/ModuleManager.java|445|455|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|456|459|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|464|472|QuickEat|class|com.oldturok.turok.modules.QuickEat|false
+      @|com/oldturok/turok/managers/ModuleManager.java|486|496|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|497|500|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|505|510|Panic|class|com.oldturok.turok.modules.Panic|false
+      @|com/oldturok/turok/managers/ModuleManager.java|523|533|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|534|537|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|542|549|Rainbow|class|com.oldturok.turok.modules.Rainbow|false
+      @|com/oldturok/turok/managers/ModuleManager.java|563|573|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|574|577|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|582|590|ClickGUI|class|com.oldturok.turok.modules.ClickGUI|false
+   Method End: ModuleManager()V
+   Method Start: getEnabledModules()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/ModuleManager.java|613|622|ArrayList|class|java.util.ArrayList|false
+      @|com/oldturok/turok/managers/ModuleManager.java|623|629|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/managers/ModuleManager.java|631|648|getEnabledModules|method|com.oldturok.turok.managers.ModuleManager|getEnabledModules|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/managers/ModuleManager.java|661|670|ArrayList|class|java.util.ArrayList|false
+      @|com/oldturok/turok/managers/ModuleManager.java|671|677|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/managers/ModuleManager.java|700|709|ArrayList|class|java.util.ArrayList|false
+      @|com/oldturok/turok/managers/ModuleManager.java|710|716|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/managers/ModuleManager.java|734|740|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/managers/ModuleManager.java|750|760|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|787|795|getState|method|com.oldturok.turok.modules.api.Module|getState|()Z
+      @|com/oldturok/turok/managers/ModuleManager.java|832|835|add|method|java.util.Collection|add|(Ljava/lang/Object;)Z
+   Method End: getEnabledModules()Ljava/util/ArrayList;
+   Method Start: getModule(Ljava/lang/String;)Lcom/oldturok/turok/modules/api/Module;
+      @|com/oldturok/turok/managers/ModuleManager.java|943|947|name|param|com.oldturok.turok.managers.ModuleManager|getModule|(Ljava/lang/String;)Lcom/oldturok/turok/modules/api/Module;|name|0
+      @|com/oldturok/turok/managers/ModuleManager.java|919|925|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/managers/ModuleManager.java|926|935|getModule|method|com.oldturok.turok.managers.ModuleManager|getModule|(Ljava/lang/String;)Lcom/oldturok/turok/modules/api/Module;
+      @|com/oldturok/turok/managers/ModuleManager.java|936|942|String|class|java.lang.String|false
+      @|com/oldturok/turok/managers/ModuleManager.java|959|965|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/managers/ModuleManager.java|998|1004|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/managers/ModuleManager.java|1014|1024|moduleList|field|com.oldturok.turok.managers.ModuleManager|moduleList
+      @|com/oldturok/turok/managers/ModuleManager.java|1051|1055|name|field|com.oldturok.turok.modules.api.Module|name
+      @|com/oldturok/turok/managers/ModuleManager.java|1056|1072|equalsIgnoreCase|method|java.lang.String|equalsIgnoreCase|(Ljava/lang/String;)Z
+      @|com/oldturok/turok/managers/ModuleManager.java|1073|1077|name|param|com.oldturok.turok.managers.ModuleManager|getModule|(Ljava/lang/String;)Lcom/oldturok/turok/modules/api/Module;|name|0
+   Method End: getModule(Ljava/lang/String;)Lcom/oldturok/turok/modules/api/Module;
+Class End  : com.oldturok.turok.managers.ModuleManager
+endProcessing "com/oldturok/turok/managers/ModuleManager.java"
+
+startProcessing "com/oldturok/turok/managers/UIManager.java" md5: 8bb867a731585fc751704a275d2f33dd
+@|com/oldturok/turok/managers/UIManager.java|8|35|com.oldturok.turok.managers|package|com.oldturok.turok.managers|(file)
+Class Start: com.oldturok.turok.managers.UIManager
+   @|com/oldturok/turok/managers/UIManager.java|261|270|UIManager|class|com.oldturok.turok.managers.UIManager|false
+   @|com/oldturok/turok/managers/UIManager.java|291|297|Random|class|java.util.Random|false
+   @|com/oldturok/turok/managers/UIManager.java|291|297|Random|class|java.util.Random|false
+   @|com/oldturok/turok/managers/UIManager.java|298|304|random|field|com.oldturok.turok.managers.UIManager|random|
+   @|com/oldturok/turok/managers/UIManager.java|311|317|Random|class|java.util.Random|false
+   @|com/oldturok/turok/managers/UIManager.java|333|342|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/managers/UIManager.java|333|342|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/managers/UIManager.java|343|352|minecraft|field|com.oldturok.turok.managers.UIManager|minecraft|
+   @|com/oldturok/turok/managers/UIManager.java|365|375|UIPosition|class|com.oldturok.turok.helpers.UIPosition|false
+   @|com/oldturok/turok/managers/UIManager.java|365|375|UIPosition|class|com.oldturok.turok.helpers.UIPosition|false
+   @|com/oldturok/turok/managers/UIManager.java|376|386|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition|
+   @|com/oldturok/turok/managers/UIManager.java|401|411|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+   @|com/oldturok/turok/managers/UIManager.java|401|411|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+   @|com/oldturok/turok/managers/UIManager.java|412|422|multiColor|field|com.oldturok.turok.managers.UIManager|multiColor|
+   @|com/oldturok/turok/managers/UIManager.java|436|465|UIPosition.POSITION_ON_SCREEN|class|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|false
+   @|com/oldturok/turok/managers/UIManager.java|436|465|UIPosition.POSITION_ON_SCREEN|class|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|false
+   @|com/oldturok/turok/managers/UIManager.java|466|484|position_on_screen|field|com.oldturok.turok.managers.UIManager|position_on_screen|
+   @|com/oldturok/turok/managers/UIManager.java|487|516|UIPosition.POSITION_ON_SCREEN|class|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|false
+   @|com/oldturok/turok/managers/UIManager.java|517|525|TOP_LEFT|field|com.oldturok.turok.helpers.UIPosition.POSITION_ON_SCREEN|TOP_LEFT
+   @|com/oldturok/turok/managers/UIManager.java|544|555|scaleFactor|field|com.oldturok.turok.managers.UIManager|scaleFactor|
+   Method Start: UIManager()V
+      @|com/oldturok/turok/managers/UIManager.java|576|585|UIManager|method|com.oldturok.turok.managers.UIManager|UIManager|()V
+      @|com/oldturok/turok/managers/UIManager.java|598|607|minecraft|field|com.oldturok.turok.managers.UIManager|minecraft
+      @|com/oldturok/turok/managers/UIManager.java|610|619|Minecraft|class|net.minecraft.client.Minecraft|false
+      @|com/oldturok/turok/managers/UIManager.java|620|632|getMinecraft|method|net.minecraft.client.Minecraft|getMinecraft|()Lnet/minecraft/client/Minecraft;
+      @|com/oldturok/turok/managers/UIManager.java|644|654|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/managers/UIManager.java|661|671|UIPosition|class|com.oldturok.turok.helpers.UIPosition|false
+   Method End: UIManager()V
+   Method Start: Draw()V
+      @|com/oldturok/turok/managers/UIManager.java|698|702|Draw|method|com.oldturok.turok.managers.UIManager|Draw|()V
+      @|com/oldturok/turok/managers/UIManager.java|715|725|multiColor|field|com.oldturok.turok.managers.UIManager|multiColor
+      @|com/oldturok/turok/managers/UIManager.java|728|738|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+      @|com/oldturok/turok/managers/UIManager.java|739|749|getRainbow|method|com.oldturok.turok.helpers.MultiColor|getRainbow|()Lcom/oldturok/turok/helpers/MultiColor;
+      @|com/oldturok/turok/managers/UIManager.java|761|771|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/managers/UIManager.java|772|784|positionText|method|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V
+      @|com/oldturok/turok/managers/UIManager.java|785|803|position_on_screen|field|com.oldturok.turok.managers.UIManager|position_on_screen
+      @|com/oldturok/turok/managers/UIManager.java|805|810|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/managers/UIManager.java|811|817|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/managers/UIManager.java|818|829|CLIENT_NAME|field|com.oldturok.turok.client.TurokClient|CLIENT_NAME
+      @|com/oldturok/turok/managers/UIManager.java|837|848|scaleFactor|field|com.oldturok.turok.managers.UIManager|scaleFactor
+      @|com/oldturok/turok/managers/UIManager.java|859|869|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/managers/UIManager.java|870|877|GLScale|method|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V
+      @|com/oldturok/turok/managers/UIManager.java|878|889|scaleFactor|field|com.oldturok.turok.managers.UIManager|scaleFactor
+      @|com/oldturok/turok/managers/UIManager.java|900|909|minecraft|field|com.oldturok.turok.managers.UIManager|minecraft
+      @|com/oldturok/turok/managers/UIManager.java|910|922|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/managers/UIManager.java|923|943|drawStringWithShadow|method|net.minecraft.client.gui.FontRenderer|drawStringWithShadow|(Ljava/lang/String;FFI)I
+      @|com/oldturok/turok/managers/UIManager.java|944|949|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/managers/UIManager.java|950|956|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/managers/UIManager.java|957|968|CLIENT_NAME|field|com.oldturok.turok.client.TurokClient|CLIENT_NAME
+      @|com/oldturok/turok/managers/UIManager.java|970|980|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/managers/UIManager.java|981|991|x_position|field|com.oldturok.turok.helpers.UIPosition|x_position
+      @|com/oldturok/turok/managers/UIManager.java|993|1003|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/managers/UIManager.java|1004|1014|y_position|field|com.oldturok.turok.helpers.UIPosition|y_position
+      @|com/oldturok/turok/managers/UIManager.java|1016|1026|multiColor|field|com.oldturok.turok.managers.UIManager|multiColor
+      @|com/oldturok/turok/managers/UIManager.java|1027|1033|getRGB|method|com.oldturok.turok.helpers.MultiColor|getRGB|()I
+      @|com/oldturok/turok/managers/UIManager.java|1046|1056|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/managers/UIManager.java|1057|1064|GLScale|method|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V
+      @|com/oldturok/turok/managers/UIManager.java|1069|1080|scaleFactor|field|com.oldturok.turok.managers.UIManager|scaleFactor
+   Method End: Draw()V
+Class End  : com.oldturok.turok.managers.UIManager
+endProcessing "com/oldturok/turok/managers/UIManager.java"
+
+startProcessing "com/oldturok/turok/modules/AutoClicker.java" md5: bebd44b056c727440e4f798383851d3f
+@|com/oldturok/turok/modules/AutoClicker.java|8|34|com.oldturok.turok.modules|package|com.oldturok.turok.modules|(file)
+Class Start: com.oldturok.turok.modules.AutoClicker
+   @|com/oldturok/turok/modules/AutoClicker.java|202|213|AutoClicker|class|com.oldturok.turok.modules.AutoClicker|false
+   @|com/oldturok/turok/modules/AutoClicker.java|222|228|Module|class|com.oldturok.turok.modules.api.Module|false
+   @|com/oldturok/turok/modules/AutoClicker.java|249|255|Random|class|java.util.Random|false
+   @|com/oldturok/turok/modules/AutoClicker.java|249|255|Random|class|java.util.Random|false
+   @|com/oldturok/turok/modules/AutoClicker.java|256|262|random|field|com.oldturok.turok.modules.AutoClicker|random|
+   @|com/oldturok/turok/modules/AutoClicker.java|269|275|Random|class|java.util.Random|false
+   @|com/oldturok/turok/modules/AutoClicker.java|291|301|DelayTimer|class|com.oldturok.turok.helpers.DelayTimer|false
+   @|com/oldturok/turok/modules/AutoClicker.java|291|301|DelayTimer|class|com.oldturok.turok.helpers.DelayTimer|false
+   @|com/oldturok/turok/modules/AutoClicker.java|302|312|delayTimer|field|com.oldturok.turok.modules.AutoClicker|delayTimer|
+   @|com/oldturok/turok/modules/AutoClicker.java|319|329|DelayTimer|class|com.oldturok.turok.helpers.DelayTimer|false
+   @|com/oldturok/turok/modules/AutoClicker.java|350|357|min_cps|field|com.oldturok.turok.modules.AutoClicker|min_cps|
+   @|com/oldturok/turok/modules/AutoClicker.java|363|370|max_cps|field|com.oldturok.turok.modules.AutoClicker|max_cps|
+   Method Start: AutoClicker()V
+      @|com/oldturok/turok/modules/AutoClicker.java|389|400|AutoClicker|method|com.oldturok.turok.modules.AutoClicker|AutoClicker|()V
+      @|com/oldturok/turok/modules/AutoClicker.java|434|442|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/AutoClicker.java|443|448|KEY_R|field|org.lwjgl.input.Keyboard|KEY_R
+   Method End: AutoClicker()V
+   Method Start: onUpdate()V
+      @|com/oldturok/turok/modules/AutoClicker.java|463|471|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/AutoClicker.java|488|496|onUpdate|method|com.oldturok.turok.modules.api.Module|onUpdate|()V
+      @|com/oldturok/turok/modules/AutoClicker.java|515|523|onUpdate|method|com.oldturok.turok.modules.api.Module|onUpdate|()V
+      @|com/oldturok/turok/modules/AutoClicker.java|536|546|MouseClick|method|com.oldturok.turok.modules.AutoClicker|MouseClick|()V
+   Method End: onUpdate()V
+   Method Start: MouseClick()V
+      @|com/oldturok/turok/modules/AutoClicker.java|574|584|MouseClick|method|com.oldturok.turok.modules.AutoClicker|MouseClick|()V
+      @|com/oldturok/turok/modules/AutoClicker.java|601|610|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|611|623|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/oldturok/turok/modules/AutoClicker.java|624|637|keyBindAttack|field|net.minecraft.client.settings.GameSettings|keyBindAttack
+      @|com/oldturok/turok/modules/AutoClicker.java|638|647|isKeyDown|method|net.minecraft.client.settings.KeyBinding|isKeyDown|()Z
+      @|com/oldturok/turok/modules/AutoClicker.java|682|688|random|field|com.oldturok.turok.modules.AutoClicker|random
+      @|com/oldturok/turok/modules/AutoClicker.java|689|696|nextInt|method|java.util.Random|nextInt|(I)I
+      @|com/oldturok/turok/modules/AutoClicker.java|697|704|max_cps|field|com.oldturok.turok.modules.AutoClicker|max_cps
+      @|com/oldturok/turok/modules/AutoClicker.java|707|714|min_cps|field|com.oldturok.turok.modules.AutoClicker|min_cps
+      @|com/oldturok/turok/modules/AutoClicker.java|718|725|min_cps|field|com.oldturok.turok.modules.AutoClicker|min_cps
+      @|com/oldturok/turok/modules/AutoClicker.java|744|754|delayTimer|field|com.oldturok.turok.modules.AutoClicker|delayTimer
+      @|com/oldturok/turok/modules/AutoClicker.java|755|769|hasTimeElapsed|method|com.oldturok.turok.helpers.DelayTimer|hasTimeElapsed|(JZ)Z
+      @|com/oldturok/turok/modules/AutoClicker.java|796|805|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|806|812|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/AutoClicker.java|813|821|swingArm|method|net.minecraft.entity.EntityLivingBase|swingArm|(Lnet/minecraft/util/EnumHand;)V
+      @|com/oldturok/turok/modules/AutoClicker.java|822|831|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|832|838|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/AutoClicker.java|839|851|swingingHand|field|net.minecraft.entity.EntityLivingBase|swingingHand
+      @|com/oldturok/turok/modules/AutoClicker.java|875|884|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|885|900|objectMouseOver|field|net.minecraft.client.Minecraft|objectMouseOver
+      @|com/oldturok/turok/modules/AutoClicker.java|901|910|typeOfHit|field|net.minecraft.util.math.RayTraceResult|typeOfHit
+      @|com/oldturok/turok/modules/AutoClicker.java|939|945|ENTITY|field|net.minecraft.util.math.RayTraceResult.Type|ENTITY
+      @|com/oldturok/turok/modules/AutoClicker.java|971|980|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|981|997|playerController|field|net.minecraft.client.Minecraft|playerController
+      @|com/oldturok/turok/modules/AutoClicker.java|998|1010|attackEntity|method|net.minecraft.client.multiplayer.PlayerControllerMP|attackEntity|(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/entity/Entity;)V
+      @|com/oldturok/turok/modules/AutoClicker.java|1011|1020|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|1021|1027|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/AutoClicker.java|1029|1038|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|1039|1054|objectMouseOver|field|net.minecraft.client.Minecraft|objectMouseOver
+      @|com/oldturok/turok/modules/AutoClicker.java|1055|1064|entityHit|field|net.minecraft.util.math.RayTraceResult|entityHit
+      @|com/oldturok/turok/modules/AutoClicker.java|1123|1128|BLOCK|field|net.minecraft.util.math.RayTraceResult.Type|BLOCK
+      @|com/oldturok/turok/modules/AutoClicker.java|1154|1163|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|1164|1180|playerController|field|net.minecraft.client.Minecraft|playerController
+      @|com/oldturok/turok/modules/AutoClicker.java|1181|1191|clickBlock|method|net.minecraft.client.multiplayer.PlayerControllerMP|clickBlock|(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z
+      @|com/oldturok/turok/modules/AutoClicker.java|1192|1201|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|1202|1217|objectMouseOver|field|net.minecraft.client.Minecraft|objectMouseOver
+      @|com/oldturok/turok/modules/AutoClicker.java|1218|1229|getBlockPos|method|net.minecraft.util.math.RayTraceResult|getBlockPos|()Lnet/minecraft/util/math/BlockPos;
+      @|com/oldturok/turok/modules/AutoClicker.java|1233|1242|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/AutoClicker.java|1243|1258|objectMouseOver|field|net.minecraft.client.Minecraft|objectMouseOver
+      @|com/oldturok/turok/modules/AutoClicker.java|1259|1266|sideHit|field|net.minecraft.util.math.RayTraceResult|sideHit
+      @|com/oldturok/turok/modules/AutoClicker.java|1369|1379|delayTimer|field|com.oldturok.turok.modules.AutoClicker|delayTimer
+      @|com/oldturok/turok/modules/AutoClicker.java|1380|1389|resetTime|method|com.oldturok.turok.helpers.DelayTimer|resetTime|()V
+   Method End: MouseClick()V
+Class End  : com.oldturok.turok.modules.AutoClicker
+endProcessing "com/oldturok/turok/modules/AutoClicker.java"
+
+startProcessing "com/oldturok/turok/modules/ClickGUI.java" md5: b6e52f5fd479dc5dd4a18eb5e6419900
+@|com/oldturok/turok/modules/ClickGUI.java|8|34|com.oldturok.turok.modules|package|com.oldturok.turok.modules|(file)
+Class Start: com.oldturok.turok.modules.ClickGUI
+   @|com/oldturok/turok/modules/ClickGUI.java|177|185|ClickGUI|class|com.oldturok.turok.modules.ClickGUI|false
+   @|com/oldturok/turok/modules/ClickGUI.java|194|200|Module|class|com.oldturok.turok.modules.api.Module|false
+   Method Start: ClickGUI()V
+      @|com/oldturok/turok/modules/ClickGUI.java|214|222|ClickGUI|method|com.oldturok.turok.modules.ClickGUI|ClickGUI|()V
+      @|com/oldturok/turok/modules/ClickGUI.java|253|261|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/ClickGUI.java|262|274|KEY_LCONTROL|field|org.lwjgl.input.Keyboard|KEY_LCONTROL
+   Method End: ClickGUI()V
+   Method Start: onGui(I)V
+      @|com/oldturok/turok/modules/ClickGUI.java|324|330|offset|param|com.oldturok.turok.modules.ClickGUI|onGui|(I)V|offset|0
+      @|com/oldturok/turok/modules/ClickGUI.java|289|297|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/ClickGUI.java|314|319|onGui|method|com.oldturok.turok.modules.api.Module|onGui|(I)V
+   Method End: onGui(I)V
+   Method Start: onToggle(Z)V
+      @|com/oldturok/turok/modules/ClickGUI.java|383|388|state|param|com.oldturok.turok.modules.ClickGUI|onToggle|(Z)V|state|0
+      @|com/oldturok/turok/modules/ClickGUI.java|341|349|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/ClickGUI.java|366|374|onToggle|method|com.oldturok.turok.modules.api.Module|onToggle|(Z)V
+      @|com/oldturok/turok/modules/ClickGUI.java|400|409|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/ClickGUI.java|410|426|displayGuiScreen|method|net.minecraft.client.Minecraft|displayGuiScreen|(Lnet/minecraft/client/gui/GuiScreen;)V
+      @|com/oldturok/turok/modules/ClickGUI.java|431|441|GUIManager|class|com.oldturok.turok.managers.GUIManager|false
+   Method End: onToggle(Z)V
+Class End  : com.oldturok.turok.modules.ClickGUI
+endProcessing "com/oldturok/turok/modules/ClickGUI.java"
+
+startProcessing "com/oldturok/turok/modules/Fullbright.java" md5: 7b5b915b3cc189285975617076db14c1
+@|com/oldturok/turok/modules/Fullbright.java|8|34|com.oldturok.turok.modules|package|com.oldturok.turok.modules|(file)
+Class Start: com.oldturok.turok.modules.Fullbright
+   @|com/oldturok/turok/modules/Fullbright.java|130|140|Fullbright|class|com.oldturok.turok.modules.Fullbright|false
+   @|com/oldturok/turok/modules/Fullbright.java|149|155|Module|class|com.oldturok.turok.modules.api.Module|false
+   @|com/oldturok/turok/modules/Fullbright.java|176|189|previousGamma|field|com.oldturok.turok.modules.Fullbright|previousGamma|
+   Method Start: Fullbright()V
+      @|com/oldturok/turok/modules/Fullbright.java|202|212|Fullbright|method|com.oldturok.turok.modules.Fullbright|Fullbright|()V
+      @|com/oldturok/turok/modules/Fullbright.java|245|253|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/Fullbright.java|254|259|KEY_B|field|org.lwjgl.input.Keyboard|KEY_B
+   Method End: Fullbright()V
+   Method Start: onToggle(Z)V
+      @|com/oldturok/turok/modules/Fullbright.java|316|321|state|param|com.oldturok.turok.modules.Fullbright|onToggle|(Z)V|state|0
+      @|com/oldturok/turok/modules/Fullbright.java|274|282|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/Fullbright.java|299|307|onToggle|method|com.oldturok.turok.modules.api.Module|onToggle|(Z)V
+      @|com/oldturok/turok/modules/Fullbright.java|339|347|onToggle|method|com.oldturok.turok.modules.api.Module|onToggle|(Z)V
+      @|com/oldturok/turok/modules/Fullbright.java|348|353|state|param|com.oldturok.turok.modules.Fullbright|onToggle|(Z)V|state|0
+      @|com/oldturok/turok/modules/Fullbright.java|369|374|state|param|com.oldturok.turok.modules.Fullbright|onToggle|(Z)V|state|0
+      @|com/oldturok/turok/modules/Fullbright.java|376|389|previousGamma|field|com.oldturok.turok.modules.Fullbright|previousGamma
+      @|com/oldturok/turok/modules/Fullbright.java|392|401|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/Fullbright.java|402|414|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/oldturok/turok/modules/Fullbright.java|415|427|gammaSetting|field|net.minecraft.client.settings.GameSettings|gammaSetting
+      @|com/oldturok/turok/modules/Fullbright.java|437|446|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/Fullbright.java|447|459|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/oldturok/turok/modules/Fullbright.java|460|472|gammaSetting|field|net.minecraft.client.settings.GameSettings|gammaSetting
+      @|com/oldturok/turok/modules/Fullbright.java|476|481|state|param|com.oldturok.turok.modules.Fullbright|onToggle|(Z)V|state|0
+      @|com/oldturok/turok/modules/Fullbright.java|491|504|previousGamma|field|com.oldturok.turok.modules.Fullbright|previousGamma
+   Method End: onToggle(Z)V
+Class End  : com.oldturok.turok.modules.Fullbright
+endProcessing "com/oldturok/turok/modules/Fullbright.java"
+
+startProcessing "com/oldturok/turok/modules/NoFOV.java" md5: 0ce4563df62b777e4f691db1dbb4810b
+@|com/oldturok/turok/modules/NoFOV.java|8|34|com.oldturok.turok.modules|package|com.oldturok.turok.modules|(file)
+Class Start: com.oldturok.turok.modules.NoFOV
+   @|com/oldturok/turok/modules/NoFOV.java|300|305|NoFOV|class|com.oldturok.turok.modules.NoFOV|false
+   @|com/oldturok/turok/modules/NoFOV.java|314|320|Module|class|com.oldturok.turok.modules.api.Module|false
+   Method Start: NoFOV()V
+      @|com/oldturok/turok/modules/NoFOV.java|334|339|NoFOV|method|com.oldturok.turok.modules.NoFOV|NoFOV|()V
+      @|com/oldturok/turok/modules/NoFOV.java|367|375|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/NoFOV.java|376|381|KEY_C|field|org.lwjgl.input.Keyboard|KEY_C
+      @|com/oldturok/turok/modules/NoFOV.java|392|406|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|com/oldturok/turok/modules/NoFOV.java|407|416|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|com/oldturok/turok/modules/NoFOV.java|417|425|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+   Method End: NoFOV()V
+   Method Start: onFOV(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V
+      @|com/oldturok/turok/modules/NoFOV.java|497|502|event|param|com.oldturok.turok.modules.NoFOV|onFOV|(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V|event|0
+      @|com/oldturok/turok/modules/NoFOV.java|445|459|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|com/oldturok/turok/modules/NoFOV.java|476|481|onFOV|method|com.oldturok.turok.modules.NoFOV|onFOV|(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V
+      @|com/oldturok/turok/modules/NoFOV.java|482|496|FOVUpdateEvent|class|net.minecraftforge.client.event.FOVUpdateEvent|false
+      @|com/oldturok/turok/modules/NoFOV.java|517|525|getState|method|com.oldturok.turok.modules.api.Module|getState|()Z
+      @|com/oldturok/turok/modules/NoFOV.java|547|552|event|param|com.oldturok.turok.modules.NoFOV|onFOV|(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V|event|0
+      @|com/oldturok/turok/modules/NoFOV.java|553|562|getEntity|method|net.minecraftforge.client.event.FOVUpdateEvent|getEntity|()Lnet/minecraft/entity/player/EntityPlayer;
+      @|com/oldturok/turok/modules/NoFOV.java|565|576|isSprinting|method|net.minecraft.entity.Entity|isSprinting|()Z
+      @|com/oldturok/turok/modules/NoFOV.java|598|603|event|param|com.oldturok.turok.modules.NoFOV|onFOV|(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V|event|0
+      @|com/oldturok/turok/modules/NoFOV.java|604|613|setNewfov|method|net.minecraftforge.client.event.FOVUpdateEvent|setNewfov|(F)V
+      @|com/oldturok/turok/modules/NoFOV.java|671|676|event|param|com.oldturok.turok.modules.NoFOV|onFOV|(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V|event|0
+      @|com/oldturok/turok/modules/NoFOV.java|677|686|setNewfov|method|net.minecraftforge.client.event.FOVUpdateEvent|setNewfov|(F)V
+   Method End: onFOV(Lnet/minecraftforge/client/event/FOVUpdateEvent;)V
+Class End  : com.oldturok.turok.modules.NoFOV
+endProcessing "com/oldturok/turok/modules/NoFOV.java"
+
+startProcessing "com/oldturok/turok/modules/Panic.java" md5: 6f47760461990054e8fbe7c50ec2a13a
+@|com/oldturok/turok/modules/Panic.java|8|34|com.oldturok.turok.modules|package|com.oldturok.turok.modules|(file)
+Class Start: com.oldturok.turok.modules.Panic
+   @|com/oldturok/turok/modules/Panic.java|163|168|Panic|class|com.oldturok.turok.modules.Panic|false
+   @|com/oldturok/turok/modules/Panic.java|177|183|Module|class|com.oldturok.turok.modules.api.Module|false
+   Method Start: Panic()V
+      @|com/oldturok/turok/modules/Panic.java|197|202|Panic|method|com.oldturok.turok.modules.Panic|Panic|()V
+      @|com/oldturok/turok/modules/Panic.java|230|238|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/Panic.java|239|244|KEY_P|field|org.lwjgl.input.Keyboard|KEY_P
+   Method End: Panic()V
+   Method Start: onGui(I)V
+      @|com/oldturok/turok/modules/Panic.java|294|300|offset|param|com.oldturok.turok.modules.Panic|onGui|(I)V|offset|0
+      @|com/oldturok/turok/modules/Panic.java|259|267|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/Panic.java|284|289|onGui|method|com.oldturok.turok.modules.api.Module|onGui|(I)V
+   Method End: onGui(I)V
+   Method Start: onToggle(Z)V
+      @|com/oldturok/turok/modules/Panic.java|421|426|state|param|com.oldturok.turok.modules.Panic|onToggle|(Z)V|state|0
+      @|com/oldturok/turok/modules/Panic.java|379|387|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/Panic.java|404|412|onToggle|method|com.oldturok.turok.modules.api.Module|onToggle|(Z)V
+      @|com/oldturok/turok/modules/Panic.java|444|452|onToggle|method|com.oldturok.turok.modules.api.Module|onToggle|(Z)V
+      @|com/oldturok/turok/modules/Panic.java|453|458|state|param|com.oldturok.turok.modules.Panic|onToggle|(Z)V|state|0
+      @|com/oldturok/turok/modules/Panic.java|474|479|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/modules/Panic.java|480|486|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/modules/Panic.java|487|500|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/modules/Panic.java|501|518|getEnabledModules|method|com.oldturok.turok.managers.ModuleManager|getEnabledModules|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/modules/Panic.java|521|525|size|method|java.util.Collection|size|()I
+      @|com/oldturok/turok/modules/Panic.java|552|558|Module|class|com.oldturok.turok.modules.api.Module|false
+      @|com/oldturok/turok/modules/Panic.java|568|573|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/modules/Panic.java|574|580|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/modules/Panic.java|581|594|moduleManager|field|com.oldturok.turok.client.TurokClient|moduleManager
+      @|com/oldturok/turok/modules/Panic.java|595|612|getEnabledModules|method|com.oldturok.turok.managers.ModuleManager|getEnabledModules|()Ljava/util/ArrayList;
+      @|com/oldturok/turok/modules/Panic.java|641|647|Toggle|method|com.oldturok.turok.modules.api.Module|Toggle|()V
+   Method End: onToggle(Z)V
+Class End  : com.oldturok.turok.modules.Panic
+endProcessing "com/oldturok/turok/modules/Panic.java"
+
+startProcessing "com/oldturok/turok/modules/QuickEat.java" md5: 7404585c37d461b41042672c6b04a008
+@|com/oldturok/turok/modules/QuickEat.java|8|34|com.oldturok.turok.modules|package|com.oldturok.turok.modules|(file)
+Class Start: com.oldturok.turok.modules.QuickEat
+   @|com/oldturok/turok/modules/QuickEat.java|389|397|QuickEat|class|com.oldturok.turok.modules.QuickEat|false
+   @|com/oldturok/turok/modules/QuickEat.java|406|412|Module|class|com.oldturok.turok.modules.api.Module|false
+   @|com/oldturok/turok/modules/QuickEat.java|435|447|attemptedEat|field|com.oldturok.turok.modules.QuickEat|attemptedEat|
+   @|com/oldturok/turok/modules/QuickEat.java|473|481|lastSlot|field|com.oldturok.turok.modules.QuickEat|lastSlot|
+   Method Start: QuickEat()V
+      @|com/oldturok/turok/modules/QuickEat.java|494|502|QuickEat|method|com.oldturok.turok.modules.QuickEat|QuickEat|()V
+      @|com/oldturok/turok/modules/QuickEat.java|533|541|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/QuickEat.java|542|547|KEY_F|field|org.lwjgl.input.Keyboard|KEY_F
+      @|com/oldturok/turok/modules/QuickEat.java|558|572|MinecraftForge|class|net.minecraftforge.common.MinecraftForge|false
+      @|com/oldturok/turok/modules/QuickEat.java|573|582|EVENT_BUS|field|net.minecraftforge.common.MinecraftForge|EVENT_BUS
+      @|com/oldturok/turok/modules/QuickEat.java|583|591|register|method|net.minecraftforge.fml.common.eventhandler.EventBus|register|(Ljava/lang/Object;)V
+   Method End: QuickEat()V
+   Method Start: onGui(I)V
+      @|com/oldturok/turok/modules/QuickEat.java|646|652|offset|param|com.oldturok.turok.modules.QuickEat|onGui|(I)V|offset|0
+      @|com/oldturok/turok/modules/QuickEat.java|611|619|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/QuickEat.java|636|641|onGui|method|com.oldturok.turok.modules.api.Module|onGui|(I)V
+   Method End: onGui(I)V
+   Method Start: onKey(Lnet/minecraftforge/fml/common/gameevent/InputEvent$KeyInputEvent;)V
+      @|com/oldturok/turok/modules/QuickEat.java|725|730|event|param|com.oldturok.turok.modules.QuickEat|onKey|(Lnet/minecraftforge/fml/common/gameevent/InputEvent$KeyInputEvent;)V|event|0
+      @|com/oldturok/turok/modules/QuickEat.java|663|677|SubscribeEvent|class|net.minecraftforge.fml.common.eventhandler.SubscribeEvent|false
+      @|com/oldturok/turok/modules/QuickEat.java|694|699|onKey|method|com.oldturok.turok.modules.QuickEat|onKey|(Lnet/minecraftforge/fml/common/gameevent/InputEvent$KeyInputEvent;)V
+      @|com/oldturok/turok/modules/QuickEat.java|700|724|InputEvent.KeyInputEvent|class|net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent|false
+      @|com/oldturok/turok/modules/QuickEat.java|747|759|attemptedEat|field|com.oldturok.turok.modules.QuickEat|attemptedEat
+      @|com/oldturok/turok/modules/QuickEat.java|763|771|lastSlot|field|com.oldturok.turok.modules.QuickEat|lastSlot
+      @|com/oldturok/turok/modules/QuickEat.java|774|783|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/QuickEat.java|784|790|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/QuickEat.java|791|800|inventory|field|net.minecraft.entity.player.EntityPlayer|inventory
+      @|com/oldturok/turok/modules/QuickEat.java|801|812|currentItem|field|net.minecraft.entity.player.InventoryPlayer|currentItem
+      @|com/oldturok/turok/modules/QuickEat.java|828|834|module|field|com.oldturok.turok.modules.api.Module|module
+      @|com/oldturok/turok/modules/QuickEat.java|835|844|isKeyDown|method|net.minecraft.client.settings.KeyBinding|isKeyDown|()Z
+      @|com/oldturok/turok/modules/QuickEat.java|877|895|findFoodFromHotbar|method|com.oldturok.turok.modules.QuickEat|findFoodFromHotbar|()I
+      @|com/oldturok/turok/modules/QuickEat.java|949|959|KeyBinding|class|net.minecraft.client.settings.KeyBinding|false
+      @|com/oldturok/turok/modules/QuickEat.java|960|975|setKeyBindState|method|net.minecraft.client.settings.KeyBinding|setKeyBindState|(IZ)V
+      @|com/oldturok/turok/modules/QuickEat.java|976|985|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/QuickEat.java|986|998|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/oldturok/turok/modules/QuickEat.java|999|1013|keyBindUseItem|field|net.minecraft.client.settings.GameSettings|keyBindUseItem
+      @|com/oldturok/turok/modules/QuickEat.java|1014|1024|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+      @|com/oldturok/turok/modules/QuickEat.java|1051|1060|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/QuickEat.java|1061|1067|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/QuickEat.java|1068|1077|inventory|field|net.minecraft.entity.player.EntityPlayer|inventory
+      @|com/oldturok/turok/modules/QuickEat.java|1078|1089|currentItem|field|net.minecraft.entity.player.InventoryPlayer|currentItem
+      @|com/oldturok/turok/modules/QuickEat.java|1118|1130|attemptedEat|field|com.oldturok.turok.modules.QuickEat|attemptedEat
+      @|com/oldturok/turok/modules/QuickEat.java|1190|1200|KeyBinding|class|net.minecraft.client.settings.KeyBinding|false
+      @|com/oldturok/turok/modules/QuickEat.java|1201|1216|setKeyBindState|method|net.minecraft.client.settings.KeyBinding|setKeyBindState|(IZ)V
+      @|com/oldturok/turok/modules/QuickEat.java|1217|1226|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/QuickEat.java|1227|1239|gameSettings|field|net.minecraft.client.Minecraft|gameSettings
+      @|com/oldturok/turok/modules/QuickEat.java|1240|1254|keyBindUseItem|field|net.minecraft.client.settings.GameSettings|keyBindUseItem
+      @|com/oldturok/turok/modules/QuickEat.java|1255|1265|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+      @|com/oldturok/turok/modules/QuickEat.java|1289|1298|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/QuickEat.java|1299|1305|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/QuickEat.java|1306|1315|inventory|field|net.minecraft.entity.player.EntityPlayer|inventory
+      @|com/oldturok/turok/modules/QuickEat.java|1316|1327|currentItem|field|net.minecraft.entity.player.InventoryPlayer|currentItem
+      @|com/oldturok/turok/modules/QuickEat.java|1330|1338|lastSlot|field|com.oldturok.turok.modules.QuickEat|lastSlot
+      @|com/oldturok/turok/modules/QuickEat.java|1352|1364|attemptedEat|field|com.oldturok.turok.modules.QuickEat|attemptedEat
+   Method End: onKey(Lnet/minecraftforge/fml/common/gameevent/InputEvent$KeyInputEvent;)V
+   Method Start: findFoodFromHotbar()I
+      @|com/oldturok/turok/modules/QuickEat.java|1407|1425|findFoodFromHotbar|method|com.oldturok.turok.modules.QuickEat|findFoodFromHotbar|()I
+      @|com/oldturok/turok/modules/QuickEat.java|1529|1537|ItemFood|class|net.minecraft.item.ItemFood|false
+      @|com/oldturok/turok/modules/QuickEat.java|1546|1554|ItemFood|class|net.minecraft.item.ItemFood|false
+      @|com/oldturok/turok/modules/QuickEat.java|1555|1564|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/QuickEat.java|1565|1571|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/QuickEat.java|1572|1581|inventory|field|net.minecraft.entity.player.EntityPlayer|inventory
+      @|com/oldturok/turok/modules/QuickEat.java|1582|1595|mainInventory|field|net.minecraft.entity.player.InventoryPlayer|mainInventory
+      @|com/oldturok/turok/modules/QuickEat.java|1596|1599|get|method|java.util.List|get|(I)Ljava/lang/Object;
+      @|com/oldturok/turok/modules/QuickEat.java|1603|1610|getItem|method|net.minecraft.item.ItemStack|getItem|()Lnet/minecraft/item/Item;
+      @|com/oldturok/turok/modules/QuickEat.java|1677|1686|Exception|class|java.lang.Exception|false
+   Method End: findFoodFromHotbar()I
+Class End  : com.oldturok.turok.modules.QuickEat
+endProcessing "com/oldturok/turok/modules/QuickEat.java"
+
+startProcessing "com/oldturok/turok/modules/Rainbow.java" md5: e00ece9ac85ff8a89496ce5516c25e58
+@|com/oldturok/turok/modules/Rainbow.java|8|34|com.oldturok.turok.modules|package|com.oldturok.turok.modules|(file)
+Class Start: com.oldturok.turok.modules.Rainbow
+   @|com/oldturok/turok/modules/Rainbow.java|130|137|Rainbow|class|com.oldturok.turok.modules.Rainbow|false
+   @|com/oldturok/turok/modules/Rainbow.java|146|152|Module|class|com.oldturok.turok.modules.api.Module|false
+   Method Start: Rainbow()V
+      @|com/oldturok/turok/modules/Rainbow.java|166|173|Rainbow|method|com.oldturok.turok.modules.Rainbow|Rainbow|()V
+      @|com/oldturok/turok/modules/Rainbow.java|203|211|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/Rainbow.java|212|220|KEY_NONE|field|org.lwjgl.input.Keyboard|KEY_NONE
+   Method End: Rainbow()V
+   Method Start: onGui(I)V
+      @|com/oldturok/turok/modules/Rainbow.java|270|276|offset|param|com.oldturok.turok.modules.Rainbow|onGui|(I)V|offset|0
+      @|com/oldturok/turok/modules/Rainbow.java|235|243|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/Rainbow.java|260|265|onGui|method|com.oldturok.turok.modules.api.Module|onGui|(I)V
+   Method End: onGui(I)V
+Class End  : com.oldturok.turok.modules.Rainbow
+endProcessing "com/oldturok/turok/modules/Rainbow.java"
+
+startProcessing "com/oldturok/turok/modules/Sprint.java" md5: 1cecaa564fb35bfc8275d1fb1afd68b3
+@|com/oldturok/turok/modules/Sprint.java|8|34|com.oldturok.turok.modules|package|com.oldturok.turok.modules|(file)
+Class Start: com.oldturok.turok.modules.Sprint
+   @|com/oldturok/turok/modules/Sprint.java|130|136|Sprint|class|com.oldturok.turok.modules.Sprint|false
+   @|com/oldturok/turok/modules/Sprint.java|145|151|Module|class|com.oldturok.turok.modules.api.Module|false
+   Method Start: Sprint()V
+      @|com/oldturok/turok/modules/Sprint.java|165|171|Sprint|method|com.oldturok.turok.modules.Sprint|Sprint|()V
+      @|com/oldturok/turok/modules/Sprint.java|200|208|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/Sprint.java|209|214|KEY_V|field|org.lwjgl.input.Keyboard|KEY_V
+   Method End: Sprint()V
+   Method Start: onUpdate()V
+      @|com/oldturok/turok/modules/Sprint.java|229|237|Override|class|java.lang.Override|false
+      @|com/oldturok/turok/modules/Sprint.java|254|262|onUpdate|method|com.oldturok.turok.modules.api.Module|onUpdate|()V
+      @|com/oldturok/turok/modules/Sprint.java|281|289|onUpdate|method|com.oldturok.turok.modules.api.Module|onUpdate|()V
+      @|com/oldturok/turok/modules/Sprint.java|306|315|canSprint|method|com.oldturok.turok.modules.Sprint|canSprint|()Z
+      @|com/oldturok/turok/modules/Sprint.java|333|342|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/Sprint.java|343|349|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/Sprint.java|350|362|setSprinting|method|net.minecraft.entity.Entity|setSprinting|(Z)V
+   Method End: onUpdate()V
+   Method Start: canSprint()Z
+      @|com/oldturok/turok/modules/Sprint.java|407|416|canSprint|method|com.oldturok.turok.modules.Sprint|canSprint|()Z
+      @|com/oldturok/turok/modules/Sprint.java|437|446|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/Sprint.java|447|453|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/Sprint.java|454|465|moveForward|field|net.minecraft.entity.EntityLivingBase|moveForward
+      @|com/oldturok/turok/modules/Sprint.java|474|483|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/Sprint.java|484|490|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/Sprint.java|491|516|isActiveItemStackBlocking|method|net.minecraft.entity.EntityLivingBase|isActiveItemStackBlocking|()Z
+      @|com/oldturok/turok/modules/Sprint.java|523|532|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/Sprint.java|533|539|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/Sprint.java|540|550|isOnLadder|method|net.minecraft.entity.EntityLivingBase|isOnLadder|()Z
+      @|com/oldturok/turok/modules/Sprint.java|557|566|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/Sprint.java|567|573|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/Sprint.java|574|594|collidedHorizontally|field|net.minecraft.entity.Entity|collidedHorizontally
+      @|com/oldturok/turok/modules/Sprint.java|598|607|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/Sprint.java|608|614|player|field|net.minecraft.client.Minecraft|player
+      @|com/oldturok/turok/modules/Sprint.java|615|627|getFoodStats|method|net.minecraft.entity.player.EntityPlayer|getFoodStats|()Lnet/minecraft/util/FoodStats;
+      @|com/oldturok/turok/modules/Sprint.java|630|642|getFoodLevel|method|net.minecraft.util.FoodStats|getFoodLevel|()I
+   Method End: canSprint()Z
+Class End  : com.oldturok.turok.modules.Sprint
+endProcessing "com/oldturok/turok/modules/Sprint.java"
+
+startProcessing "com/oldturok/turok/modules/api/Module.java" md5: 2eebc7607726ac597845cc9b1f31b799
+@|com/oldturok/turok/modules/api/Module.java|8|38|com.oldturok.turok.modules.api|package|com.oldturok.turok.modules.api|(file)
+Class Start: com.oldturok.turok.modules.api.Module
+   @|com/oldturok/turok/modules/api/Module.java|337|343|Module|class|com.oldturok.turok.modules.api.Module|false
+   @|com/oldturok/turok/modules/api/Module.java|357|363|String|class|java.lang.String|false
+   @|com/oldturok/turok/modules/api/Module.java|357|363|String|class|java.lang.String|false
+   @|com/oldturok/turok/modules/api/Module.java|364|368|name|field|com.oldturok.turok.modules.api.Module|name|
+   @|com/oldturok/turok/modules/api/Module.java|381|391|KeyBinding|class|net.minecraft.client.settings.KeyBinding|false
+   @|com/oldturok/turok/modules/api/Module.java|381|391|KeyBinding|class|net.minecraft.client.settings.KeyBinding|false
+   @|com/oldturok/turok/modules/api/Module.java|392|398|module|field|com.oldturok.turok.modules.api.Module|module|
+   @|com/oldturok/turok/modules/api/Module.java|420|425|state|field|com.oldturok.turok.modules.api.Module|state|
+   @|com/oldturok/turok/modules/api/Module.java|440|450|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+   @|com/oldturok/turok/modules/api/Module.java|440|450|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+   @|com/oldturok/turok/modules/api/Module.java|451|461|multiColor|field|com.oldturok.turok.modules.api.Module|multiColor|
+   @|com/oldturok/turok/modules/api/Module.java|481|492|scaleFactor|field|com.oldturok.turok.modules.api.Module|scaleFactor|
+   @|com/oldturok/turok/modules/api/Module.java|515|524|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/modules/api/Module.java|515|524|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/modules/api/Module.java|525|534|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft|
+   @|com/oldturok/turok/modules/api/Module.java|537|546|Minecraft|class|net.minecraft.client.Minecraft|false
+   @|com/oldturok/turok/modules/api/Module.java|547|559|getMinecraft|method|net.minecraft.client.Minecraft|getMinecraft|()Lnet/minecraft/client/Minecraft;
+   Method Start: Module(Ljava/lang/String;I)V
+      @|com/oldturok/turok/modules/api/Module.java|589|593|name|param|com.oldturok.turok.modules.api.Module|Module|(Ljava/lang/String;I)V|name|0
+      @|com/oldturok/turok/modules/api/Module.java|599|606|keyCode|param|com.oldturok.turok.modules.api.Module|Module|(Ljava/lang/String;I)V|keyCode|1
+      @|com/oldturok/turok/modules/api/Module.java|575|581|Module|method|com.oldturok.turok.modules.api.Module|Module|(Ljava/lang/String;I)V
+      @|com/oldturok/turok/modules/api/Module.java|582|588|String|class|java.lang.String|false
+      @|com/oldturok/turok/modules/api/Module.java|618|624|module|field|com.oldturok.turok.modules.api.Module|module
+      @|com/oldturok/turok/modules/api/Module.java|631|641|KeyBinding|class|net.minecraft.client.settings.KeyBinding|false
+      @|com/oldturok/turok/modules/api/Module.java|642|646|name|param|com.oldturok.turok.modules.api.Module|Module|(Ljava/lang/String;I)V|name|0
+      @|com/oldturok/turok/modules/api/Module.java|648|655|keyCode|param|com.oldturok.turok.modules.api.Module|Module|(Ljava/lang/String;I)V|keyCode|1
+      @|com/oldturok/turok/modules/api/Module.java|670|684|ClientRegistry|class|net.minecraftforge.fml.client.registry.ClientRegistry|false
+      @|com/oldturok/turok/modules/api/Module.java|685|703|registerKeyBinding|method|net.minecraftforge.fml.client.registry.ClientRegistry|registerKeyBinding|(Lnet/minecraft/client/settings/KeyBinding;)V
+      @|com/oldturok/turok/modules/api/Module.java|704|710|module|field|com.oldturok.turok.modules.api.Module|module
+      @|com/oldturok/turok/modules/api/Module.java|727|731|name|field|com.oldturok.turok.modules.api.Module|name
+      @|com/oldturok/turok/modules/api/Module.java|734|738|name|param|com.oldturok.turok.modules.api.Module|Module|(Ljava/lang/String;I)V|name|0
+      @|com/oldturok/turok/modules/api/Module.java|748|761|getModuleName|method|com.oldturok.turok.modules.api.Module|getModuleName|()Ljava/lang/String;
+   Method End: Module(Ljava/lang/String;I)V
+   Method Start: onGui(I)V
+      @|com/oldturok/turok/modules/api/Module.java|798|804|offset|param|com.oldturok.turok.modules.api.Module|onGui|(I)V|offset|0
+      @|com/oldturok/turok/modules/api/Module.java|788|793|onGui|method|com.oldturok.turok.modules.api.Module|onGui|(I)V
+      @|com/oldturok/turok/modules/api/Module.java|816|826|multiColor|field|com.oldturok.turok.modules.api.Module|multiColor
+      @|com/oldturok/turok/modules/api/Module.java|829|839|MultiColor|class|com.oldturok.turok.helpers.MultiColor|false
+      @|com/oldturok/turok/modules/api/Module.java|840|850|getRainbow|method|com.oldturok.turok.helpers.MultiColor|getRainbow|()Lcom/oldturok/turok/helpers/MultiColor;
+      @|com/oldturok/turok/modules/api/Module.java|862|867|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/modules/api/Module.java|868|874|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/modules/api/Module.java|875|884|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager
+      @|com/oldturok/turok/modules/api/Module.java|885|895|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/modules/api/Module.java|896|908|positionText|method|com.oldturok.turok.helpers.UIPosition|positionText|(Lcom/oldturok/turok/helpers/UIPosition$POSITION_ON_SCREEN;Ljava/lang/String;FFF)V
+      @|com/oldturok/turok/modules/api/Module.java|909|914|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/modules/api/Module.java|915|921|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/modules/api/Module.java|922|931|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager
+      @|com/oldturok/turok/modules/api/Module.java|932|950|position_on_screen|field|com.oldturok.turok.managers.UIManager|position_on_screen
+      @|com/oldturok/turok/modules/api/Module.java|952|965|getModuleName|method|com.oldturok.turok.modules.api.Module|getModuleName|()Ljava/lang/String;
+      @|com/oldturok/turok/modules/api/Module.java|990|995|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/modules/api/Module.java|996|1002|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/modules/api/Module.java|1003|1012|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager
+      @|com/oldturok/turok/modules/api/Module.java|1013|1023|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/modules/api/Module.java|1024|1031|GLScale|method|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V
+      @|com/oldturok/turok/modules/api/Module.java|1032|1043|scaleFactor|field|com.oldturok.turok.modules.api.Module|scaleFactor
+      @|com/oldturok/turok/modules/api/Module.java|1054|1063|minecraft|field|com.oldturok.turok.modules.api.Module|minecraft
+      @|com/oldturok/turok/modules/api/Module.java|1064|1076|fontRenderer|field|net.minecraft.client.Minecraft|fontRenderer
+      @|com/oldturok/turok/modules/api/Module.java|1077|1097|drawStringWithShadow|method|net.minecraft.client.gui.FontRenderer|drawStringWithShadow|(Ljava/lang/String;FFI)I
+      @|com/oldturok/turok/modules/api/Module.java|1098|1111|getModuleName|method|com.oldturok.turok.modules.api.Module|getModuleName|()Ljava/lang/String;
+      @|com/oldturok/turok/modules/api/Module.java|1115|1120|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/modules/api/Module.java|1121|1127|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/modules/api/Module.java|1128|1137|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager
+      @|com/oldturok/turok/modules/api/Module.java|1138|1148|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/modules/api/Module.java|1149|1159|x_position|field|com.oldturok.turok.helpers.UIPosition|x_position
+      @|com/oldturok/turok/modules/api/Module.java|1162|1167|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/modules/api/Module.java|1168|1174|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/modules/api/Module.java|1175|1184|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager
+      @|com/oldturok/turok/modules/api/Module.java|1185|1195|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/modules/api/Module.java|1196|1206|y_position|field|com.oldturok.turok.helpers.UIPosition|y_position
+      @|com/oldturok/turok/modules/api/Module.java|1216|1222|offset|param|com.oldturok.turok.modules.api.Module|onGui|(I)V|offset|0
+      @|com/oldturok/turok/modules/api/Module.java|1230|1240|multiColor|field|com.oldturok.turok.modules.api.Module|multiColor
+      @|com/oldturok/turok/modules/api/Module.java|1241|1247|getRGB|method|com.oldturok.turok.helpers.MultiColor|getRGB|()I
+      @|com/oldturok/turok/modules/api/Module.java|1260|1265|Turok|class|com.oldturok.turok.Turok|false
+      @|com/oldturok/turok/modules/api/Module.java|1266|1272|client|field|com.oldturok.turok.Turok|client
+      @|com/oldturok/turok/modules/api/Module.java|1273|1282|uiManager|field|com.oldturok.turok.client.TurokClient|uiManager
+      @|com/oldturok/turok/modules/api/Module.java|1283|1293|uiPosition|field|com.oldturok.turok.managers.UIManager|uiPosition
+      @|com/oldturok/turok/modules/api/Module.java|1294|1301|GLScale|method|com.oldturok.turok.helpers.UIPosition|GLScale|(F)V
+      @|com/oldturok/turok/modules/api/Module.java|1307|1318|scaleFactor|field|com.oldturok.turok.modules.api.Module|scaleFactor
+   Method End: onGui(I)V
+   Method Start: onToggle(Z)V
+      @|com/oldturok/turok/modules/api/Module.java|1361|1366|state|param|com.oldturok.turok.modules.api.Module|onToggle|(Z)V|state|0
+      @|com/oldturok/turok/modules/api/Module.java|1344|1352|onToggle|method|com.oldturok.turok.modules.api.Module|onToggle|(Z)V
+   Method End: onToggle(Z)V
+   Method Start: onUpdate()V
+      @|com/oldturok/turok/modules/api/Module.java|1386|1394|onUpdate|method|com.oldturok.turok.modules.api.Module|onUpdate|()V
+   Method End: onUpdate()V
+   Method Start: onRender()V
+      @|com/oldturok/turok/modules/api/Module.java|1415|1423|onRender|method|com.oldturok.turok.modules.api.Module|onRender|()V
+   Method End: onRender()V
+   Method Start: onKey()V
+      @|com/oldturok/turok/modules/api/Module.java|1444|1449|onKey|method|com.oldturok.turok.modules.api.Module|onKey|()V
+      @|com/oldturok/turok/modules/api/Module.java|1465|1471|module|field|com.oldturok.turok.modules.api.Module|module
+      @|com/oldturok/turok/modules/api/Module.java|1472|1481|isKeyDown|method|net.minecraft.client.settings.KeyBinding|isKeyDown|()Z
+      @|com/oldturok/turok/modules/api/Module.java|1499|1505|Toggle|method|com.oldturok.turok.modules.api.Module|Toggle|()V
+   Method End: onKey()V
+   Method Start: getState()Z
+      @|com/oldturok/turok/modules/api/Module.java|1545|1553|getState|method|com.oldturok.turok.modules.api.Module|getState|()Z
+      @|com/oldturok/turok/modules/api/Module.java|1573|1578|state|field|com.oldturok.turok.modules.api.Module|state
+   Method End: getState()Z
+   Method Start: setState(Z)V
+      @|com/oldturok/turok/modules/api/Module.java|1620|1625|state|param|com.oldturok.turok.modules.api.Module|setState|(Z)V|state|0
+      @|com/oldturok/turok/modules/api/Module.java|1603|1611|setState|method|com.oldturok.turok.modules.api.Module|setState|(Z)V
+      @|com/oldturok/turok/modules/api/Module.java|1641|1646|state|field|com.oldturok.turok.modules.api.Module|state
+      @|com/oldturok/turok/modules/api/Module.java|1649|1654|state|param|com.oldturok.turok.modules.api.Module|setState|(Z)V|state|0
+   Method End: setState(Z)V
+   Method Start: Toggle()V
+      @|com/oldturok/turok/modules/api/Module.java|1679|1685|Toggle|method|com.oldturok.turok.modules.api.Module|Toggle|()V
+      @|com/oldturok/turok/modules/api/Module.java|1698|1706|setState|method|com.oldturok.turok.modules.api.Module|setState|(Z)V
+      @|com/oldturok/turok/modules/api/Module.java|1708|1716|getState|method|com.oldturok.turok.modules.api.Module|getState|()Z
+      @|com/oldturok/turok/modules/api/Module.java|1729|1737|onToggle|method|com.oldturok.turok.modules.api.Module|onToggle|(Z)V
+      @|com/oldturok/turok/modules/api/Module.java|1738|1746|getState|method|com.oldturok.turok.modules.api.Module|getState|()Z
+   Method End: Toggle()V
+   Method Start: getModuleName()Ljava/lang/String;
+      @|com/oldturok/turok/modules/api/Module.java|1770|1776|String|class|java.lang.String|false
+      @|com/oldturok/turok/modules/api/Module.java|1777|1790|getModuleName|method|com.oldturok.turok.modules.api.Module|getModuleName|()Ljava/lang/String;
+      @|com/oldturok/turok/modules/api/Module.java|1810|1814|name|field|com.oldturok.turok.modules.api.Module|name
+      @|com/oldturok/turok/modules/api/Module.java|1829|1837|Keyboard|class|org.lwjgl.input.Keyboard|false
+      @|com/oldturok/turok/modules/api/Module.java|1838|1848|getKeyName|method|org.lwjgl.input.Keyboard|getKeyName|(I)Ljava/lang/String;
+      @|com/oldturok/turok/modules/api/Module.java|1849|1855|module|field|com.oldturok.turok.modules.api.Module|module
+      @|com/oldturok/turok/modules/api/Module.java|1856|1866|getKeyCode|method|net.minecraft.client.settings.KeyBinding|getKeyCode|()I
+   Method End: getModuleName()Ljava/lang/String;
+Class End  : com.oldturok.turok.modules.api.Module
+endProcessing "com/oldturok/turok/modules/api/Module.java"
+
