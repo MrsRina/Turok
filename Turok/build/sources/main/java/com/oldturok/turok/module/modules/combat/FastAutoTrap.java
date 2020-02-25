@@ -7,6 +7,8 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.util.BlockInteractionHelper;
+import com.oldturok.turok.util.EntityUtil;
+import com.oldturok.turok.util.Friends;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockLiquid;
@@ -15,37 +17,45 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.client.CPacketEntityAction;
+import net.minecraft.network.play.client.CPacketPlayerDigging;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.GameType;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static com.oldturok.turok.util.BlockInteractionHelper.canBeClicked;
 import static com.oldturok.turok.util.BlockInteractionHelper.faceVectorPacketInstant;
 
-@Module.Info(name = "AutoBarrier", category = Module.Category.TUROK_COMBAT)
-public class AutoBarrier extends Module {
-
-    private Setting<Mode> mode = register(Settings.e("Mode", Mode.FULL));
-    private Setting<Boolean> triggerable = register(Settings.b("Triggerable", true));
-    private Setting<Integer> timeoutTicks = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(13).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
-    private Setting<Integer> blocksPerTick = register(Settings.integerBuilder("BlocksPerTick").withMinimum(1).withValue(4).withMaximum(9).build());
-    private Setting<Integer> tickDelay = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
+@Module.Info(name = "FastAutoTrap", category = Module.Category.TUROK_COMBAT)
+public class FastAutoTrap extends Module {
+    private Setting<Double> range = register(Settings.doubleBuilder("Range").withMinimum(3.5).withValue(5.0).withMaximum(10.0).build());
+    private Setting<Integer> blocksPerTick = register(Settings.integerBuilder("BlocksPerTick").withMinimum(1).withValue(7).withMaximum(23).build());
+    private Setting<Integer> tickDelay = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(2).withMaximum(10).build());
+    private Setting<Cage> cage = register(Settings.e("Cage", Cage.CRYSTALFULL));
     private Setting<Boolean> rotate = register(Settings.b("Rotate", true));
-    private Setting<Boolean> infoMessage = register(Settings.b("InfoMessage", false));
+    private Setting<Boolean> noGlitchBlocks = register(Settings.b("NoGlitchBlocks", true));
+    private Setting<Boolean> activeInFreecam = register(Settings.b("Active In Freecam", true));
+    private Setting<Boolean> infoMessage = register(Settings.b("Debug", false));
 
-    private int offsetStep = 0;
-    private int delayStep = 0;
+    private EntityPlayer closestTarget;
+    private String lastTargetName;
 
     private int playerHotbarSlot = -1;
     private int lastHotbarSlot = -1;
     private boolean isSneaking = false;
 
-    private int totalTicksRunning = 0;
+    private int delayStep = 0;
+    private int offsetStep = 0;
     private boolean firstRun;
     private boolean missingObiDisable = false;
 
@@ -72,7 +82,6 @@ public class AutoBarrier extends Module {
 
     @Override
     protected void onEnable() {
-
         if (mc.player == null) {
             this.disable();
             return;
@@ -82,11 +91,14 @@ public class AutoBarrier extends Module {
 
         playerHotbarSlot = mc.player.inventory.currentItem;
         lastHotbarSlot = -1;
+     
+        Command.sendChatMessage("FastAutoTrap -> " + ChatFormatting.GREEN + "Enabled!");
 
     }
 
     @Override
     protected void onDisable() {
+        Command.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled!");
 
         if (mc.player == null) {
             return;
@@ -111,17 +123,24 @@ public class AutoBarrier extends Module {
     @Override
     public void onUpdate() {
 
-        if (mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
+        if (mc.player == null) {
             return;
         }
 
-        if (triggerable.getValue() && totalTicksRunning >= timeoutTicks.getValue()) {
-            totalTicksRunning = 0;
-            this.disable();
+        if (!activeInFreecam.getValue() && ModuleManager.isModuleEnabled("Freecam")) {
             return;
         }
 
-        if (!firstRun) {
+
+        if (firstRun) {
+            if (findObiInHotbar() == -1) {
+                if (infoMessage.getValue()) {
+                    Command.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                }
+                this.disable();
+                return;
+            }
+        } else {
             if (delayStep < tickDelay.getValue()) {
                 delayStep++;
                 return;
@@ -130,39 +149,47 @@ public class AutoBarrier extends Module {
             }
         }
 
+        findClosestTarget();
+
+        if (closestTarget == null) {
+            return;
+        }
+
         if (firstRun) {
             firstRun = false;
-            if (findObiInHotbar() == -1) {
-                missingObiDisable = true;
-            }
+            lastTargetName = closestTarget.getName();
+        } else if (!lastTargetName.equals(closestTarget.getName())) {
+            offsetStep = 0;
+            lastTargetName = closestTarget.getName();
         }
 
-        Vec3d[] offsetPattern = new Vec3d[0];
-        int maxSteps = 0;
+        List<Vec3d> placeTargets = new ArrayList<>();
 
-        if (mode.getValue().equals(Mode.FULL)) {
-            offsetPattern = Offsets.FULL;
-            maxSteps = Offsets.FULL.length;
+        if (cage.getValue().equals(Cage.TRAP)) {
+            Collections.addAll(placeTargets, Offsets.TRAP);
         }
 
-        if (mode.getValue().equals(Mode.SURROUND)) {
-            offsetPattern = Offsets.SURROUND;
-            maxSteps = Offsets.SURROUND.length;
+        if (cage.getValue().equals(Cage.CRYSTALEXA)) {
+            Collections.addAll(placeTargets, Offsets.CRYSTALEXA);
+        }
+
+        if (cage.getValue().equals(Cage.CRYSTALFULL)) {
+            Collections.addAll(placeTargets, Offsets.CRYSTALFULL);
         }
 
         int blocksPlaced = 0;
 
         while (blocksPlaced < blocksPerTick.getValue()) {
 
-            if (offsetStep >= maxSteps) {
+            if (offsetStep >= placeTargets.size()) {
                 offsetStep = 0;
                 break;
             }
 
-            BlockPos offsetPos = new BlockPos(offsetPattern[offsetStep]);
-            BlockPos targetPos = new BlockPos(mc.player.getPositionVector()).add(offsetPos.x, offsetPos.y, offsetPos.z);
+            BlockPos offsetPos = new BlockPos(placeTargets.get(offsetStep));
+            BlockPos targetPos = new BlockPos(closestTarget.getPositionVector()).down().add(offsetPos.x, offsetPos.y, offsetPos.z);
 
-            if (placeBlock(targetPos)) {
+            if (placeBlockInRange(targetPos, range.getValue())) {
                 blocksPlaced++;
             }
 
@@ -184,19 +211,18 @@ public class AutoBarrier extends Module {
 
         }
 
-        totalTicksRunning++;
-
         if (missingObiDisable) {
             missingObiDisable = false;
             if (infoMessage.getValue()) {
-                Command.sendChatMessage("[AutoFeetPlace] " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                Command.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
             }
             this.disable();
         }
 
     }
 
-    private boolean placeBlock(BlockPos pos) {
+    private boolean placeBlockInRange(BlockPos pos, double range) {
+
         Block block = mc.world.getBlockState(pos).getBlock();
         if (!(block instanceof BlockAir) && !(block instanceof BlockLiquid)) {
             return false;
@@ -224,6 +250,10 @@ public class AutoBarrier extends Module {
         Vec3d hitVec = new Vec3d(neighbour).add(0.5, 0.5, 0.5).add(new Vec3d(opposite.getDirectionVec()).scale(0.5));
         Block neighbourBlock = mc.world.getBlockState(neighbour).getBlock();
 
+        if (mc.player.getPositionVector().distanceTo(hitVec) > range) {
+            return false;
+        }
+
         int obiSlot = findObiInHotbar();
 
         if (obiSlot == -1) {
@@ -249,11 +279,16 @@ public class AutoBarrier extends Module {
         mc.player.swingArm(EnumHand.MAIN_HAND);
         mc.rightClickDelayTimer = 4;
 
+        if (noGlitchBlocks.getValue() && !mc.playerController.getCurrentGameType().equals(GameType.CREATIVE)) {
+            mc.player.connection.sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.Action.START_DESTROY_BLOCK, neighbour, opposite));
+        }
+
         return true;
 
     }
 
     private int findObiInHotbar() {
+
         int slot = -1;
         for (int i = 0; i < 9; i++) {
 
@@ -275,33 +310,114 @@ public class AutoBarrier extends Module {
 
     }
 
-    private enum Mode {
-        SURROUND, FULL
+    private void findClosestTarget() {
+
+        List<EntityPlayer> playerList = mc.world.playerEntities;
+
+        closestTarget = null;
+
+        for (EntityPlayer target : playerList) {
+
+            if (target == mc.player) {
+                continue;
+            }
+
+            if (mc.player.getDistance(target) > range.getValue() + 3) {
+                continue;
+            }
+
+            if (!EntityUtil.isLiving(target)) {
+                continue;
+            }
+
+            if ((target).getHealth() <= 0) {
+                continue;
+            }
+
+            if (Friends.isFriend(target.getName())) {
+                continue;
+            }
+
+            if (closestTarget == null) {
+                closestTarget = target;
+                continue;
+            }
+
+            if (mc.player.getDistance(target) < mc.player.getDistance(closestTarget)) {
+                closestTarget = target;
+            }
+
+        }
+
+    }
+
+    @Override
+    public String getHudInfo() {
+        if (closestTarget != null) {
+            return closestTarget.getName().toUpperCase();
+        }
+        return "NO TARGET";
+    }
+
+    private enum Cage {
+        TRAP, CRYSTALEXA, CRYSTALFULL
     }
 
     private static class Offsets {
 
-        private static final Vec3d[] SURROUND = {
+        private static final Vec3d[] TRAP = {
+                new Vec3d(0, 0, -1),
                 new Vec3d(1, 0, 0),
                 new Vec3d(0, 0, 1),
                 new Vec3d(-1, 0, 0),
-                new Vec3d(0, 0, -1),
-                new Vec3d(1, -1, 0),
-                new Vec3d(0, -1, 1),
-                new Vec3d(-1, -1, 0),
-                new Vec3d(0, -1, -1)
+                new Vec3d(0, 1, -1),
+                new Vec3d(1, 1, 0),
+                new Vec3d(0, 1, 1),
+                new Vec3d(-1, 1, 0),
+                new Vec3d(0, 2, -1),
+                new Vec3d(1, 2, 0),
+                new Vec3d(0, 2, 1),
+                new Vec3d(-1, 2, 0),
+                new Vec3d(0, 3, -1),
+                new Vec3d(0, 3, 0)
         };
 
-        private static final Vec3d[] FULL = {
+        private static final Vec3d[] CRYSTALEXA = {
+                new Vec3d(0, 0, -1),
+                new Vec3d(0, 1, -1),
+                new Vec3d(0, 2, -1),
+                new Vec3d(1, 2, 0),
+                new Vec3d(0, 2, 1),
+                new Vec3d(-1, 2, 0),
+                new Vec3d(-1, 2, -1),
+                new Vec3d(1, 2, 1),
+                new Vec3d(1, 2, -1),
+                new Vec3d(-1, 2, 1),
+                new Vec3d(0, 3, -1),
+                new Vec3d(0, 3, 0)
+        };
+
+        private static final Vec3d[] CRYSTALFULL = {
+                new Vec3d(0, 0, -1),
                 new Vec3d(1, 0, 0),
                 new Vec3d(0, 0, 1),
                 new Vec3d(-1, 0, 0),
-                new Vec3d(0, 0, -1),
-                new Vec3d(1, -1, 0),
-                new Vec3d(0, -1, 1),
-                new Vec3d(-1, -1, 0),
-                new Vec3d(0, -1, -1),
-                new Vec3d(0, -1, 0)
+                new Vec3d(-1, 0, 1),
+                new Vec3d(1, 0, -1),
+                new Vec3d(-1, 0, -1),
+                new Vec3d(1, 0, 1),
+                new Vec3d(-1, 1, -1),
+                new Vec3d(1, 1, 1),
+                new Vec3d(-1, 1, 1),
+                new Vec3d(1, 1, -1),
+                new Vec3d(0, 2, -1),
+                new Vec3d(1, 2, 0),
+                new Vec3d(0, 2, 1),
+                new Vec3d(-1, 2, 0),
+                new Vec3d(-1, 2, 1),
+                new Vec3d(1, 2, -1),
+                new Vec3d(0, 3, -1),
+                new Vec3d(0, 3, 0)
         };
 
     }

@@ -203,36 +203,13 @@ public class TurokGUI extends GUI {
 
             @Override
             public void onTick() {
-                boolean inHell = (mc.world.getBiome(mc.player.getPosition()).getBiomeName().equals("Hell"));
-
                 int posX = (int) mc.player.posX;
                 int posY = (int) mc.player.posY;
                 int posZ = (int) mc.player.posZ;
 
-                float f = !inHell ? 0.125f : 8;
-                int hposX = (int) (mc.player.posX * f);
-                int hposZ = (int) (mc.player.posZ * f);
-
-                coordsLabel.setText(String.format(" %sf%,d%s7, %sf%,d%s7, %sf%,d %s7(%sf%,d%s7, %sf%,d%s7, %sf%,d%s7)",
-                        Command.SECTIONSIGN(),
-                        posX,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        posY,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        posZ,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        hposX,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        posY,
-                        Command.SECTIONSIGN(),
-                        Command.SECTIONSIGN(),
-                        hposZ,
-                        Command.SECTIONSIGN()
-                ));
+                coordsLabel.setText("Coords:");
+                coordsLabel.addLine(ChatFormatting.RED + "Nether: " + Integer.toString(posX * 8) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ * 8) + "z");
+                coordsLabel.addLine(ChatFormatting.BLUE + "Overworld: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z");
             }
         });
         frame.addChild(coordsLabel);

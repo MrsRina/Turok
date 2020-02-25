@@ -13,7 +13,8 @@ public class AutoTotem extends Module {
     int totems;
     boolean moving = false;
     boolean returnI = false;
-    private Setting<Boolean> soft = register(Settings.b("Soft"));
+    
+    private Setting<Boolean> soft = register(Settings.b("Soft", false));
 
     @Override
     public void onUpdate() {
@@ -51,6 +52,7 @@ public class AutoTotem extends Module {
                 if (t == -1) return;
                 mc.playerController.windowClick(0, t < 9 ? t + 36 : t, 0, ClickType.PICKUP, mc.player);
                 moving = true;
+
             } else if (!soft.getValue()) {
                 int t = -1;
                 for (int i = 0; i < 45; i++)

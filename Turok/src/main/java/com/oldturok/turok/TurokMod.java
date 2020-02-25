@@ -46,9 +46,9 @@ public class TurokMod {
 
     public static final String MODID = "turok";
     public static final String MODNAME = "\u1355\u0e22\u0433\u0e4f\u043a";
-    public static final String MODVER = "0.1";
+    public static final String MODVER = "0.2";
 
-    private static final String TUROK_CONFIG_NAME_DEFAULT = "TurokConfigs/Binds.json";
+    private static final String TUROK_CONFIG_NAME_DEFAULT = "TurokConfigsBinds.json";
 
     public static final Logger log = LogManager.getLogger("Turok");
 

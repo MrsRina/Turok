@@ -32,7 +32,7 @@ public class AutoBarrier extends Module {
 
     private Setting<Mode> mode = register(Settings.e("Mode", Mode.FULL));
     private Setting<Boolean> triggerable = register(Settings.b("Triggerable", true));
-    private Setting<Integer> timeoutTicks = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(40).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
+    private Setting<Integer> timeoutTicks = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(13).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
     private Setting<Integer> blocksPerTick = register(Settings.integerBuilder("BlocksPerTick").withMinimum(1).withValue(4).withMaximum(9).build());
     private Setting<Integer> tickDelay = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
     private Setting<Boolean> rotate = register(Settings.b("Rotate", true));
