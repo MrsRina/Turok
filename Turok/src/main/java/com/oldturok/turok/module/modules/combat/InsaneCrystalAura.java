@@ -55,8 +55,8 @@ import com.oldturok.turok.command.Command;
 
 // FastCrysalAura, the best than kami old.
 // By Rina.
-@Module.Info(name = "LeakedOldFastCrystalAura", category = Module.Category.TUROK_COMBAT)
-public class LeakedFastCrystalAura extends Module {
+@Module.Info(name = "InsaneCrystalAura", category = Module.Category.TUROK_COMBAT)
+public class InsaneCrystalAura extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     
     private Setting<Integer> cor_red   = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
@@ -106,7 +106,7 @@ public class LeakedFastCrystalAura extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("LeakedOldFastCrystalAura <- " + ChatFormatting.RED + "Disabled!");
+            Command.sendChatMessage("InsaneCrystalAura <- " + ChatFormatting.GREEN + "Enabled!");
         } else {
             return;
         }
@@ -119,7 +119,7 @@ public class LeakedFastCrystalAura extends Module {
         reset_rotation();
 
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("LeakedOldFastCrystalAura <- " + ChatFormatting.RED + "Disabled!");
+            Command.sendChatMessage("InsaneCrystalAura -? " + ChatFormatting.RED + "Disabled!");
         } else {
             return; 
         }
@@ -399,7 +399,7 @@ public class LeakedFastCrystalAura extends Module {
     }
 
     private static float getDamageMultiplied(final float damage) {
-        final int diff = LeakedFastCrystalAura.mc.world.getDifficulty().getId();
+        final int diff = InsaneCrystalAura.mc.world.getDifficulty().getId();
         return damage * ((diff == 0) ? 0.0f : ((diff == 2) ? 1.0f : ((diff == 1) ? 0.5f : 1.5f)));
     }
 }

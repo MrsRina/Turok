@@ -8,7 +8,8 @@ class Compile:
 		
 		import shutil
 		try:
-			shutil.copyfile("Turok/build/libs/turok-b0.2.jar", os.getenv("APPDATA") + "\\.minecraft\\mods\\turok-b0.2.jar")
+			shutil.copyfile("Turok/build/libs/turok-b0.2-release.jar", os.getenv("APPDATA") + "\\.minecraft\\mods\\turok-b0.2-release.jar")
+			print("Copiadokkk")
 		except:
 			print("Ta sem o lib fodase")
 

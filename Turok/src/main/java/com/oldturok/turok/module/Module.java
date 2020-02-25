@@ -66,13 +66,13 @@ public class Module {
 
     public enum Category
     {
-        TUROK_COMBAT("TurokCombat", true),
-        TUROK_MISC("TurokMisc", true),
-        TUROK_MOVEMENT("TurokMovement", true),
-        TUROK_PLAYER("TurokPlayer", true),
-        TUROK_RENDER("TurokRender", true),
-        TUROK_CHAT("TurokChat", true),
-        TUROK_NULL("Hidden", false);
+        TUROK_COMBAT("TurokCombat", false),
+        TUROK_MISC("TurokMisc", false),
+        TUROK_MOVEMENT("TurokMovement", false),
+        TUROK_PLAYER("TurokPlayer", false),
+        TUROK_RENDER("TurokRender", false),
+        TUROK_CHAT("TurokChat", false),
+        TUROK_HIDDEN("null", true);
 
         boolean hidden;
         String name;

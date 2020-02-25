@@ -34,7 +34,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
     boolean centerY = false;
     int xLineOffset = 0;
 
-    private static final RootFontRenderer ff = new RootLargeFontRenderer();
+    private static final RootFontRenderer ff = new RootSmallFontRenderer();
 
     @Override
     public void renderComponent(Frame component, FontRenderer fontRenderer) {
@@ -42,11 +42,16 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
             return;
         glDisable(GL_TEXTURE_2D);
 
-        glColor4f(.17f,.17f,.18f,.9f);
-        RenderHelper.drawFilledRectangle(0,0,component.getWidth(),component.getHeight());
-        glColor3f(.59f,.05f,.11f);
+        glColor4f(1f, 1f, 1f, 0.3f);
+        RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
+        
+        glColor4f(1f, 1f, 1f, 0.3f);
         glLineWidth(1.5f);
-        RenderHelper.drawRectangle(0,0,component.getWidth(),component.getHeight());
+        RenderHelper.drawRectangle(0, 0, component.getWidth(), component.getHeight());
+
+        glColor4f(0f, 0f, 1f, 1.0f);
+        glLineWidth(1.5f);
+        RenderHelper.drawRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 1);
 
         GL11.glColor3f(1,1,1);
         ff.drawString(component.getWidth() / 2 - ff.getStringWidth(component.getTitle()) / 2, 1, component.getTitle());

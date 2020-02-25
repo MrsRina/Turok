@@ -1,3 +1,7 @@
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.1'
+}
+
 buildscript {
     repositories {
         jcenter()
@@ -70,6 +74,8 @@ dependencies {
     compile(group: 'org.reflections', name: 'reflections', version: '0.9.11') {
         exclude group: 'com.google.guava', module: 'guava'
     }
+
+    compile 'club.minnced:java-discord-rpc:v2.0.1' // Discord rpc.
 }
 
 processResources {

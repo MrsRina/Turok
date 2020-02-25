@@ -40,7 +40,8 @@ import java.util.stream.Collectors;
 
 public class TurokGUI extends GUI {
 
-    public static final RootFontRenderer fontRenderer = new RootFontRenderer(1);
+    public static final RootFontRenderer fontRendererBig = new RootFontRenderer(1.0f);
+    public static final RootFontRenderer fontRenderer = new RootFontRenderer(0.75f);
     public Theme theme;
 
     public static ColourHolder primaryColour = new ColourHolder(29, 29, 29);
@@ -213,7 +214,7 @@ public class TurokGUI extends GUI {
             }
         });
         frame.addChild(coordsLabel);
-        coordsLabel.setFontRenderer(fontRenderer);
+        coordsLabel.setFontRenderer(fontRendererBig);
         coordsLabel.setShadow(true);
         frame.setHeight(20);
         frames.add(frame);

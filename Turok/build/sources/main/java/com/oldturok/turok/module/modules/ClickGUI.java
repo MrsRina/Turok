@@ -4,7 +4,7 @@ import com.oldturok.turok.gui.turok.DisplayGuiScreen;
 import com.oldturok.turok.module.Module;
 import org.lwjgl.input.Keyboard;
 
-@Module.Info(name = "clickGUI", description = "Opens the Click GUI", category = Module.Category.TUROK_NULL)
+@Module.Info(name = "clickGUI", description = "Opens the Click GUI", category = Module.Category.TUROK_HIDDEN)
 public class ClickGUI extends Module {
 
     public ClickGUI() {

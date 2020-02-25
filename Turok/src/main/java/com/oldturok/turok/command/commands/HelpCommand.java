@@ -39,7 +39,7 @@ public class HelpCommand extends Command {
         if (args[0] == null) {
             Command.sendStringChatMessage(new String[]{
                     "Help Turok:",
-                    "Press $4 " + ModuleManager.getModuleByName("ClickGUI").getBindName() + "&4 to open GUI",
+                    "Press " + ModuleManager.getModuleByName("ClickGUI").getBindName() + "&4 to open GUI",
                     "For change prefix write .prefix (character)",
                     "For some other command talk with devs!"
             });
