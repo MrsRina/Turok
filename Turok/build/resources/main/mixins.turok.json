@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.oldturok.turok.mixin.client",
+  "refmap": "mixins.turok.refmap.json",
+  "client": [
+    "MixinGuiChat",
+    "MixinNetworkManager",
+    "MixinEntity",
+    "MixinMinecraft",
+    "MixinStateImplementation",
+    "MixinEntityRenderer",
+    "MixinEntityPlayerSP",
+    "MixinModelBoat",
+    "MixinBlockSoulSand",
+    "MixinEntityPig",
+    "MixinGuiScreen",
+    "MixinBlockLiquid",
+    "MixinRenderPlayer",
+    "MixinGuiPlayerTabOverlay",
+    "MixinC00Handshake",
+    "MixinNetHandlerPlayClient",
+    "MixinRenderLiving",
+    "MixinPlayerControllerMP",
+    "MixinEntityLlama"
+  ]
+}
