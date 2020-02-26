@@ -19,7 +19,7 @@ public abstract class Command {
 
 	protected SyntaxChunk[] syntaxChunks;
 
-	public static Setting<String> commandPrefix = Settings.s("commandPrefix", ".");
+	public static Setting<String> commandPrefix = Settings.s("commandPrefix", "-");
 
 	public Command(String label, SyntaxChunk[] syntaxChunks) {
 		this.label = label;

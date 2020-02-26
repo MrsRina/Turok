@@ -11,15 +11,14 @@ import com.oldturok.turok.setting.Settings;
 import net.minecraft.network.play.server.SPacketEntityVelocity;
 import net.minecraft.network.play.server.SPacketExplosion;
 
-@Module.Info(name = "Velocity", description = "Modify knockback impact", category = Module.Category.TUROK_MOVEMENT)
-public class Velocity extends Module {
+@Module.Info(name = "Velocity", description = "Modify knockback.", category = Module.Category.TUROK_MOVEMENT)
+public class velocity {
+	private Setting<Float> horizontal = register(Settings.f("Horizontal", 0));
+	private Setting<Float> vertical = register(Settings.f("Vertical", 0));
 
-    private Setting<Float> horizontal = register(Settings.f("Horizontal", 0));
-    private Setting<Float> vertical = register(Settings.f("Vertical", 0));
-
-    @EventHandler
-    private Listener<PacketEvent.Receive> packetEventListener = new Listener<>(event -> {
-        if (event.getEra() == TurokEvent.Era.PRE) {
+	@EventHandler
+	private Listener<PacketEvent.Receive> packetEventListener = new Listener<>(event -> {
+		if (event.getEra() == TurokEvent.Era.PRE) {
             if (event.getPacket() instanceof SPacketEntityVelocity) {
                 SPacketEntityVelocity velocity = (SPacketEntityVelocity) event.getPacket();
                 if (velocity.getEntityID() == mc.player.entityId) {
@@ -49,6 +48,5 @@ public class Velocity extends Module {
             event.setY(0);
             event.setZ(-event.getZ() * horizontal.getValue());
         }
-    });
-
+	});
 }

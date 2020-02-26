@@ -14,5 +14,4 @@ public class SafeWalk extends Module {
     public static boolean shouldSafewalk() {
         return INSTANCE.isEnabled();
     }
-
 }

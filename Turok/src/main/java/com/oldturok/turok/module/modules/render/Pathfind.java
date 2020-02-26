@@ -21,7 +21,6 @@ import java.util.Iterator;
 
 @Module.Info(name = "Pathfind", category = Module.Category.TUROK_RENDER)
 public class Pathfind extends Module {
-
     public static ArrayList<PathPoint> points = new ArrayList<>();
     static PathPoint to = null;
 
@@ -99,7 +98,6 @@ public class Pathfind extends Module {
     }
 
     private static class AnchoredWalkNodeProcessor extends WalkNodeProcessor {
-
         PathPoint from;
 
         public AnchoredWalkNodeProcessor(PathPoint from) {

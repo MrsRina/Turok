@@ -99,7 +99,7 @@ public class Brightness extends Module {
     }
 
     public static boolean shouldBeActive() {
-        return isInTransition() || currentBrightness == 1; // if in transition or enabled
+        return isInTransition() || currentBrightness == 1;
     }
 
     public enum Transition {
