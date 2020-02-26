@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
 public class TurokGUI extends GUI {
 
     public static final RootFontRenderer fontRendererBig = new RootFontRenderer(1.0f);
-    public static final RootFontRenderer fontRenderer = new RootFontRenderer(0.75f);
+    public static final RootFontRenderer fontRenderer = new RootFontRenderer(1.0f);
     public Theme theme;
 
     public static ColourHolder primaryColour = new ColourHolder(29, 29, 29);
@@ -202,13 +202,20 @@ public class TurokGUI extends GUI {
         coordsLabel.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
-            int posX = (int) mc.player.posX;
-            int posY = (int) mc.player.posY;
-            int posZ = (int) mc.player.posZ;
+            boolean on_nether = (mc.world.getBiome(mc.player.getPosition()).getBiomeName().equals("Hell"));
+
+            float value = !on_nether ? 0.125f : 8;
+            
+            int posX = (int) (mc.player.posX);
+            int posY = (int) (mc.player.posY);
+            int posZ = (int) (mc.player.posZ);
+
+            int poshX = (int) (mc.player.posX * value);
+            int poshZ = (int) (mc.player.posZ * value);
 
             coordsLabel.setText("Coords:");
-            coordsLabel.addLine(ChatFormatting.RED + "Nether: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z");
-            coordsLabel.addLine(ChatFormatting.BLUE + "Overworld: " + Integer.toString(posX * 8) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ * 8) + "z");
+            coordsLabel.addLine(String.format(ChatFormatting.RED + "Nether: " + poshX + "x " + Integer.toString(posY) + "y " + poshZ + "z"));
+            coordsLabel.addLine(String.format(ChatFormatting.BLUE + "Overworld: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z"));
         });
         frame.addChild(coordsLabel);
         coordsLabel.setFontRenderer(fontRendererBig);

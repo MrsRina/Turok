@@ -33,13 +33,13 @@ public class RootCheckButtonUI<T extends CheckButton> extends AbstractComponentU
         }
 
         String text = component.getName();
-        int c = component.isPressed() ? 0xaaaaaa : component.isToggled() ? 0xff3333 : 0xdddddd;
+        int c = component.isPressed() ? 0x338243 : component.isToggled() ? 0x1f8a34 : 0x6cff89;
         if (component.isHovered())
-            c = (c & 0x7f7f7f) << 1;
+            c = (c & 0x80f94d) << 1;
 
         glColor3f(1,1,1);
         glEnable(GL_TEXTURE_2D);
-        TurokGUI.fontRenderer.drawString(component.getWidth() / 2 - TurokGUI.fontRenderer.getStringWidth(text) / 2, TurokGUI.fontRenderer.getFontHeight()/2-2, c, text);
+        TurokGUI.fontRenderer.drawString(1, TurokGUI.fontRenderer.getFontHeight()/2-1, c, text);
         glDisable(GL_TEXTURE_2D);
         glDisable(GL_BLEND);
     }
