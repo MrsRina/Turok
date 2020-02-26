@@ -5,6 +5,7 @@ import com.oldturok.turok.gui.turok.component.ActiveModules;
 import com.oldturok.turok.gui.rgui.component.AlignedComponent;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.turok.RootFontRenderer;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.Wrapper;
@@ -26,7 +27,7 @@ public class TurokActiveModulesUI extends AbstractComponentUI<ActiveModules> {
         GL11.glEnable(GL11.GL_BLEND);
         GL11.glEnable(GL11.GL_TEXTURE_2D);
 
-        FontRenderer renderer = Wrapper.getFontRenderer();
+        RootFontRenderer renderer = new RootFontRenderer(1.0f);
         List<Module> mods = ModuleManager.getModules().stream()
                 .filter(Module::isEnabled)
                 .sorted(Comparator.comparing(module -> renderer.getStringWidth(module.getName()+(module.getHudInfo()==null?"":module.getHudInfo()+" "))*(component.sort_up?-1:1)))

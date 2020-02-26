@@ -45,10 +45,10 @@ import java.util.Optional;
 public class TurokMod {
 
     public static final String MODID = "turok";
-    public static final String MODNAME = "\u1355\u0e22\u0433\u0e4f\u043a";
+    public static final String MODNAME = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
     public static final String MODVER = "0.2";
 
-    private static final String TUROK_CONFIG_NAME_DEFAULT = "TurokConfigsBinds.json";
+    private static final String TUROK_CONFIG_NAME_DEFAULT = "TurokBinds.json";
 
     public static final Logger log = LogManager.getLogger("Turok");
 
@@ -72,9 +72,7 @@ public class TurokMod {
     }).buildAndRegister("");
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-
-    }
+    public void preInit(FMLPreInitializationEvent event) {}
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
@@ -98,16 +96,14 @@ public class TurokMod {
         loadConfiguration();
         TurokMod.log.info("Settings loaded");
 
-        ModuleManager.updateLookup(); // generate the lookup table after settings are loaded to make custom module names work
-
-        // After settings loaded, we want to let the enabled modules know they've been enabled (since the setting is done through reflection)
+        ModuleManager.updateLookup();
         ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
 
         TurokMod.log.info("Turok Mod initialized!\n");
     }
 
     public static String getConfigName() {
-        Path config = Paths.get("TUROKLastConfig.txt");
+        Path config = Paths.get("TurokCache.txt");
         String turokConfigName = TUROK_CONFIG_NAME_DEFAULT;
         try(BufferedReader reader = Files.newBufferedReader(config)) {
             turokConfigName = reader.readLine();
@@ -183,6 +179,7 @@ public class TurokMod {
 
         Path outputFile = Paths.get(getConfigName());
         if (!Files.exists(outputFile))
+            Files.createDirectories(Paths.get("TurokConfig/"));
             Files.createFile(outputFile);
         Configuration.saveConfiguration(outputFile);
         ModuleManager.getModules().forEach(Module::destroy);

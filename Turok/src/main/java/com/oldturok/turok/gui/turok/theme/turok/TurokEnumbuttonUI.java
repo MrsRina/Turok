@@ -15,8 +15,8 @@ public class TurokEnumbuttonUI extends AbstractComponentUI<EnumButton> {
 
     RootSmallFontRenderer smallFontRenderer = new RootSmallFontRenderer();
 
-    protected Color idleColour = new Color(163, 163, 163);
-    protected Color downColour = new Color(255, 255, 255);
+    protected Color idleColour = new Color(0, 0, 163);
+    protected Color downColour = new Color(0, 0, 255);
 
     EnumButton modeComponent;
     long lastMS = System.currentTimeMillis();
@@ -45,7 +45,7 @@ public class TurokEnumbuttonUI extends AbstractComponentUI<EnumButton> {
         float downscale = 1.1f;
 
         glDisable(GL_TEXTURE_2D);
-        glColor3f(.59f,.05f,.11f);
+        glColor4f(1f,1f,1f, 0.3f);
         glBegin(GL_LINES);
         {
             glVertex2d(startX,height/downscale);

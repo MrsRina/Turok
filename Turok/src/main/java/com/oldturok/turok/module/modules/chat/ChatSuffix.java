@@ -11,14 +11,13 @@ import net.minecraft.network.play.client.CPacketChatMessage;
 
 @Module.Info(name = "ChatSuffix", category = Module.Category.TUROK_CHAT, description = "Modifies your chat messages")
 public class ChatSuffix extends Module {
-
     private Setting<Boolean> commands = register(Settings.b("Commands", true));
     private Setting<Boolean> iSpeakSuffix = register(Settings.b("I Speak Taco Suffix", false));
     private Setting<Boolean> iAmTurokSuffix = register(Settings.b("I Am Turok Suffix", true));
     private Setting<Boolean> turokSuffix = register(Settings.b("Turok Suffix", false));
 
-    private final String TUROK_SUFFIX = " \u23D0 \u1355\u0e22\u0433\u0e4f\u043a";
-    private final String I_AM_TUROK_SUFFIX = " \u23D0 \u026a \u1d00\u1d0d \u1355\u0e22\u0433\u0e4f\u043a";
+    private final String TUROK_SUFFIX = " \u23D0 \u1d1b\u1d1c\u0280\u0473\u1d0b";
+    private final String I_AM_TUROK_SUFFIX = " \u23D0 \u026a \u1d00\u1d0d \u1d1b\u1d1c\u0280\u0473\u1d0b";
     private final String I_SPEAK_TACO_SUFFIX = " \u23D0 \u026a \u0073\u1d18\u1d07\u1d00\u1d0b \u1d1b\u1d00\u1d04\u1d0f";
 
     boolean suffix_accept;

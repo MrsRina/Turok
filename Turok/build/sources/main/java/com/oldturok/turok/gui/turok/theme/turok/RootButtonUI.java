@@ -13,8 +13,8 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class RootButtonUI<T extends Button> extends AbstractComponentUI<Button> {
 
-    protected Color idleColour = new Color(163, 163, 163);
-    protected Color downColour = new Color(255, 255, 255);
+    protected Color idleColour = new Color(0, 0, 255);
+    protected Color downColour = new Color(0, 0, 150);
 
     @Override
     public void renderComponent(Button component, FontRenderer ff) {
@@ -23,11 +23,11 @@ public class RootButtonUI<T extends Button> extends AbstractComponentUI<Button> 
             glColor3f(0.26f,0.26f,0.26f);
         }
 
-        RenderHelper.drawRoundedRectangle(0,0,component.getWidth(), component.getHeight(), 3f);
+        RenderHelper.drawRoundedRectangle(0, 0, component.getWidth(), component.getHeight(), 3f);
 
         glColor3f(1,1,1);
         glEnable(GL_TEXTURE_2D);
-        TurokGUI.fontRenderer.drawString(component.getWidth() / 2 - TurokGUI.fontRenderer.getStringWidth(component.getName()) / 2, 0, component.isPressed() ? downColour : idleColour, component.getName());
+        TurokGUI.fontRenderer.drawString(1, 0, component.isPressed() ? downColour : idleColour, component.getName());
         glDisable(GL_TEXTURE_2D);
         glDisable(GL_BLEND);
     }

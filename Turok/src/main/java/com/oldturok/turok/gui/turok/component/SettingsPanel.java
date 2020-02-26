@@ -18,9 +18,6 @@ import com.oldturok.turok.util.Bind;
 
 import java.util.Arrays;
 
-/**
- * Created by 086 on 6/08/2017.
- */
 public class SettingsPanel extends OrganisedContainer {
 
     Module module;
@@ -63,9 +60,6 @@ public class SettingsPanel extends OrganisedContainer {
                     NumberSetting numberSetting = (NumberSetting) setting;
                     boolean isBound = numberSetting.isBound();
 
-                    // Terrible terrible bug fix.
-                    // I know, these parseDoubles look awful, but any conversions I tried here would end up with weird floating point conversion errors.
-                    // This is really the easiest solution..
                     double value = Double.parseDouble(numberSetting.getValue().toString());
                     if (!isBound) {
                         UnboundSlider slider = new UnboundSlider(value, name, setting instanceof IntegerSetting);

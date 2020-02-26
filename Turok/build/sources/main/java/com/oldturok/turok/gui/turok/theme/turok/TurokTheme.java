@@ -9,7 +9,6 @@ import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import com.oldturok.turok.gui.rgui.render.theme.AbstractTheme;
 
 public class TurokTheme extends AbstractTheme {
-
     FontRenderer fontRenderer;
 
     public TurokTheme() {

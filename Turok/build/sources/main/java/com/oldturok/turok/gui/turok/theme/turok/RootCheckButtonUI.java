@@ -12,13 +12,13 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class RootCheckButtonUI<T extends CheckButton> extends AbstractComponentUI<CheckButton> {
 
-    protected Color backgroundColour = new Color(200, 56, 56);
-    protected Color backgroundColourHover = new Color(255,66,66);
+    protected Color backgroundColour = new Color(0, 0, 255);
+    protected Color backgroundColourHover = new Color(0, 0, 255);
 
-    protected Color idleColourNormal = new Color(200, 200, 200);
-    protected Color downColourNormal = new Color(190, 190, 190);
+    protected Color idleColourNormal = new Color(0, 0, 255);
+    protected Color downColourNormal = new Color(0, 0, 255);
 
-    protected Color idleColourToggle = new Color(250, 120, 120);
+    protected Color idleColourToggle = new Color(0, 0, 255);
     protected Color downColourToggle = idleColourToggle.brighter();
 
     @Override

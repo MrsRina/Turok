@@ -14,9 +14,9 @@ public class TurokSettingsPanelUI extends AbstractComponentUI<SettingsPanel> {
         super.renderComponent(component, fontRenderer);
 
         glLineWidth(2f);
-        glColor4f(.17f,.17f,.18f,.9f);
+        glColor4f(1.0f, 1.0f, 1.0f, 0.3f);
         RenderHelper.drawFilledRectangle(0,0,component.getWidth(),component.getHeight());
-        glColor3f(.59f,.05f,.11f);
+        glColor3f(0.0f, 0.05f, 255f);
         glLineWidth(1.5f);
         RenderHelper.drawRectangle(0,0,component.getWidth(),component.getHeight());
     }

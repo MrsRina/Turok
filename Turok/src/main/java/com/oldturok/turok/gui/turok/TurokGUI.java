@@ -66,7 +66,7 @@ public class TurokGUI extends GUI {
                 Stretcherlayout stretcherlayout = new Stretcherlayout(1);
                 stretcherlayout.setComponentOffsetWidth(0);
                 Scrollpane scrollpane = new Scrollpane(getTheme(), stretcherlayout, 300, 260);
-                scrollpane.setMaximumHeight(180);
+                scrollpane.setMaximumHeight(300);
                 categoryScrollpaneHashMap.put(moduleCategory, new Pair<>(scrollpane, new SettingsPanel(getTheme(), null)));
             }
 
@@ -75,7 +75,7 @@ public class TurokGUI extends GUI {
             CheckButton checkButton = new CheckButton(module.getName());
             checkButton.setToggled(module.isEnabled());
 
-            checkButton.addTickListener(() -> { // dear god
+            checkButton.addTickListener(() -> {
                 checkButton.setToggled(module.isEnabled());
                 checkButton.setName(module.getName());
             });
@@ -83,7 +83,7 @@ public class TurokGUI extends GUI {
             checkButton.addMouseListener(new MouseListener() {
                 @Override
                 public void onMouseDown(MouseButtonEvent event) {
-                    if (event.getButton() == 1) { // Right click
+                    if (event.getButton() == 1) { 
                         pair.getValue().setModule(module);
                         pair.getValue().setX(event.getX() + checkButton.getX());
                         pair.getValue().setY(event.getY() + checkButton.getY());
@@ -199,25 +199,37 @@ public class TurokGUI extends GUI {
         frame.setCloseable(false);
         frame.setPinneable(true);
         Label coordsLabel = new Label("");
-        coordsLabel.addTickListener(new TickListener() {
+        coordsLabel.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
-            @Override
-            public void onTick() {
-                int posX = (int) mc.player.posX;
-                int posY = (int) mc.player.posY;
-                int posZ = (int) mc.player.posZ;
+            int posX = (int) mc.player.posX;
+            int posY = (int) mc.player.posY;
+            int posZ = (int) mc.player.posZ;
 
-                coordsLabel.setText("Coords:");
-                coordsLabel.addLine(ChatFormatting.RED + "Nether: " + Integer.toString(posX * 8) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ * 8) + "z");
-                coordsLabel.addLine(ChatFormatting.BLUE + "Overworld: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z");
-            }
+            coordsLabel.setText("Coords:");
+            coordsLabel.addLine(ChatFormatting.RED + "Nether: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z");
+            coordsLabel.addLine(ChatFormatting.BLUE + "Overworld: " + Integer.toString(posX * 8) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ * 8) + "z");
         });
         frame.addChild(coordsLabel);
         coordsLabel.setFontRenderer(fontRendererBig);
         coordsLabel.setShadow(true);
         frame.setHeight(20);
         frames.add(frame);
+
+        for (Frame frame1 : frames) {
+            frame1.setY(x);
+            frame1.setY(y);
+
+            nexty = Math.max(y + frame1.getHeight() + 10, nexty);
+            x += (frame1.getWidth() + 10);
+            if (x * DisplayGuiScreen.getScale() > Wrapper.getMinecraft().displayWidth / 1.2f) {
+                y = nexty;
+                nexty = y;
+                x = 10;
+            }
+
+            addChild(frame1);
+        }
     }
 
     private static String getEntityName(@Nonnull Entity entity) {

@@ -49,9 +49,9 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         glLineWidth(1.5f);
         RenderHelper.drawRectangle(0, 0, component.getWidth(), component.getHeight());
 
-        glColor4f(0f, 0f, 1f, 1.0f);
+        glColor4f(1f, 1f, 1f, 1.0f);
         glLineWidth(1.5f);
-        RenderHelper.drawRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 1);
+        RenderHelper.drawRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 3);
 
         GL11.glColor3f(1,1,1);
         ff.drawString(component.getWidth() / 2 - ff.getStringWidth(component.getTitle()) / 2, 1, component.getTitle());
@@ -59,54 +59,9 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         int top_y = 5;
         int bottom_y = component.getTheme().getFontRenderer().getFontHeight() - 9;
 
-        if (component.isCloseable() && component.isMinimizeable()){
-            top_y -= 4;
-            bottom_y -= 4;
-        }
-
-        if (component.isCloseable()){
-            glLineWidth(2f);
-            glColor3f(1,1,1);
-            glBegin(GL_LINES);
-            {
-                glVertex2d(component.getWidth() - 20, top_y);
-                glVertex2d(component.getWidth() - 10, bottom_y);
-                glVertex2d(component.getWidth() - 10, top_y);
-                glVertex2d(component.getWidth() - 20, bottom_y);
-            }
-            glEnd();
-        }
-
-        if (component.isCloseable() && component.isMinimizeable()){
-            top_y += 12;
-            bottom_y += 12;
-        }
-
-        if (component.isMinimizeable()){
-            glLineWidth(1.5f);
-            glColor3f(1,1,1);
-            if (component.isMinimized()){
-                glBegin(GL_LINE_LOOP);
-                {
-                    glVertex2d(component.getWidth() - 15, top_y+2);
-                    glVertex2d(component.getWidth() - 15, bottom_y+3);
-                    glVertex2d(component.getWidth() - 10, bottom_y+3);
-                    glVertex2d(component.getWidth() - 10, top_y+2);
-                }
-                glEnd();
-            } else {
-                glBegin(GL_LINES);
-                {
-                    glVertex2d(component.getWidth() - 15, bottom_y+4);
-                    glVertex2d(component.getWidth() - 10, bottom_y+4);
-                }
-                glEnd();
-            }
-        }
-
         if (component.isPinneable()){
             if (component.isPinned())
-                glColor3f(1,.33f,.33f);
+                glColor3f(0f, 0f, 1f);
             else
                 glColor3f(0.66f,0.66f,0.66f);
             RenderHelper.drawCircle(7,4,2f);
@@ -131,7 +86,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         }
 
         if (component == centerXComponent && centerX) {
-            glColor3f(0.86f, 0.03f, 1f);
+            glColor3f(0.0f, 0.03f, 1f);
             glLineWidth(1f);
             glBegin(GL_LINES);
             {
@@ -154,7 +109,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         }
 
         if (component == centerYComponent && centerY) {
-            glColor3f(0.86f, 0.03f, 1f);
+            glColor3f(0.0f, 0.03f, 1f);
             glLineWidth(1f);
             glBegin(GL_LINES);
             {

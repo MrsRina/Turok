@@ -119,7 +119,7 @@ public class InsaneCrystalAura extends Module {
         reset_rotation();
 
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("InsaneCrystalAura -? " + ChatFormatting.RED + "Disabled!");
+            Command.sendChatMessage("InsaneCrystalAura -> " + ChatFormatting.RED + "Disabled!");
         } else {
             return; 
         }
