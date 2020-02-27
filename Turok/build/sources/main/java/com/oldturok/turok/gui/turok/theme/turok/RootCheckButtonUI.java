@@ -33,9 +33,9 @@ public class RootCheckButtonUI<T extends CheckButton> extends AbstractComponentU
         }
 
         String text = component.getName();
-        int c = component.isPressed() ? 0x338243 : component.isToggled() ? 0x1f8a34 : 0x6cff89;
+        int c = component.isPressed() ? 0xaaaaaa : component.isToggled() ? 0x0000ff : 0xdddddd;
         if (component.isHovered())
-            c = (c & 0x80f94d) << 1;
+            c = (c & 0x0096ff) << 1;
 
         glColor3f(1,1,1);
         glEnable(GL_TEXTURE_2D);

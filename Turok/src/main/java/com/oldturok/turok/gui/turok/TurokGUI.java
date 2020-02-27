@@ -23,6 +23,8 @@ import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.util.Pair;
 import com.oldturok.turok.util.Wrapper;
 import net.minecraft.client.Minecraft;
+import net.minecraft.item.ItemStack;
+import net.minecraft.init.Items;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.*;
@@ -33,6 +35,8 @@ import net.minecraft.entity.projectile.EntityWitherSkull;
 import net.minecraft.util.text.TextFormatting;
 
 import javax.annotation.Nonnull;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.*;
@@ -189,7 +193,23 @@ public class TurokGUI extends GUI {
 
         ArrayList<Frame> frames = new ArrayList<>();
 
-        Frame frame = new Frame(getTheme(), new Stretcherlayout(1), "Active modules");
+        Frame frame = new Frame(getTheme(), new Stretcherlayout(1), "Users!");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+
+        Label users = new Label("");
+        users.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
+
+            users.setText(ChatFormatting.BLUE + mc.player.getName() + ChatFormatting.RED + " Welcome to Turok " + TurokMod.MODVER);
+            users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
+        });
+        frame.addChild(users);
+        users.setFontRenderer(fontRendererBig);
+        users.setShadow(true);
+        frames.add(frame);
+
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Active modules");
         frame.setCloseable(false);
         frame.addChild(new ActiveModules());
         frame.setPinneable(true);
@@ -198,6 +218,7 @@ public class TurokGUI extends GUI {
         frame = new Frame(getTheme(), new Stretcherlayout(1), "Coordinates");
         frame.setCloseable(false);
         frame.setPinneable(true);
+
         Label coordsLabel = new Label("");
         coordsLabel.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
@@ -221,6 +242,41 @@ public class TurokGUI extends GUI {
         coordsLabel.setFontRenderer(fontRendererBig);
         coordsLabel.setShadow(true);
         frame.setHeight(20);
+        frames.add(frame);
+
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Counts!");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+
+        Label count = new Label("");
+        count.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
+
+            count.setText(ChatFormatting.BLUE + "Counts!");
+            count.addLine(ChatFormatting.BLUE + "Totems: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum());
+            count.addLine(ChatFormatting.BLUE + "Crystal: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.END_CRYSTAL).mapToInt(ItemStack::getCount).sum());
+            count.addLine(ChatFormatting.BLUE + "Gapples: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.GOLDEN_APPLE).mapToInt(ItemStack::getCount).sum());
+        });
+        frame.addChild(count);
+        count.setFontRenderer(fontRendererBig);
+        count.setShadow(true);
+        frames.add(frame);
+
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Time!");
+        frame.setCloseable(false);
+        frame.setPinneable(true);
+
+        Label time = new Label("");
+        time.addTickListener(() -> {
+            DateTimeFormatter time_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+
+            time.setText(ChatFormatting.BLUE + "Time: " + ChatFormatting.RED + time_format.format(now));
+        });
+
+        frame.addChild(time);
+        time.setFontRenderer(fontRendererBig);
+        time.setShadow(true);
         frames.add(frame);
 
         for (Frame frame1 : frames) {

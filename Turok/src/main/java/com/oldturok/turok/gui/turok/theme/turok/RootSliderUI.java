@@ -15,7 +15,7 @@ public class RootSliderUI extends AbstractComponentUI<Slider> {
 
     @Override
     public void renderComponent(Slider component, FontRenderer aa) {
-        glColor4f(1,0.33f,0.33f,component.getOpacity());
+        glColor4f(0.0f, 0.0f, 1.0f, component.getOpacity());
         glLineWidth(2.5f);
         int height = component.getHeight();
         double value = component.getValue();
@@ -32,7 +32,7 @@ public class RootSliderUI extends AbstractComponentUI<Slider> {
             glVertex2d(component.getWidth(),height/downscale);
         }
         glEnd();
-        glColor3f(1,0.33f,0.33f);
+        glColor3f(0.0f, 0.0f, 1.0f);
         RenderHelper.drawCircle((int)w,height/downscale,2f);
 
         String s = value + "";

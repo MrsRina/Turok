@@ -10,18 +10,14 @@ import net.minecraft.network.play.client.CPacketUseEntity;
 import net.minecraft.network.play.client.CPacketPlayer;
 
 // Rina.
-@Module.Info(name = "Criticals[Packet]", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "Criticals [Packet]", category = Module.Category.TUROK_COMBAT)
 public class CriticalsPacket extends Module {
-	private Listener<PacketEvent.Send> packetEvent; 
-
-	public void onUpdate() {
-		this.packetEvent = new Listener<>(event -> {
-			if (event.getPacket() instanceof CPacketUseEntity) {
-				if (((CPacketUseEntity) event.getPacket()).getAction() == CPacketUseEntity.Action.ATTACK) {
-					mc.player.connection.sendPacket(new CPacketPlayer.Position(mc.player.posX, mc.player.posY + 0.1f, mc.player.posZ, false));
-					mc.player.connection.sendPacket(new CPacketPlayer.Position(mc.player.posX, mc.player.posY, mc.player.posZ, false));
-				}
+	private Listener<PacketEvent.Send>packetEvent = new Listener<>(event -> {
+		if (event.getPacket() instanceof CPacketUseEntity) {
+			if (((CPacketUseEntity) event.getPacket()).getAction() == CPacketUseEntity.Action.ATTACK) {
+				mc.player.connection.sendPacket(new CPacketPlayer.Position(mc.player.posX, mc.player.posY + 0.1f, mc.player.posZ, false));
+				mc.player.connection.sendPacket(new CPacketPlayer.Position(mc.player.posX, mc.player.posY, mc.player.posZ, false));
 			}
-		});
-	}
+		}
+	});
 }

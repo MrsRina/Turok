@@ -10,10 +10,10 @@ public class TurokUnboundSliderUI extends AbstractComponentUI<UnboundSlider> {
     @Override
     public void renderComponent(UnboundSlider component, FontRenderer fontRenderer) {
         String s = component.getText() + ": " + component.getValue();
-        int c = component.isPressed() ? 0xaaaaaa : 0xdddddd;
+        int c = component.isPressed() ? 0x0000ff : 0x0000ff;
         if (component.isHovered())
             c = (c & 0x7f7f7f) << 1;
-        fontRenderer.drawString(component.getWidth()/2-fontRenderer.getStringWidth(s)/2, component.getHeight() - fontRenderer.getFontHeight()/2-4, c, s);
+        fontRenderer.drawString(1, component.getHeight() - fontRenderer.getFontHeight()/2-4, c, s);
         GL11.glDisable(GL11.GL_BLEND);
     }
 
