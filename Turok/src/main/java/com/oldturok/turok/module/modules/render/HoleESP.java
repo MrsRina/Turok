@@ -7,6 +7,7 @@ import com.oldturok.turok.util.GeometryMasks;
 import com.oldturok.turok.util.TurokTessellator;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
+import com.oldturok.turok.module.modules.combat.UltraCrystal;
 import static com.oldturok.turok.module.modules.combat.UltraCrystal.get_player_pos;
 
 import net.minecraft.block.Block;
@@ -21,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 // Rina.
 @Module.Info(name = "HoleESP", category = Module.Category.TUROK_RENDER)
 public class HoleESP extends Module {
-	private final ConcurrentHashMap<BlockPos, Boolean> safe_holes;
+	private ConcurrentHashMap<BlockPos, Boolean> safe_holes;
 	private final BlockPos[] barrier_ = {
 		new BlockPos(0, -1, 0),
 		new BlockPos(0, 0, -1),
@@ -43,7 +44,7 @@ public class HoleESP extends Module {
 		int range_ = (int) Math.ceil(range.getValue());
 
 		UltraCrystal crystal_function = (UltraCrystal) ModuleManager.getModuleByName("UltraCrystal");
-		list<BlockPos> block_pos = crystal_function.get_sphere(get_player_pos(), range_, range_, false, true, 0);
+		List<BlockPos> block_pos = crystal_function.get_sphere(get_player_pos(), range_, range_, false, true, 0);
 
 		for (BlockPos pos : block_pos) {
 			if (!mc.world.getBlockState(pos).getBlock().equals(Blocks.AIR)) continue;
@@ -56,7 +57,7 @@ public class HoleESP extends Module {
 			for (BlockPos offset : barrier_) {
 				Block block = mc.world.getBlockState(pos.add(offset)).getBlock();
 				if (block != Blocks.BEDROCK) bedrock = false;
-				if (block != Blocks.BEDROCK && block != Blocks.OBSIDIAN && block != Blocks.ENDER_CHEST && block != BLocks.ANVIL) {
+				if (block != Blocks.BEDROCK && block != Blocks.OBSIDIAN && block != Blocks.ENDER_CHEST && block != Blocks.ANVIL) {
 					safe = false;
 					break;
 				}
@@ -72,7 +73,7 @@ public class HoleESP extends Module {
 		if (safe_holes.isEmpty()) return;
 
 		TurokTessellator.prepare(GL11.GL_QUADS);
-		safeHoles.forEach((blockPos, bedrock) -> {
+		safe_holes.forEach((block_pos, bedrock) -> {
 			draw(block_pos, 255, 255, 255);
 			draw(block_pos, 255, 255, 255);
 			draw(block_pos, 255, 255, 255);

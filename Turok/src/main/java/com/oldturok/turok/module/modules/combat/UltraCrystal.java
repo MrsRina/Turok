@@ -357,7 +357,7 @@ public class UltraCrystal extends Module {
         final float damage = (float)(int)((v * v + v) / 2.0 * 7.0 * doubleExplosionSize + 1.0);
         double finald = 1.0;
         if (entity instanceof EntityLivingBase) {
-            finald = get_blast_reductionre((EntityLivingBase) entity, get_damage_multiplied(damage), new Explosion((World) mc.world, (Entity)null, posX, posY, posZ, 6.0f, false, true));
+            finald = get_blast_reduction((EntityLivingBase) entity, get_damage_multiplied(damage), new Explosion((World) mc.world, (Entity)null, posX, posY, posZ, 6.0f, false, true));
         }
         return (float)finald;
     }
