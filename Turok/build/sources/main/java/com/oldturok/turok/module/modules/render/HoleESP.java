@@ -32,6 +32,10 @@ public class HoleESP extends Module {
 	};
 
 	private Setting<Double> range = register(Settings.d("Range", 10.0d));
+	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Integer> a = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(10));
 
 	@Override
 	public void onUpdate() {
@@ -74,15 +78,15 @@ public class HoleESP extends Module {
 
 		TurokTessellator.prepare(GL11.GL_QUADS);
 		safe_holes.forEach((block_pos, bedrock) -> {
-			draw(block_pos, 255, 255, 255);
-			draw(block_pos, 255, 255, 255);
-			draw(block_pos, 255, 255, 255);
+			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
+			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
+			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
 		});
 		TurokTessellator.release();
 	}
 
 	private void draw(BlockPos block_pos, int r, int g, int b) {
-		Color color = new Color(r, g, b, 75);
-		TurokTessellator.drawBox(block_pos, color.getRGB(), GeometryMasks.Quad.ALL);
+		Color color = new Color(r, g, b, a.getValue());
+		TurokTessellator.drawLines(block_pos, color.getRGB(), GeometryMasks.Line.ALL);
 	}
 }

@@ -55,7 +55,7 @@ import com.oldturok.turok.command.Command;
 
 // FastCrysalAura, the best than kami old.
 // By Rina.
-@Module.Info(name = "UltraCrystal", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "InsaneToCryAura", category = Module.Category.TUROK_COMBAT)
 public class UltraCrystal extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     
@@ -106,7 +106,7 @@ public class UltraCrystal extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("UltraCrystal <- " + ChatFormatting.GREEN + "Enabled!");
+            Command.sendChatMessage("InsaneToCryAura <- " + ChatFormatting.GREEN + "Enabled!");
         } else {
             return;
         }
@@ -119,7 +119,7 @@ public class UltraCrystal extends Module {
         reset_rotation();
 
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("UltraCrystal -> " + ChatFormatting.RED + "Disabled!");
+            Command.sendChatMessage("InsaneToCryAura -> " + ChatFormatting.RED + "Disabled!");
         } else {
             return; 
         }

@@ -2,14 +2,14 @@
 {
   "modid": "turok",
   "name": "Turok Client",
-  "description": "New Turok client!",
-  "version": "0.2",
+  "description": "Best PvP Client!",
+  "version": "0.3",
   "mcversion": "1.12.2",
-  "url": "",
+  "url": "youtube.com/void82",
   "updateUrl": "",
-  "authorList": ["Rina"],
+  "authorList": ["SrRina, Soulbond, 69hr, cam, MarcosVLI2, Old Chum "],
   "credits": "",
-  "logoFile": "",
+  "logoFile": "splash.jpg",
   "screenshots": [],
   "dependencies": []
 }

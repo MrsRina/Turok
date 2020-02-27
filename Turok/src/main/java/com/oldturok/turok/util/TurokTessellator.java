@@ -76,6 +76,26 @@ public class TurokTessellator extends Tessellator {
         drawBox(INSTANCE.getBuffer(), blockPos.x, blockPos.y, blockPos.z, 1, 1, 1, r, g, b, a, sides);
     }
 
+    public static void drawLines(BlockPos blockPos, int argb, int sides) {
+        final int a = (argb >>> 24) & 0xFF;
+        final int r = (argb >>> 16) & 0xFF;
+        final int g = (argb >>> 8) & 0xFF;
+        final int b = argb & 0xFF;
+        drawLines(blockPos, r, g, b, a, sides);
+    }
+
+    public static void drawLines(float x, float y, float z, int argb, int sides) {
+        final int a = (argb >>> 24) & 0xFF;
+        final int r = (argb >>> 16) & 0xFF;
+        final int g = (argb >>> 8) & 0xFF;
+        final int b = argb & 0xFF;
+        drawLines(INSTANCE.getBuffer(), x, y, z, 1, 1, 1, r, g, b, a, sides);
+    }
+
+    public static void drawLines(BlockPos blockPos, int r, int g, int b, int a, int sides) {
+        drawLines(INSTANCE.getBuffer(), blockPos.x, blockPos.y, blockPos.z, 1, 1, 1, r, g, b, a, sides);
+    }
+
     public static BufferBuilder getBufferBuilder() {
         return INSTANCE.getBuffer();
     }
