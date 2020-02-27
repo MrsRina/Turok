@@ -51,7 +51,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
         glColor4f(1f, 1f, 1f, 1.0f);
         glLineWidth(1.5f);
-        RenderHelper.drawRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 3);
+        RenderHelper.drawRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 6);
 
         GL11.glColor3f(1,1,1);
         ff.drawString(component.getWidth() / 2 - ff.getStringWidth(component.getTitle()) / 2, 1, component.getTitle());
