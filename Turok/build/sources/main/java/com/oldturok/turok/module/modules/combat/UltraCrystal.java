@@ -217,12 +217,12 @@ public class UltraCrystal extends Module {
                         continue;
                     }
 
-                    final double d = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, entity_two);
+                    final double d = calculate_damage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, entity_two);
                     if (d <= damage) {
                         continue;
                     }
 
-                    double self = calculateDamage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, mc.player);
+                    double self = calculate_damage(blockPos.x + 0.5, blockPos.y + 1, blockPos.z + 0.5, mc.player);
                     if (self > d && d >= ((EntityLivingBase) entity_two).getHealth()) {
                         continue;
                     }
@@ -310,26 +310,26 @@ public class UltraCrystal extends Module {
 
     private void lookAtPacket(final double px, final double py, final double pz, final EntityPlayer me) {
         final double[] v = EntityUtil.calculateLookAt(px, py, pz, me);
-        setYawAndPitch((float)v[0], (float)v[1]);
+        set_yaw_pitch((float)v[0], (float)v[1]);
     }
 
-    private boolean canPlaceCrystal(final BlockPos blockPos) {
+    private boolean can_place_crystal(final BlockPos blockPos) {
         final BlockPos boost = blockPos.add(0, 1, 0);
         final BlockPos boost2 = blockPos.add(0, 2, 0);
         return (mc.world.getBlockState(blockPos).getBlock() == Blocks.BEDROCK || mc.world.getBlockState(blockPos).getBlock() == Blocks.OBSIDIAN) && mc.world.getBlockState(boost).getBlock() == Blocks.AIR && mc.world.getBlockState(boost2).getBlock() == Blocks.AIR && mc.world.getEntitiesWithinAABB((Class) Entity.class, new AxisAlignedBB(boost)).isEmpty() && mc.world.getEntitiesWithinAABB((Class) Entity.class, new AxisAlignedBB(boost2)).isEmpty();
     }
 
-    public static BlockPos getPlayerPos() {
+    public static BlockPos get_player_pos() {
         return new BlockPos(Math.floor(mc.player.posX), Math.floor(mc.player.posY), Math.floor(mc.player.posZ));
     }
 
     private List<BlockPos> find_crystal_blocks() {
         final NonNullList<BlockPos> positions = NonNullList.create();
-        positions.addAll(getSphere(getPlayerPos(), alcance.getValue().floatValue(), alcance.getValue().intValue(), false, true, 0).stream().filter(this::canPlaceCrystal).collect(Collectors.toList()));
+        positions.addAll(get_sphere(get_player_pos(), alcance.getValue().floatValue(), alcance.getValue().intValue(), false, true, 0).stream().filter(this::can_place_crystal).collect(Collectors.toList()));
         return (List<BlockPos>) positions;
     }
 
-    public List<BlockPos> getSphere(final BlockPos loc, final float r, final int h, final boolean hollow, final boolean sphere, final int plus_y) {
+    public List<BlockPos> get_sphere(final BlockPos loc, final float r, final int h, final boolean hollow, final boolean sphere, final int plus_y) {
         final List<BlockPos> circleblocks = new ArrayList<BlockPos>();
         final int cx = loc.getX();
         final int cy = loc.getY();
@@ -348,7 +348,7 @@ public class UltraCrystal extends Module {
         return circleblocks;
     }
 
-    public static float calculateDamage(final double posX, final double posY, final double posZ, final Entity entity) {
+    public static float calculate_damage(final double posX, final double posY, final double posZ, final Entity entity) {
         final float doubleExplosionSize = 12.0f;
         final double distancedsize = entity.getDistance(posX, posY, posZ) / doubleExplosionSize;
         final Vec3d vec3d = new Vec3d(posX, posY, posZ);
@@ -357,12 +357,12 @@ public class UltraCrystal extends Module {
         final float damage = (float)(int)((v * v + v) / 2.0 * 7.0 * doubleExplosionSize + 1.0);
         double finald = 1.0;
         if (entity instanceof EntityLivingBase) {
-            finald = getBlastReduction((EntityLivingBase) entity, getDamageMultiplied(damage), new Explosion((World) mc.world, (Entity)null, posX, posY, posZ, 6.0f, false, true));
+            finald = get_blast_reductionre((EntityLivingBase) entity, get_damage_multiplied(damage), new Explosion((World) mc.world, (Entity)null, posX, posY, posZ, 6.0f, false, true));
         }
         return (float)finald;
     }
 
-    public static float getBlastReduction(final EntityLivingBase entity, float damage, final Explosion explosion) {
+    public static float get_blast_reduction(final EntityLivingBase entity, float damage, final Explosion explosion) {
         if (entity instanceof EntityPlayer) {
             final EntityPlayer ep = (EntityPlayer)entity;
             final DamageSource ds = DamageSource.causeExplosionDamage(explosion);
@@ -388,17 +388,17 @@ public class UltraCrystal extends Module {
         }
     }
 
-    private static void setYawAndPitch(final float player_yaw_, final float player_pitch_) {
+    private static void set_yaw_pitch(final float player_yaw_, final float player_pitch_) {
         player_yaw = player_yaw_;
         player_pitch = player_pitch_;
         is_spoofing_angles = true;
     }
 
-    public static float calculateDamage(final EntityEnderCrystal crystal, final Entity entity) {
-        return calculateDamage(crystal.posX, crystal.posY, crystal.posZ, entity);
+    public static float calculate_damage(final EntityEnderCrystal crystal, final Entity entity) {
+        return calculate_damage(crystal.posX, crystal.posY, crystal.posZ, entity);
     }
 
-    private static float getDamageMultiplied(final float damage) {
+    private static float get_damage_multiplied(final float damage) {
         final int diff = UltraCrystal.mc.world.getDifficulty().getId();
         return damage * ((diff == 0) ? 0.0f : ((diff == 2) ? 1.0f : ((diff == 1) ? 0.5f : 1.5f)));
     }
