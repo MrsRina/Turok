@@ -7,8 +7,8 @@ import com.oldturok.turok.util.GeometryMasks;
 import com.oldturok.turok.util.TurokTessellator;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
-import com.oldturok.turok.module.modules.combat.UltraCrystal;
-import static com.oldturok.turok.module.modules.combat.UltraCrystal.get_player_pos;
+import com.oldturok.turok.module.modules.combat.InsaneCrystal;
+import static com.oldturok.turok.module.modules.combat.InsaneCrystal.get_player_pos;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -20,8 +20,8 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 // Rina.
-@Module.Info(name = "HoleESP", category = Module.Category.TUROK_RENDER)
-public class HoleESP extends Module {
+@Module.Info(name = "HoleColor", category = Module.Category.TUROK_RENDER)
+public class HoleColor extends Module {
 	private ConcurrentHashMap<BlockPos, Boolean> safe_holes;
 	private final BlockPos[] barrier_ = {
 		new BlockPos(0, -1, 0),
@@ -47,7 +47,7 @@ public class HoleESP extends Module {
 
 		int range_ = (int) Math.ceil(range.getValue());
 
-		UltraCrystal crystal_function = (UltraCrystal) ModuleManager.getModuleByName("UltraCrystal");
+		InsaneCrystal crystal_function = (InsaneCrystal) ModuleManager.getModuleByName("InsaneCrystal");
 		List<BlockPos> block_pos = crystal_function.get_sphere(get_player_pos(), range_, range_, false, true, 0);
 
 		for (BlockPos pos : block_pos) {
@@ -76,7 +76,7 @@ public class HoleESP extends Module {
 		if (mc.player == null || safe_holes == null) return;
 		if (safe_holes.isEmpty()) return;
 
-		TurokTessellator.prepare(GL11.GL_QUADS);
+		TurokTessellator.prepare(GL11.GL_LINES);
 		safe_holes.forEach((block_pos, bedrock) -> {
 			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
 			draw(block_pos, r.getValue(), g.getValue(), b.getValue());

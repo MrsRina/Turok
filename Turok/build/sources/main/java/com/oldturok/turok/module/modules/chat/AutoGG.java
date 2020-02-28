@@ -24,6 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Module.Info(name = "AutoGG", category = Module.Category.TUROK_CHAT)
 public class AutoGG extends Module {
 	private ConcurrentHashMap<String, Integer> target_players = null;
+	private Setting<Boolean> doom_mode = register(Settings.b("Doom Fucking Mode", false));
 
 	@Override
 	public void onEnable() {
@@ -111,7 +112,11 @@ public class AutoGG extends Module {
 
 		StringBuilder msg = new StringBuilder();
 
-		msg.append("GG " + name + "! Thanks Turok!! ");
+		if (doom_mode.getValue()) {
+			msg.append("\u1f1e9 \u1f1f4 \u1f1f4 \u1f1f2 \u1f1f8 \u1f1ed \u1f1f4 \u1f1f5  \u1f1f2 \u1f1f4 \u1f1f9 \u1f1ed \u1f1ea \u1f1f7 \u1f1eb \u1f1fa \u1f1e8 \u1f1f0 " + name + ", fucking thanks Turok!");
+		} else {
+			msg.append("GG " + name + "! Thanks Turok!!!");
+		}
 
 		String msg_ = msg.toString().replaceAll("\u00A7", "");
 

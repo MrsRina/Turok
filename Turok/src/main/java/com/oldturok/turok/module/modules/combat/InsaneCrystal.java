@@ -55,8 +55,8 @@ import com.oldturok.turok.command.Command;
 
 // FastCrysalAura, the best than kami old.
 // By Rina.
-@Module.Info(name = "InsaneToCryAura", category = Module.Category.TUROK_COMBAT)
-public class UltraCrystal extends Module {
+@Module.Info(name = "InsaneCrystal", category = Module.Category.TUROK_COMBAT)
+public class InsaneCrystal extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     
     private Setting<Integer> cor_red   = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
@@ -399,7 +399,7 @@ public class UltraCrystal extends Module {
     }
 
     private static float get_damage_multiplied(final float damage) {
-        final int diff = UltraCrystal.mc.world.getDifficulty().getId();
+        final int diff = InsaneCrystal.mc.world.getDifficulty().getId();
         return damage * ((diff == 0) ? 0.0f : ((diff == 2) ? 1.0f : ((diff == 1) ? 0.5f : 1.5f)));
     }
 }

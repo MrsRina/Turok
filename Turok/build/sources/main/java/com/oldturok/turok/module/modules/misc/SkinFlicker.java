@@ -8,7 +8,7 @@ import net.minecraft.entity.player.EnumPlayerModelParts;
 import java.util.Random;
 
 /**
- * By Soulbond.
+ * By RaindDrop.
  */
 @Module.Info(name = "SkinFlicker", description = "Toggle your skin layers rapidly for a cool skin effect", category = Module.Category.TUROK_MISC)
 public class SkinFlicker extends Module {

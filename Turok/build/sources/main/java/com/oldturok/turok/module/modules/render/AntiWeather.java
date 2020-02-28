@@ -3,7 +3,7 @@ package com.oldturok.turok.module.modules.render;
 import com.oldturok.turok.module.Module;
 
 /**
- * By Soulbond.
+ * By RaindDrop.
  */
 @Module.Info(name = "AntiWeather", description = "Removes rain from your world", category = Module.Category.TUROK_RENDER)
 public class AntiWeather extends Module {
