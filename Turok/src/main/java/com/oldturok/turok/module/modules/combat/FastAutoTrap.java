@@ -59,7 +59,7 @@ public class FastAutoTrap extends Module {
     private boolean firstRun;
     private boolean missingObiDisable = false;
 
-    private static EnumFacing getPlaceableSide(BlockPos pos) {
+    private static EnumFacing get_placeable_side(BlockPos pos) {
 
         for (EnumFacing side : EnumFacing.values()) {
 
@@ -133,7 +133,7 @@ public class FastAutoTrap extends Module {
 
 
         if (firstRun) {
-            if (findObiInHotbar() == -1) {
+            if (find_obi_in_hotbar() == -1) {
                 if (infoMessage.getValue()) {
                     Command.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
                 }
@@ -234,7 +234,7 @@ public class FastAutoTrap extends Module {
             }
         }
 
-        EnumFacing side = getPlaceableSide(pos);
+        EnumFacing side = get_placeable_side(pos);
 
         if (side == null) {
             return false;
@@ -254,7 +254,7 @@ public class FastAutoTrap extends Module {
             return false;
         }
 
-        int obiSlot = findObiInHotbar();
+        int obiSlot = find_obi_in_hotbar();
 
         if (obiSlot == -1) {
             missingObiDisable = true;
@@ -287,7 +287,7 @@ public class FastAutoTrap extends Module {
 
     }
 
-    private int findObiInHotbar() {
+    private int find_obi_in_hotbar() {
 
         int slot = -1;
         for (int i = 0; i < 9; i++) {

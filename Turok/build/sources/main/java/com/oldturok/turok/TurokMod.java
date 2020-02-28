@@ -48,7 +48,7 @@ public class TurokMod {
     public static final String MODNAME = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
     public static final String MODVER = "0.2";
 
-    private static final String TUROK_CONFIG_NAME_DEFAULT = "TurokBinds.json";
+    private static final String TUROK_CONFIG_NAME_DEFAULT = "Turok.json";
 
     public static final Logger log = LogManager.getLogger("Turok");
 
@@ -103,7 +103,7 @@ public class TurokMod {
     }
 
     public static String getConfigName() {
-        Path config = Paths.get("TurokCache.txt");
+        Path config = Paths.get("TurokCache_.txt");
         String turokConfigName = TUROK_CONFIG_NAME_DEFAULT;
         try(BufferedReader reader = Files.newBufferedReader(config)) {
             turokConfigName = reader.readLine();
@@ -179,7 +179,6 @@ public class TurokMod {
 
         Path outputFile = Paths.get(getConfigName());
         if (!Files.exists(outputFile))
-            Files.createDirectories(Paths.get("TurokConfig/"));
             Files.createFile(outputFile);
         Configuration.saveConfiguration(outputFile);
         ModuleManager.getModules().forEach(Module::destroy);

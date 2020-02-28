@@ -32,10 +32,10 @@ public class HoleColor extends Module {
 	};
 
 	private Setting<Double> range = register(Settings.d("Range", 10.0d));
-	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(255));
 	private Setting<Integer> b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
-	private Setting<Integer> a = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(10));
+	private Setting<Integer> a = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(130));
 
 	@Override
 	public void onUpdate() {

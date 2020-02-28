@@ -1,6 +1,7 @@
 package com.oldturok.turok.gui.turok.theme.turok;
 
 import com.oldturok.turok.gui.turok.TurokGUI;
+import com.oldturok.turok.gui.turok.RenderHelper;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.component.use.CheckButton;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
@@ -23,30 +24,22 @@ public class RootCheckButtonUI<T extends CheckButton> extends AbstractComponentU
 
     @Override
     public void renderComponent(CheckButton component, FontRenderer ff) {
-
-        glColor4f(backgroundColour.getRed()/255f, backgroundColour.getGreen()/255f, backgroundColour.getBlue()/255f, component.getOpacity());
-        if (component.isToggled()){
-            glColor3f(.9f, backgroundColour.getGreen()/255f, backgroundColour.getBlue()/255f);
-        }
-        if (component.isHovered() || component.isPressed()){
-            glColor4f(backgroundColourHover.getRed()/255f, backgroundColourHover.getGreen()/255f, backgroundColourHover.getBlue()/255f, component.getOpacity());
-        }
-
         String text = component.getName();
         int c = component.isPressed() ? 0xaaaaaa : component.isToggled() ? 0x0000ff : 0xdddddd;
         if (component.isHovered())
             c = (c & 0x0096ff) << 1;
 
-        glColor3f(1,1,1);
-        glEnable(GL_TEXTURE_2D);
-        TurokGUI.fontRenderer.drawString(1, TurokGUI.fontRenderer.getFontHeight()/2-1, c, text);
         glDisable(GL_TEXTURE_2D);
-        glDisable(GL_BLEND);
+
+        glColor4f(1.0f, 0.0f, 0.0f, 1.0f); // drawFilledRectangle
+        glLineWidth(2.0f);
+        RenderHelper.drawRectangle(1, 0, component.getWidth(), 0);
+        TurokGUI.fontRenderer.drawString(1, 1, c, text);
     }
 
     @Override
     public void handleAddComponent(CheckButton component, Container container) {
-        component.setWidth(TurokGUI.fontRenderer.getStringWidth(component.getName()) + 28);
-        component.setHeight(TurokGUI.fontRenderer.getFontHeight()+2);
+        component.setWidth(TurokGUI.fontRenderer.getStringWidth(component.getName()) + 1);
+        component.setHeight(TurokGUI.fontRenderer.getFontHeight() + 1);
     }
 }

@@ -113,7 +113,7 @@ public class AutoGG extends Module {
 		StringBuilder msg = new StringBuilder();
 
 		if (doom_mode.getValue()) {
-			msg.append("\u1f1e9 \u1f1f4 \u1f1f4 \u1f1f2 \u1f1f8 \u1f1ed \u1f1f4 \u1f1f5  \u1f1f2 \u1f1f4 \u1f1f9 \u1f1ed \u1f1ea \u1f1f7 \u1f1eb \u1f1fa \u1f1e8 \u1f1f0 " + name + ", fucking thanks Turok!");
+			msg.append("D o o m s h o p  M o t h e r f u c k " + name + ", fucking thanks Turok!");
 		} else {
 			msg.append("GG " + name + "! Thanks Turok!!!");
 		}

@@ -189,7 +189,7 @@ public class AutoBarrier extends Module {
         if (missingObiDisable) {
             missingObiDisable = false;
             if (infoMessage.getValue()) {
-                Command.sendChatMessage("[AutoFeetPlace] " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                Command.sendChatMessage("AutoBarrier <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
             }
             this.disable();
         }

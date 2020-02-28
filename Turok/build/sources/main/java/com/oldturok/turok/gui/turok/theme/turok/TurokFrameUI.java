@@ -38,20 +38,15 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
     @Override
     public void renderComponent(Frame component, FontRenderer fontRenderer) {
-        if (component.getOpacity() == 0)
-            return;
+        if (component.getOpacity() == 0) return;
+
         glDisable(GL_TEXTURE_2D);
 
         glColor4f(1f, 1f, 1f, 0.3f);
         RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
-        
-        glColor4f(1f, 1f, 1f, 0.3f);
-        glLineWidth(1.5f);
-        RenderHelper.drawRectangle(0, 0, component.getWidth(), component.getHeight());
 
         glColor4f(1f, 1f, 1f, 1.0f);
-        glLineWidth(1.5f);
-        RenderHelper.drawRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 6);
+        RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 6);
 
         GL11.glColor3f(1,1,1);
         ff.drawString(component.getWidth() / 2 - ff.getStringWidth(component.getTitle()) / 2, 1, component.getTitle());
@@ -60,18 +55,10 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         int bottom_y = component.getTheme().getFontRenderer().getFontHeight() - 9;
 
         if (component.isPinneable()){
-            if (component.isPinned())
-                glColor3f(0f, 0f, 1f);
-            else
-                glColor3f(0.66f,0.66f,0.66f);
-            RenderHelper.drawCircle(7,4,2f);
-            glLineWidth(3f);
-            glBegin(GL_LINES);
-            {
-                glVertex2d(7,4);
-                glVertex2d(4,8);
-            }
-            glEnd();
+            if (component.isPinned()) glColor3f(0f, 0f, 1f);
+            else glColor3f(0.66f,0.66f,0.66f);
+
+            RenderHelper.drawCircle(7,6,2f);    
         }
 
         if (component.equals(xLineComponent)){
@@ -148,27 +135,6 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
                 int y = event.getY();
                 int x = event.getX();
                 if (y < 0){
-                    if (x > component.getWidth() - 22){
-                        if (component.isMinimizeable() && component.isCloseable()){
-                            if (y > -component.getOriginOffsetY()/2){
-                                if (component.isMinimized()){
-                                    component.callPoof(FramePoof.class, new FramePoof.FramePoofInfo(FramePoof.Action.MAXIMIZE));
-                                }else {
-                                    component.callPoof(FramePoof.class, new FramePoof.FramePoofInfo(FramePoof.Action.MINIMIZE));
-                                }
-                            }else{
-                                component.callPoof(FramePoof.class, new FramePoof.FramePoofInfo(FramePoof.Action.CLOSE));
-                            }
-                        }else{
-                            if (component.isMinimized() && component.isMinimizeable()){
-                                component.callPoof(FramePoof.class, new FramePoof.FramePoofInfo(FramePoof.Action.MAXIMIZE));
-                            }else if (component.isMinimizeable()){
-                                component.callPoof(FramePoof.class, new FramePoof.FramePoofInfo(FramePoof.Action.MINIMIZE));
-                            }else if (component.isCloseable()) {
-                                component.callPoof(FramePoof.class, new FramePoof.FramePoofInfo(FramePoof.Action.CLOSE));
-                            }
-                        }
-                    }
                     if (x < 10 && x > 0){
                         if (component.isPinneable()){
                             component.setPinned(!component.isPinned());
