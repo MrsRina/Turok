@@ -33,7 +33,7 @@ public class RootCheckButtonUI<T extends CheckButton> extends AbstractComponentU
 
         glColor4f(1.0f, 1.0f, 1.0f, 1.0f); // drawFilledRectangle
         glLineWidth(2.0f);
-        RenderHelper.drawRectangle(ff.getStringWidth(component.getName()) + 2, 0, component.getWidth(), component.getHeight());
+        RenderHelper.drawRectangle(ff.getStringWidth(component.getName()) + 22, 0, component.getWidth(), component.getHeight());
         TurokGUI.fontRenderer.drawString(1, 1, c, text);
     }
 
