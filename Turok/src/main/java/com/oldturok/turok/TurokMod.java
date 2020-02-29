@@ -46,7 +46,7 @@ public class TurokMod {
 
     public static final String MODID = "turok";
     public static final String MODNAME = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
-    public static final String MODVER = "0.2";
+    public static final String MODVER = "0.3";
 
     private static final String TUROK_CONFIG_NAME_DEFAULT = "Turok.json";
 

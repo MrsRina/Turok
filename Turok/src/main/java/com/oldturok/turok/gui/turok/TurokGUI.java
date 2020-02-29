@@ -201,7 +201,7 @@ public class TurokGUI extends GUI {
         users.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
-            users.setText(ChatFormatting.BLUE + mc.player.getName() + ChatFormatting.RED + " Welcome to Turok " + TurokMod.MODVER);
+            users.setText(ChatFormatting.BLUE + mc.player.getName() + ChatFormatting.RED + " welcome to Turok " + TurokMod.MODVER);
             users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
         });
         frame.addChild(users);

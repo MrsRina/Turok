@@ -34,7 +34,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
     boolean centerY = false;
     int xLineOffset = 0;
 
-    private static final RootFontRenderer ff = new RootSmallFontRenderer();
+    private static final RootFontRenderer ff = new RootFontRenderer(0.90f);
 
     @Override
     public void renderComponent(Frame component, FontRenderer fontRenderer) {
@@ -48,17 +48,17 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         glColor4f(1f, 1f, 1f, 1.0f);
         RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 6);
 
-        GL11.glColor3f(1,1,1);
-        ff.drawString(component.getWidth() / 2 - ff.getStringWidth(component.getTitle()) / 2, 1, component.getTitle());
+        GL11.glColor3f(1, 1, 1);
+        ff.drawString(1, 1, component.getTitle());
 
         int top_y = 5;
         int bottom_y = component.getTheme().getFontRenderer().getFontHeight() - 9;
 
         if (component.isPinneable()){
             if (component.isPinned()) glColor3f(0f, 0f, 1f);
-            else glColor3f(0.66f,0.66f,0.66f);
+            else glColor3f(0.66f, 0.66f, 0.66f);
 
-            RenderHelper.drawCircle(7,6,2f);    
+            RenderHelper.drawCircle(component.getWidth() - 2, 6, 2f);    
         }
 
         if (component.equals(xLineComponent)){
@@ -135,7 +135,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
                 int y = event.getY();
                 int x = event.getX();
                 if (y < 0){
-                    if (x < 10 && x > 0){
+                    if (x < component.getWidth() && x > component.getWidth() - 10){
                         if (component.isPinneable()){
                             component.setPinned(!component.isPinned());
                         }
