@@ -6,9 +6,6 @@ import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import org.lwjgl.opengl.GL11;
 
-import static org.lwjgl.opengl.GL11.GL_BLEND;
-import static org.lwjgl.opengl.GL11.glDisable;
-
 public class RootLabelUI<T extends Label> extends AbstractComponentUI<Label> {
 
     @Override
@@ -25,13 +22,13 @@ public class RootLabelUI<T extends Label> extends AbstractComponentUI<Label> {
                 x = component.getWidth() - a.getStringWidth(s);
 
             if (shadow)
-                a.drawStringWithShadow(x,y,255,255,255,s);
+                a.drawStringWithShadow(x, y, 255, 255, 255, s);
             else
                 a.drawString(x,y,s);
             y += a.getFontHeight() + 3;
         }
         GL11.glDisable(GL11.GL_TEXTURE_2D);
-        glDisable(GL_BLEND);
+        GL11.glDisable(GL11.GL_BLEND);
     }
 
     @Override

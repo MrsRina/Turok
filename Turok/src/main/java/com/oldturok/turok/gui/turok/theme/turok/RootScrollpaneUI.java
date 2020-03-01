@@ -20,9 +20,7 @@ public class RootScrollpaneUI extends AbstractComponentUI<Scrollpane> {
     double hovering = 0;
 
     @Override
-    public void renderComponent(Scrollpane component, FontRenderer fontRenderer) {
-
-    }
+    public void renderComponent(Scrollpane component, FontRenderer fontRenderer) {}
 
     @Override
     public void handleAddComponent(Scrollpane component, Container container) {

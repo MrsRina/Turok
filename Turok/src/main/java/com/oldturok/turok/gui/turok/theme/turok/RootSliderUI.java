@@ -7,7 +7,7 @@ import com.oldturok.turok.gui.rgui.component.use.Slider;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 
-import static org.lwjgl.opengl.GL11.*;
+import org.lwjgl.opengl.GL11;
 
 public class RootSliderUI extends AbstractComponentUI<Slider> {
 
@@ -15,8 +15,8 @@ public class RootSliderUI extends AbstractComponentUI<Slider> {
 
     @Override
     public void renderComponent(Slider component, FontRenderer aa) {
-        glColor4f(0.0f, 0.0f, 1.0f, component.getOpacity());
-        glLineWidth(1.0f);
+        GL11.glColor4f(0.0f, 0.0f, 1.0f, component.getOpacity());
+        GL11.glLineWidth(1.0f);
         int height = component.getHeight();
         double value = component.getValue();
         double w = component.getWidth() * ((value - component.getMinimum()) / (component.getMaximum() - component.getMinimum()));
@@ -24,10 +24,10 @@ public class RootSliderUI extends AbstractComponentUI<Slider> {
 
         float w_ = (int) w;
 
-        glColor3f(1.0f, 1.0f, 1.0f);
+        GL11.glColor3f(1.0f, 1.0f, 1.0f);
         RenderHelper.drawFilledRectangle(0, 0, w_, height/downscale);
 
-        glColor3f(1.0f, 1.0f, 1.0f);
+        GL11.glColor3f(1.0f, 1.0f, 1.0f);
         RenderHelper.drawRectangle(0, 0, component.getWidth(), height/downscale);
 
         String s = value + "";
@@ -39,7 +39,8 @@ public class RootSliderUI extends AbstractComponentUI<Slider> {
             smallFontRenderer.drawString(2, 2, component.getText());
             smallFontRenderer.drawString(component.getWidth() - smallFontRenderer.getStringWidth(s) - 2, 2, s);
         }
-        glDisable(GL_TEXTURE_2D);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glDisable(GL11.GL_BLEND);
     }
 
     @Override

@@ -81,6 +81,8 @@ public class AutoGG extends Module {
 		Entity target_entity = cpacketUseEntity.getEntityFromWorld(mc.world);
 		if (!EntityUtil.isPlayer(target_entity)) return;
 
+		//if (mc.player.inventory.currentItem == Items.END_CRYSTAL) return;
+
 		add_target_player(target_entity.getName());
 	});
 

@@ -9,7 +9,7 @@ import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 
 import java.awt.*;
 
-import static org.lwjgl.opengl.GL11.*;
+import org.lwjgl.opengl.GL11;
 
 public class RootButtonUI<T extends Button> extends AbstractComponentUI<Button> {
 
@@ -18,18 +18,18 @@ public class RootButtonUI<T extends Button> extends AbstractComponentUI<Button> 
 
     @Override
     public void renderComponent(Button component, FontRenderer ff) {
-        glColor3f(0.22f,0.22f,0.22f);
+        GL11.glColor3f(0.22f,0.22f,0.22f);
         if (component.isHovered() || component.isPressed()){
-            glColor3f(0.26f,0.26f,0.26f);
+            GL11.glColor3f(0.26f,0.26f,0.26f);
         }
 
         RenderHelper.drawRoundedRectangle(0, 0, component.getWidth(), component.getHeight(), 3f);
 
-        glColor3f(1,1,1);
-        glEnable(GL_TEXTURE_2D);
+        GL11.glColor3f(1,1,1);
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
         TurokGUI.fontRenderer.drawString(1, 0, component.isPressed() ? downColour : idleColour, component.getName());
-        glDisable(GL_TEXTURE_2D);
-        glDisable(GL_BLEND);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glDisable(GL11.GL_BLEND);
     }
 
     @Override

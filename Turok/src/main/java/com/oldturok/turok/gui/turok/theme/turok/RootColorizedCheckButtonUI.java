@@ -8,7 +8,7 @@ import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 
 import java.awt.*;
 
-import static org.lwjgl.opengl.GL11.*;
+import org.lwjgl.opengl.GL11;
 
 public class RootColorizedCheckButtonUI extends RootCheckButtonUI<ColorizedCheckButton> {
 
@@ -22,29 +22,29 @@ public class RootColorizedCheckButtonUI extends RootCheckButtonUI<ColorizedCheck
 
     @Override
     public void renderComponent(CheckButton component, FontRenderer aa) {
-        glColor4f(backgroundColour.getRed()/255f, backgroundColour.getGreen()/255f, backgroundColour.getBlue()/255f, component.getOpacity());
+        GL11.glColor4f(backgroundColour.getRed()/255f, backgroundColour.getGreen()/255f, backgroundColour.getBlue()/255f, component.getOpacity());
         if (component.isHovered() || component.isPressed()){
-            glColor4f(backgroundColourHover.getRed()/255f, backgroundColourHover.getGreen()/255f, backgroundColourHover.getBlue()/255f, component.getOpacity());
+            GL11.glColor4f(backgroundColourHover.getRed()/255f, backgroundColourHover.getGreen()/255f, backgroundColourHover.getBlue()/255f, component.getOpacity());
         }
         if (component.isToggled()){
-            glColor3f(backgroundColour.getRed()/255f, backgroundColour.getGreen()/255f, backgroundColour.getBlue()/255f);
+            GL11.glColor3f(backgroundColour.getRed()/255f, backgroundColour.getGreen()/255f, backgroundColour.getBlue()/255f);
         }
 
 //        RenderHelper.drawRoundedRectangle(0,0,component.getWidth(), component.getHeight(), 3f);
-        glLineWidth(2.5f);
-        glBegin(GL_LINES);
+        GL11.glLineWidth(2.5f);
+        GL11.glBegin(GL11.GL_LINES);
         {
-            glVertex2d(0,component.getHeight());
-            glVertex2d(component.getWidth(),component.getHeight());
+            GL11.glVertex2d(0,component.getHeight());
+            GL11.glVertex2d(component.getWidth(),component.getHeight());
         }
-        glEnd();
+        GL11.glEnd();
 
         Color idleColour = component.isToggled() ? idleColourToggle : idleColourNormal;
         Color downColour = component.isToggled() ? downColourToggle : downColourNormal;
 
-        glColor3f(1,1,1);
-        glEnable(GL_TEXTURE_2D);
+        GL11.glColor3f(1,1,1);
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
         ff.drawString(component.getWidth() / 2 - TurokGUI.fontRenderer.getStringWidth(component.getName()) / 2, 0, component.isPressed() ? downColour : idleColour, component.getName());
-        glDisable(GL_TEXTURE_2D);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
     }
 }

@@ -1,6 +1,7 @@
 package com.oldturok.turok.gui.turok.theme.turok;
 
 import com.oldturok.turok.gui.turok.TurokGUI;
+import com.oldturok.turok.gui.font.CFontRenderer;
 import com.oldturok.turok.gui.turok.RenderHelper;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.component.use.CheckButton;
@@ -8,11 +9,11 @@ import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 
 import java.awt.*;
+import java.io.*;
 
-import static org.lwjgl.opengl.GL11.*;
+import org.lwjgl.opengl.GL11;
 
 public class RootCheckButtonUI<T extends CheckButton> extends AbstractComponentUI<CheckButton> {
-
     protected Color backgroundColour = new Color(0, 0, 255);
     protected Color backgroundColourHover = new Color(0, 0, 255);
 
@@ -24,17 +25,20 @@ public class RootCheckButtonUI<T extends CheckButton> extends AbstractComponentU
 
     @Override
     public void renderComponent(CheckButton component, FontRenderer ff) {
-        String text = component.getName();
-        int c = component.isPressed() ? 0xaaaaaa : component.isToggled() ? 0x0000ff : 0xdddddd;
-        if (component.isHovered())
-            c = (c & 0x0096ff) << 1;
+        int color = component.isPressed() ? 0xdddddd : component.isToggled() ? 0xdddddd : 0xdddddd;
+        
+        if (component.isHovered()) color = (color & 0x9dc4dc) << 1;
+        if (component.isToggled()) {
+            GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+            RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
 
-        glDisable(GL_TEXTURE_2D);
+            TurokGUI.fontRenderer.drawString(1, 1, color, component.getName());
+        } else {
+            TurokGUI.fontRenderer.drawString(1, 1, color, component.getName());
+        }
 
-        glColor4f(1.0f, 1.0f, 1.0f, 1.0f); // drawFilledRectangle
-        glLineWidth(2.0f);
-        RenderHelper.drawRectangle(ff.getStringWidth(component.getName()) + 22, 0, component.getWidth(), component.getHeight());
-        TurokGUI.fontRenderer.drawString(1, 1, c, text);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glDisable(GL11.GL_BLEND);
     }
 
     @Override

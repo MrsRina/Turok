@@ -19,8 +19,6 @@ import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.util.Wrapper;
 import org.lwjgl.opengl.GL11;
 
-import static org.lwjgl.opengl.GL11.*;
-
 public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
     ColourHolder frameColour = TurokGUI.primaryColour.setA(100);
@@ -40,13 +38,13 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
     public void renderComponent(Frame component, FontRenderer fontRenderer) {
         if (component.getOpacity() == 0) return;
 
-        glDisable(GL_TEXTURE_2D);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
 
-        glColor4f(1f, 1f, 1f, 0.3f);
+        GL11.glColor4f(1f, 1f, 1f, 0.3f);
         RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
 
-        glColor4f(1f, 1f, 1f, 1.0f);
-        RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 4);
+        GL11.glColor4f(1f, 1f, 1f, 1.0f);
+        RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
 
         GL11.glColor3f(1, 1, 1);
         ff.drawString(1, 1, component.getTitle());
@@ -55,59 +53,14 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         int bottom_y = component.getTheme().getFontRenderer().getFontHeight() - 9;
 
         if (component.isPinneable()){
-            if (component.isPinned()) glColor3f(0f, 0f, 1f);
-            else glColor3f(0.66f, 0.66f, 0.66f);
+            if (component.isPinned()) GL11.glColor3f(0f, 0f, 1f);
+            else GL11.glColor3f(0.66f, 0.66f, 0.66f);
 
-            RenderHelper.drawCircle(component.getWidth() - 2, 6, 2f);    
+            RenderHelper.drawCircle(component.getWidth() - 3, 6, 2f);    
         }
 
-        if (component.equals(xLineComponent)){
-            glColor3f(.44f,.44f,.44f);
-            glLineWidth(1f);
-            glBegin(GL_LINES);
-            {
-                glVertex2d(xLineOffset,-GUI.calculateRealPosition(component)[1]);
-                glVertex2d(xLineOffset, Wrapper.getMinecraft().displayHeight);
-            }
-            glEnd();
-        }
-
-        if (component == centerXComponent && centerX) {
-            glColor3f(0.0f, 0.03f, 1f);
-            glLineWidth(1f);
-            glBegin(GL_LINES);
-            {
-                double x = component.getWidth() / 2;
-                glVertex2d(x, -GUI.calculateRealPosition(component)[1]);
-                glVertex2d(x, Wrapper.getMinecraft().displayHeight);
-            }
-            glEnd();
-        }
-
-        if (component.equals(yLineComponent)){
-            glColor3f(.44f,.44f,.44f);
-            glLineWidth(1f);
-            glBegin(GL_LINES);
-            {
-                glVertex2d(-GUI.calculateRealPosition(component)[0],0);
-                glVertex2d(Wrapper.getMinecraft().displayWidth, 0);
-            }
-            glEnd();
-        }
-
-        if (component == centerYComponent && centerY) {
-            glColor3f(0.0f, 0.03f, 1f);
-            glLineWidth(1f);
-            glBegin(GL_LINES);
-            {
-                double y = component.getHeight() / 2;
-                glVertex2d(-GUI.calculateRealPosition(component)[0], y);
-                glVertex2d(Wrapper.getMinecraft().displayWidth, y);
-            }
-            glEnd();
-        }
-
-        glDisable(GL_BLEND);
+        GL11.glDisable(GL11.GL_TEXTURE_2D);
+        GL11.glDisable(GL11.GL_BLEND);
     }
 
     @Override

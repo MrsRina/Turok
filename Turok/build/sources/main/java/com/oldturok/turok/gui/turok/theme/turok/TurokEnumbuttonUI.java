@@ -33,8 +33,8 @@ public class TurokEnumbuttonUI extends AbstractComponentUI<EnumButton> {
 
         //RenderHelper.drawRoundedRectangle(0,0,component.getWidth(), component.getHeight(), 3f);
 
-        glColor3f(1,1,1);
-        glEnable(GL_TEXTURE_2D);
+        GL11.glColor3f(1,1,1);
+        GL11.glEnable(GL11.GL_TEXTURE_2D);
 
         int parts = component.getModes().length;
         double step = component.getWidth() / (double) parts;
@@ -44,14 +44,14 @@ public class TurokEnumbuttonUI extends AbstractComponentUI<EnumButton> {
         int height = component.getHeight();
         float downscale = 1.1f;
 
-        glDisable(GL_TEXTURE_2D);
-        glColor4f(1f,1f,1f, 0.3f);
-        glBegin(GL_LINES);
+       GL11.glDisable(GL11.GL_TEXTURE_2D);
+       GL11.glColor4f(1f,1f,1f, 0.3f);
+       GL11.glBegin(GL11.GL_LINES);
         {
             glVertex2d(startX,height/downscale);
             glVertex2d(endX,height/downscale);
         }
-        glEnd();
+        GL11.glEnd();
 
         if (modeComponent == null || !modeComponent.equals(component)){
             smallFontRenderer.drawString(0,0,c,component.getName());

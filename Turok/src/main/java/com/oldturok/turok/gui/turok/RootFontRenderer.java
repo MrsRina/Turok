@@ -58,7 +58,7 @@ public class RootFontRenderer implements FontRenderer {
 
     @Override
     public void drawStringWithShadow(int x, int y, int r, int g, int b, String text) {
-        drawString(x,y,(0xff << 24) | ((r&0xff) << 16) | ((g&0xff) << 8) | (b&0xff),text,true);
+        drawString(x,y,(0xff << 24) | ((r&0xff) << 16) | ((g&0xff) << 8) | (b&0xff), text, true);
     }
 
     private void prepare(int x, int y){
