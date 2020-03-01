@@ -115,7 +115,7 @@ public class AutoGG extends Module {
 		StringBuilder msg = new StringBuilder();
 
 		if (doom_mode.getValue()) {
-			msg.append("D o o m s h o p  M o t h e r f u c k " + name + ", fucking thanks Turok!");
+			msg.append("D o o m s h o p   M o t h e r f u c k " + name + ", fucking thanks Turok!");
 		} else {
 			msg.append("GG " + name + "! Thanks Turok!!!");
 		}

@@ -4,6 +4,7 @@ import com.oldturok.turok.module.Module;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
 
+// Rina.
 @Module.Info(name = "Timer", category = Module.Category.TUROK_MOVEMENT)
 public class Timer extends Module {
 	private Setting<Integer> ticks_speed_value = register(Settings.integerBuilder("Time Value").withMinimum(0).withValue(4).withMaximum(20));

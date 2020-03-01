@@ -193,19 +193,6 @@ public class Module {
             if (s.equalsIgnoreCase("None")) return Bind.none();
             boolean ctrl = false, alt = false, shift = false;
 
-            if (s.startsWith("Ctrl+")) {
-                ctrl = true;
-                s = s.substring(5);
-            }
-            if (s.startsWith("Alt+")) {
-                alt = true;
-                s = s.substring(4);
-            }
-            if (s.startsWith("Shift+")) {
-                shift = true;
-                s = s.substring(6);
-            }
-
             int key = -1;
             try {
                 key = Keyboard.getKeyIndex(s.toUpperCase());

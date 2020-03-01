@@ -18,6 +18,7 @@ import net.minecraft.util.math.RayTraceResult;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.network.play.client.CPacketPlayerTryUseItemOnBlock;
+import net.minecraft.network.play.client.CPacketPlayerDigging;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.entity.EntityLivingBase;
@@ -189,6 +190,13 @@ public class InsaneCrystal extends Module {
                     break;
                 }
             }
+        }
+
+        // Ignore crystal for eat.
+        ItemStack offhand = mc.player.getHeldItemOffhand();                
+                
+        if (offhand != null && offhand.getItem() == Items.SHIELD) {
+            mc.player.connection.sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.Action.RELEASE_USE_ITEM, BlockPos.ORIGIN, mc.player.getHorizontalFacing()));
         }
 
         boolean off_hand = false;

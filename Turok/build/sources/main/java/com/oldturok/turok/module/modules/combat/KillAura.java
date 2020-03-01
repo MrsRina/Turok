@@ -70,24 +70,12 @@ public class KillAura extends Module {
         Iterator<Entity> entityIterator = Minecraft.getMinecraft().world.loadedEntityList.iterator();
         while (entityIterator.hasNext()) {
             Entity target = entityIterator.next();
-            if (!EntityUtil.isLiving(target)) {
-                continue;
-            }
-            if (target == mc.player) {
-                continue;
-            }
-            if (mc.player.getDistance(target) > hitRange.getValue()) {
-                continue;
-            }
-            if (((EntityLivingBase) target).getHealth() <= 0) {
-                continue;
-            }
-            if (waitMode.getValue().equals(WaitMode.DYNAMIC) && ((EntityLivingBase) target).hurtTime != 0) {
-                continue;
-            }
-            if (!ignoreWalls.getValue() && (!mc.player.canEntityBeSeen(target) && !canEntityFeetBeSeen(target))) {
-                continue;
-            }
+            if (!EntityUtil.isLiving(target)) continue;
+            if (target == mc.player) continue;
+            if (mc.player.getDistance(target) > hitRange.getValue()) continue;
+            if (((EntityLivingBase) target).getHealth() <= 0) continue;
+            if (waitMode.getValue().equals(WaitMode.DYNAMIC) && ((EntityLivingBase) target).hurtTime != 0) continue;
+            if (!ignoreWalls.getValue() && (!mc.player.canEntityBeSeen(target) && !canEntityFeetBeSeen(target))) continue;
             if (attackPlayers.getValue() && target instanceof EntityPlayer && !Friends.isFriend(target.getName())) {
                 attack(target);
                 return;
@@ -101,7 +89,6 @@ public class KillAura extends Module {
                 }
             }
         }
-
     }
 
     private boolean checkSharpness(ItemStack stack) {

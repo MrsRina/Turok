@@ -12,7 +12,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public abstract class Command {
-	
 	protected String label;
 	protected String syntax;
 	protected String description;
