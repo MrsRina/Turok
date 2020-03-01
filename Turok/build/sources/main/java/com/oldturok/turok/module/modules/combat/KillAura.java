@@ -7,6 +7,8 @@ import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.util.Friends;
+
+import net.minecraft.network.play.client.CPacketPlayerDigging;
 import com.oldturok.turok.util.LagCompensator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -18,12 +20,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.BlockPos;
 
 import java.util.Iterator;
 
-@Module.Info(name = "Aura", category = Module.Category.TUROK_COMBAT, description = "Hits entities around you")
-public class Aura extends Module {
-
+@Module.Info(name = "KillAura", category = Module.Category.TUROK_COMBAT, description = "Hits entities around you")
+public class KillAura extends Module {
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
     private Setting<Boolean> attackMobs = register(Settings.b("Mobs", false));
     private Setting<Boolean> attackAnimals = register(Settings.b("Animals", false));
@@ -38,14 +40,14 @@ public class Aura extends Module {
 
     @Override
     public void onUpdate() {
-
         if (mc.player.isDead) {
             return;
         }
 
-        boolean shield = mc.player.getHeldItemOffhand().getItem().equals(Items.SHIELD) && mc.player.getActiveHand() == EnumHand.OFF_HAND;
-        if (mc.player.isHandActive() && !shield) {
-            return;
+        // Ignore.        
+        ItemStack offhand = mc.player.getHeldItemOffhand();
+        if (offhand != null && offhand.getItem() == Items.SHIELD) {
+            mc.player.connection.sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.Action.RELEASE_USE_ITEM, BlockPos.ORIGIN, mc.player.getHorizontalFacing()));
         }
 
         if (waitMode.getValue().equals(WaitMode.DYNAMIC)) {
@@ -129,8 +131,7 @@ public class Aura extends Module {
 
     }
 
-    private void attack(Entity e) {
-
+    private void attack(Entity ent) {
         boolean holding32k = false;
 
         if (checkSharpness(mc.player.getHeldItemMainhand())) {
@@ -163,7 +164,7 @@ public class Aura extends Module {
             return;
         }
 
-        mc.playerController.attackEntity(mc.player, e);
+        mc.playerController.attackEntity(mc.player, ent);
         mc.player.swingArm(EnumHand.MAIN_HAND);
 
     }

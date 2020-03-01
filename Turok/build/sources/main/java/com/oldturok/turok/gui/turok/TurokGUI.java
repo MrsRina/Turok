@@ -193,7 +193,7 @@ public class TurokGUI extends GUI {
 
         ArrayList<Frame> frames = new ArrayList<>();
 
-        Frame frame = new Frame(getTheme(), new Stretcherlayout(1), "Users!");
+        Frame frame = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
         frame.setCloseable(false);
         frame.setPinneable(true);
 
@@ -202,6 +202,7 @@ public class TurokGUI extends GUI {
             Minecraft mc = Minecraft.getMinecraft();
 
             users.setText(ChatFormatting.BLUE + mc.player.getName() + ChatFormatting.RED + " welcome to Turok " + TurokMod.MODVER);
+            users.addLine(ChatFormatting.BLUE + "Thanks for using Turok. Rina stay happy!");
             users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
         });
         frame.addChild(users);
@@ -209,7 +210,7 @@ public class TurokGUI extends GUI {
         users.setShadow(true);
         frames.add(frame);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Active modules");
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
         frame.setCloseable(false);
         frame.addChild(new ActiveModules());
         frame.setPinneable(true);
@@ -244,7 +245,7 @@ public class TurokGUI extends GUI {
         frame.setHeight(20);
         frames.add(frame);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Counts!");
+        frame = new Frame(getTheme(), new Stretcherlayout(1), "Turok Counts");
         frame.setCloseable(false);
         frame.setPinneable(true);
 
@@ -252,7 +253,7 @@ public class TurokGUI extends GUI {
         count.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
-            count.setText(ChatFormatting.BLUE + "Counts!");
+            count.setText(ChatFormatting.BLUE + "Turok Counts.");
             count.addLine(ChatFormatting.BLUE + "Totems: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum());
             count.addLine(ChatFormatting.BLUE + "Crystal: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.END_CRYSTAL).mapToInt(ItemStack::getCount).sum());
             count.addLine(ChatFormatting.BLUE + "Gapples: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.GOLDEN_APPLE).mapToInt(ItemStack::getCount).sum());
@@ -260,23 +261,6 @@ public class TurokGUI extends GUI {
         frame.addChild(count);
         count.setFontRenderer(fontRendererBig);
         count.setShadow(true);
-        frames.add(frame);
-
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Time!");
-        frame.setCloseable(false);
-        frame.setPinneable(true);
-
-        Label time = new Label("");
-        time.addTickListener(() -> {
-            DateTimeFormatter time_format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-            LocalDateTime now = LocalDateTime.now();
-
-            time.setText(ChatFormatting.BLUE + "Time: " + ChatFormatting.RED + time_format.format(now));
-        });
-
-        frame.addChild(time);
-        time.setFontRenderer(fontRendererBig);
-        time.setShadow(true);
         frames.add(frame);
 
         for (Frame frame1 : frames) {

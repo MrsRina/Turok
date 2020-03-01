@@ -202,7 +202,7 @@ public class TurokGUI extends GUI {
             Minecraft mc = Minecraft.getMinecraft();
 
             users.setText(ChatFormatting.BLUE + mc.player.getName() + ChatFormatting.RED + " welcome to Turok " + TurokMod.MODVER);
-            users.addLine(ChatFormatting.BLUE + "Thanks for using Turok. Rina stay happy!")
+            users.addLine(ChatFormatting.BLUE + "Thanks for using Turok. Rina stay happy!");
             users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
         });
         frame.addChild(users);
