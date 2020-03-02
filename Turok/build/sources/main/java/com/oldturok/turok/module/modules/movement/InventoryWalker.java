@@ -20,18 +20,21 @@ public class InventoryWalker extends Module {
 
 		if (Keyboard.isKeyDown(FORWARD)) {
 			KeyBinding.setKeyBindState(FORWARD, true);
+		} else {
+			KeyBinding.setKeyBindState(FORWARD, false);
 		}
-		//else KeyBinding.setKeyBindState(FORWARD, false);
 
 		if (Keyboard.isKeyDown(BACK)){
 			KeyBinding.setKeyBindState(BACK, true);
+		} else {
+			KeyBinding.setKeyBindState(BACK, false);
 		}
-		//else KeyBinding.setKeyBindState(BACK, false);
 
 		if (Keyboard.isKeyDown(RIGHT)) {
 			KeyBinding.setKeyBindState(RIGHT, true);
+		} else {
+			KeyBinding.setKeyBindState(RIGHT, false);
 		}
-		//else KeyBinding.setKeyBindState(RIGHT, false);
 
 		if (Keyboard.isKeyDown(LEFT)) {
 			if (mc.player.onGround) {

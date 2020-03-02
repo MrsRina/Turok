@@ -28,6 +28,7 @@ import java.util.stream.Collectors;
 import com.oldturok.turok.util.Friends;
 import java.util.Collection;
 import java.util.ArrayList;
+import org.lwjgl.opengl.GL11;
 import net.minecraft.init.Items;
 import net.minecraft.util.EnumHand;
 import net.minecraft.entity.player.EntityPlayer;
@@ -45,6 +46,7 @@ import com.oldturok.turok.setting.builder.SettingBuilder;
 import com.oldturok.turok.setting.Settings;
 import me.zero.alpine.listener.EventHandler;
 import com.oldturok.turok.event.events.PacketEvent;
+import com.oldturok.turok.util.GeometryMasks;
 import me.zero.alpine.listener.Listener;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
@@ -60,11 +62,12 @@ import com.oldturok.turok.command.Command;
 public class TurokCrystalAura extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     
-    private Setting<Integer> cor_red   = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
-    private Setting<Integer> cor_green = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
-    private Setting<Integer> cor_blue  = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(190));
+    private Setting<Integer> cor_red   = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(255));
+    private Setting<Integer> cor_green = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(255));
+    private Setting<Integer> cor_blue  = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
     private Setting<Integer> cor_alfa  = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(70));
 
+    private Setting<Boolean> bloco_linha     = register(Settings.b("Block Lines", true));
     private Setting<Boolean> auto_switch     = register(Settings.b("Auto Switch"));
     private Setting<Boolean> colocar         = register(Settings.b("Place", true));
     private Setting<Boolean> raytrace        = register(Settings.b("RayTrace", false));
@@ -192,13 +195,6 @@ public class TurokCrystalAura extends Module {
             }
         }
 
-        // Ignore crystal for eat.
-        ItemStack offhand = mc.player.getHeldItemOffhand();                
-                
-        if (offhand != null && offhand.getItem() == Items.SHIELD) {
-            mc.player.connection.sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.Action.RELEASE_USE_ITEM, BlockPos.ORIGIN, mc.player.getHorizontalFacing()));
-        }
-
         boolean off_hand = false;
         if (mc.player.getHeldItemOffhand().getItem() == Items.END_CRYSTAL) {
             off_hand = true;
@@ -310,8 +306,19 @@ public class TurokCrystalAura extends Module {
     @Override
     public void onWorldRender(final RenderEvent event) {
         if (render != null) {
-            TurokTessellator.prepare(7);
-            TurokTessellator.drawBox(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), 63);
+            int prepare = 0;
+            int mask = 0;
+
+            if (bloco_linha.getValue()) {
+                prepare = GL11.GL_LINES;
+                mask = GeometryMasks.Line.ALL;
+            } else {
+                prepare = GL11.GL_QUADS;
+                mask = GeometryMasks.Quad.ALL;
+            }
+
+            TurokTessellator.prepare(prepare);
+            TurokTessellator.drawBox(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
             TurokTessellator.release();
         }
     }

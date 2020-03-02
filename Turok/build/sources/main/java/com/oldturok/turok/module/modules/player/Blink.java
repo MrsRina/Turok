@@ -16,7 +16,6 @@ import java.util.Queue;
  */
 @Module.Info(name = "Blink", category = Module.Category.TUROK_PLAYER)
 public class Blink extends Module {
-
     Queue<CPacketPlayer> packets = new LinkedList<>();
     @EventHandler
     public Listener<PacketEvent.Send> listener = new Listener<>(event -> {

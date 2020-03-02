@@ -24,7 +24,6 @@ public class EyeTrack extends Module {
 	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(70));
 	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(70));
 	private Setting<Integer> b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(70));
-	private Setting<Integer> a = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(70));
 
 	@Override
 	public void onWorldRender(RenderEvent event) {
@@ -49,7 +48,7 @@ public class EyeTrack extends Module {
 		double posY_ = result.hitVec.y - mc.getRenderManager().renderPosY;
 		double posZ_ = result.hitVec.z - mc.getRenderManager().renderPosZ;
 
-		GL11.glColor4f(r.getValue()/255, g.getValue()/255, b.getValue()/255, a.getValue()/255);
+		GL11.glColor4f(r.getValue()/255, g.getValue()/255, b.getValue()/255, 1.0f);
 
 		GlStateManager.glLineWidth(1.5f);
 
@@ -71,7 +70,7 @@ public class EyeTrack extends Module {
 			float y = block_pos.y - 0.01f;
 			float z = block_pos.z - 0.01f;
 
-			TurokTessellator.drawBox(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r.getValue(), g.getValue(), b.getValue(), a.getValue(), GeometryMasks.Quad.ALL);
+			TurokTessellator.drawBox(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r.getValue(), g.getValue(), b.getValue(), 255, GeometryMasks.Quad.ALL);
 			TurokTessellator.release();
 		}
 

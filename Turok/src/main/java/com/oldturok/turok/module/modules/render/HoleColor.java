@@ -35,7 +35,7 @@ public class HoleColor extends Module {
 	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(255));
 	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(255));
 	private Setting<Integer> b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
-	private Setting<Integer> a = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(130));
+	private Setting<Integer> a = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
 
 	@Override
 	public void onUpdate() {
@@ -78,9 +78,9 @@ public class HoleColor extends Module {
 
 		TurokTessellator.prepare(GL11.GL_LINES);
 		safe_holes.forEach((block_pos, bedrock) -> {
-			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
-			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
-			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
+			draw(block_pos, r.getValue(), g.getValue(), a.getValue());
+			draw(block_pos, r.getValue(), g.getValue(), a.getValue());
+			draw(block_pos, r.getValue(), g.getValue(), a.getValue());
 		});
 		TurokTessellator.release();
 	}

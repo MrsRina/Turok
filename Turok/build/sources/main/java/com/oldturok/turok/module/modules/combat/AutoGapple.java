@@ -9,6 +9,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
+// Rina.
 @Module.Info(name = "AutoGapple", category = Module.Category.TUROK_COMBAT)
 public class AutoGapple extends Module {
 	private Setting<Boolean> totem_disable = register(Settings.b("Totem Disable", true));

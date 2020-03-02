@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.client.Minecraft;
 import com.oldturok.turok.util.Wrapper;
 
+// Rina.
 @Module.Info(name = "FastBow", description = "FastBow", category = Module.Category.TUROK_COMBAT)
 public class FastBow extends Module {
 	public void onUpdate() {

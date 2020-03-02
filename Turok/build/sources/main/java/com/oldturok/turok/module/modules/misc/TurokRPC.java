@@ -10,7 +10,7 @@ import com.oldturok.turok.turokrpc.TurokDiscordP;
 public class TurokRPC extends Module {
 	private Setting<Boolean> show_name = register(Settings.b("Show Name", true));
 	private Setting<Boolean> show_server = register(Settings.b("Show Server", true));
-	private Setting<Boolean> show_doom = register(Settings.b("Show DoomName", true));
+	private Setting<Boolean> show_doom = register(Settings.b("Show Doom Mode", true));
 
 	private String name;
 	private String playing;
@@ -23,6 +23,11 @@ public class TurokRPC extends Module {
 	}
 
 	@Override
+	public void onDisable() {
+		TurokDiscordP.end();
+	}
+
+	@Override
 	public void onUpdate() {
 		if (show_name.getValue()) {
 			name = mc.player.getName();
@@ -32,24 +37,27 @@ public class TurokRPC extends Module {
 
 		if (show_server.getValue()) {
 			if (mc.isIntegratedServerRunning()) {
-				playing = (String) " Playing in ";
-				show_server = (String) "Survival Offline";
+				playing = " playing in ";
+				server = "survival offline";
 			} else if (mc.getCurrentServerData() != null) {
-				playing = (String) " Playing in ";
-				show_server = mc.getCurrentServerData().serverIP;
+				playing = " playing in ";
+				server = mc.getCurrentServerData().serverIP;
 			} else {
-				playing = (String) " In";
-				show_server = (String) "Main Menu";
+				playing = " in";
+				server = "main menu";
 			}
+		} else {
+			playing = "";
+			server = "";
 		}
 
 		if (show_doom.getValue()) {
-			show_doom = (String) "Doomshop Motherfuckz Client. Turok!!";
+			doom = "Doomshop motherfuckz!";
 		} else {
-			show_doom = (String) "I am Turok!";
+			doom = "Turok...";
 		}
 
-		TurokDiscordP.detail = name + playing + show_server;
-		TurokDiscordP.state = show_doom;
+		TurokDiscordP.detail = name + playing + server;
+		TurokDiscordP.state = doom;
 	}
 }

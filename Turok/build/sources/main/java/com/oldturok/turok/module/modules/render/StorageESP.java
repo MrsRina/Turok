@@ -25,7 +25,7 @@ import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 import org.lwjgl.opengl.GL11;
 
-// Captain.
+// Raindrop.
 @Module.Info(name = "StorageESP", description = "Draws nice little lines around storage items", category = Module.Category.TUROK_RENDER)
 public class StorageESP extends Module
 {
@@ -73,7 +73,7 @@ public class StorageESP extends Module
             return ColourUtils.Colors.ORANGE;
         }
         if (entity instanceof EntityItemFrame && ((EntityItemFrame)entity).getDisplayedItem().getItem() instanceof ItemShulkerBox) {
-            return ColourUtils.Colors.YELLOW;
+            return ColourUtils.Colors.PURPLE;
         }
         if (entity instanceof EntityItemFrame && !(((EntityItemFrame)entity).getDisplayedItem().getItem() instanceof ItemShulkerBox)) {
             return ColourUtils.Colors.ORANGE;
@@ -112,7 +112,7 @@ public class StorageESP extends Module
             final BlockPos pos = entity.getPosition();
             final int color = this.getEntityColor(entity);
             if (((entity instanceof EntityItemFrame && this.frame.getValue()) || (entity instanceof EntityMinecartChest && this.cart.getValue())) && color != -1) {
-                a.add(new Triplet<BlockPos, Integer, Integer>((entity instanceof EntityItemFrame) ? pos.add(0, -1, 0) : pos, color, GeometryMasks.Line.ALL));
+                a.add(new Triplet<BlockPos, Integer, Integer>((entity instanceof EntityItemFrame) ? pos.add(0, -1, 0) : pos, color, GeometryMasks.Quad.All));
             }
         }
         TurokTessellator.prepare(GL11.GL_LINES);

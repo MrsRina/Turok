@@ -6,6 +6,7 @@ import club.minnced.discord.rpc.DiscordRPC;
 
 import com.oldturok.turok.module.ModuleManager;
 
+// Rina.
 public class TurokDiscordP {
 	public static DiscordRichPresence discord_presence;
 
@@ -24,9 +25,13 @@ public class TurokDiscordP {
 		TurokDiscordP.discord_presence.startTimestamp = System.currentTimeMillis() / 1000l;
 
 		TurokDiscordP.discord_presence.largeImageKey = "splash";
-		TurokDiscordP.discord_presence.largeImageText = "splash";
+		TurokDiscordP.discord_presence.largeImageText = "Turok Client";
 
 		new Thread(TurokDiscordP::discordRpcInit).start();
+	}
+
+	public static void end() {
+		TurokDiscordP.discord_rpc.Discord_Shutdown();
 	}
 
 	private static void discordRpcInit() {
