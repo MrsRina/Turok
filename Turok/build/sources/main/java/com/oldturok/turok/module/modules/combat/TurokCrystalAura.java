@@ -67,7 +67,7 @@ public class TurokCrystalAura extends Module {
     private Setting<Integer> cor_blue  = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
     private Setting<Integer> cor_alfa  = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(70));
 
-    private Setting<Boolean> bloco_linha     = register(Settings.b("Block Lines", true));
+    private Setting<Boolean> bloco_linha     = register(Settings.b("Outline", true));
     private Setting<Boolean> auto_switch     = register(Settings.b("Auto Switch"));
     private Setting<Boolean> colocar         = register(Settings.b("Place", true));
     private Setting<Boolean> raytrace        = register(Settings.b("RayTrace", false));

@@ -21,9 +21,9 @@ import org.lwjgl.opengl.GL11;
 // Rina.
 @Module.Info(name = "EyeTrack", category = Module.Category.TUROK_RENDER)
 public class EyeTrack extends Module {
-	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(70));
-	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(70));
-	private Setting<Integer> b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(70));
+	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
 
 	@Override
 	public void onWorldRender(RenderEvent event) {

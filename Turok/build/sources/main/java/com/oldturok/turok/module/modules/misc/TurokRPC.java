@@ -53,7 +53,7 @@ public class TurokRPC extends Module {
 
 		if (show_events.getValue()) {
 			if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled()) {
-				event_1 = TurokCrystalAura.player_target;
+				event_1 = "crystaling " + TurokCrystalAura.player_target;
 
 				life(true);
 			} else {
@@ -71,11 +71,11 @@ public class TurokRPC extends Module {
 	}
 
 	public void life(Boolean type) {
-		if (mc.player.getHealth() < 10.0f) {
-			event_1 = Float.toString(mc.player.getHealth());			
+		if (mc.player.getHealth() < 5.0f) {
+			event_1 = "health " + Float.toString(mc.player.getHealth());			
 		} else {
 			if (type) {
-				event_1 = TurokCrystalAura.player_target;
+				event_1 = "crystaling " + TurokCrystalAura.player_target;
 			} else {
 				event_1 = mc.world.getBiome(mc.player.getPosition()).getBiomeName();
 			}

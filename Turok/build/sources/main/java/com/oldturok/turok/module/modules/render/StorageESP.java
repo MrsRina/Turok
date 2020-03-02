@@ -117,7 +117,7 @@ public class StorageESP extends Module
         }
         TurokTessellator.prepare(GL11.GL_LINES);
         for (final Triplet<BlockPos, Integer, Integer> pair : a) {
-            TurokTessellator.drawBox(pair.getFirst(), this.changeAlpha(pair.getSecond(), 100), pair.getThird());
+            TurokTessellator.drawLines(pair.getFirst(), this.changeAlpha(pair.getSecond(), 100), pair.getThird());
         }
         TurokTessellator.release();
         GlStateManager.popMatrix();
