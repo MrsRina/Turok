@@ -97,6 +97,8 @@ public class TurokCrystalAura extends Module {
 
     private long system_time = -1l;
 
+    public static String player_target;
+
     @EventHandler
     private Listener<PacketEvent.Send> packetListener = new Listener<PacketEvent.Send>(event -> {
         Packet packet = event.getPacket();
@@ -238,6 +240,8 @@ public class TurokCrystalAura extends Module {
                     if (d < dano_minimo.getValue()) {
                         continue;
                     }
+
+                    player_target = entity_two.getName();
 
                     damage = d;
                     q = blockPos;

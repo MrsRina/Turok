@@ -1,21 +1,25 @@
 package com.oldturok.turok.module.modules.misc;
 
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.module.ModuleManager;
+
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.turokrpc.TurokDiscordP;
+import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
 
 // Rina.
 @Module.Info(name = "TurokRPC", category = Module.Category.TUROK_MISC)
 public class TurokRPC extends Module {
 	private Setting<Boolean> show_name = register(Settings.b("Show Name", true));
 	private Setting<Boolean> show_server = register(Settings.b("Show Server", true));
-	private Setting<Boolean> show_doom = register(Settings.b("Show Doom Mode", true));
+	private Setting<Boolean> show_events = register(Settings.b("Currrent Events", true));
 
 	private String name;
-	private String playing;
 	private String server;
-	private String doom;
+	private String event_1;
+
+	TurokCrystalAura crystalfunction = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
 
 	@Override
 	public void onEnable() {
@@ -37,27 +41,44 @@ public class TurokRPC extends Module {
 
 		if (show_server.getValue()) {
 			if (mc.isIntegratedServerRunning()) {
-				playing = " playing in ";
 				server = "survival offline";
 			} else if (mc.getCurrentServerData() != null) {
-				playing = " playing in ";
 				server = mc.getCurrentServerData().serverIP;
 			} else {
-				playing = " in";
 				server = "main menu";
 			}
 		} else {
-			playing = "";
 			server = "";
 		}
 
-		if (show_doom.getValue()) {
-			doom = "Doomshop motherfuckz!";
+		if (show_events.getValue()) {
+			if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled()) {
+				event_1 = "crystaling " + TurokCrystalAura.player_target;
+
+				life(true);
+			} else {
+				event_1 = mc.world.getBiome(mc.player.getPosition()).getBiomeName();
+
+				life(false);
+			}
+
 		} else {
-			doom = "Turok...";
+			event_1 = "";
 		}
 
-		TurokDiscordP.detail = name + playing + server;
-		TurokDiscordP.state = doom;
+		TurokDiscordP.detail = name + " - " + server;
+		TurokDiscordP.state = event_1 + "";
+	}
+
+	public void life(Boolean type) {
+		if (mc.player.getHealth() < 5.0f) {
+			event_1 = "health " + Float.toString(mc.player.getHealth());			
+		} else {
+			if (type) {
+				event_1 = "crystaling " + TurokCrystalAura.player_target;
+			} else {
+				event_1 = mc.world.getBiome(mc.player.getPosition()).getBiomeName();
+			}
+		}
 	}
 }

@@ -24,8 +24,8 @@ import net.minecraft.util.math.BlockPos;
 
 import java.util.Iterator;
 
-@Module.Info(name = "KillAura", category = Module.Category.TUROK_COMBAT, description = "Hits entities around you")
-public class KillAura extends Module {
+@Module.Info(name = "AuraEatGapple", category = Module.Category.TUROK_COMBAT)
+public class AuraEatGapple extends Module {
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
     private Setting<Boolean> attackMobs = register(Settings.b("Mobs", false));
     private Setting<Boolean> attackAnimals = register(Settings.b("Animals", false));
