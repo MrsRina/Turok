@@ -9,22 +9,22 @@ import com.oldturok.turok.module.ModuleManager;
 public class TurokDiscordP {
 	public static DiscordRichPresence discord_presence;
 
-	private static final DiscordRPC rpc;
 	private static boolean discord_started;
+	private static final DiscordRPC discord_rpc;
 
-	private static String deta_;
-	private static String state;
+	public static String detail;
+	public static String state;
 
 	public static void start() {
 		if (TurokDiscordP.discord_started) return;
 		TurokDiscordP.discord_started = true;
 
 		final DiscordEventHandlers handler_ = new DiscordEventHandlers();
-		TurokDiscordP.rpc.Discord_Initialize("638403216278683661", handler_, true, "");
+		TurokDiscordP.discord_rpc.Discord_Initialize("683841698778185818", handler_, true, "");
 		TurokDiscordP.discord_presence.startTimestamp = System.currentTimeMillis() / 1000l;
 
-		deta_ = "Turok test rpc";
-		state = "gay";
+		TurokDiscordP.discord_presence.largeImageKey = "splash";
+		TurokDiscordP.discord_presence.largeImageText = "splash";
 
 		new Thread(TurokDiscordP::discordRpcInit).start();
 	}
@@ -32,12 +32,12 @@ public class TurokDiscordP {
 	private static void discordRpcInit() {
 		while (!Thread.currentThread().isInterrupted()) {
 			try {
-				TurokDiscordP.rpc.Discord_RunCallbacks();
+				TurokDiscordP.discord_rpc.Discord_RunCallbacks();
 
-				TurokDiscordP.discord_presence.details = deta_;
+				TurokDiscordP.discord_presence.details = detail;
 				TurokDiscordP.discord_presence.state = state;
 
-				TurokDiscordP.rpc.Discord_UpdatePresence(TurokDiscordP.discord_presence);
+				TurokDiscordP.discord_rpc.Discord_UpdatePresence(TurokDiscordP.discord_presence);
 			}
 
 			catch (Exception exc) {
@@ -52,5 +52,11 @@ public class TurokDiscordP {
 				exc_.printStackTrace();
 			}
 		}
+	}
+
+	static {
+		discord_rpc = DiscordRPC.INSTANCE;
+		TurokDiscordP.discord_presence = new DiscordRichPresence();
+		TurokDiscordP.discord_started = false;
 	}
 }

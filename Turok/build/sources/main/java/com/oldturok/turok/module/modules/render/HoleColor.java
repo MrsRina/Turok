@@ -7,8 +7,8 @@ import com.oldturok.turok.util.GeometryMasks;
 import com.oldturok.turok.util.TurokTessellator;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
-import com.oldturok.turok.module.modules.combat.InsaneCrystal;
-import static com.oldturok.turok.module.modules.combat.InsaneCrystal.get_player_pos;
+import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
+import static com.oldturok.turok.module.modules.combat.TurokCrystalAura.get_player_pos;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -47,7 +47,7 @@ public class HoleColor extends Module {
 
 		int range_ = (int) Math.ceil(range.getValue());
 
-		InsaneCrystal crystal_function = (InsaneCrystal) ModuleManager.getModuleByName("InsaneCrystal");
+		TurokCrystalAura crystal_function = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
 		List<BlockPos> block_pos = crystal_function.get_sphere(get_player_pos(), range_, range_, false, true, 0);
 
 		for (BlockPos pos : block_pos) {

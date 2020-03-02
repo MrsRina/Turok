@@ -56,8 +56,8 @@ import com.oldturok.turok.command.Command;
 
 // FastCrysalAura, the best than kami old.
 // By Rina.
-@Module.Info(name = "InsaneCrystal", category = Module.Category.TUROK_COMBAT)
-public class InsaneCrystal extends Module {
+@Module.Info(name = "TurokCrystalAura", category = Module.Category.TUROK_COMBAT)
+public class TurokCrystalAura extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     
     private Setting<Integer> cor_red   = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
@@ -98,8 +98,8 @@ public class InsaneCrystal extends Module {
     private Listener<PacketEvent.Send> packetListener = new Listener<PacketEvent.Send>(event -> {
         Packet packet = event.getPacket();
         if (packet instanceof CPacketPlayer && is_spoofing_angles) {
-            ((CPacketPlayer)packet).yaw = (float) player_yaw;
-            ((CPacketPlayer)packet).pitch = (float) player_pitch;
+            ((CPacketPlayer) packet).yaw = (float) player_yaw;
+            ((CPacketPlayer) packet).pitch = (float) player_pitch;
         }
 
         }, (Predicate<PacketEvent.Send>[])new Predicate[0]);
@@ -107,7 +107,7 @@ public class InsaneCrystal extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("InsaneToCryAura <- " + ChatFormatting.GREEN + "Enabled!");
+            Command.sendChatMessage("TurokCrystalAura <- " + ChatFormatting.GREEN + "Enabled!");
         } else {
             return;
         }
@@ -120,7 +120,7 @@ public class InsaneCrystal extends Module {
         reset_rotation();
 
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("InsaneToCryAura -> " + ChatFormatting.RED + "Disabled!");
+            Command.sendChatMessage("TurokCrystalAura -> " + ChatFormatting.RED + "Disabled!");
         } else {
             return; 
         }
@@ -407,7 +407,7 @@ public class InsaneCrystal extends Module {
     }
 
     private static float get_damage_multiplied(final float damage) {
-        final int diff = InsaneCrystal.mc.world.getDifficulty().getId();
+        final int diff = TurokCrystalAura.mc.world.getDifficulty().getId();
         return damage * ((diff == 0) ? 0.0f : ((diff == 2) ? 1.0f : ((diff == 1) ? 0.5f : 1.5f)));
     }
 }
