@@ -5,17 +5,13 @@ import com.oldturok.turok.module.Module;
 /**
  * By CaptainWavedash.
  */
-@Module.Info(name = "Sprint", description = "Automatically makes the player sprint", category = Module.Category.TUROK_MOVEMENT)
+@Module.Info(name = "Sprint", description = "Automatically makes the player sprint", category = Module.Category.TUROK_PLAYER)
 public class Sprint extends Module {
 
-    @Override
-    public void onUpdate() {
-        try {
-            if (!mc.player.collidedHorizontally && mc.player.moveForward > 0)
-                mc.player.setSprinting(true);
-            else
-                mc.player.setSprinting(false);
-        } catch (Exception ignored) {}
-    }
-
+	@Override
+	public void onUpdate() {
+		if ((mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown() || mc.gameSettings.keyBindRight.isKeyDown()) && !(mc.player.isSneaking()) && !(mc.player.collidedHorizontally) && !(mc.player.getFoodStats().getFoodLevel() <= 6f)) {
+			mc.player.setSprinting(true);
+		}
+	}
 }

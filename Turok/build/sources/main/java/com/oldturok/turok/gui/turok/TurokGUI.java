@@ -201,8 +201,16 @@ public class TurokGUI extends GUI {
         users.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
-            users.setText(ChatFormatting.BLUE + mc.player.getName() + ChatFormatting.RED + " welcome to Turok " + TurokMod.MODVER);
-            users.addLine(ChatFormatting.BLUE + "Thanks for using Turok. Rina stay happy!");
+            String name = "";
+
+            if (mc.player.getName() == "69hr") name = "Cammm";
+            else if (mc.player.getName() == "itsSkylock") name = "Skyylockk";
+            else if (mc.player.getName() == "Omegabr") name = "Omaegaa";
+            else if (mc.player.getName()== "LeafyIsGone") name = "Lifyyyy";
+            else name = mc.player.getName();
+
+            users.setText(ChatFormatting.BLUE + name + ChatFormatting.RED + " welcome to Turok " + TurokMod.MODVER);
+            users.addLine(ChatFormatting.BLUE + "Rina like you! ^^");
             users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
         });
         frame.addChild(users);

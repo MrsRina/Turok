@@ -39,8 +39,8 @@ public class BlockHighLight extends Module {
 			return;
 
 		if (result.typeOfHit == RayTraceResult.Type.BLOCK) {
-			int prepare = null;
-			int mask = null;
+			int prepare = 0;
+			int mask = 0;
 
 			if (outline.getValue()) {
 				prepare = GL11.GL_LINES;

@@ -70,7 +70,7 @@ public class EyeTrack extends Module {
 			float y = block_pos.y - 0.01f;
 			float z = block_pos.z - 0.01f;
 
-			TurokTessellator.drawBox(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r.getValue(), g.getValue(), b.getValue(), 255, GeometryMasks.Quad.ALL);
+			TurokTessellator.drawBox(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r.getValue(), g.getValue(), b.getValue(), 70, GeometryMasks.Quad.ALL);
 			TurokTessellator.release();
 		}
 

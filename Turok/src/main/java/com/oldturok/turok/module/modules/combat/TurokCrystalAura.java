@@ -76,8 +76,8 @@ public class TurokCrystalAura extends Module {
     private Setting<Double> distancia        = register(Settings.d("Place Range", 6.0));
     private Setting<Double> alcance          = register(Settings.d("Range", 6.0));
     private Setting<Boolean> ant_fraqueza    = register(Settings.b("Anti Weakness", false));
-    private Setting<Double> tempo_de_colocar = register(Settings.d("Place Delay", 0.0));
-    private Setting<Double> tempo_de_ataque  = register(Settings.d("Hit Delay", 0.0));
+    private Setting<Double> tempo_de_colocar = register(Settings.d("Place Delay", 1.0));
+    private Setting<Double> tempo_de_ataque  = register(Settings.d("Hit Delay", 1.0));
     private Setting<Boolean> prefixo_chat    = register(Settings.b("Chat", true));
 
     private static boolean is_spoofing_angles;
