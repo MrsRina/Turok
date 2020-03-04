@@ -118,7 +118,7 @@ public class TurokCrystalAura extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("TurokCrystalAura -> " + ChatFormatting.GREEN + "Disabled!");
+            Command.sendChatMessage("TurokCrystalAura -> " + ChatFormatting.GREEN + "Enabled!");
         } else {
             return;
         }
