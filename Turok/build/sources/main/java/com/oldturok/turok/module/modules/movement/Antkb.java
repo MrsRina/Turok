@@ -11,10 +11,12 @@ import com.oldturok.turok.setting.Settings;
 import net.minecraft.network.play.server.SPacketEntityVelocity;
 import net.minecraft.network.play.server.SPacketExplosion;
 
-@Module.Info(name = "Velocity", description = "Modify knockback.", category = Module.Category.TUROK_MOVEMENT)
-public class Velocity extends Module {
-	private Setting<Float> horizontal = register(Settings.f("Horizontal", 0));
-	private Setting<Float> vertical = register(Settings.f("Vertical", 0));
+// Rina.
+// Modify in 03/03/2020.
+@Module.Info(name = "Ant-kb", description = "Modify knockback.", category = Module.Category.TUROK_MOVEMENT)
+public class Antkb extends Module {
+	private Setting<Float> horizontal = register(Settings.f("Velocity Horizontal", 0));
+	private Setting<Float> vertical = register(Settings.f("Velocity Vertical", 0));
 
 	@EventHandler
 	private Listener<PacketEvent.Receive> packetEventListener = new Listener<>(event -> {

@@ -7,9 +7,12 @@ import me.zero.alpine.listener.Listener;
 import com.oldturok.turok.TurokMod;
 import com.oldturok.turok.event.events.PacketEvent;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.util.EntityUtil;
+import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,6 +28,8 @@ import java.util.concurrent.ConcurrentHashMap;
 public class AutoGG extends Module {
 	private ConcurrentHashMap<String, Integer> target_players = null;
 	private Setting<Boolean> doom_mode = register(Settings.b("Doom Fucking Mode", false));
+
+	private TurokCrystalAura function_turokcrystalaura = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
 
 	@Override
 	public void onEnable() {
@@ -81,9 +86,16 @@ public class AutoGG extends Module {
 		Entity target_entity = cpacketUseEntity.getEntityFromWorld(mc.world);
 		if (!EntityUtil.isPlayer(target_entity)) return;
 
-		//if (mc.player.inventory.currentItem == Items.END_CRYSTAL) return;
+		if (ModuleManager.getModuleByName("CrystalAura").isEnabled()) {
+			if (function_turokcrystalaura.player_target != null) {
+				add_target_player(function_turokcrystalaura.player_target);
+			} else {
+				add_target_player(target_entity.getName());
+			}
 
-		add_target_player(target_entity.getName());
+		} else {
+			add_target_player(target_entity.getName());
+		}
 	});
 
 	@EventHandler

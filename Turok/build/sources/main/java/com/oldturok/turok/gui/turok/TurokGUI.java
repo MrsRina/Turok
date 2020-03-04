@@ -50,6 +50,21 @@ public class TurokGUI extends GUI {
 
     public static ColourHolder primaryColour = new ColourHolder(29, 29, 29);
 
+    public static ArrayList<Frame> frames;
+
+    public static Frame frame_users;
+    public static Frame frame_counts;
+    public static Frame frame_array;
+    public static Frame frame_coords;
+
+    public static int x = 10;
+    public static int y = 10;
+    public static int nexty = y;
+
+    public static int get_scale() {
+        return (int) DisplayGuiScreen.getScale();
+    }
+
     public TurokGUI() {
         super(new TurokTheme());
         theme = getTheme();
@@ -125,9 +140,9 @@ public class TurokGUI extends GUI {
             scrollpane.addChild(checkButton);
         }
 
-        int x = 10;
-        int y = 10;
-        int nexty = y;
+        x = 10;
+        y = 10;
+        nexty = y;
         for (Map.Entry<Module.Category, Pair<Scrollpane, SettingsPanel>> entry : categoryScrollpaneHashMap.entrySet()) {
             Stretcherlayout stretcherlayout = new Stretcherlayout(1);
             stretcherlayout.COMPONENT_OFFSET_Y = 1;
@@ -191,11 +206,11 @@ public class TurokGUI extends GUI {
             }
         });
 
-        ArrayList<Frame> frames = new ArrayList<>();
+        frames = new ArrayList<>();
 
-        Frame frame = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
-        frame.setCloseable(false);
-        frame.setPinneable(true);
+        frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
+        frame_users.setCloseable(false);
+        frame_users.setPinneable(true);
 
         Label users = new Label("");
         users.addTickListener(() -> {
@@ -213,20 +228,20 @@ public class TurokGUI extends GUI {
             users.addLine(ChatFormatting.BLUE + "Rina like you! ^^");
             users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
         });
-        frame.addChild(users);
+
+        frame_users.addChild(users);
         users.setFontRenderer(fontRendererBig);
         users.setShadow(true);
-        frames.add(frame);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
-        frame.setCloseable(false);
-        frame.addChild(new ActiveModules());
-        frame.setPinneable(true);
-        frames.add(frame);
+        frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
+        frame_array.setCloseable(false);
+        frame_array.addChild(new ActiveModules());
+        frame_array.setPinneable(true);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Coordinates");
-        frame.setCloseable(false);
-        frame.setPinneable(true);
+
+        frame_coords = new Frame(getTheme(), new Stretcherlayout(1), "Coordinates");
+        frame_coords.setCloseable(false);
+        frame_coords.setPinneable(true);
 
         Label coordsLabel = new Label("");
         coordsLabel.addTickListener(() -> {
@@ -247,15 +262,15 @@ public class TurokGUI extends GUI {
             coordsLabel.addLine(String.format(ChatFormatting.RED + "Nether: " + poshX + "x " + Integer.toString(posY) + "y " + poshZ + "z"));
             coordsLabel.addLine(String.format(ChatFormatting.BLUE + "Overworld: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z"));
         });
-        frame.addChild(coordsLabel);
+
+        frame_coords.addChild(coordsLabel);
         coordsLabel.setFontRenderer(fontRendererBig);
         coordsLabel.setShadow(true);
-        frame.setHeight(20);
-        frames.add(frame);
+        frame_coords.setHeight(20);
 
-        frame = new Frame(getTheme(), new Stretcherlayout(1), "Turok Counts");
-        frame.setCloseable(false);
-        frame.setPinneable(true);
+        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), "Turok Counts");
+        frame_counts.setCloseable(false);
+        frame_counts.setPinneable(true);
 
         Label count = new Label("");
         count.addTickListener(() -> {
@@ -266,23 +281,12 @@ public class TurokGUI extends GUI {
             count.addLine(ChatFormatting.BLUE + "Crystal: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.END_CRYSTAL).mapToInt(ItemStack::getCount).sum());
             count.addLine(ChatFormatting.BLUE + "Gapples: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.GOLDEN_APPLE).mapToInt(ItemStack::getCount).sum());
         });
-        frame.addChild(count);
+
+        frame_counts.addChild(count);
         count.setFontRenderer(fontRendererBig);
         count.setShadow(true);
-        frames.add(frame);
 
         for (Frame frame1 : frames) {
-            frame1.setY(x);
-            frame1.setY(y);
-
-            nexty = Math.max(y + frame1.getHeight() + 10, nexty);
-            x += (frame1.getWidth() + 10);
-            if (x * DisplayGuiScreen.getScale() > Wrapper.getMinecraft().displayWidth / 1.2f) {
-                y = nexty;
-                nexty = y;
-                x = 10;
-            }
-
             addChild(frame1);
         }
     }

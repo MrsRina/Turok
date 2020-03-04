@@ -17,7 +17,7 @@ public class Strafe extends Module {
 	float player_yaw;
 
 	@EventHandler
-	private Listener<PlayerMoveEvent> payerMoveEvent = new Listener<>(event -> {
+	private Listener<EntityEvent.EntityCollision> payerMoveEvent = new Listener<>(event -> {
 		player_forward = mc.player.movementInput.moveForward;
 		player_strafe = mc.player.movementInput.moveStrafe;
 		player_pitch = mc.player.rotationPitch;

@@ -20,7 +20,6 @@ import com.oldturok.turok.util.Wrapper;
 import org.lwjgl.opengl.GL11;
 
 public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
-
     ColourHolder frameColour = TurokGUI.primaryColour.setA(100);
     ColourHolder outlineColour = frameColour.darker();
 

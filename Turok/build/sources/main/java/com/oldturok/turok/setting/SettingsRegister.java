@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.StringTokenizer;
 
 public class SettingsRegister {
-
     public static final SettingsRegister ROOT = new SettingsRegister();
 
     public HashMap<String, SettingsRegister> registerHashMap = new HashMap<>();
