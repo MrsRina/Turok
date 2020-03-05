@@ -60,7 +60,8 @@ import com.oldturok.turok.util.Wrapper;
 
 import org.lwjgl.opengl.GL11;
 
-// FastCrysalAura.
+// Update by Rina 04/03/20.
+// A TurokCA for pings more highs >> 250 ms..
 // By Rina.
 @Module.Info(name = "TurokCrystalAura", category = Module.Category.TUROK_COMBAT)
 public class TurokCrystalAura extends Module {
@@ -75,7 +76,7 @@ public class TurokCrystalAura extends Module {
     private Setting<Boolean> colocar          = register(Settings.b("Place", true));
     private Setting<Boolean> raytrace         = register(Settings.b("RayTrace", false));
     private Setting<Boolean> explodir         = register(Settings.b("Explode", true));
-    private Setting<Boolean> varios           = register(Settings.b("Multiple Places", true));
+    private Setting<Boolean> varios           = register(Settings.b("More Fast", true));
     private Setting<Double> distancia         = register(Settings.d("Place Range", 6.0));
     private Setting<Double> quebrar_distancia = register(Settings.d("Break Range", 6.0));
     private Setting<Double> alcance           = register(Settings.d("Range", 6.0));

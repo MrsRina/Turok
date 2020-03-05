@@ -137,47 +137,6 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
                 component.setDocking(Docking.NONE);
 
-                TurokGUI rootGUI = TurokMod.getInstance().getGuiManager();
-                for (Component c : rootGUI.getChildren()){
-                    if (c.equals(component)) continue;
-
-                    int yDiff = Math.abs(y - c.getY());
-                    if (yDiff < 4){
-                        y = c.getY();
-                        yLineComponent = component;
-                    }
-
-                    yDiff = Math.abs(y - (c.getY() + c.getHeight() + 3));
-                    if (yDiff < 4) {
-                        y = c.getY() + c.getHeight();
-                        y += 3;
-                        yLineComponent = component;
-                    }
-
-                    int xDiff = Math.abs((x + component.getWidth()) - (c.getX() + c.getWidth()));
-                    if (xDiff < 4){
-                        x = c.getX() + c.getWidth();
-                        x -= component.getWidth();
-                        xLineComponent = component;
-                        xLineOffset = component.getWidth();
-                    }
-
-                    xDiff = Math.abs(x - c.getX());
-                    if (xDiff < 4){
-                        x = c.getX();
-                        xLineComponent = component;
-                        xLineOffset = 0;
-                    }
-
-                    xDiff = Math.abs(x - (c.getX() + c.getWidth() + 3));
-                    if (xDiff < 4){
-                        x = c.getX() + c.getWidth() + 3;
-                        xLineComponent = component;
-                        xLineOffset = 0;
-                    }
-
-                }
-
                 if (x < 5) {
                     x = 0;
                     ContainerHelper.setAlignment(component, AlignedComponent.Alignment.LEFT);

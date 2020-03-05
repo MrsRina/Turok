@@ -60,31 +60,30 @@ import com.oldturok.turok.util.Wrapper;
 
 import org.lwjgl.opengl.GL11;
 
-// Update by Rina 04/03/20.
-// A TurokCA for pings more highs >> 250 ms..
-// By Rina.
-@Module.Info(name = "TurokCrystalAura", category = Module.Category.TUROK_COMBAT)
-public class TurokCrystalAura extends Module {
+// A TurokCA more fast than TurokCrystalAura, for low ping.
+// By Rina || Update by Rina 04/03/20.
+// description = "The definition of insanity".
+@Module.Info(name = "InsaneTurokAura", category = Module.Category.TUROK_COMBAT)
+public class InsaneTurokAura extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     
-    private Setting<Integer> cor_red   = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(200));
-    private Setting<Integer> cor_green = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(200));
-    private Setting<Integer> cor_blue  = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(200));
+    private Setting<Integer> cor_red   = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(255));
+    private Setting<Integer> cor_green = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(255));
+    private Setting<Integer> cor_blue  = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
     private Setting<Integer> cor_alfa  = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(70));
 
-    private Setting<Boolean> auto_switch      = register(Settings.b("Auto Switch"));
-    private Setting<Boolean> colocar          = register(Settings.b("Place", true));
-    private Setting<Boolean> raytrace         = register(Settings.b("RayTrace", false));
-    private Setting<Boolean> explodir         = register(Settings.b("Explode", true));
-    private Setting<Boolean> varios           = register(Settings.b("More Fast", true));
-    private Setting<Double> distancia         = register(Settings.d("Place Range", 6.0));
-    private Setting<Double> quebrar_distancia = register(Settings.d("Break Range", 6.0));
-    private Setting<Double> alcance           = register(Settings.d("Range", 6.0));
-    private Setting<Boolean> linha_cubo       = register(Settings.b("Outline", true));
-    private Setting<Boolean> ant_fraqueza     = register(Settings.b("Anti Weakness", false));
-    private Setting<Double> tempo_de_colocar  = register(Settings.d("Place Delay", 0.0));
-    private Setting<Double> tempo_de_ataque   = register(Settings.d("Hit Delay", 0.0));
-    private Setting<Boolean> prefixo_chat     = register(Settings.b("Chat", true));
+    private Setting<Boolean> bloco_linha     = register(Settings.b("Outline", true));
+    private Setting<Boolean> auto_switch     = register(Settings.b("Auto Switch"));
+    private Setting<Boolean> colocar         = register(Settings.b("Place", true));
+    private Setting<Boolean> raytrace        = register(Settings.b("RayTrace", false));
+    private Setting<Boolean> explodir        = register(Settings.b("Explode", true));
+    private Setting<Boolean> varios          = register(Settings.b("Insane", true));
+    private Setting<Double> distancia        = register(Settings.d("Place Range", 6.0));
+    private Setting<Double> alcance          = register(Settings.d("Range", 6.0));
+    private Setting<Boolean> ant_fraqueza    = register(Settings.b("Anti Weakness", false));
+    private Setting<Double> tempo_de_colocar = register(Settings.d("Place Delay", 1.0));
+    private Setting<Double> tempo_de_ataque  = register(Settings.d("Hit Delay", 1.0));
+    private Setting<Boolean> prefixo_chat    = register(Settings.b("Chat", true));
 
     private static boolean is_spoofing_angles;
     private static boolean toggle_pitch;
@@ -101,10 +100,9 @@ public class TurokCrystalAura extends Module {
 
     private int places;
 
-    private AutoGG target_autogg = (AutoGG) ModuleManager.getModuleByName("AutoGG");
-    public static String player_target;
-
     private long system_time = -1l;
+
+    public static String player_target;
 
     @EventHandler
     private Listener<PacketEvent.Send> packetListener = new Listener<PacketEvent.Send>(event -> {
@@ -119,7 +117,7 @@ public class TurokCrystalAura extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("TurokCrystalAura -> " + ChatFormatting.GREEN + "Enabled!");
+            Command.sendChatMessage("InsaneTurokAura <- " + ChatFormatting.GREEN + "Enabled!");
         } else {
             return;
         }
@@ -132,17 +130,16 @@ public class TurokCrystalAura extends Module {
         reset_rotation();
 
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("TurokCrystalAura <- " + ChatFormatting.RED + "Disabled!");
+            Command.sendChatMessage("InsaneTurokAura -> " + ChatFormatting.RED + "Disabled!");
         } else {
             return; 
         }
-
     }
 
     @Override
     public void onUpdate() {
         EntityEnderCrystal crystal = (EntityEnderCrystal) mc.world.loadedEntityList.stream().filter(entity -> entity instanceof EntityEnderCrystal).map(entity -> entity).min(Comparator.comparing(d -> mc.player.getDistance(d))).orElse(null);
-        if (explodir.getValue() && crystal != null && mc.player.getDistance(crystal) <= quebrar_distancia.getValue()) {
+        if (explodir.getValue() && crystal != null && mc.player.getDistance(crystal) <= alcance.getValue()) {
             if (System.nanoTime() / 1000000L - system_time >= tempo_de_ataque.getValue()) {
                 if (ant_fraqueza.getValue() && mc.player.isPotionActive(MobEffects.WEAKNESS)) {
                     if (!attack) {
@@ -175,9 +172,15 @@ public class TurokCrystalAura extends Module {
                 mc.playerController.attackEntity(mc.player, crystal);
                 mc.player.swingArm(EnumHand.MAIN_HAND);
                 system_time = System.nanoTime() / 1000000L;
+            }
 
-                if (varios.getValue());
-                    return;
+            if (!varios.getValue()) {
+                return;
+            }
+
+            if (places == 3) {
+                places = 0;
+                return;
             }
         } else {
             reset_rotation();
@@ -211,10 +214,10 @@ public class TurokCrystalAura extends Module {
         entities.addAll((Collection<? extends Entity>) mc.world.playerEntities.stream().filter(entityPlayer -> !Friends.isFriend(entityPlayer.getName())).collect(Collectors.toList()));
 
         BlockPos q = null;
-        double damage = 0;
+        double damage = 0.5;
         for (Entity entity_two : entities) {
             if (entity_two != mc.player) {
-                if (((EntityLivingBase) entity_two).getHealth() <= 0.0f || ((EntityLivingBase) entity_two).isDead) {
+                if (((EntityLivingBase)entity_two).getHealth() <= 0.0f) {
                     continue;
                 }
 
@@ -242,7 +245,7 @@ public class TurokCrystalAura extends Module {
                         continue;
                     }
 
-                    player_target = ((EntityLivingBase) entity_two).getName();
+                    player_target = entity_two.getName();
 
                     damage = d;
                     q = blockPos;
@@ -251,8 +254,7 @@ public class TurokCrystalAura extends Module {
             }
         }
 
-        if (damage == 0) {
-            player_target = null;
+        if (damage == 0.5) {
             render = null;
             render_ent = null;
             reset_rotation();
@@ -315,7 +317,7 @@ public class TurokCrystalAura extends Module {
             int prepare = 0;
             int mask = 0;
 
-            if (linha_cubo.getValue()) {
+            if (bloco_linha.getValue()) {
                 prepare = GL11.GL_LINES;
                 mask = GeometryMasks.Line.ALL;
             } else {
@@ -324,20 +326,14 @@ public class TurokCrystalAura extends Module {
             }
 
             TurokTessellator.prepare(prepare);
-
-            if (linha_cubo.getValue()) {
-                TurokTessellator.drawLines(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
-            } else {
-                TurokTessellator.drawBox(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
-            }
-
+            TurokTessellator.drawBox(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
             TurokTessellator.release();
         }
     }
 
     private void lookAtPacket(double px, double py, double pz, EntityPlayer me) {
         double[] v = EntityUtil.calculateLookAt(px, py, pz, me);
-        set_yaw_and_pitch((float) v[0], (float) v[1]);
+        set_yaw_pitch((float)v[0], (float)v[1]);
     }
 
     private boolean can_place_crystal(BlockPos blockPos) {
@@ -415,7 +411,7 @@ public class TurokCrystalAura extends Module {
         }
     }
 
-    private static void set_yaw_and_pitch(float player_yaw_, float player_pitch_) {
+    private static void set_yaw_pitch(float player_yaw_, float player_pitch_) {
         player_yaw = player_yaw_;
         player_pitch = player_pitch_;
         is_spoofing_angles = true;
@@ -426,7 +422,7 @@ public class TurokCrystalAura extends Module {
     }
 
     private static float get_damage_multiplied(float damage) {
-        int diff = TurokCrystalAura.mc.world.getDifficulty().getId();
+        int diff = InsaneTurokAura.mc.world.getDifficulty().getId();
         return damage * ((diff == 0) ? 0.0f : ((diff == 2) ? 1.0f : ((diff == 1) ? 0.5f : 1.5f)));
     }
 }

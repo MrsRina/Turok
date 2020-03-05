@@ -61,10 +61,6 @@ public class TurokGUI extends GUI {
     public static int y = 10;
     public static int nexty = y;
 
-    public static int get_scale() {
-        return (int) DisplayGuiScreen.getScale();
-    }
-
     public TurokGUI() {
         super(new TurokTheme());
         theme = getTheme();
@@ -286,8 +282,26 @@ public class TurokGUI extends GUI {
         count.setFontRenderer(fontRendererBig);
         count.setShadow(true);
 
+        frames.add(frame_users);
+        frames.add(frame_array);
+        frames.add(frame_coords);
+        frames.add(frame_counts);
+
         for (Frame frame1 : frames) {
-            addChild(frame1);
+            Minecraft mc = Minecraft.getMinecraft();
+
+            frame1.setY(x);
+            frame1.setY(y);
+
+            nexty = Math.max(y + frame1.getHeight() + 10, nexty);
+            x += (frame1.getWidth() + 10);
+            if (x * DisplayGuiScreen.getScale() > mc.displayWidth / 1.2f) {
+                y = nexty;
+                nexty = y;
+                x = 10;
+            }
+
+        addChild(frame1);
         }
     }
 
