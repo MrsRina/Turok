@@ -86,16 +86,7 @@ public class AutoGG extends Module {
 		Entity target_entity = cpacketUseEntity.getEntityFromWorld(mc.world);
 		if (!EntityUtil.isPlayer(target_entity)) return;
 
-		if (ModuleManager.getModuleByName("CrystalAura").isEnabled()) {
-			if (function_turokcrystalaura.player_target != null) {
-				add_target_player(function_turokcrystalaura.player_target);
-			} else {
-				add_target_player(target_entity.getName());
-			}
-
-		} else {
-			add_target_player(target_entity.getName());
-		}
+		add_target_player(target_entity.getName());
 	});
 
 	@EventHandler

@@ -118,7 +118,7 @@ public class TurokCrystalAura extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            Command.sendChatMessage("TurokCrystalAura -> " + ChatFormatting.GREEN + "Disabled!");
+            Command.sendChatMessage("TurokCrystalAura -> " + ChatFormatting.GREEN + "Enabled!");
         } else {
             return;
         }
@@ -174,6 +174,9 @@ public class TurokCrystalAura extends Module {
                 mc.playerController.attackEntity(mc.player, crystal);
                 mc.player.swingArm(EnumHand.MAIN_HAND);
                 system_time = System.nanoTime() / 1000000L;
+
+                if (varios.getValue());
+                    return;
             }
         } else {
             reset_rotation();
@@ -248,6 +251,7 @@ public class TurokCrystalAura extends Module {
         }
 
         if (damage == 0) {
+            player_target = null;
             render = null;
             render_ent = null;
             reset_rotation();

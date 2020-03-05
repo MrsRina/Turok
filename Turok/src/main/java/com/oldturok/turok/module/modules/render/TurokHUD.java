@@ -63,10 +63,7 @@ public class TurokHUD extends Module {
 		} else {
 			show_users = false;
 		}
-	}
 
-	@Override
-	public void onRender() {
 		if (show_users) {
 			TurokGUI.frames.add(TurokGUI.frame_users);
 		} else {
@@ -119,7 +116,10 @@ public class TurokHUD extends Module {
 				TurokGUI.x = 10;
 			}
 		}
+	}
 
+	@Override
+	public void onRender() {
 		if (armor_hud.getValue()) {
 			GlStateManager.enableTexture2D();
 
