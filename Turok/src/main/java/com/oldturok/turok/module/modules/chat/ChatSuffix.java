@@ -9,6 +9,7 @@ import com.oldturok.turok.setting.Settings;
 
 import net.minecraft.network.play.client.CPacketChatMessage;
 
+// Rina.
 @Module.Info(name = "ChatSuffix", category = Module.Category.TUROK_CHAT, description = "Modifies your chat messages")
 public class ChatSuffix extends Module {
     private Setting<Boolean> commands = register(Settings.b("Commands", true));
@@ -43,16 +44,17 @@ public class ChatSuffix extends Module {
 
             String msg = ((CPacketChatMessage) event.getPacket()).getMessage();
 
-            if (msg.startsWith("/") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith("&") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith("?") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith(":") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith(";") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith(".") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith(",") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith("-") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith("_") && commands.getValue()) suffix_accept = false;
-            if (msg.startsWith("#") && commands.getValue()) suffix_accept = false;
+            if (msg.startsWith("/") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith("&") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith("?") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith("!") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith(":") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith(";") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith(".") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith(",") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith("-") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith("_") && commands.getValue()) suffix_accept = false; // Ignore.
+            if (msg.startsWith("#") && commands.getValue()) suffix_accept = false; // Ignore.
 
             if (suffix_accept == true){
                 msg += suffix;

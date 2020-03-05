@@ -54,5 +54,4 @@ public class Chat extends AbstractContainer {
 
         field.setY(getHeight() - field.getHeight());
     }
-
 }

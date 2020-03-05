@@ -14,7 +14,6 @@ import com.oldturok.turok.setting.Settings;
 import java.util.ArrayList;
 
 public abstract class AbstractComponent implements Component {
-
     int x;
     int y;
     int width;

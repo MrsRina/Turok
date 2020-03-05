@@ -9,7 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import static org.lwjgl.opengl.GL11.*;
 
 public class TurokTessellator extends Tessellator {
-
     public static TurokTessellator INSTANCE = new TurokTessellator();
 
     public TurokTessellator() {
@@ -205,5 +204,4 @@ public class TurokTessellator extends Tessellator {
             buffer.pos(x+w, y+h, z+d).color(r, g, b, a).endVertex();
         }
     }
-
 }

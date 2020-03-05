@@ -5,7 +5,6 @@ import com.oldturok.turok.gui.rgui.poof.PoofInfo;
 import com.oldturok.turok.gui.rgui.poof.use.Poof;
 
 public class EnumButton extends Button {
-
     String[] modes;
     int index;
 
@@ -87,5 +86,4 @@ public class EnumButton extends Button {
             }
         }
     }
-
 }

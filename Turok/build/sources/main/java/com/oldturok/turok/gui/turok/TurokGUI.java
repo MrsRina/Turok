@@ -42,8 +42,8 @@ import java.text.DecimalFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
+// Update by Rina 05/03/20.
 public class TurokGUI extends GUI {
-
     public static final RootFontRenderer fontRendererBig = new RootFontRenderer(1.0f);
     public static final RootFontRenderer fontRenderer = new RootFontRenderer(1.0f);
     public Theme theme;
@@ -87,6 +87,7 @@ public class TurokGUI extends GUI {
 
             Pair<Scrollpane, SettingsPanel> pair = categoryScrollpaneHashMap.get(moduleCategory);
             Scrollpane scrollpane = pair.getKey();
+
             CheckButton checkButton = new CheckButton(module.getName());
             checkButton.setToggled(module.isEnabled());
 
@@ -100,8 +101,8 @@ public class TurokGUI extends GUI {
                 public void onMouseDown(MouseButtonEvent event) {
                     if (event.getButton() == 1) { 
                         pair.getValue().setModule(module);
-                        pair.getValue().setX(event.getX() + checkButton.getX());
-                        pair.getValue().setY(event.getY() + checkButton.getY());
+                        pair.getValue().setX(event.getX() + scrollpane.getWidth() - event.getX());
+                        pair.getValue().setY(scrollpane.getY());
                     }
                 }
 

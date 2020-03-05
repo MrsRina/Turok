@@ -129,7 +129,6 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         component.addPoof(new Frame.FrameDragPoof<Frame, Frame.FrameDragPoof.DragInfo>() {
             @Override
             public void execute(Frame component, DragInfo info) {
-                if (Bind.isShiftDown() || Bind.isAltDown() || Bind.isCtrlDown()) return;
                 int x = info.getX();
                 int y = info.getY();
                 yLineComponent = null;
@@ -142,6 +141,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
                     ContainerHelper.setAlignment(component, AlignedComponent.Alignment.LEFT);
                     component.setDocking(Docking.LEFT);
                 }
+
                 int diff = (x+component.getWidth()) * DisplayGuiScreen.getScale() - Wrapper.getMinecraft().displayWidth;
                 if (-diff < 5){
                     x = (Wrapper.getMinecraft().displayWidth / DisplayGuiScreen.getScale())-component.getWidth();

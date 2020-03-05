@@ -8,6 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
 
+// Modify by Rina 05/03/20.
 @Module.Info(name = "AutoTotem", category = Module.Category.TUROK_COMBAT)
 public class AutoTotem extends Module {
     private Setting<Boolean> soft = register(Settings.b("Soft mode", false));

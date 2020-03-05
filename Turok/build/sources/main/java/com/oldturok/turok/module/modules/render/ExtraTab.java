@@ -8,6 +8,7 @@ import com.oldturok.turok.util.Friends;
 import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 
+// Modify by Rina 05/03/20.
 @Module.Info(name = "ExtraTab", description = "Expands the player tab menu", category = Module.Category.TUROK_RENDER)
 public class ExtraTab extends Module {
 

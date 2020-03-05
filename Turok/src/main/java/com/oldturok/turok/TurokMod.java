@@ -1,52 +1,60 @@
 package com.oldturok.turok;
 
-import com.google.common.base.Converter;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
-import me.zero.alpine.EventBus;
-import me.zero.alpine.EventManager;
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.command.CommandManager;
-import com.oldturok.turok.event.ForgeEventProcessor;
-import com.oldturok.turok.gui.turok.TurokGUI;
-import com.oldturok.turok.gui.rgui.component.AlignedComponent;
-import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.component.container.use.Frame;
+import com.oldturok.turok.gui.rgui.component.AlignedComponent;
 import com.oldturok.turok.gui.rgui.util.ContainerHelper;
-import com.oldturok.turok.gui.rgui.util.Docking;
-import com.oldturok.turok.module.Module;
-import com.oldturok.turok.module.ModuleManager;
-import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.setting.Settings;
-import com.oldturok.turok.setting.SettingsRegister;
+import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.setting.config.Configuration;
-import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.event.ForgeEventProcessor;
+import com.oldturok.turok.setting.SettingsRegister;
+import com.oldturok.turok.command.CommandManager;
+import com.oldturok.turok.gui.rgui.util.Docking;
+import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
+import com.oldturok.turok.gui.turok.TurokGUI;
+import com.oldturok.turok.setting.Settings;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.setting.Setting;
+import com.google.common.base.Converter;
+import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Wrapper;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import com.oldturok.turok.util.Friends;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import me.zero.alpine.EventManager;
+import me.zero.alpine.EventBus;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.input.Keyboard;
 
-import java.io.*;
-import java.nio.file.Files;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Mod;
+
 import java.nio.file.NoSuchFileException;
-import java.nio.file.Path;
+import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.util.Optional;
 import java.util.Arrays;
 import java.util.Map;
-import java.util.Optional;
+import java.io.*;
 
+// Rina main module.
+// Modify in 05/03/20.
 @Mod(modid = TurokMod.MODID, name = TurokMod.MODNAME, version = TurokMod.MODVER)
 public class TurokMod {
 
     public static final String MODID = "turok";
     public static final String MODNAME = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
     public static final String MODVER = "0.3.1";
+
+    public static final int TUROK_GUI_BUTTON = Keyboard.KEY_P;
 
     private static final String TUROK_CONFIG_NAME_DEFAULT = "Turok.json";
 

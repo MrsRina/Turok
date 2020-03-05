@@ -27,6 +27,7 @@ import net.minecraft.util.math.Vec3d;
 import static com.oldturok.turok.util.BlockInteractionHelper.canBeClicked;
 import static com.oldturok.turok.util.BlockInteractionHelper.faceVectorPacketInstant;
 
+// Modify by Rina 05/03/20.
 @Module.Info(name = "AutoBarrier", category = Module.Category.TUROK_COMBAT)
 public class AutoBarrier extends Module {
 

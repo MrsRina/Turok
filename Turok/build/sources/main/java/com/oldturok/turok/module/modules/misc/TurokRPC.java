@@ -9,6 +9,7 @@ import com.oldturok.turok.turokrpc.TurokDiscordP;
 import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
 
 // Rina.
+// Turok RPC.
 @Module.Info(name = "TurokRPC", category = Module.Category.TUROK_MISC)
 public class TurokRPC extends Module {
 	private Setting<Boolean> show_name = register(Settings.b("Show Name", true));

@@ -63,8 +63,8 @@ import org.lwjgl.opengl.GL11;
 // A TurokCA more fast than TurokCrystalAura, for low ping.
 // By Rina || Update by Rina 04/03/20.
 // description = "The definition of insanity".
-@Module.Info(name = "InsaneTurokAura", category = Module.Category.TUROK_COMBAT)
-public class InsaneTurokAura extends Module {
+@Module.Info(name = "TurokInsaneAura", category = Module.Category.TUROK_COMBAT)
+public class TurokInsaneAura extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     
     private Setting<Integer> cor_red   = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(255));
@@ -422,7 +422,7 @@ public class InsaneTurokAura extends Module {
     }
 
     private static float get_damage_multiplied(float damage) {
-        int diff = InsaneTurokAura.mc.world.getDifficulty().getId();
+        int diff = TurokInsaneAura.mc.world.getDifficulty().getId();
         return damage * ((diff == 0) ? 0.0f : ((diff == 2) ? 1.0f : ((diff == 1) ? 0.5f : 1.5f)));
     }
 }

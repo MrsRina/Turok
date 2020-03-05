@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Frame extends OrganisedContainer {
-
     String title;
 
     int trueheight = 0;

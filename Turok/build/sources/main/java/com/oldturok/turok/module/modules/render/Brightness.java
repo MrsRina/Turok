@@ -7,6 +7,7 @@ import com.oldturok.turok.setting.Settings;
 import java.util.Stack;
 import java.util.function.Function;
 
+// Modify by Rina 05/03/20.
 @Module.Info(name = "Brightness", description = "Makes everything brighter!", category = Module.Category.TUROK_RENDER)
 public class Brightness extends Module {
 

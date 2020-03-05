@@ -2,6 +2,7 @@ package com.oldturok.turok.module.modules.player;
 
 import com.oldturok.turok.module.Module;
 
+// Modify by Rina 05/03/20.
 @Module.Info(name = "TpsSync", description = "Synchronizes some actions with the server TPS", category = Module.Category.TUROK_PLAYER)
 public class TpsSync extends Module {
 

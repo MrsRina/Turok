@@ -5,7 +5,6 @@ import org.lwjgl.opengl.GL11;
 import java.awt.*;
 
 public class ColourHolder {
-
     int r;
     int g;
     int b;

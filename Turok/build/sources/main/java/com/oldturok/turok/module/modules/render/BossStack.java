@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+// Modify by Rina 05/03/20.
 @Module.Info(name = "BossStack", description = "Modify the boss health GUI to take up less space", category = Module.Category.TUROK_RENDER)
 public class BossStack extends Module {
 
