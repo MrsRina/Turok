@@ -39,7 +39,7 @@ public class BlockHighLight extends Module {
 	}
 
 	@Override
-	private void onWorldRender(RenderEvent event) {
+	public void onWorldRender(RenderEvent event) {
 		if (mc.world == null || mc.player == null) {
 			return;
 		}
@@ -48,9 +48,13 @@ public class BlockHighLight extends Module {
 			return;
 		}
 
-		if (result.typeOfHit == RayTraceResult.type.BLOCK) {
-			BlockPos result.getBlockPos();
+		if (result.typeOfHit == RayTraceResult.Type.BLOCK) {
+			BlockPos pos = result.getBlockPos();
 			IBlockState block_state = mc.world.getBlockState(pos);
+
+			int prepare = 0;
+			int mask = 0;
+
 
 			if (outline.getValue()) {
 				prepare = GL11.GL_LINES;
@@ -61,12 +65,11 @@ public class BlockHighLight extends Module {
 			}
 
 			TurokTessellator.prepare(prepare);
-			GL11.glEnable(GL11.GL_DEPTH_TEST);
 
 			if (outline.getValue()) {
-				TurokTessellator.drawLines(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r.getValue(), g.getValue(), b.getValue(), a.getValue(), mask);
+				TurokTessellator.drawLines(pos, r.getValue(), g.getValue(), b.getValue(), a.getValue(), mask);
 			} else {
-				TurokTessellator.drawBox(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r.getValue(), g.getValue(), b.getValue(), a.getValue(), mask);
+				TurokTessellator.drawBox(pos, r.getValue(), g.getValue(), b.getValue(), a.getValue(), mask);
 			}
 
 			TurokTessellator.release();

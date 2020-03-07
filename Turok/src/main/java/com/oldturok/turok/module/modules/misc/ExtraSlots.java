@@ -10,11 +10,11 @@ import net.minecraft.network.play.client.CPacketCloseWindow;
 
 // Rina.
 // Yes.
-@Module.Info(name = "ExtraSlots", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "ExtraSlots", category = Module.Category.TUROK_MISC)
 public class ExtraSlots extends Module {
 	@EventHandler
-	private Listener<PacketEvent.Send> listener = new Listener<>(event -> {
-		if (envet.getPacet() instanceof CPacketCloseWindow) {
+	private Listener<PacketEvent.Send> listener = new Listener<> (event -> {
+		if (event.getPacket() instanceof CPacketCloseWindow) {
 			event.cancel();
 		}
 	});

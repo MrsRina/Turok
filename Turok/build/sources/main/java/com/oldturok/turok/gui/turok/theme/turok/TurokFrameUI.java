@@ -19,16 +19,20 @@ import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.util.Wrapper;
 import org.lwjgl.opengl.GL11;
 
+// Rina.
+// Modfify.
 public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
-    ColourHolder frameColour = TurokGUI.primaryColour.setA(100);
+    ColourHolder frameColour   = TurokGUI.primaryColour.setA(100);
     ColourHolder outlineColour = frameColour.darker();
 
     Component yLineComponent = null;
     Component xLineComponent = null;
     Component centerXComponent = null;
     Component centerYComponent = null;
+
     boolean centerX = false;
     boolean centerY = false;
+
     int xLineOffset = 0;
 
     private static final RootFontRenderer ff = new RootFontRenderer(0.90f);
@@ -45,17 +49,21 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         GL11.glColor4f(1f, 1f, 1f, 1.0f);
         RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
 
-        GL11.glColor3f(1, 1, 1);
-        ff.drawString(1, 1, component.getTitle());
-
-        int top_y = 5;
-        int bottom_y = component.getTheme().getFontRenderer().getFontHeight() - 9;
-
         if (component.isPinneable()){
-            if (component.isPinned()) GL11.glColor3f(0f, 0f, 1f);
-            else GL11.glColor3f(0.66f, 0.66f, 0.66f);
+            if (component.isPinned()) {
+                GL11.glColor4f(0.8f, 0.8f, 0.8f, 0.3f);
+                RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
+            } else {
+                GL11.glColor4f(1f, 1f, 1f, 1.0f);
+                RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
+            }
 
-            RenderHelper.drawCircle(component.getWidth() - 3, 6, 2f);    
+            GL11.glColor3f(1, 1, 1);
+            ff.drawString(1, 1, component.getTitle());
+
+        } else {
+            GL11.glColor3f(1, 1, 1);
+            ff.drawString(1, 1, component.getTitle());
         }
 
         GL11.glDisable(GL11.GL_TEXTURE_2D);
@@ -87,7 +95,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
                 int y = event.getY();
                 int x = event.getX();
                 if (y < 0){
-                    if (x < component.getWidth() && x > component.getWidth() - 10){
+                    if (x < component.getWidth() && x > ff.getStringWidth(component.getTitle()) + 2){
                         if (component.isPinneable()){
                             component.setPinned(!component.isPinned());
                         }
