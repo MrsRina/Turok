@@ -1,21 +1,17 @@
 package com.oldturok.turok.module.modules.render;
 
+import com.oldturok.turok.event.events.RenderEvent;
+import com.oldturok.turok.util.TurokTessellator;
+import com.oldturok.turok.util.GeometryMasks;
+import com.oldturok.turok.setting.Settings;
+import com.oldturok.turok.util.EntityUtil;
+import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 
-import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.setting.Settings;
-import com.oldturok.turok.event.events.RenderEvent;
-import com.oldturok.turok.module.Module;
-import com.oldturok.turok.util.EntityUtil;
-import com.oldturok.turok.util.GeometryMasks;
-import com.oldturok.turok.util.TurokTessellator;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.BlockPos;
+
 import org.lwjgl.opengl.GL11;
 
 // Rina.
@@ -28,19 +24,33 @@ public class BlockHighLight extends Module {
 	
 	private Setting<Boolean> outline = register(Settings.b("Outline", true));
 	
+	public RayTraceResult result;
+
 	@Override
-	public void onWorldRender(RenderEvent event) {
-		mc.world.loadedEntityList.stream().filter(EntityUtil::isLiving).filter(entity -> mc.player == entity).map(entity -> (EntityLivingBase) entity).filter(entityLivingBase -> !entityLivingBase.isDead).filter(entity -> (true && entity instanceof EntityPlayer)).forEach(this::drawLine);
+	public void onUpdate() {
+		if (mc.world == null || mc.player == null) {
+			return;
+		}
+
+		result = mc.objectMouseOver;
+		if (result == null) {
+			return;
+		}
 	}
 
-	private void drawLine(EntityLivingBase event_) {
-		RayTraceResult result = event_.rayTrace(6, Minecraft.getMinecraft().getRenderPartialTicks());
-		if (result == null) 
+	@Override
+	private void onWorldRender(RenderEvent event) {
+		if (mc.world == null || mc.player == null) {
 			return;
+		}
 
-		if (result.typeOfHit == RayTraceResult.Type.BLOCK) {
-			int prepare = 0;
-			int mask = 0;
+		if (result == null) {
+			return;
+		}
+
+		if (result.typeOfHit == RayTraceResult.type.BLOCK) {
+			BlockPos result.getBlockPos();
+			IBlockState block_state = mc.world.getBlockState(pos);
 
 			if (outline.getValue()) {
 				prepare = GL11.GL_LINES;
@@ -52,11 +62,6 @@ public class BlockHighLight extends Module {
 
 			TurokTessellator.prepare(prepare);
 			GL11.glEnable(GL11.GL_DEPTH_TEST);
-			BlockPos block_pos = result.getBlockPos();
-
-			float x = block_pos.x - 0.01f;
-			float y = block_pos.y - 0.01f;
-			float z = block_pos.z - 0.01f;
 
 			if (outline.getValue()) {
 				TurokTessellator.drawLines(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r.getValue(), g.getValue(), b.getValue(), a.getValue(), mask);
@@ -66,8 +71,5 @@ public class BlockHighLight extends Module {
 
 			TurokTessellator.release();
 		}
-
-		GlStateManager.enableTexture2D();
-		GlStateManager.enableLighting();
 	}
 }

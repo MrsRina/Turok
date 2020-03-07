@@ -19,16 +19,20 @@ import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.util.Wrapper;
 import org.lwjgl.opengl.GL11;
 
+// Rina.
+// Modfify.
 public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
-    ColourHolder frameColour = TurokGUI.primaryColour.setA(100);
+    ColourHolder frameColour   = TurokGUI.primaryColour.setA(100);
     ColourHolder outlineColour = frameColour.darker();
 
     Component yLineComponent = null;
     Component xLineComponent = null;
     Component centerXComponent = null;
     Component centerYComponent = null;
+
     boolean centerX = false;
     boolean centerY = false;
+
     int xLineOffset = 0;
 
     private static final RootFontRenderer ff = new RootFontRenderer(0.90f);
@@ -48,12 +52,12 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
         GL11.glColor3f(1, 1, 1);
         ff.drawString(1, 1, component.getTitle());
 
-        int top_y = 5;
-        int bottom_y = component.getTheme().getFontRenderer().getFontHeight() - 9;
-
         if (component.isPinneable()){
-            if (component.isPinned()) GL11.glColor3f(0f, 0f, 1f);
-            else GL11.glColor3f(0.66f, 0.66f, 0.66f);
+            if (component.isPinned()) {
+                GL11.glColor3f(0f, 0f, 1f);
+            } else {
+                GL11.glColor3f(0.66f, 0.66f, 0.66f);
+            }
 
             RenderHelper.drawCircle(component.getWidth() - 3, 6, 2f);    
         }
