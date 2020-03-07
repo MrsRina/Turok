@@ -176,8 +176,11 @@ public class TurokCrystalAura extends Module {
                 mc.player.swingArm(EnumHand.MAIN_HAND);
                 system_time = System.nanoTime() / 1000000L;
 
-                if (varios.getValue());
-                    return;
+
+            if (places == 3) {
+                places = 0;
+            }
+
             }
         } else {
             reset_rotation();
@@ -249,6 +252,10 @@ public class TurokCrystalAura extends Module {
                     render_ent = entity_two;
                 }
             }
+        }
+
+        if (varios.getValue()) {
+            places++;
         }
 
         if (damage == 0) {

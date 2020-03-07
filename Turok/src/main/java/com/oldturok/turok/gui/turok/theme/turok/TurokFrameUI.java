@@ -51,7 +51,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
         if (component.isPinneable()){
             if (component.isPinned()) {
-                GL11.glColor4f(0.8f, 0.8f, 0.8f, 0.3f);
+                GL11.glColor4f(0.5f, 0.5f, 0.5f, 0.3f);
                 RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
             } else {
                 GL11.glColor4f(1f, 1f, 1f, 1.0f);

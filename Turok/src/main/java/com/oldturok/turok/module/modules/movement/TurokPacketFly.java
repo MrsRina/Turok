@@ -15,6 +15,4 @@ public class TurokPacketFly extends Module {
 	private Setting<Float> speed = register(Settings.floatBuilder("Speed").withMinimum(1.0f).withValue(5.0f).withMaximum(6.0f));
 
 	private int teleport_id;
-
-	private List<CPacketPlayer> packets = new ArrayList<CPacketPlayer>();
 }

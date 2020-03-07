@@ -1,32 +1,34 @@
 package com.oldturok.turok.module.modules.combat;
 
-import com.oldturok.turok.module.Module;
-import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.modules.misc.AutoTool;
-import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.util.EntityUtil;
+import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Friends;
 
 import net.minecraft.network.play.client.CPacketPlayerDigging;
-import com.oldturok.turok.util.LagCompensator;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.EnumHand;
+import net.minecraft.init.Items;
 
 import java.util.Iterator;
 
 // Modify by Rina 05/03/20.
-@Module.Info(name = "AuraEatGapple", category = Module.Category.TUROK_COMBAT)
-public class AuraEatGapple extends Module {
+// Ah!
+@Module.Info(name = "Aura", category = Module.Category.TUROK_COMBAT)
+public class Aura extends Module {
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
     private Setting<Boolean> attackMobs = register(Settings.b("Mobs", false));
     private Setting<Boolean> attackAnimals = register(Settings.b("Animals", false));
@@ -38,6 +40,16 @@ public class AuraEatGapple extends Module {
     private Setting<Boolean> onlyUse32k = register(Settings.b("32k Only", false));
 
     private int waitCounter;
+
+    @Override
+    public void onEnable() {
+        Command.sendChatMessage("[Kill-Aura] " + ChatFormatting.GREEN + "Enabled!");
+    }
+
+    @Override
+    public void onDisable() {
+        Command.sendChatMessage("[Kill-Aura] " + ChatFormatting.RED + "Disabled!");
+    }
 
     @Override
     public void onUpdate() {

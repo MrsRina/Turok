@@ -273,10 +273,36 @@ public class TurokGUI extends GUI {
         count.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
+            int totems = 0;
+            int gapples = 0;
+            int crystals = 0;
+            int expbottles = 0;
+
+            for (int items = 0; items < 45; items++) {
+                ItemStack itemStack = Wrapper.getMinecraft().player.inventory.getStackInSlot(items);
+
+                if (itemStack.getItem() == Items.TOTEM_OF_UNDYING) {
+                    gapples += itemStack.stackSize;
+                }
+
+                if (itemStack.getItem() == Items.GOLDEN_APPLE) {
+                    gapples += itemStack.stackSize;
+                }
+
+                if (itemStack.getItem() == Items.END_CRYSTAL) {
+                    crystals += itemStack.stackSize;
+                }
+
+                if (itemStack.getItem() == Items.EXPERIENCE_BOTTLE) {
+                    expbottles += itemStack.stackSize;
+                }
+            }
+
             count.setText(ChatFormatting.BLUE + "Turok Counts.");
-            count.addLine(ChatFormatting.BLUE + "Totems: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum());
-            count.addLine(ChatFormatting.BLUE + "Crystal: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.END_CRYSTAL).mapToInt(ItemStack::getCount).sum());
-            count.addLine(ChatFormatting.BLUE + "Gapples: " + ChatFormatting.RED + mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.GOLDEN_APPLE).mapToInt(ItemStack::getCount).sum());
+            count.addLine(ChatFormatting.BLUE + "Totems: " + ChatFormatting.RED + String.valueOf(totems));
+            count.addLine(ChatFormatting.BLUE + "Crystals: " + ChatFormatting.RED + String.valueOf(gapples));
+            count.addLine(ChatFormatting.BLUE + "Gapples: " + ChatFormatting.RED + String.valueOf(crystals));
+            count.addLine(ChatFormatting.BLUE + "EXPBottles: " + ChatFormatting.RED + String.valueOf(expbottles));
         });
 
         frame_counts.addChild(count);
@@ -304,35 +330,6 @@ public class TurokGUI extends GUI {
 
         addChild(frame1);
         }
-    }
-
-    private static String getEntityName(@Nonnull Entity entity) {
-        if (entity instanceof EntityItem) {
-            return TextFormatting.DARK_AQUA + ((EntityItem) entity).getItem().getItem().getItemStackDisplayName(((EntityItem) entity).getItem());
-        }
-        if (entity instanceof EntityWitherSkull) {
-            return TextFormatting.DARK_GRAY + "Wither skull";
-        }
-        if (entity instanceof EntityEnderCrystal) {
-            return TextFormatting.LIGHT_PURPLE + "End crystal";
-        }
-        if (entity instanceof EntityEnderPearl) {
-            return "Thrown ender pearl";
-        }
-        if (entity instanceof EntityMinecart) {
-            return "Minecart";
-        }
-        if (entity instanceof EntityItemFrame) {
-            return "Item frame";
-        }
-        if (entity instanceof EntityEgg) {
-            return "Thrown egg";
-        }
-        if (entity instanceof EntitySnowball) {
-            return "Thrown snowball";
-        }
-
-        return entity.getName();
     }
 
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
@@ -368,6 +365,5 @@ public class TurokGUI extends GUI {
             component.setX((Wrapper.getMinecraft().displayWidth / (DisplayGuiScreen.getScale() * 2) - component.getWidth() / 2));
         if (docking.isCenterVertical())
             component.setY(Wrapper.getMinecraft().displayHeight / (DisplayGuiScreen.getScale() * 2) - component.getHeight() / 2);
-
     }
 }

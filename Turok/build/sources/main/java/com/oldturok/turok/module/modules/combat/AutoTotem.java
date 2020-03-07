@@ -1,76 +1,75 @@
 package com.oldturok.turok.module.modules.combat;
 
-import com.oldturok.turok.module.Module;
-import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
+import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.module.Module;
+
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.ClickType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.init.Items;
 
-// Modify by Rina 05/03/20.
+// Rina.
 @Module.Info(name = "AutoTotem", category = Module.Category.TUROK_COMBAT)
 public class AutoTotem extends Module {
-    private Setting<Boolean> soft = register(Settings.b("Soft mode", false));
-    int totems;
-    boolean moving = false;
-    boolean return_ = false;    
+	int count;
+	boolean item = false;
+	boolean move = false;
 
-    @Override
-    public void onUpdate() {
-        if (mc.currentScreen instanceof GuiContainer) return;
-        if (return_) {
-            int t = -1;
-            for (int i = 0; i < 45; i++)
-                if (mc.player.inventory.getStackInSlot(i).isEmpty) {
-                    t = i;
-                    break;
-                }
-            if (t == -1) return;
-            mc.playerController.windowClick(0, t < 9 ? t + 36 : t, 0, ClickType.PICKUP, mc.player);
-            return_ = false;
-        }
+	@Override
+	public void onUpdate() {
+		if (mc.currentScreen instanceof GuiContainer) return;
 
-        totems = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
-        
-        if (mc.player.getHeldItemOffhand().getItem() == Items.TOTEM_OF_UNDYING) {
-            totems++; 
-        } else {
-            if (soft.getValue() && !mc.player.getHeldItemOffhand().isEmpty) return;
-            if (moving) {
-                mc.playerController.windowClick(0, 45, 0, ClickType.PICKUP, mc.player);
-                moving = false;
-                if (!mc.player.inventory.itemStack.isEmpty()) return_ = true;
-                return;
-            }
+		if (item) {
+			int _item = -1;
+			for (int item_ = 0; item_ < 45; item_++) {
+				if (mc.player.inventory.getStackInSlot(item_).isEmpty) {
+					_item = item_;
+					break;
+				}
+			}
 
-            if (mc.player.inventory.itemStack.isEmpty()) {
-                if (totems == 0) return;
-                int t = -1;
-                for (int i = 0; i < 45; i++)
-                    if (mc.player.inventory.getStackInSlot(i).getItem() == Items.TOTEM_OF_UNDYING) {
-                        t = i;
-                        break;
-                    }
-                if (t == -1) return;
-                mc.playerController.windowClick(0, t < 9 ? t + 36 : t, 0, ClickType.PICKUP, mc.player);
-                moving = true;
-            } else if (!soft.getValue()) {
-                int t = -1;
-                for (int i = 0; i < 45; i++)
-                    if (mc.player.inventory.getStackInSlot(i).isEmpty) {
-                        t = i;
-                        break;
-                    }
+			if (_item == -1) {
+				return;
+			}
 
-                if (t == -1) return;
-                mc.playerController.windowClick(0, t < 9 ? t + 36 : t, 0, ClickType.PICKUP, mc.player);
-            }
-        }
-    }
+			mc.playerController.windowClick(0, _item < 9 ? _item + 36 : _item, 0, ClickType.PICKUP, mc.player);
+			item = false;
+		}
 
-    @Override
-    public String getHudInfo() {
-        return String.valueOf(totems);
-    }
+		count = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
+
+		if (mc.player.getHeldItemOffhand().getItem() == Items.TOTEM_OF_UNDYING) {
+			count++;
+		} else {
+			if (move) {
+				mc.playerController.windowClick(0, 45, 0, ClickType.PICKUP, mc.player);
+				move = false;
+				if (!mc.player.inventory.itemStack.isEmpty()) {
+					item = true;
+				}
+
+				return;
+			}
+
+			if (mc.player.inventory.itemStack.isEmpty()) {
+				if (count == 0) return;
+				int _item = -1;
+				for (int item_ = 0; item_ < 45; item_++) {
+					if (mc.player.inventory.getStackInSlot(item_).getItem() == Items.TOTEM_OF_UNDYING) {
+						_item = item_;
+						break;
+					}
+				}
+
+				if (_item == -1) {
+					return;
+				}
+
+				mc.playerController.windowClick(0, _item < 9 ? _item + 36 : _item, 0, ClickType.PICKUP, mc.player);
+				move = true;
+			}
+		}
+	}
 }

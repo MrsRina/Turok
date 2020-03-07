@@ -11,11 +11,33 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.init.Items;
 
 // Rina.
-@Module.Info(name = "AutoTotem", category = Module.Category.TUROK_COMBAT)
-public class AutoTotem extends Module {
+// aa.
+@Module.Info(name = "AutoOffHandCrystal", category = Module.Category.TUROK_COMBAT)
+public class AutoOffHandCrystal extends Module {
+	private Setting<Boolean> disable = register(Settings.b("Auto Gapple/Totem Disable", true));
+
 	int count;
 	boolean item = false;
 	boolean move = false;
+
+	@Override
+	public void onEnable() {
+		if (disable.getValue()) {
+			ModuleManager.getModuleByName("AutoTotem").disable();
+			ModuleManager.getModuleByName("AutoGapple").disable();
+		} else {
+			return;
+		}
+	}
+
+	@Override
+	public void onDisable() {
+		if (disable.getValue()) {
+			ModuleManager.getModuleByName("AutoTotem").enable();
+		} else {
+			return;
+		}
+	}
 
 	@Override
 	public void onUpdate() {
@@ -38,10 +60,10 @@ public class AutoTotem extends Module {
 			item = false;
 		}
 
-		count = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
+		count = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.END_CRYSTAL).mapToInt(ItemStack::getCount).sum();
 
-		if (mc.player.getHeldItemOffhand().getItem() == Items.TOTEM_OF_UNDYING) {
-			count++;
+		if (mc.player.getHeldItemOffhand().getItem() == Items.END_CRYSTAL) {
+			return;
 		} else {
 			if (move) {
 				mc.playerController.windowClick(0, 45, 0, ClickType.PICKUP, mc.player);
@@ -56,8 +78,9 @@ public class AutoTotem extends Module {
 			if (mc.player.inventory.itemStack.isEmpty()) {
 				if (count == 0) return;
 				int _item = -1;
+
 				for (int item_ = 0; item_ < 45; item_++) {
-					if (mc.player.inventory.getStackInSlot(item_).getItem() == Items.TOTEM_OF_UNDYING) {
+					if (mc.player.inventory.getStackInSlot(item_).getItem() == Items.END_CRYSTAL) {
 						_item = item_;
 						break;
 					}
