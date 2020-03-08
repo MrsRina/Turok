@@ -1,46 +1,48 @@
 package com.oldturok.turok.gui.turok;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.gui.turok.component.ActiveModules;
-import com.oldturok.turok.gui.turok.component.SettingsPanel;
-import com.oldturok.turok.gui.turok.theme.turok.TurokTheme;
-import com.oldturok.turok.gui.rgui.GUI;
-import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.container.use.Scrollpane;
 import com.oldturok.turok.gui.rgui.component.listen.MouseListener;
+import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.listen.TickListener;
+import com.oldturok.turok.gui.turok.component.SettingsPanel;
+import com.oldturok.turok.gui.turok.component.ActiveModules;
 import com.oldturok.turok.gui.rgui.component.use.CheckButton;
+import com.oldturok.turok.gui.rgui.util.ContainerHelper;
+import com.oldturok.turok.gui.turok.widgets.TurokTheme;
 import com.oldturok.turok.gui.rgui.component.use.Label;
 import com.oldturok.turok.gui.rgui.render.theme.Theme;
-import com.oldturok.turok.gui.rgui.util.ContainerHelper;
 import com.oldturok.turok.gui.rgui.util.Docking;
-import com.oldturok.turok.module.Module;
 import com.oldturok.turok.module.ModuleManager;
-import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.util.LagCompensator;
-import com.oldturok.turok.util.Pair;
+import com.oldturok.turok.util.ColourHolder;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.module.Module;
+import com.oldturok.turok.gui.rgui.GUI;
 import com.oldturok.turok.util.Wrapper;
+import com.oldturok.turok.util.Pair;
+import com.oldturok.turok.TurokMod;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
+
+import net.minecraft.entity.projectile.EntityWitherSkull;
+import net.minecraft.entity.projectile.EntitySnowball;
+import net.minecraft.entity.projectile.EntityEgg;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
-import net.minecraft.init.Items;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.*;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityEgg;
-import net.minecraft.entity.projectile.EntitySnowball;
-import net.minecraft.entity.projectile.EntityWitherSkull;
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.init.Items;
 
-import javax.annotation.Nonnull;
 import java.time.format.DateTimeFormatter;
+import java.util.stream.Collectors;
+import javax.annotation.Nonnull;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 // Update by Rina 05/03/20.
 public class TurokGUI extends GUI {

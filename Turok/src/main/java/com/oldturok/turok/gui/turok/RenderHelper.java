@@ -3,30 +3,27 @@ package com.oldturok.turok.gui.turok;
 import static org.lwjgl.opengl.GL11.*;
 
 public class RenderHelper {
-
     public static void drawArc(float cx, float cy, float r, float start_angle, float end_angle, int num_segments)
     {
         glBegin(GL_TRIANGLES);
 
-        for (int i = (int) (num_segments/(360/start_angle))+1; i <= num_segments/(360/end_angle); i++) {
-            double previousangle = 2*Math.PI*(i-1)/num_segments;
-            double angle = 2*Math.PI*i/num_segments;
+        for (int i = (int) (num_segments / (360 / start_angle)) + 1; i <= num_segments / (360 / end_angle); i++) {
+            double previousangle = 2 * Math.PI * (i - 1) / num_segments;
+            double angle = 2 * Math.PI * i / num_segments;
             glVertex2d(cx, cy);
-            glVertex2d(cx+Math.cos(angle)*r, cy+Math.sin(angle)*r);
-            glVertex2d(cx+Math.cos(previousangle)*r, cy+Math.sin(previousangle)*r);
+            glVertex2d(cx + Math.cos(angle) * r, cy + Math.sin(angle) * r);
+            glVertex2d(cx + Math.cos(previousangle) * r, cy + Math.sin(previousangle) * r);
         }
-
         glEnd();
     }
 
     public static void drawArcOutline(float cx, float cy, float r, float start_angle, float end_angle, int num_segments) {
         glBegin(GL_LINE_LOOP);
 
-        for (int i = (int) (num_segments/(360/start_angle))+1; i <= num_segments/(360/end_angle); i++) {
-            double angle = 2*Math.PI*i/num_segments;
+        for (int i = (int) (num_segments/(360/start_angle))+1; i <= num_segments / (360 / end_angle); i++) {
+            double angle = 2 * Math.PI * i / num_segments;
             glVertex2d(cx+Math.cos(angle)*r, cy+Math.sin(angle)*r);
         }
-
         glEnd();
     }
 
@@ -49,7 +46,7 @@ public class RenderHelper {
     public static void drawOutlinedRoundedRectangle(int x, int y, int width, int height, float radius, float dR, float dG, float dB, float dA, float outlineWidth) {
         drawRoundedRectangle(x, y, width, height, radius);
         glColor4f(dR, dG, dB, dA);
-        drawRoundedRectangle(x+outlineWidth, y+outlineWidth, width - outlineWidth*2, height - outlineWidth*2, radius);
+        drawRoundedRectangle(x + outlineWidth, y + outlineWidth, width - outlineWidth * 2, height - outlineWidth * 2, radius);
     }
 
     public static void drawRectangle(float x, float y, float width, float height) {
@@ -83,11 +80,10 @@ public class RenderHelper {
     public static void drawRoundedRectangle(float x, float y, float width, float height, float radius){
         glEnable(GL_BLEND);
 
-//        drawArc(50,50,30,0,90,64);
-        drawArc( (x + width - radius),  (y + height - radius), radius, 0,90,16); // bottom right
-        drawArc( (x+radius),  (y + height - radius), radius, 90,180,16); // bottom left
-        drawArc(x+radius, y+radius, radius, 180,270,16); // top left
-        drawArc( (x + width - radius),  (y+radius), radius, 270,360,16); // top right
+        drawArc( (x + width - radius),  (y + height - radius), radius, 0, 90, 16);
+        drawArc( (x+radius),  (y + height - radius), radius, 90, 180, 16);
+        drawArc(x+radius, y+radius, radius, 180, 270, 16);
+        drawArc( (x + width - radius),  (y+radius), radius, 270, 360, 16);
 
         glBegin(GL_TRIANGLES);
         {
@@ -118,7 +114,5 @@ public class RenderHelper {
             glVertex2d(x + radius, y+height);
         }
         glEnd();
-
     }
-
 }

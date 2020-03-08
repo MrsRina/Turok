@@ -22,7 +22,5 @@ public class AutoReplace extends Module {
 	@Override
 	public void onUpdate() {
 		if (mc.currentScreen instanceof GuiContainer) return;
-
-		Command.sendChatMessage(Integer.toString(mc.player.inventory.currentItem));
 	}
 }

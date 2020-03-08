@@ -11,6 +11,7 @@ import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Friends;
 
 import net.minecraft.network.play.client.CPacketPlayerDigging;
+import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;

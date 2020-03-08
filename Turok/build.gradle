@@ -76,6 +76,7 @@ dependencies {
     }
 
     compile 'club.minnced:java-discord-rpc:v2.0.1' // Discord rpc.
+    compile group: 'org.l33tlabs.twl', name: 'pngdecoder', version: '1.0' // PNGDecode.
 }
 
 processResources {
