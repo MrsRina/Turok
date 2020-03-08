@@ -20,7 +20,7 @@ public class RenderHelper {
     public static void drawArcOutline(float cx, float cy, float r, float start_angle, float end_angle, int num_segments) {
         glBegin(GL_LINE_LOOP);
 
-        for (int i = (int) (num_segments/(360/start_angle))+1; i <= num_segments / (360 / end_angle); i++) {
+        for (int i = (int) (num_segments / (360 / start_angle))+1; i <= num_segments / (360 / end_angle); i++) {
             double angle = 2 * Math.PI * i / num_segments;
             glVertex2d(cx+Math.cos(angle)*r, cy+Math.sin(angle)*r);
         }
@@ -69,10 +69,10 @@ public class RenderHelper {
 
         glBegin(GL_QUADS);
         {
-            glVertex2d(x+width, y);
+            glVertex2d(x + width, y);
             glVertex2d(x, y);
-            glVertex2d(x, y+height);
-            glVertex2d(x+width, y+height);
+            glVertex2d(x, y + height);
+            glVertex2d(x + width, y + height);
         }
         glEnd();
     }

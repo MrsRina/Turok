@@ -58,7 +58,7 @@ public class TurokActiveModulesUI extends AbstractComponentUI<ActiveModules> {
         mods.stream().forEach(module -> {
             int rgb = Color.HSBtoRGB(hue[0], 1, 1);
             String s = module.getHudInfo();
-            String text = module.getName() + (s==null?"" : " " + Command.SECTIONSIGN() + "7" + s);
+            String text = module.getName() + (s == null?"" : " " + Command.SECTIONSIGN() + "7" + s);
             int textwidth = renderer.getStringWidth(text);
             int textheight = renderer.getFontHeight()+1;
             int red = (rgb >> 16) & 0xFF;

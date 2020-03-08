@@ -32,7 +32,7 @@ public class TurokCheckButtonUI<T extends CheckButton> extends AbstractComponent
         
         if (component.isHovered()) color = (color & 0x9dc4dc) << 1;
         if (component.isToggled()) {
-            TurokGL.refresh_color(255, 255, 255, 255);
+            TurokGL.refresh_color(255, 0, 0, 150);
             RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
 
             TurokGUI.fontRenderer.drawString(1, 1, color, component.getName());

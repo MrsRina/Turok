@@ -7,24 +7,20 @@ import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import org.lwjgl.opengl.GL11;
 
+import com.oldturok.turok.util.TurokGL;
+
 public class TurokUnboundSliderUI extends AbstractComponentUI<UnboundSlider> {
     @Override
     public void renderComponent(UnboundSlider component, FontRenderer fontRenderer) {
         String text = component.getText() + ": " + component.getValue();
         int color = component.isPressed() ? 0xdddddd : 0xdddddd;
         float value_ = (float) component.getValue();
-        if (component.isHovered()) color = (color &0x9dc4dc) << 1; 
-        if (component.isPressed()) {
-            GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-            RenderHelper.drawFilledRectangle(0, 0, component.getWidth() + 2, component.getHeight());
+        if (component.isHovered()) color = (color & 0x9dc4dc) << 1; 
 
-            fontRenderer.drawString(1, component.getHeight() - fontRenderer.getFontHeight() / 2 - 4, color, text);
-        } else {
-            fontRenderer.drawString(1, component.getHeight() - fontRenderer.getFontHeight() / 2 - 4, color, text);
-        }
+        TurokGL.refresh_color(255, 0, 0, 255);
+        fontRenderer.drawString(1, component.getHeight() - fontRenderer.getFontHeight() / 2 - 4, color, text);
 
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
-        GL11.glDisable(GL11.GL_BLEND);
+        TurokGL.FixRefreshColor();
     }
 
     @Override

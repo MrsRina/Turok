@@ -46,26 +46,26 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
         TurokGL.DisableGL(GL11.GL_TEXTURE_2D);
 
-        TurokGL.refresh_color(255, 255, 255, 150);
-        TurokGL.ImageBackground("C:/Users/SrRina/Documents/Turok/Turok/Turok/src/main/java/com/oldturok/turok/util/splash.png", 0, 0, component.getWidth(), component.getHeight(), 255);
-
-        TurokGL.refresh_color(255, 255, 255, 150);
-        RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
-
         if (component.isPinneable()){
             if (component.isPinned()) {
-                TurokGL.refresh_color(255, 255, 255, 150);
-                RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
+                TurokGL.refresh_color(100, 0, 0, 150);
+                RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
             } else {
-                TurokGL.refresh_color(255, 255, 255, 150);
-                RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
+                TurokGL.refresh_color(0, 0, 0, 255);
+                RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
             }
 
             TurokGL.refresh_color(255, 255, 255, 255);
             ff.drawString(1, 1, component.getTitle());
 
         } else {
-            TurokGL.refresh_color(255, 255, 255, 255);
+            TurokGL.refresh_color(0, 0, 0, 150);
+            RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
+
+            TurokGL.refresh_color(0, 0, 0, 255);
+            RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
+
+            TurokGL.refresh_color(255, 0, 0, 255);
             ff.drawString(1, 1, component.getTitle());
         }
 

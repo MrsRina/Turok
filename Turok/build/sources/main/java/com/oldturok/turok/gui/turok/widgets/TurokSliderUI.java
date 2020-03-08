@@ -26,17 +26,20 @@ public class TurokSliderUI extends AbstractComponentUI<Slider> {
         float downscale = 1.1f;
         float w_        = (int) w;
 
-        TurokGL.refresh_color(255, 255, 255, 255);
-        RenderHelper.drawFilledRectangle(0, 0, w_, height/downscale);
+        TurokGL.refresh_color(255, 0, 0, 150);
+        RenderHelper.drawFilledRectangle(0, 0, w_, height / downscale);
         
-        TurokGL.refresh_color(255, 255, 255, 255);
-        RenderHelper.drawRectangle(0, 0, component.getWidth(), height/downscale);
+        TurokGL.refresh_color(255, 0, 0, 150);
+        RenderHelper.drawRectangle(0, 0, component.getWidth(), height / downscale);
 
         String s = value + "";
         if (component.isPressed()){
             w_ -= smallFontRenderer.getStringWidth(s)/2;
             w_  = Math.max(0, Math.min(w_, component.getWidth() - smallFontRenderer.getStringWidth(s)));
             smallFontRenderer.drawString((int) w_, 2, s);
+
+            TurokGL.refresh_color(255, 0, 0, 255); 
+            RenderHelper.drawCircle((int) w_, 4, 30.0f);
         } else {
             smallFontRenderer.drawString(2, 2, component.getText());
             smallFontRenderer.drawString(component.getWidth() - smallFontRenderer.getStringWidth(s) - 2, 2, s);

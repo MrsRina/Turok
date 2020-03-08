@@ -12,7 +12,7 @@ public class TurokSettingsPanelUI extends AbstractComponentUI<SettingsPanel> {
     public void renderComponent(SettingsPanel component, FontRenderer fontRenderer) {
         super.renderComponent(component, fontRenderer);
 
-        TurokGL.refresh_color(255, 255, 255, 255);
+        TurokGL.refresh_color(0, 0, 0, 150);
         RenderHelper.drawFilledRectangle(0, 0, component.getWidth() + 4, component.getHeight());
     }
 }
