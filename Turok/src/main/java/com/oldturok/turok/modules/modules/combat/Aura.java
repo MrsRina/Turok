@@ -26,7 +26,7 @@ import net.minecraft.init.Items;
 
 import java.util.Iterator;
 
-// Modify by Rina 05/03/20.
+// Update by Rina 09/03/20.
 // Ah!
 @Module.Info(name = "Aura", category = Module.Category.TUROK_COMBAT)
 public class Aura extends Module {

@@ -8,9 +8,7 @@ import com.oldturok.turok.module.Module;
 
 import java.util.Random;
 
-/**
- * By RaindDrop shit.
- */
+// Update by Rina 09/03/20.
 @Module.Info(name = "SkinFlicker", description = "Toggle your skin layers rapidly for a cool skin effect", category = Module.Category.TUROK_MISC)
 public class SkinFlicker extends Module {
     private Setting<FlickerMode> mode = register(Settings.e("Mode", FlickerMode.HORIZONTAL));

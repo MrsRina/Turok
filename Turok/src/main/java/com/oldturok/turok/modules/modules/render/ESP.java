@@ -15,9 +15,7 @@ import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.opengl.GL11.*;
 
-/**
- * By CaptainWavedash shit.
- */
+// Update by Rina 09/03/20.
 @Module.Info(name = "ESP", category = Module.Category.TUROK_RENDER)
 public class ESP extends Module {
     private Setting<ESPMode> mode = register(Settings.e("Mode", ESPMode.BOX));

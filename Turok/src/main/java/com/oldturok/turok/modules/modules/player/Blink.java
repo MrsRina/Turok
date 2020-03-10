@@ -13,9 +13,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
- * By CaptainWavedash shit.
- */
+// Update by Rina 09/03/20.
 @Module.Info(name = "Blink", category = Module.Category.TUROK_PLAYER)
 public class Blink extends Module {
     Queue<CPacketPlayer> packets = new LinkedList<>();

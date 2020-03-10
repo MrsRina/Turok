@@ -16,9 +16,7 @@ import net.minecraft.network.play.client.CPacketInput;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.Entity;
 
-/**
- * By CaptainWavedash shit.
- */
+// Update by Rina 09/03/20.
 @Module.Info(name = "Freecam", category = Module.Category.TUROK_PLAYER, description = "Leave your body and trascend into the realm of the gods")
 public class Freecam extends Module {
 

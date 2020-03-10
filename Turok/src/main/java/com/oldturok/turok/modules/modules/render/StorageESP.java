@@ -28,7 +28,7 @@ import net.minecraft.entity.Entity;
 
 import org.lwjgl.opengl.GL11;
 
-// Raindrop shit.
+// Update by Rina 09/03/20.
 @Module.Info(name = "StorageESP", description = "Draws nice little lines around storage items", category = Module.Category.TUROK_RENDER)
 public class StorageESP extends Module {
     private Setting<Boolean> chest;

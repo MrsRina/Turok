@@ -9,9 +9,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.init.Items;
 
-/**
- * By CaptainWavedash shit.
- */
+// Update by Rina 09/03/20.
 @Module.Info(name = "AutoArmour", category = Module.Category.TUROK_PLAYER)
 public class AutoArmour extends Module {
 

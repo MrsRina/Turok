@@ -5,8 +5,8 @@ import com.oldturok.turok.module.Module;
 import com.oldturok.turok.TurokMod;
 import org.lwjgl.input.Keyboard;
 
-// Modify by Rina 05/03/20.
-// CickGUI is 
+// Update by Rina 09/03/20.
+// CickGUI is P.
 @Module.Info(name = "clickGUI", description = "Opens the Click GUI", category = Module.Category.TUROK_HIDDEN)
 public class ClickGUI extends Module {
     public ClickGUI() {

@@ -24,7 +24,7 @@ import net.minecraft.entity.Entity;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.Objects;
 
-// Rina.
+// Update by Rina 09/03/20.
 @Module.Info(name = "AutoGG", category = Module.Category.TUROK_CHAT)
 public class AutoGG extends Module {
 	private ConcurrentHashMap<String, Integer> target_players = null;

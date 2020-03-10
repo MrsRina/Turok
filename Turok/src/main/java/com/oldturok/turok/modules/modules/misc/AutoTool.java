@@ -15,7 +15,7 @@ import net.minecraft.item.ItemTool;
 
 import com.oldturok.turok.module.Module;
 
-// Modify by Rina 05/03/20.
+// Rina.
 @Module.Info(name = "AutoTool", description = "Automatically switch to the best tools when mining or attacking", category = Module.Category.TUROK_MISC)
 public class AutoTool extends Module {
 

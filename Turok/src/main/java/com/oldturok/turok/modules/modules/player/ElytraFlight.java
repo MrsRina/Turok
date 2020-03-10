@@ -7,9 +7,7 @@ import com.oldturok.turok.module.Module;
 import net.minecraft.network.play.client.CPacketEntityAction;
 import net.minecraft.util.math.MathHelper;
 
-/**
- * By CaptainWavedash shit.
- */
+// Update by Rina 09/03/20.
 @Module.Info(name = "ElytraFlight", description = "Allows infinite elytra flying", category = Module.Category.TUROK_MOVEMENT)
 public class ElytraFlight extends Module {
 
