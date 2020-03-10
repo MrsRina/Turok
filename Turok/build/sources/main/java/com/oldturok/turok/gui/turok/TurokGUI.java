@@ -44,7 +44,7 @@ import java.time.LocalDateTime;
 import java.math.RoundingMode;
 import java.util.*;
 
-// Update by Rina 05/03/20.
+// Update by Rina 09/03/20.
 public class TurokGUI extends GUI {
     public static final RootFontRenderer fontRendererBig = new RootFontRenderer(1.0f);
     public static final RootFontRenderer fontRenderer = new RootFontRenderer(1.0f);
@@ -88,7 +88,7 @@ public class TurokGUI extends GUI {
                 Stretcherlayout stretcherlayout = new Stretcherlayout(1);
                 stretcherlayout.setComponentOffsetWidth(0);
                 Scrollpane scrollpane = new Scrollpane(getTheme(), stretcherlayout, 300, 260);
-                scrollpane.setMaximumHeight(300);
+                scrollpane.setMaximumHeight(600);
                 categoryScrollpaneHashMap.put(moduleCategory, new Pair<>(scrollpane, new SettingsPanel(getTheme(), null)));
             }
 

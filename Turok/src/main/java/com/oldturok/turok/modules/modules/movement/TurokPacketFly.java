@@ -105,7 +105,7 @@ public class TurokPacketFly extends Module {
 				}
 			} else if (fly_no_kick.getValue() && mc.world.getCollisionBoxes((Entity) mc.player, mc.player.getEntityBoundingBox().expand(- 0.0625, - 0.0625, - 0.0625)).isEmpty()) {
 				mc.player.setVelocity(0.0, (mc.player.tickExisted % 2 == 0) ? 0.03999999910593033 : - 0.03999999910593033, 0.0);
-				fly_move(0.0 (mc.player.tickExisted % 2 == 0) ? 0.03999999910593033 : - 0.03999999910593033, 0.0);
+				fly_move(0.0, (mc.player.tickExisted % 2 == 0) ? 0.03999999910593033 : - 0.03999999910593033, 0.0);
 			}
 		}
 
@@ -131,14 +131,14 @@ public class TurokPacketFly extends Module {
 		}
 
 		return;
-	}, (Predicate<PacketEvent.Send>p[]) new Predicate[0]);
+	}, (Predicate<PacketEvent.Send>[]) new Predicate[0]);
 
 	SPacketPlayerPosLook[] fly_packet_2 = new SPacketPlayerPosLook[1];
 
 	@EventHandler
 	public Listener<PacketEvent.Recive> receiveListener = new Listener<PacketEvent.Recive> (event -> {
 		if (event.getPacket() instanceof SPacketPlayerPosLook) {
-			fly_packets_2[0] (SPacketPlayerPosLook) event.getPacket();
+			fly_packets_2[0] = (SPacketPlayerPosLook) event.getPacket();
 
 			if (mc.player.isEntityAlive()) {
 				if (mc.world.isBlockedLoaded(new BlockPos(mc.player.posX, mc.player.posY, mc.player.posZ)) && !(mc.player.curremtScreen instanceof GuiDownloadTerrain)) {
@@ -166,7 +166,7 @@ public class TurokPacketFly extends Module {
 		}
 	}
 
-	public void fly_move(double x, double, y, double z) {
+	public void fly_move(double x, double y, double z) {
 		CPacketPlayer fly_pos = ((CPacketPlayer) new CPacketPlayer.Position(mc.player.posX + x, mc.player.posY + y, mc.player.posZ + z, mc.player.onGround));
 
 		fly_packets.add(fly_pos);

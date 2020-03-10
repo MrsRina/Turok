@@ -10,9 +10,7 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 
-/**
- * By CaptainWavedash shit.
- */
+// Update by Rina 09/03/20.
 @Module.Info(name = "Elytra+", description = "nyoom", category = Module.Category.TUROK_MOVEMENT)
 public class ElytraPlus extends Module
 {

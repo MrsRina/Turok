@@ -15,7 +15,7 @@ import net.minecraft.item.ItemStack;
 import com.oldturok.turok.gui.turok.TurokGUI;
 
 // TurokHUD = Rina.
-// ArmorHUD = Raindrop.
+// ArmorHUD = Rina.
 @Module.Info(name = "TurokHUD", category = Module.Category.TUROK_RENDER)
 public class TurokHUD extends Module {
 	private static RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();

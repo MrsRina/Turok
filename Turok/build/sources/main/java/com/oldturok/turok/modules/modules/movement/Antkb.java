@@ -14,7 +14,7 @@ import net.minecraft.network.play.server.SPacketEntityVelocity;
 import net.minecraft.network.play.server.SPacketExplosion;
 
 // Rina.
-// Modify in 03/03/2020.
+// Update by Rina 09/03/20.
 @Module.Info(name = "Ant-kb", description = "Modify knockback.", category = Module.Category.TUROK_MOVEMENT)
 public class Antkb extends Module {
 	private Setting<Float> horizontal = register(Settings.f("Velocity Horizontal", 0));

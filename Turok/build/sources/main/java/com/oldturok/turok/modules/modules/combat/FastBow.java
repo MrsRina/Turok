@@ -13,7 +13,6 @@ import com.oldturok.turok.util.Wrapper;
 import net.minecraft.client.Minecraft;
 
 // Rina.
-// Update 05/03/20.
 @Module.Info(name = "FastBow", description = "FastBow", category = Module.Category.TUROK_COMBAT)
 public class FastBow extends Module {
 	public void onUpdate() {

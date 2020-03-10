@@ -29,7 +29,7 @@ import net.minecraft.block.Block;
 import static com.oldturok.turok.util.BlockInteractionHelper.faceVectorPacketInstant;
 import static com.oldturok.turok.util.BlockInteractionHelper.canBeClicked;
 
-// Modify by Rina 05/03/20.
+// Update by Rina 09/03/20.
 @Module.Info(name = "AutoBarrier", category = Module.Category.TUROK_COMBAT)
 public class AutoBarrier extends Module {
 

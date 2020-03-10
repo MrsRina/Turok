@@ -8,7 +8,7 @@ import com.oldturok.turok.module.Module;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.Entity;
 
-// Modify by Rina 05/03/20.
+// Update by Rina 09/03/20.
 @Module.Info(name = "Chams", category = Module.Category.TUROK_RENDER, description = "See entities through walls")
 public class Chams extends Module {
 

@@ -17,9 +17,7 @@ import net.minecraft.entity.Entity;
 
 import org.lwjgl.opengl.GL11;
 
-/**
- * By CaptainWavedash.
- */
+// Update by Rina 09/03/20.
 @Module.Info(name = "Tracers", description = "Draws lines to other living entities", category = Module.Category.TUROK_RENDER)
 public class Tracers extends Module {
 

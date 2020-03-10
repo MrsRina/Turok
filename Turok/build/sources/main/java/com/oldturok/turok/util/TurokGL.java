@@ -25,14 +25,14 @@ public class TurokGL {
 		GL11.glColor4f(red / 255, green / 255, blue / 255, alpha / 255);
 	}
 
-	public static void TurokRGBA(float alpha) {
+	public static void TurokRGBA(float alpha, float tick) {
 		float[] tick_color = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
 
 		int color_rgb = Color.HSBtoRGB(tick_color[0], 1, 1);
 
 		GL11.glColor4f(((color_rgb >> 16) & 0xFF) / 255, ((color_rgb >> 8) & 0xFF) / 255, (color_rgb & 0xFF) / 255, alpha / 255);
 		
-		tick_color[0] += 0.1f;
+		tick_color[0] += tick;
 	}
 
 	public static void DisableGL(int opengl) {
