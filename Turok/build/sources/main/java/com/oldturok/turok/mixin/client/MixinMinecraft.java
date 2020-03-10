@@ -1,40 +1,48 @@
 package com.oldturok.turok.mixin.client;
 
-import com.oldturok.turok.TurokMod;
 import com.oldturok.turok.event.events.GuiScreenEvent;
 import com.oldturok.turok.util.Wrapper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.SoundHandler;
-import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.gui.*;
+import com.oldturok.turok.TurokMod;
+
 import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.crash.CrashReport;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.*;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
+
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Minecraft.class)
 public class MixinMinecraft {
-
     @Shadow
     WorldClient world;
+    
     @Shadow
     EntityPlayerSP player;
+    
     @Shadow
     GuiScreen currentScreen;
+    
     @Shadow
     GameSettings gameSettings;
+    
     @Shadow
     GuiIngame ingameGUI;
+    
     @Shadow
     boolean skipRenderWorld;
+
     @Shadow
     SoundHandler soundHandler;
 

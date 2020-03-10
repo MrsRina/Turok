@@ -1,13 +1,13 @@
 package com.oldturok.turok.setting;
 
+import com.oldturok.turok.setting.converter.Convertable;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
-import com.oldturok.turok.setting.converter.Convertable;
 
 public abstract class Setting<T> implements ISettingUnknown, Convertable<T> {
-
     String name;
 
     T value;

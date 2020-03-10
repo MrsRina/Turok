@@ -4,6 +4,7 @@ import com.oldturok.turok.gui.rgui.component.listen.MouseListener;
 import com.oldturok.turok.gui.rgui.component.listen.KeyListener;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Bind;
+
 import org.lwjgl.input.Keyboard;
 
 // Update by Rina 05/03/20.
@@ -71,5 +72,4 @@ public class BindButton extends EnumButton {
             }
         });
     }
-
 }

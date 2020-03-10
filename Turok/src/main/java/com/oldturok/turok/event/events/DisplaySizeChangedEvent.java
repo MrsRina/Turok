@@ -1,4 +1,3 @@
 package com.oldturok.turok.event.events;
 
-public class DisplaySizeChangedEvent {
-}
+public class DisplaySizeChangedEvent {}

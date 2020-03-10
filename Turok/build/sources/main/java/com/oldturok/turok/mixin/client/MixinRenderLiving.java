@@ -1,15 +1,17 @@
 package com.oldturok.turok.mixin.client;
 
-import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.modules.render.Chams;
+import com.oldturok.turok.module.ModuleManager;
+
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import org.lwjgl.opengl.GL11;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
+import net.minecraft.entity.EntityLiving;
+
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.Mixin;
+import org.lwjgl.opengl.GL11;
 
 @Mixin(RenderLiving.class)
 public class MixinRenderLiving {

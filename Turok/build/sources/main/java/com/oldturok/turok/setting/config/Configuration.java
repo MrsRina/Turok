@@ -1,15 +1,15 @@
 package com.oldturok.turok.setting.config;
 
-import com.google.gson.*;
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.setting.converter.Convertable;
+import com.oldturok.turok.setting.SettingsRegister;
+import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.TurokMod;
+import com.google.gson.*;
 
-import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
+import java.io.*;
 
 public class Configuration {
 

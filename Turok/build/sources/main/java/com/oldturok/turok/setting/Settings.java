@@ -1,14 +1,15 @@
 package com.oldturok.turok.setting;
 
-import com.google.common.base.Converter;
-import com.oldturok.turok.setting.builder.SettingBuilder;
+import com.oldturok.turok.setting.builder.numerical.NumericalSettingBuilder;
+import com.oldturok.turok.setting.builder.numerical.IntegerSettingBuilder;
+import com.oldturok.turok.setting.builder.primitive.BooleanSettingBuilder;
+import com.oldturok.turok.setting.builder.primitive.StringSettingBuilder;
 import com.oldturok.turok.setting.builder.numerical.DoubleSettingBuilder;
 import com.oldturok.turok.setting.builder.numerical.FloatSettingBuilder;
-import com.oldturok.turok.setting.builder.numerical.IntegerSettingBuilder;
-import com.oldturok.turok.setting.builder.numerical.NumericalSettingBuilder;
-import com.oldturok.turok.setting.builder.primitive.BooleanSettingBuilder;
 import com.oldturok.turok.setting.builder.primitive.EnumSettingBuilder;
-import com.oldturok.turok.setting.builder.primitive.StringSettingBuilder;
+
+import com.oldturok.turok.setting.builder.SettingBuilder;
+import com.google.common.base.Converter;
 
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;

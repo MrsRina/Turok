@@ -1,12 +1,13 @@
 package com.oldturok.turok.event.events;
 
-import com.oldturok.turok.event.TurokEvent;
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.entity.Entity;
+import net.minecraft.block.Block;
 import net.minecraft.world.World;
+
+import com.oldturok.turok.event.TurokEvent;
 
 import java.util.List;
 

@@ -1,11 +1,10 @@
 package com.oldturok.turok.gui.rgui.render;
 
-import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.rgui.component.Component;
 
 public interface ComponentUI<T extends Component> {
-
     public void renderComponent(T component, FontRenderer fontRenderer);
     public void handleMouseDown(T component, int x, int y, int button);
     public void handleMouseRelease(T component, int x, int y, int button);

@@ -1,16 +1,16 @@
 package com.oldturok.turok.gui.turok.component;
 
-import com.oldturok.turok.gui.turok.Stretcherlayout;
 import com.oldturok.turok.gui.rgui.component.container.AbstractContainer;
 import com.oldturok.turok.gui.rgui.component.container.use.Scrollpane;
 import com.oldturok.turok.gui.rgui.component.listen.KeyListener;
 import com.oldturok.turok.gui.rgui.component.use.InputField;
 import com.oldturok.turok.gui.rgui.component.use.Label;
 import com.oldturok.turok.gui.rgui.render.theme.Theme;
+import com.oldturok.turok.gui.turok.Stretcherlayout;
+
 import org.lwjgl.input.Keyboard;
 
 public class Chat extends AbstractContainer {
-
     Scrollpane scrollpane;
     Label label = new Label("", true);
     InputField field;

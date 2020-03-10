@@ -1,19 +1,19 @@
 package com.oldturok.turok.util;
 
+import com.oldturok.turok.setting.Settings;
+import com.oldturok.turok.setting.Setting;
 import com.google.common.base.Converter;
+import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonPrimitive;
-import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.setting.Settings;
 
-import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.net.URL;
+import java.util.regex.Pattern;
 import java.net.URLConnection;
+import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.util.regex.Pattern;
+import java.net.URL;
 
 public class Friends {
     public static final Friends INSTANCE = new Friends();
@@ -102,5 +102,4 @@ public class Friends {
             }
         }
     }
-
 }

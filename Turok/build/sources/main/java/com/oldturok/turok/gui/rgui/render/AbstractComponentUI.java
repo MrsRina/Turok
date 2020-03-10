@@ -1,13 +1,12 @@
 package com.oldturok.turok.gui.rgui.render;
 
-import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.rgui.component.Component;
 
 import java.lang.reflect.ParameterizedType;
 
 public abstract class AbstractComponentUI<T extends Component> implements ComponentUI<T> {
-
     private Class<T> persistentClass;
 
     public AbstractComponentUI() {

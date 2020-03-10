@@ -1,18 +1,17 @@
 package com.oldturok.turok.command.commands;
 
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.command.syntax.ChunkBuilder;
 import com.oldturok.turok.command.syntax.parsers.DependantParser;
 import com.oldturok.turok.command.syntax.parsers.ModuleParser;
-import com.oldturok.turok.module.Module;
-import com.oldturok.turok.module.ModuleManager;
-import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.builder.SettingBuilder;
+import com.oldturok.turok.command.syntax.ChunkBuilder;
+import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.setting.Settings;
+import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Wrapper;
 
 public class BindCommand extends Command {
-
     public static Setting<Boolean> modifiersEnabled = SettingBuilder.register(Settings.b("modifiersEnabled", false), "binds");
 
     public BindCommand() {

@@ -1,13 +1,11 @@
 package com.oldturok.turok.command.syntax.parsers;
 
-
 import com.oldturok.turok.command.syntax.SyntaxChunk;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.ArrayList;
 
 public class EnumParser extends AbstractParser {
-
     String[] modes;
 
     public EnumParser(String[] modes) {

@@ -1,25 +1,26 @@
 package com.oldturok.turok.gui.rgui.component.use;
 
-import com.oldturok.turok.gui.turok.DisplayGuiScreen;
-import com.oldturok.turok.gui.rgui.GUI;
-import com.oldturok.turok.gui.rgui.component.AbstractComponent;
-import com.oldturok.turok.gui.rgui.component.listen.KeyListener;
-import com.oldturok.turok.gui.rgui.component.listen.MouseListener;
 import com.oldturok.turok.gui.rgui.component.listen.RenderListener;
-import com.oldturok.turok.gui.rgui.poof.PoofInfo;
-import com.oldturok.turok.gui.rgui.poof.use.Poof;
+import com.oldturok.turok.gui.rgui.component.listen.MouseListener;
+import com.oldturok.turok.gui.rgui.component.listen.KeyListener;
+import com.oldturok.turok.gui.rgui.component.AbstractComponent;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.turok.DisplayGuiScreen;
+import com.oldturok.turok.gui.rgui.poof.use.Poof;
+import com.oldturok.turok.gui.rgui.poof.PoofInfo;
+import com.oldturok.turok.gui.rgui.GUI;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Clipboard;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.awt.*;
 
 import static org.lwjgl.opengl.GL11.*;
 

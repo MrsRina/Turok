@@ -1,13 +1,12 @@
 package com.oldturok.turok.command.commands;
 
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.command.syntax.ChunkBuilder;
 import com.oldturok.turok.command.syntax.parsers.ModuleParser;
-import com.oldturok.turok.module.Module;
+import com.oldturok.turok.command.syntax.ChunkBuilder;
 import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.module.Module;
 
 public class ToggleCommand extends Command {
-
     public ToggleCommand() {
         super("t", new ChunkBuilder()
                 .append("module", true, new ModuleParser())

@@ -1,10 +1,12 @@
 package com.oldturok.turok.gui.mc;
 
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.command.syntax.SyntaxChunk;
-import net.minecraft.client.gui.GuiChat;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.TurokMod;
+
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.client.gui.GuiChat;
+
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 

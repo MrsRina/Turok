@@ -1,10 +1,10 @@
 package com.oldturok.turok.event.events;
 
 import com.oldturok.turok.event.TurokEvent;
+
 import net.minecraft.network.Packet;
 
 public class PacketEvent extends TurokEvent {
-
     private final Packet packet;
 
     public PacketEvent(Packet packet) {

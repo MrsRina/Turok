@@ -1,7 +1,7 @@
 package com.oldturok.turok.setting.builder.numerical;
 
-import com.oldturok.turok.setting.impl.numerical.FloatSetting;
 import com.oldturok.turok.setting.impl.numerical.NumberSetting;
+import com.oldturok.turok.setting.impl.numerical.FloatSetting;
 
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;

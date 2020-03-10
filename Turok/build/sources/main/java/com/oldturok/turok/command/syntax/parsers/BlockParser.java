@@ -1,12 +1,12 @@
 package com.oldturok.turok.command.syntax.parsers;
 
 import com.oldturok.turok.command.syntax.SyntaxChunk;
-import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.block.Block;
 
+import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class BlockParser extends AbstractParser {
 

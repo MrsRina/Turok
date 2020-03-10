@@ -1,14 +1,13 @@
 package com.oldturok.turok.setting.impl;
 
-import com.google.common.base.Converter;
-import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.converter.EnumConverter;
+import com.oldturok.turok.setting.Setting;
+import com.google.common.base.Converter;
 
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
 public class EnumSetting<T extends Enum> extends Setting<T> {
-
     private EnumConverter converter;
     public final Class<? extends Enum> clazz;
 

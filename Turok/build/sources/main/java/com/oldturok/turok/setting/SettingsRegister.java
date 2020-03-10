@@ -2,8 +2,8 @@ package com.oldturok.turok.setting;
 
 import com.oldturok.turok.util.Pair;
 
-import java.util.HashMap;
 import java.util.StringTokenizer;
+import java.util.HashMap;
 
 public class SettingsRegister {
     public static final SettingsRegister ROOT = new SettingsRegister();

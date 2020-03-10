@@ -1,15 +1,18 @@
 package com.oldturok.turok.mixin.client;
 
 import io.netty.channel.ChannelHandlerContext;
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.event.events.PacketEvent;
+
 import com.oldturok.turok.module.modules.misc.NoPackKick;
+import com.oldturok.turok.event.events.PacketEvent;
+import com.oldturok.turok.TurokMod;
+
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
+
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.Mixin;
 
 import java.io.IOException;
 

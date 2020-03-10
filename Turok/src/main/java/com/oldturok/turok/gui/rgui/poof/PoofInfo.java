@@ -1,4 +1,3 @@
 package com.oldturok.turok.gui.rgui.poof;
 
-public class PoofInfo {
-}
+public class PoofInfo {}

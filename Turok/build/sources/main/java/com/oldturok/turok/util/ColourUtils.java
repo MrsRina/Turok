@@ -1,10 +1,9 @@
 package com.oldturok.turok.util;
 
-import java.awt.*;
 import java.util.ArrayList;
+import java.awt.*;
 
 public class ColourUtils {
-
     private ArrayList<ColorName> initColorList() {
         ArrayList<ColorName> colorList = new ArrayList<ColorName>();
         colorList.add(new ColorName("AliceBlue", 0xF0, 0xF8, 0xFF));

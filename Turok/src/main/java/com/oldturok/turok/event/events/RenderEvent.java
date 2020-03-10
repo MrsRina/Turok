@@ -1,12 +1,12 @@
 package com.oldturok.turok.event.events;
 
-import com.oldturok.turok.event.TurokEvent;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.math.Vec3d;
 
-public class RenderEvent extends TurokEvent {
+import com.oldturok.turok.event.TurokEvent;
 
+public class RenderEvent extends TurokEvent {
     private final Tessellator tessellator;
     private final Vec3d renderPos;
 

@@ -1,7 +1,7 @@
 package com.oldturok.turok.setting.builder.primitive;
 
-import com.oldturok.turok.setting.impl.BooleanSetting;
 import com.oldturok.turok.setting.builder.SettingBuilder;
+import com.oldturok.turok.setting.impl.BooleanSetting;
 
 public class BooleanSettingBuilder extends SettingBuilder<Boolean> {
     @Override

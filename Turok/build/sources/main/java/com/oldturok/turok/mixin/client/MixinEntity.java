@@ -1,12 +1,13 @@
 package com.oldturok.turok.mixin.client;
 
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.event.events.EntityEvent;
 import com.oldturok.turok.module.modules.movement.SafeWalk;
+import com.oldturok.turok.event.events.EntityEvent;
+import com.oldturok.turok.TurokMod;
 import net.minecraft.entity.Entity;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
+
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(Entity.class)
 public class MixinEntity {

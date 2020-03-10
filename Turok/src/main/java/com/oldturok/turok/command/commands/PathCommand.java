@@ -1,9 +1,9 @@
 package com.oldturok.turok.command.commands;
 
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.command.syntax.ChunkBuilder;
 import com.oldturok.turok.module.modules.render.Pathfind;
+import com.oldturok.turok.command.syntax.ChunkBuilder;
 import net.minecraft.pathfinding.PathPoint;
+import com.oldturok.turok.command.Command;
 
 public class PathCommand extends Command {
     public PathCommand() {

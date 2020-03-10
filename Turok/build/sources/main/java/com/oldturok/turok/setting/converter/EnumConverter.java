@@ -5,7 +5,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
 public class EnumConverter extends Converter<Enum, JsonElement> {
-
     Class<? extends Enum> clazz;
 
     public EnumConverter(Class<? extends Enum> clazz) {

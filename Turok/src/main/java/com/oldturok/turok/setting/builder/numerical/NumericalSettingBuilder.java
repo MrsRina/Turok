@@ -6,7 +6,6 @@ import com.oldturok.turok.setting.builder.SettingBuilder;
 import java.util.function.BiConsumer;
 
 public abstract class NumericalSettingBuilder<T extends Number> extends SettingBuilder<T> {
-
     protected T min;
     protected T max;
 

@@ -1,14 +1,13 @@
 package com.oldturok.turok.command.commands;
 
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.command.syntax.SyntaxChunk;
 import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.TurokMod;
 
 import java.util.Arrays;
 
 public class HelpCommand extends Command {
-
     private static final Subject[] subjects = new Subject[]{
             new Subject(
                     new String[]{"type","int","boolean","double","float"},

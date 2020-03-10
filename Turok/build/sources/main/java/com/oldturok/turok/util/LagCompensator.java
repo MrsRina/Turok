@@ -1,17 +1,18 @@
 package com.oldturok.turok.util;
 
-import me.zero.alpine.listener.EventHandler;
-import me.zero.alpine.listener.Listener;
-import com.oldturok.turok.TurokMod;
 import com.oldturok.turok.event.events.PacketEvent;
+import com.oldturok.turok.TurokMod;
+
 import net.minecraft.network.play.server.SPacketTimeUpdate;
 import net.minecraft.util.math.MathHelper;
 
-import java.util.Arrays;
+import me.zero.alpine.listener.EventHandler;
+import me.zero.alpine.listener.Listener;
+
 import java.util.EventListener;
+import java.util.Arrays;
 
 public class LagCompensator implements EventListener {
-
     public static LagCompensator INSTANCE;
 
     private final float[] tickRates = new float[20];

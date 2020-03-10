@@ -63,6 +63,11 @@ public class TurokGUI extends GUI {
     public static int y = 10;
     public static int nexty = y;
 
+    public static boolean state_users = true;
+    public static boolean state_count = true;
+    public static boolean state_array = true;
+    public static boolean state_coord = true;
+
     public TurokGUI() {
         super(new TurokTheme());
         theme = getTheme();
@@ -207,36 +212,39 @@ public class TurokGUI extends GUI {
 
         frames = new ArrayList<>();
 
-        frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
-        frame_users.setCloseable(false);
-        frame_users.setPinneable(true);
+        if (state_users) {
+            frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
+            frame_users.setCloseable(false);
+            frame_users.setPinneable(true);
 
-        Label users = new Label("");
-        users.addTickListener(() -> {
-            Minecraft mc = Minecraft.getMinecraft();
+            Label users = new Label("");
+            users.addTickListener(() -> {
+                Minecraft mc = Minecraft.getMinecraft();
 
-            String name = "";
+                String name = "";
 
-            if (mc.player.getName() == "69hr") name = "Cammm";
-            else if (mc.player.getName() == "itsSkylock") name = "Skyylockk";
-            else if (mc.player.getName() == "Omegabr") name = "Omaegaa";
-            else if (mc.player.getName()== "LeafyIsGone") name = "Lifyyyy";
-            else name = mc.player.getName();
+                if (mc.player.getName() == "69hr") name = "Cammm";
+                else if (mc.player.getName() == "itsSkylock") name = "Skyylockk";
+                else if (mc.player.getName() == "Omegabr") name = "Omaegaa";
+                else if (mc.player.getName()== "LeafyIsGone") name = "Lifyyyy";
+                else name = mc.player.getName();
+                users.setText(ChatFormatting.BLUE + name + ChatFormatting.RED + " welcome to Turok " + TurokMod.MODVER);
+                users.addLine(ChatFormatting.BLUE + "Rina like you! ^^");
+                users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
+            });
 
-            users.setText(ChatFormatting.BLUE + name + ChatFormatting.RED + " welcome to Turok " + TurokMod.MODVER);
-            users.addLine(ChatFormatting.BLUE + "Rina like you! ^^");
-            users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
-        });
-
-        frame_users.addChild(users);
-        users.setFontRenderer(fontRendererBig);
-        users.setShadow(true);
+            frame_users.addChild(users);
+            users.setFontRenderer(fontRendererBig);
+            users.setShadow(true);
+            frames.add(frame_users);
+        } else {
+            return;
+        }
 
         frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
         frame_array.setCloseable(false);
         frame_array.addChild(new ActiveModules());
         frame_array.setPinneable(true);
-
 
         frame_coords = new Frame(getTheme(), new Stretcherlayout(1), "Coordinates");
         frame_coords.setCloseable(false);
@@ -311,7 +319,7 @@ public class TurokGUI extends GUI {
         count.setFontRenderer(fontRendererBig);
         count.setShadow(true);
 
-        frames.add(frame_users);
+
         frames.add(frame_array);
         frames.add(frame_coords);
         frames.add(frame_counts);

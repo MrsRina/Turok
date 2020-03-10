@@ -1,14 +1,13 @@
 package com.oldturok.turok.gui.rgui.render.theme;
 
 import com.oldturok.turok.gui.rgui.component.Component;
-import com.oldturok.turok.gui.rgui.layout.Layout;
 import com.oldturok.turok.gui.rgui.render.ComponentUI;
+import com.oldturok.turok.gui.rgui.layout.Layout;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class AbstractTheme implements Theme {
-
     protected final Map<Class<? extends Component>, ComponentUI> uis;
     protected final Map<Class<? extends Layout>, Class<? extends Layout>> layoutMap;
 

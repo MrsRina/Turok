@@ -1,10 +1,10 @@
 package com.oldturok.turok.gui.turok.widgets;
 
-import com.oldturok.turok.gui.turok.TurokGUI;
-import com.oldturok.turok.gui.turok.RootSmallFontRenderer;
 import com.oldturok.turok.gui.turok.component.ColorizedCheckButton;
 import com.oldturok.turok.gui.rgui.component.use.CheckButton;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.turok.RootSmallFontRenderer;
+import com.oldturok.turok.gui.turok.TurokGUI;
 
 import java.awt.*;
 

@@ -1,11 +1,11 @@
 package com.oldturok.turok.gui.turok.widgets;
 
-import com.oldturok.turok.gui.turok.RenderHelper;
-import com.oldturok.turok.gui.turok.RootSmallFontRenderer;
 import com.oldturok.turok.gui.rgui.component.container.Container;
-import com.oldturok.turok.gui.rgui.component.use.Slider;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.turok.RootSmallFontRenderer;
+import com.oldturok.turok.gui.rgui.component.use.Slider;
+import com.oldturok.turok.gui.turok.RenderHelper;
 
 import org.lwjgl.opengl.GL11;
 
@@ -39,7 +39,7 @@ public class TurokSliderUI extends AbstractComponentUI<Slider> {
             smallFontRenderer.drawString((int) w_, 2, s);
 
             TurokGL.refresh_color(255, 0, 0, 255); 
-            RenderHelper.drawCircle((int) w_, 4, 30.0f);
+            RenderHelper.drawCircle((int) w_, 4, 5.0f);
         } else {
             smallFontRenderer.drawString(2, 2, component.getText());
             smallFontRenderer.drawString(component.getWidth() - smallFontRenderer.getStringWidth(s) - 2, 2, s);

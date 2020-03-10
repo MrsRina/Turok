@@ -1,11 +1,10 @@
 package com.oldturok.turok.gui.rgui.render.util;
 
-import org.lwjgl.opengl.*;
-
 import java.nio.ByteBuffer;
 
-public class Framebuffer {
+import org.lwjgl.opengl.*;
 
+public class Framebuffer {
     private int WIDTH = Display.getWidth();
     private int HEIGHT = Display.getHeight();
 

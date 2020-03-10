@@ -1,16 +1,15 @@
 package com.oldturok.turok.setting.builder;
 
-import com.google.common.base.MoreObjects;
-import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.SettingsRegister;
+import com.oldturok.turok.setting.Setting;
+import com.google.common.base.MoreObjects;
 
+import java.util.function.Predicate;
+import java.util.function.BiConsumer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiConsumer;
-import java.util.function.Predicate;
 
 public abstract class SettingBuilder<T> {
-
     protected String name;
     protected T initialValue;
     protected BiConsumer<T, T> consumer;

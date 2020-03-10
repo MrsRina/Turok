@@ -1,15 +1,17 @@
 package com.oldturok.turok.mixin.client;
 
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.event.events.ChunkEvent;
-import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.network.play.server.SPacketChunkData;
+import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.world.chunk.Chunk;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import com.oldturok.turok.event.events.ChunkEvent;
+import com.oldturok.turok.TurokMod;
+
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(NetHandlerPlayClient.class)
 public class MixinNetHandlerPlayClient {

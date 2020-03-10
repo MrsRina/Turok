@@ -2,23 +2,25 @@ package com.oldturok.turok.command.commands;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+
 import com.mojang.util.UUIDTypeAdapter;
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.command.syntax.ChunkBuilder;
+
 import com.oldturok.turok.command.syntax.parsers.EnumParser;
+import com.oldturok.turok.command.syntax.ChunkBuilder;
+import com.oldturok.turok.command.Command;
 import com.oldturok.turok.util.Friends;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.network.NetworkPlayerInfo;
 
 import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.OutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.net.URL;
 
 public class FriendCommand extends Command {
-
     public FriendCommand() {
         super("friend", new ChunkBuilder()
                 .append("mode", true, new EnumParser(new String[]{"add", "del"}))

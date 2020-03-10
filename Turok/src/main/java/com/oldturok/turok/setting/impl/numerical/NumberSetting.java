@@ -1,13 +1,12 @@
 package com.oldturok.turok.setting.impl.numerical;
 
-import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.converter.AbstractBoxedNumberConverter;
+import com.oldturok.turok.setting.Setting;
 
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
 public abstract class NumberSetting<T extends Number> extends Setting<T> {
-
     private final T min;
     private final T max;
 

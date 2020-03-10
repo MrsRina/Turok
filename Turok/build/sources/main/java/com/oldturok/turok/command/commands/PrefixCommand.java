@@ -1,10 +1,9 @@
 package com.oldturok.turok.command.commands;
 
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.command.syntax.ChunkBuilder;
+import com.oldturok.turok.command.Command;
 
 public class PrefixCommand extends Command {
-
     public PrefixCommand() {
         super("prefix", new ChunkBuilder().append("character").build());
     }

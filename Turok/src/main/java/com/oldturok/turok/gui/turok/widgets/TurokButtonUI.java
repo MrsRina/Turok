@@ -1,11 +1,11 @@
 package com.oldturok.turok.gui.turok.widgets;
 
-import com.oldturok.turok.gui.turok.TurokGUI;
-import com.oldturok.turok.gui.turok.RenderHelper;
 import com.oldturok.turok.gui.rgui.component.container.Container;
-import com.oldturok.turok.gui.rgui.component.use.Button;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.rgui.component.use.Button;
+import com.oldturok.turok.gui.turok.RenderHelper;
+import com.oldturok.turok.gui.turok.TurokGUI;
 
 import java.awt.*;
 

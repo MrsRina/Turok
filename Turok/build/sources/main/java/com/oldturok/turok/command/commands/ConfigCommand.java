@@ -1,20 +1,19 @@
 package com.oldturok.turok.command.commands;
 
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.command.syntax.ChunkBuilder;
 import com.oldturok.turok.command.syntax.parsers.DependantParser;
 import com.oldturok.turok.command.syntax.parsers.EnumParser;
+import com.oldturok.turok.command.syntax.ChunkBuilder;
 import com.oldturok.turok.gui.turok.TurokGUI;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.TurokMod;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Path;
 
 public class ConfigCommand extends Command {
-
     public ConfigCommand() {
         super("config", new ChunkBuilder()
                 .append("mode", true, new EnumParser(new String[]{"reload", "save", "path"}))

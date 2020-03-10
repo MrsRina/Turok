@@ -1,12 +1,12 @@
 package com.oldturok.turok.command.commands;
 
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.command.syntax.ChunkBuilder;
 import com.oldturok.turok.command.syntax.parsers.ModuleParser;
-import com.oldturok.turok.module.Module;
+import com.oldturok.turok.command.syntax.ChunkBuilder;
+import com.oldturok.turok.setting.impl.EnumSetting;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.setting.impl.EnumSetting;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.module.Module;
 
 import java.util.List;
 

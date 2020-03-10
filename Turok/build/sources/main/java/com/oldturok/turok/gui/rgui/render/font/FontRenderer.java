@@ -3,7 +3,6 @@ package com.oldturok.turok.gui.rgui.render.font;
 import java.awt.*;
 
 public interface FontRenderer {
-
     public int getFontHeight();
     public int getStringHeight(String text);
     public int getStringWidth(String text);

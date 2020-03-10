@@ -3,7 +3,6 @@ package com.oldturok.turok.event.events;
 import net.minecraft.client.gui.GuiScreen;
 
 public class GuiScreenEvent {
-
     private GuiScreen screen;
 
     public GuiScreenEvent(GuiScreen screen) {

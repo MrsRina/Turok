@@ -1,7 +1,7 @@
 package com.oldturok.turok.gui.rgui.component.use;
 
-import com.oldturok.turok.gui.rgui.component.AbstractComponent;
 import com.oldturok.turok.gui.rgui.component.listen.MouseListener;
+import com.oldturok.turok.gui.rgui.component.AbstractComponent;
 import com.oldturok.turok.gui.rgui.poof.PoofInfo;
 import com.oldturok.turok.gui.rgui.poof.use.Poof;
 

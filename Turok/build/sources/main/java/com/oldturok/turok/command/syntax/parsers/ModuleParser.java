@@ -1,9 +1,8 @@
 package com.oldturok.turok.command.syntax.parsers;
 
-
 import com.oldturok.turok.command.syntax.SyntaxChunk;
-import com.oldturok.turok.module.Module;
 import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.module.Module;
 
 public class ModuleParser extends AbstractParser {
 

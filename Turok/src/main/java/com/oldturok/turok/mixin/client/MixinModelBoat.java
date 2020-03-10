@@ -1,15 +1,17 @@
 package com.oldturok.turok.mixin.client;
 
-import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.modules.movement.EntitySpeed;
+import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.Wrapper;
-import net.minecraft.client.model.ModelBoat;
+
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.model.ModelBoat;
 import net.minecraft.entity.Entity;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
+
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(ModelBoat.class)
 public class MixinModelBoat {

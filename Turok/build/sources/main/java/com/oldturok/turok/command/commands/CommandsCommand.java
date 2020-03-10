@@ -1,14 +1,11 @@
 package com.oldturok.turok.command.commands;
 
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.command.syntax.SyntaxChunk;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.TurokMod;
 
 import java.util.Comparator;
 
-/**
- * Created by 086 on 12/11/2017.
- */
 public class CommandsCommand extends Command {
 
     public CommandsCommand() {

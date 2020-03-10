@@ -1,16 +1,16 @@
 package com.oldturok.turok.util;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.PlayerControllerMP;
-import net.minecraft.init.Blocks;
 import net.minecraft.network.play.client.CPacketPlayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.EnumHand;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,25 +1,24 @@
 package com.oldturok.turok.gui.turok.component;
 
-import com.oldturok.turok.gui.turok.Stretcherlayout;
-import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.rgui.component.container.OrganisedContainer;
-import com.oldturok.turok.gui.rgui.component.use.CheckButton;
-import com.oldturok.turok.gui.rgui.component.use.Slider;
-import com.oldturok.turok.gui.rgui.render.theme.Theme;
-import com.oldturok.turok.module.Module;
-import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.setting.impl.BooleanSetting;
-import com.oldturok.turok.setting.impl.EnumSetting;
-import com.oldturok.turok.setting.impl.numerical.DoubleSetting;
-import com.oldturok.turok.setting.impl.numerical.FloatSetting;
 import com.oldturok.turok.setting.impl.numerical.IntegerSetting;
 import com.oldturok.turok.setting.impl.numerical.NumberSetting;
+import com.oldturok.turok.setting.impl.numerical.DoubleSetting;
+import com.oldturok.turok.setting.impl.numerical.FloatSetting;
+import com.oldturok.turok.gui.rgui.component.use.CheckButton;
+import com.oldturok.turok.gui.rgui.component.use.Slider;
+import com.oldturok.turok.gui.rgui.component.Component;
+import com.oldturok.turok.gui.rgui.render.theme.Theme;
+import com.oldturok.turok.setting.impl.BooleanSetting;
+import com.oldturok.turok.gui.turok.Stretcherlayout;
+import com.oldturok.turok.setting.impl.EnumSetting;
+import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Bind;
 
 import java.util.Arrays;
 
 public class SettingsPanel extends OrganisedContainer {
-
     Module module;
 
     public SettingsPanel(Theme theme, Module module) {

@@ -1,29 +1,32 @@
 package com.oldturok.turok.mixin.client;
 
-import com.google.common.base.Predicate;
-import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.modules.misc.NoEntityTrace;
-import com.oldturok.turok.module.modules.render.AntiFog;
 import com.oldturok.turok.module.modules.render.Brightness;
 import com.oldturok.turok.module.modules.render.NoHurtCam;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.multiplayer.WorldClient;
+import com.oldturok.turok.module.modules.render.AntiFog;
+import com.oldturok.turok.module.ModuleManager;
+
+import com.google.common.base.Predicate;
+
 import net.minecraft.client.renderer.ActiveRenderInfo;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.Blocks;
-import net.minecraft.potion.Potion;
-import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.entity.Entity;
+import net.minecraft.potion.Potion;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
+
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.Mixin;
 
 import java.util.ArrayList;
 import java.util.List;

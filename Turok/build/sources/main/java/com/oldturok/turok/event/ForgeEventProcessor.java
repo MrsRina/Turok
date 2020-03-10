@@ -1,36 +1,37 @@
 package com.oldturok.turok.event;
 
-import com.oldturok.turok.TurokMod;
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.module.modules.render.BossStack;
-import com.oldturok.turok.event.events.DisplaySizeChangedEvent;
-import com.oldturok.turok.gui.UIRenderer;
-import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.gui.rgui.component.container.use.Frame;
-import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.event.events.DisplaySizeChangedEvent;
+import com.oldturok.turok.module.modules.render.BossStack;
 import com.oldturok.turok.util.TurokTessellator;
+import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.gui.turok.TurokGUI;
+import com.oldturok.turok.command.Command;
+import com.oldturok.turok.gui.UIRenderer;
 import com.oldturok.turok.util.Wrapper;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.ScaledResolution;
+import com.oldturok.turok.TurokMod;
+
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraft.client.gui.inventory.GuiShulkerBox;
 import net.minecraft.entity.passive.AbstractHorse;
-import net.minecraftforge.client.event.*;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.ChunkEvent;
-import net.minecraftforge.fml.common.eventhandler.EventPriority;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraftforge.client.event.*;
+import net.minecraft.client.Minecraft;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 public class ForgeEventProcessor {
-
     private int displayWidth;
     private int displayHeight;
 

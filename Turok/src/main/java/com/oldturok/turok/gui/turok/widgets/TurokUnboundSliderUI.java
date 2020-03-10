@@ -1,10 +1,11 @@
 package com.oldturok.turok.gui.turok.widgets;
 
-import com.oldturok.turok.gui.turok.RenderHelper;
-import com.oldturok.turok.gui.turok.component.UnboundSlider;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
+import com.oldturok.turok.gui.turok.component.UnboundSlider;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.turok.RenderHelper;
+
 import org.lwjgl.opengl.GL11;
 
 import com.oldturok.turok.util.TurokGL;

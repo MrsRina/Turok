@@ -46,15 +46,14 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
         TurokGL.DisableGL(GL11.GL_TEXTURE_2D);
 
-        if (component.isPinneable()){
+        if (component.isPinneable()) {
             if (component.isPinned()) {
                 TurokGL.refresh_color(100, 0, 0, 150);
                 RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
             } else {
-                TurokGL.refresh_color(0, 0, 0, 255);
+                TurokGL.refresh_color(100, 0, 0, 150);
                 RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
             }
-
             TurokGL.refresh_color(255, 255, 255, 255);
             ff.drawString(1, 1, component.getTitle());
 

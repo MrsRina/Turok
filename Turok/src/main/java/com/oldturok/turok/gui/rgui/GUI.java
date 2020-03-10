@@ -1,18 +1,19 @@
 package com.oldturok.turok.gui.rgui;
 
-import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.rgui.component.container.AbstractContainer;
+import com.oldturok.turok.gui.rgui.component.listen.MouseListener;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.component.listen.KeyListener;
-import com.oldturok.turok.gui.rgui.component.listen.MouseListener;
+import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.rgui.render.theme.Theme;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.Display;
 
-import java.util.ArrayList;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.input.Mouse;
+
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.ArrayList;
 
 public abstract class GUI extends AbstractContainer {
 

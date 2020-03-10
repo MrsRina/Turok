@@ -1,21 +1,20 @@
 package com.oldturok.turok.util;
 
-import net.minecraft.block.BlockLiquid;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.monster.EntityIronGolem;
+import net.minecraft.entity.monster.EntityEnderman;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.monster.EntityIronGolem;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.entity.EntityAgeable;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.BlockLiquid;
+import net.minecraft.entity.passive.*;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.entity.Entity;
 
 public class EntityUtil {
-
     public static boolean isPassive(Entity e){
         if (e instanceof EntityWolf && ((EntityWolf) e).isAngry()) return false;
         if (e instanceof EntityAnimal || e instanceof EntityAgeable || e instanceof EntityTameable || e instanceof EntityAmbientCreature || e instanceof EntitySquid) return true;

@@ -3,8 +3,7 @@ package com.oldturok.turok.gui.turok;
 import static org.lwjgl.opengl.GL11.*;
 
 public class RenderHelper {
-    public static void drawArc(float cx, float cy, float r, float start_angle, float end_angle, int num_segments)
-    {
+    public static void drawArc(float cx, float cy, float r, float start_angle, float end_angle, int num_segments) {
         glBegin(GL_TRIANGLES);
 
         for (int i = (int) (num_segments / (360 / start_angle)) + 1; i <= num_segments / (360 / end_angle); i++) {

@@ -1,11 +1,10 @@
 package com.oldturok.turok.gui.turok.component;
 
-import com.oldturok.turok.gui.rgui.component.AbstractComponent;
 import com.oldturok.turok.gui.rgui.component.listen.MouseListener;
+import com.oldturok.turok.gui.rgui.component.AbstractComponent;
 import com.oldturok.turok.gui.rgui.component.use.Slider;
 
 public class UnboundSlider extends AbstractComponent {
-
     double value;
     String text;
     public int sensitivity = 5;

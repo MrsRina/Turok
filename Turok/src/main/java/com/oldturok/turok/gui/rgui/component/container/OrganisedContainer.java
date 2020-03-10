@@ -1,8 +1,8 @@
 package com.oldturok.turok.gui.rgui.component.container;
 
 import com.oldturok.turok.gui.rgui.component.Component;
-import com.oldturok.turok.gui.rgui.layout.Layout;
 import com.oldturok.turok.gui.rgui.render.theme.Theme;
+import com.oldturok.turok.gui.rgui.layout.Layout;
 
 public class OrganisedContainer extends AbstractContainer {
     Layout layout;

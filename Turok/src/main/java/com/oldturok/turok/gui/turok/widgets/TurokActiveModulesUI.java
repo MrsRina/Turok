@@ -1,21 +1,22 @@
 package com.oldturok.turok.gui.turok.widgets;
 
-import com.oldturok.turok.command.Command;
-import com.oldturok.turok.gui.turok.component.ActiveModules;
 import com.oldturok.turok.gui.rgui.component.AlignedComponent;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
+import com.oldturok.turok.gui.turok.component.ActiveModules;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import com.oldturok.turok.gui.turok.RootFontRenderer;
-import com.oldturok.turok.module.Module;
+import com.oldturok.turok.command.Command;
 import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Wrapper;
+
 import org.lwjgl.opengl.GL11;
 
-import java.awt.*;
-import java.util.Comparator;
-import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.Comparator;
+import java.util.List;
+import java.awt.*;
 
 import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.glDisable;

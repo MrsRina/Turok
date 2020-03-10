@@ -1,8 +1,8 @@
 package com.oldturok.turok.setting.converter;
 
 import com.google.common.base.Converter;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonElement;
 
 public class BooleanConverter extends Converter<Boolean, JsonElement> {
 

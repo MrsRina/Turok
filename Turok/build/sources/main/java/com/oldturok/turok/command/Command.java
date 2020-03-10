@@ -1,12 +1,13 @@
 package com.oldturok.turok.command;
 
-import com.oldturok.turok.TurokMod;
 import com.oldturok.turok.command.syntax.SyntaxChunk;
-import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.setting.Settings;
+import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.Wrapper;
-import net.minecraft.util.text.ITextComponent;
+import com.oldturok.turok.TurokMod;
+
 import net.minecraft.util.text.TextComponentBase;
+import net.minecraft.util.text.ITextComponent;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

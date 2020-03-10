@@ -1,11 +1,11 @@
 package com.oldturok.turok.gui.turok.widgets;
 
-import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.gui.rgui.component.container.use.Frame;
-import com.oldturok.turok.gui.rgui.component.use.Button;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
-import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import com.oldturok.turok.gui.rgui.render.theme.AbstractTheme;
+import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.rgui.component.use.Button;
+import com.oldturok.turok.gui.turok.TurokGUI;
 
 public class TurokTheme extends AbstractTheme {
     FontRenderer fontRenderer;

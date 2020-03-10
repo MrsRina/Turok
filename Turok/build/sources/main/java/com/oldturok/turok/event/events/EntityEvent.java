@@ -1,10 +1,10 @@
 package com.oldturok.turok.event.events;
 
 import com.oldturok.turok.event.TurokEvent;
+
 import net.minecraft.entity.Entity;
 
 public class EntityEvent extends TurokEvent {
-
     private Entity entity;
 
     public EntityEvent(Entity entity) {

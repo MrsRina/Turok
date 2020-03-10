@@ -3,7 +3,6 @@ package com.oldturok.turok.command.syntax.parsers;
 import com.oldturok.turok.command.syntax.SyntaxChunk;
 
 public class DependantParser extends AbstractParser {
-
     int dependantIndex;
     private Dependency dependancy;
 

@@ -5,7 +5,6 @@ import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import com.oldturok.turok.gui.rgui.render.theme.Theme;
 
 public class Label extends AlignedComponent {
-
     String text;
     boolean multiline;
 

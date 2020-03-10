@@ -16,10 +16,11 @@ import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.command.Command;
 import com.oldturok.turok.setting.Setting;
-import com.google.common.base.Converter;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.util.Friends;
+
+import com.google.common.base.Converter;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

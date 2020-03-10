@@ -1,9 +1,10 @@
 package com.oldturok.turok.gui.turok.widgets;
 
-import com.oldturok.turok.gui.rgui.component.AlignedComponent;
-import com.oldturok.turok.gui.rgui.component.use.Label;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
+import com.oldturok.turok.gui.rgui.component.AlignedComponent;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.gui.rgui.component.use.Label;
+
 import org.lwjgl.opengl.GL11;
 
 public class TurokLabelUI<T extends Label> extends AbstractComponentUI<Label> {

@@ -7,7 +7,6 @@ import com.oldturok.turok.gui.rgui.layout.Layout;
 import java.util.ArrayList;
 
 public class Stretcherlayout implements Layout {
-
     public int COMPONENT_OFFSET_X = 10;
     public int COMPONENT_OFFSET_Y = 4;
 

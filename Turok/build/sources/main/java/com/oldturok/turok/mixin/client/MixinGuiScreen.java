@@ -1,24 +1,25 @@
 package com.oldturok.turok.mixin.client;
 
 import com.oldturok.turok.module.ModuleManager;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.renderer.*;
+
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.item.ItemShulkerBox;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.client.renderer.*;
+import net.minecraft.client.Minecraft;
 import net.minecraft.util.NonNullList;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
+import net.minecraft.item.ItemStack;
+
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(GuiScreen.class)
 public class MixinGuiScreen {
-
     RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
     FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
 

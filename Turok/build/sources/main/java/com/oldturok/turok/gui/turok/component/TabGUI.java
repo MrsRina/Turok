@@ -1,14 +1,16 @@
 package com.oldturok.turok.gui.turok.component;
 
+import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.AbstractComponent;
 import com.oldturok.turok.gui.rgui.component.Component;
-import com.oldturok.turok.gui.rgui.component.container.use.Frame;
-import com.oldturok.turok.module.Module;
 import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Wrapper;
-import net.minecraftforge.fml.common.FMLCommonHandler;
+
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+
 import org.lwjgl.input.Keyboard;
 
 import java.util.*;

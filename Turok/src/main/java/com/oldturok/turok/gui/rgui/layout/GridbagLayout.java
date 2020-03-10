@@ -1,7 +1,7 @@
 package com.oldturok.turok.gui.rgui.layout;
 
-import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.rgui.component.container.Container;
+import com.oldturok.turok.gui.rgui.component.Component;
 
 import java.util.ArrayList;
 

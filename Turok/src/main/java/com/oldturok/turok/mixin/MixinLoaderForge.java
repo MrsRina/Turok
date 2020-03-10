@@ -1,10 +1,12 @@
 package com.oldturok.turok.mixin;
 
-import com.oldturok.turok.TurokMod;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
-import org.spongepowered.asm.launch.MixinBootstrap;
+
 import org.spongepowered.asm.mixin.MixinEnvironment;
+import org.spongepowered.asm.launch.MixinBootstrap;
 import org.spongepowered.asm.mixin.Mixins;
+
+import com.oldturok.turok.TurokMod;
 
 import java.util.Map;
 
