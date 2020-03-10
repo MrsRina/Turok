@@ -1,5 +1,7 @@
 package com.oldturok.turok.module.modules.movement;
 
+import com.oldturok.turok.util.BlockInteractionHelper;
+import com.oldturok.turok.event.events.PacketEvent;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.EntityUtil;
@@ -9,7 +11,6 @@ import net.minecraft.network.play.client.CPacketConfirmTeleport;
 import net.minecraft.network.play.server.SPacketPlayerPosLook;
 import net.minecraftforge.client.event.InputUpdateEvent;
 import net.minecraft.network.play.client.CPacketPlayer;
-import me.zeroeightsix.kami.event.events.PacketEvent;
 import net.minecraft.client.gui.GuiDownloadTerrain;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.network.Packet;
@@ -18,6 +19,7 @@ import net.minecraft.entity.Entity;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 
+import java.util.function.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +51,7 @@ public class TurokPacketFly extends Module {
 	@EventHandler
 	public Listener<InputUpdateEvent> listener = new Listener<InputUpdateEvent>(event -> {
 		if (fly_teleport_id <= 0) {
-			fly_bounds[0] = (CPacketPlayer) new CPacketPlayer.Position(mc.player.posX, 0, 0, mc.player.posZ, mc.player.onGround);
+			fly_bounds[0] = (CPacketPlayer) new CPacketPlayer.Position(mc.player.posX, 0.0, mc.player.posZ, mc.player.onGround);
 			
 			fly_packets.add(fly_bounds);
 			mc.player.connection.sendPacket((Packet) fly_bounds[0]);
@@ -59,9 +61,9 @@ public class TurokPacketFly extends Module {
 			mc.player.setVelocity(0.0, 0.0, 0.0);
 
 			if (mc.world.getCollisionBoxes((Entity) mc.player, mc.player.getEntityBoundingBox().expand(- 0.0625, 0.0, - 0.0625)).isEmpty()) {
-				if (mc.world.gameSettings.keyBindJump.isKeyDown()) {
+				if (mc.gameSettings.keyBindJump.isKeyDown()) {
 					if (fly_no_kick.getValue()) {
-						fly_2_y_speed[0] = ((mc.player.tickExisted % 20 == 0) ? - 0.03999999910593033 : 0.06199999898672104);
+						fly_2_y_speed[0] = ((mc.player.ticksExisted % 20 == 0) ? - 0.03999999910593033 : 0.06199999898672104);
 					} else {
 						fly_2_y_speed[0] = 0.06199999898672104;
 					}
@@ -69,7 +71,7 @@ public class TurokPacketFly extends Module {
 					fly_2_y_speed[0] = - 0.062;
 				} else {
 					if (mc.world.getCollisionBoxes((Entity) mc.player, mc.player.getEntityBoundingBox().expand(- 0.0625, - 0.0625, - 0.0625)).isEmpty()) {
-						if (mc.player.tickExisted % 4 == 0) {
+						if (mc.player.ticksExisted % 4 == 0) {
 							fly_n[0] = (fly_no_kick.getValue() ? - 0.04f : 0.0f);
 						} else {
 							fly_n[0] = 0.0;
@@ -104,8 +106,8 @@ public class TurokPacketFly extends Module {
 					}
 				}
 			} else if (fly_no_kick.getValue() && mc.world.getCollisionBoxes((Entity) mc.player, mc.player.getEntityBoundingBox().expand(- 0.0625, - 0.0625, - 0.0625)).isEmpty()) {
-				mc.player.setVelocity(0.0, (mc.player.tickExisted % 2 == 0) ? 0.03999999910593033 : - 0.03999999910593033, 0.0);
-				fly_move(0.0, (mc.player.tickExisted % 2 == 0) ? 0.03999999910593033 : - 0.03999999910593033, 0.0);
+				mc.player.setVelocity(0.0, (mc.player.ticksExisted % 2 == 0) ? 0.03999999910593033 : - 0.03999999910593033, 0.0);
+				fly_move(0.0, (mc.player.ticksExisted % 2 == 0) ? 0.03999999910593033 : - 0.03999999910593033, 0.0);
 			}
 		}
 

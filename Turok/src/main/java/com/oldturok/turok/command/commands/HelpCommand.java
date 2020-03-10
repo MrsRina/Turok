@@ -12,12 +12,7 @@ public class HelpCommand extends Command {
             new Subject(
                     new String[]{"type","int","boolean","double","float"},
                     new String[]{
-                        "Every module has a value, and that value is always of a certain &btype.\n",
-                        "These types are displayed in turok as the ones java use. They mean the following:",
-                        "&bboolean&r: Enabled or not. Values &3true/false",
-                        "&bfloat&r: A number with a decimal point",
-                        "&bdouble&r: Like a float, but a more accurate decimal point",
-                        "&bint&r: A number with no decimal point"
+                        "Turok not know this."
                     }
             )
     };
@@ -40,7 +35,7 @@ public class HelpCommand extends Command {
                     "Help Turok:",
                     "Press " + ModuleManager.getModuleByName("ClickGUI").getBindName() + "&4 to open GUI",
                     "For change prefix write .prefix (character)",
-                    "For some other command talk with devs!"
+                    "For some other command talk with Rina!"
             });
         }
     }
