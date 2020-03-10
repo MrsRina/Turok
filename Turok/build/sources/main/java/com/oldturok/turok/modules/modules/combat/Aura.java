@@ -1,6 +1,5 @@
 package com.oldturok.turok.module.modules.combat;
 
-import com.oldturok.turok.module.modules.misc.AutoTool;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.setting.Settings;
@@ -95,9 +94,6 @@ public class Aura extends Module {
                 return;
             } else {
                 if (EntityUtil.isPassive(target) ? attackAnimals.getValue() : (EntityUtil.isMobAggressive(target) && attackMobs.getValue())) {
-                    if (!switchTo32k.getValue() && ModuleManager.isModuleEnabled("AutoTool")) {
-                        AutoTool.equipBestWeapon();
-                    }
                     attack(target);
                     return;
                 }

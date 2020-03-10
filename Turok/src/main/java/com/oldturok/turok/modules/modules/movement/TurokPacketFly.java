@@ -27,6 +27,8 @@ import java.util.List;
 // Coded in 05/03/20.
 // About this code, is not a paste, i modify somethings and the seppuku is public.
 // Thanks Memmez for source.
+// The seppuku is a good fly, i cant make a better, i recoded and make somes modify to be "better".
+// Enjoy.
 @Module.Info(name = "Turok Seppuku Fly", category = Module.Category.TUROK_MOVEMENT)
 public class TurokPacketFly extends Module {
 	private Setting<Boolean> fly_no_kick = register(Settings.b("No Kick", true));
@@ -53,7 +55,8 @@ public class TurokPacketFly extends Module {
 		if (fly_teleport_id <= 0) {
 			fly_bounds[0] = (CPacketPlayer) new CPacketPlayer.Position(mc.player.posX, 0.0, mc.player.posZ, mc.player.onGround);
 			
-			fly_packets.add(fly_bounds);
+			fly_packets.add(fly_bounds[0]);
+
 			mc.player.connection.sendPacket((Packet) fly_bounds[0]);
 
 			return;
@@ -83,7 +86,7 @@ public class TurokPacketFly extends Module {
 				}
 
 				fly_directional_speed[0] = BlockInteractionHelper.directionSpeed(fly_speed.getValue());
-				if (mc.gameSettings.keyBindJump.isKeyDown() || mc.player.gameSettings.keyBindJump.isKeyDown() || mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindBack.IsKeyDown() || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown()) {
+				if (mc.gameSettings.keyBindJump.isKeyDown() || mc.gameSettings.keyBindJump.isKeyDown() || mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown() || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown()) {
 					if (fly_directional_speed[0][0] != 0.0 || fly_2_y_speed[0] != 0.0 || fly_directional_speed[0][1] != 0.0) {
 						if (mc.player.movementInput.jump && (mc.player.moveStrafing != 0.0f || mc.player.moveForward != 0.0f)) {
 							mc.player.setVelocity(0.0, 0.0, 0.0);
@@ -94,9 +97,9 @@ public class TurokPacketFly extends Module {
 						}
 					} else if (mc.player.movementInput.jump) {
 						mc.player.setVelocity(0.0, 0.0, 0.0);
-						for (fly_j[0] = 0; fly_j <= 3; ++fly_j[0]) {
+						for (fly_j[0] = 0; fly_j[0] <= 3; ++fly_j[0]) {
 							mc.player.setVelocity(0.0, fly_2_y_speed[0] * fly_j[0], 0.0);
-							fly_move(0, 0, fly_2_y_speed[0] * fly_j[0], 0.0);
+							fly_move(0.0, fly_2_y_speed[0] * fly_j[0], 0.0);
 						}
 					} else {
 						for (fly_k[0] = 0; fly_k[0] <= 2; ++fly_k[0]) {
@@ -116,7 +119,7 @@ public class TurokPacketFly extends Module {
 
 	CPacketPlayer[] fly_packet = new CPacketPlayer[1];
 
-	@Override
+	@EventHandler
 	public Listener<PacketEvent.Send> sendListener = new Listener<PacketEvent.Send> (event -> {
 		if (event.getPacket() instanceof CPacketPlayer && !(event.getPacket() instanceof CPacketPlayer.Position)) {
 			event.cancel();
@@ -126,7 +129,7 @@ public class TurokPacketFly extends Module {
 			fly_packet[0] = (CPacketPlayer) event.getPacket();
 
 			if (fly_packets.contains(fly_packet[0])) {
-				fly_packet.remove(fly_packet[0]);
+				fly_packets.remove(fly_packet[0]);
 			} else {
 				event.cancel();
 			}
@@ -138,12 +141,12 @@ public class TurokPacketFly extends Module {
 	SPacketPlayerPosLook[] fly_packet_2 = new SPacketPlayerPosLook[1];
 
 	@EventHandler
-	public Listener<PacketEvent.Recive> receiveListener = new Listener<PacketEvent.Recive> (event -> {
+	public Listener<PacketEvent.Receive> receiveListener = new Listener<PacketEvent.Receive> (event -> {
 		if (event.getPacket() instanceof SPacketPlayerPosLook) {
-			fly_packets_2[0] = (SPacketPlayerPosLook) event.getPacket();
+			fly_packet_2[0] = (SPacketPlayerPosLook) event.getPacket();
 
 			if (mc.player.isEntityAlive()) {
-				if (mc.world.isBlockedLoaded(new BlockPos(mc.player.posX, mc.player.posY, mc.player.posZ)) && !(mc.player.curremtScreen instanceof GuiDownloadTerrain)) {
+				if (mc.world.isBlockLoaded(new BlockPos(mc.player.posX, mc.player.posY, mc.player.posZ)) && !(mc.currentScreen instanceof GuiDownloadTerrain)) {
 					if (fly_teleport_id <= 0) {
 						fly_teleport_id = fly_packet_2[0].getTeleportId();
 					} else {

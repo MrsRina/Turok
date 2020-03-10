@@ -16,8 +16,8 @@ public class BindCommand extends Command {
 
     public BindCommand() {
         super("bind", new ChunkBuilder()
-                .append("[module]|modifiers", true, new ModuleParser())
-                .append("[key]|[on|off]", true)
+                .append("[module] | modifiers", true, new ModuleParser())
+                .append("[key] | [on|off]", true)
                 .build()
         );
     }
