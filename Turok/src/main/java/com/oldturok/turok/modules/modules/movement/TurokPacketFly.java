@@ -9,11 +9,13 @@ import net.minecraft.network.play.client.CPacketConfirmTeleport;
 import net.minecraft.network.play.server.SPacketPlayerPosLook;
 import net.minecraftforge.client.event.InputUpdateEvent;
 import net.minecraft.network.play.client.CPacketPlayer;
+import me.zeroeightsix.kami.event.events.PacketEvent;
 import net.minecraft.client.gui.GuiDownloadTerrain;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.network.Packet;
 import net.minecraft.entity.Entity;
 
+import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 
 import java.util.ArrayList;
@@ -22,8 +24,7 @@ import java.util.List;
 // Rina.
 // Coded in 05/03/20.
 // About this code, is not a paste, i modify somethings and the seppuku is public.
-// Thanks Memmez!!.
-// Is only a converted.
+// Thanks Memmez for source.
 @Module.Info(name = "Turok Seppuku Fly", category = Module.Category.TUROK_MOVEMENT)
 public class TurokPacketFly extends Module {
 	private Setting<Boolean> fly_no_kick = register(Settings.b("No Kick", true));
@@ -138,8 +139,32 @@ public class TurokPacketFly extends Module {
 	public Listener<PacketEvent.Recive> receiveListener = new Listener<PacketEvent.Recive> (event -> {
 		if (event.getPacket() instanceof SPacketPlayerPosLook) {
 			fly_packets_2[0] (SPacketPlayerPosLook) event.getPacket();
+
+			if (mc.player.isEntityAlive()) {
+				if (mc.world.isBlockedLoaded(new BlockPos(mc.player.posX, mc.player.posY, mc.player.posZ)) && !(mc.player.curremtScreen instanceof GuiDownloadTerrain)) {
+					if (fly_teleport_id <= 0) {
+						fly_teleport_id = fly_packet_2[0].getTeleportId();
+					} else {
+						event.cancel();
+					}
+				}
+			}
 		}
-	});
+	}, (Predicate<PacketEvent.Receive>[]) new Predicate[0]);
+
+	public void onEnable() {
+		if (mc.world != null) {
+			fly_teleport_id = 0;
+			
+			fly_packets.clear();
+			
+			CPacketPlayer fly_bounds = (CPacketPlayer) new CPacketPlayer.Position(mc.player.posX, 0.0, mc.player.posZ, mc.player.onGround);
+
+			fly_packets.add(fly_bounds);
+
+			mc.player.connection.sendPacket((Packet) fly_bounds);
+		}
+	}
 
 	public void fly_move(double x, double, y, double z) {
 		CPacketPlayer fly_pos = ((CPacketPlayer) new CPacketPlayer.Position(mc.player.posX + x, mc.player.posY + y, mc.player.posZ + z, mc.player.onGround));
