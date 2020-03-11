@@ -4,7 +4,7 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.GuiChat;
 
 import com.oldturok.turok.gui.mc.TurokGuiChat;
-import com.oldturok.turok.command.Command;
+import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Wrapper;
 
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -26,9 +26,8 @@ public abstract class MixinGuiChat {
     @Inject(method = "Lnet/minecraft/client/gui/GuiChat;keyTyped(CI)V", at = @At("RETURN"))
     public void returnKeyTyped(char typedChar, int keyCode, CallbackInfo info) {
         if (!(Wrapper.getMinecraft().currentScreen instanceof GuiChat) || Wrapper.getMinecraft().currentScreen instanceof TurokGuiChat) return;
-        if (inputField.getText().startsWith(Command.getCommandPrefix())) {
+        if (inputField.getText().startsWith(Chat.getCommandPrefix())) {
             Wrapper.getMinecraft().displayGuiScreen(new TurokGuiChat(inputField.getText(), historyBuffer, sentHistoryCursor));
         }
     }
-
 }

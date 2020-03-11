@@ -1,6 +1,5 @@
-package com.oldturok.turok.command;
+package com.oldturok.turok.chatcmd;
 
-import com.oldturok.turok.command.syntax.SyntaxChunk;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.Wrapper;
@@ -12,18 +11,15 @@ import net.minecraft.util.text.ITextComponent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class Command {
+public abstract class Chat {
 	protected String label;
 	protected String syntax;
 	protected String description;
 
-	protected SyntaxChunk[] syntaxChunks;
-
 	public static Setting<String> commandPrefix = Settings.s("commandPrefix", "-");
 
-	public Command(String label, SyntaxChunk[] syntaxChunks) {
+	public Chat(String label) {
 		this.label = label;
-		this.syntaxChunks = syntaxChunks;
 		this.description = "Descriptionless";
 	}
 
@@ -58,12 +54,7 @@ public abstract class Command {
 	
 	public abstract void call(String[] args);
 
-    public SyntaxChunk[] getSyntaxChunks() {
-        return syntaxChunks;
-    }
-
     public static class ChatMessage extends TextComponentBase {
-
 		String text;
 		
 		public ChatMessage(String text) {
@@ -91,14 +82,6 @@ public abstract class Command {
 			return new ChatMessage(text);
 		}
 
-	}
-
-	protected SyntaxChunk getSyntaxChunk(String name){
-		for (SyntaxChunk c : syntaxChunks){
-			if (c.getType().equals(name))
-				return c;
-		}
-		return null;
 	}
 
 	public static char SECTIONSIGN() {

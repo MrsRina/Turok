@@ -5,8 +5,8 @@ import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Friends;
 
 import net.minecraft.network.play.client.CPacketPlayerDigging;
@@ -30,25 +30,25 @@ import java.util.Iterator;
 @Module.Info(name = "Aura", category = Module.Category.TUROK_COMBAT)
 public class Aura extends Module {
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
-    private Setting<Boolean> attackMobs = register(Settings.b("Mobs", false));
+    private Setting<Boolean> attackMobs    = register(Settings.b("Mobs", false));
     private Setting<Boolean> attackAnimals = register(Settings.b("Animals", false));
-    private Setting<Double> hitRange = register(Settings.d("Hit Range", 5.5d));
-    private Setting<Boolean> ignoreWalls = register(Settings.b("Ignore Walls", true));
-    private Setting<WaitMode> waitMode = register(Settings.e("Mode", WaitMode.DYNAMIC));
-    private Setting<Integer> waitTick = register(Settings.integerBuilder("Tick Delay").withMinimum(0).withValue(3).withVisibility(o -> waitMode.getValue().equals(WaitMode.STATIC)).build());
-    private Setting<Boolean> switchTo32k = register(Settings.b("32k Switch", true));
-    private Setting<Boolean> onlyUse32k = register(Settings.b("32k Only", false));
+    private Setting<Double> hitRange       = register(Settings.d("Hit Range", 5.5d));
+    private Setting<Boolean> ignoreWalls   = register(Settings.b("Ignore Walls", true));
+    private Setting<WaitMode> waitMode     = register(Settings.e("Mode", WaitMode.DYNAMIC));
+    private Setting<Integer> waitTick      = register(Settings.integerBuilder("Tick Delay").withMinimum(0).withValue(3).withVisibility(o -> waitMode.getValue().equals(WaitMode.STATIC)).build());
+    private Setting<Boolean> switchTo32k   = register(Settings.b("32k Switch", true));
+    private Setting<Boolean> onlyUse32k    = register(Settings.b("32k Only", false));
 
     private int waitCounter;
 
     @Override
     public void onEnable() {
-        Command.sendChatMessage("[Kill-Aura] " + ChatFormatting.GREEN + "Enabled!");
+        Chat.sendChatMessage("[Kill-Aura] " + ChatFormatting.GREEN + "Enabled!");
     }
 
     @Override
     public void onDisable() {
-        Command.sendChatMessage("[Kill-Aura] " + ChatFormatting.RED + "Disabled!");
+        Chat.sendChatMessage("[Kill-Aura] " + ChatFormatting.RED + "Disabled!");
     }
 
     @Override

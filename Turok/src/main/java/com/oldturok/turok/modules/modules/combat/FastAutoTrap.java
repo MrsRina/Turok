@@ -6,8 +6,8 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.EntityUtil;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Friends;
 
 import net.minecraft.network.play.client.CPacketPlayerDigging;
@@ -62,7 +62,6 @@ public class FastAutoTrap extends Module {
     private boolean missingObiDisable = false;
 
     private static EnumFacing get_placeable_side(BlockPos pos) {
-
         for (EnumFacing side : EnumFacing.values()) {
 
             BlockPos neighbour = pos.offset(side);
@@ -75,7 +74,6 @@ public class FastAutoTrap extends Module {
             if (!blockState.getMaterial().isReplaceable()) {
                 return side;
             }
-
         }
 
         return null;
@@ -84,6 +82,8 @@ public class FastAutoTrap extends Module {
 
     @Override
     protected void onEnable() {
+        Chat.sendChatMessage("FastAutoTrap -> " + ChatFormatting.GREEN + "Enabled!");
+
         if (mc.player == null) {
             this.disable();
             return;
@@ -93,14 +93,11 @@ public class FastAutoTrap extends Module {
 
         playerHotbarSlot = mc.player.inventory.currentItem;
         lastHotbarSlot = -1;
-     
-        Command.sendChatMessage("FastAutoTrap -> " + ChatFormatting.GREEN + "Enabled!");
-
     }
 
     @Override
     protected void onDisable() {
-        Command.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled!");
+        Chat.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled!");
 
         if (mc.player == null) {
             return;
@@ -137,7 +134,7 @@ public class FastAutoTrap extends Module {
         if (firstRun) {
             if (find_obi_in_hotbar() == -1) {
                 if (infoMessage.getValue()) {
-                    Command.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                    Chat.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
                 }
                 this.disable();
                 return;

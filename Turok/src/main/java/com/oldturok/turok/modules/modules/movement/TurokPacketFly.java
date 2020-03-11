@@ -86,7 +86,7 @@ public class TurokPacketFly extends Module {
 				}
 
 				fly_directional_speed[0] = BlockInteractionHelper.directionSpeed(fly_speed.getValue());
-				if (mc.gameSettings.keyBindJump.isKeyDown() || mc.gameSettings.keyBindJump.isKeyDown() || mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown() || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown()) {
+				if (mc.gameSettings.keyBindJump.isKeyDown() || mc.gameSettings.keyBindSneak.isKeyDown() || mc.gameSettings.keyBindForward.isKeyDown() || mc.gameSettings.keyBindBack.isKeyDown() || mc.gameSettings.keyBindRight.isKeyDown() || mc.gameSettings.keyBindLeft.isKeyDown()) {
 					if (fly_directional_speed[0][0] != 0.0 || fly_2_y_speed[0] != 0.0 || fly_directional_speed[0][1] != 0.0) {
 						if (mc.player.movementInput.jump && (mc.player.moveStrafing != 0.0f || mc.player.moveForward != 0.0f)) {
 							mc.player.setVelocity(0.0, 0.0, 0.0);

@@ -1,6 +1,5 @@
 package com.oldturok.turok.util;
 
-import com.oldturok.turok.command.commands.BindCommand;
 import org.lwjgl.input.Keyboard;
 
 // Update by Rina 05/03/20.

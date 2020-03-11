@@ -6,8 +6,8 @@ import com.oldturok.turok.module.modules.render.BossStack;
 import com.oldturok.turok.util.TurokTessellator;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.gui.turok.TurokGUI;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.gui.UIRenderer;
+import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.TurokMod;
 
@@ -97,18 +97,18 @@ public class ForgeEventProcessor {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onChatSent(ClientChatEvent event) {
-        if (event.getMessage().startsWith(Command.getCommandPrefix())) {
+        if (event.getMessage().startsWith(Chat.getCommandPrefix())) {
             event.setCanceled(true);
             try {
                 Wrapper.getMinecraft().ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
 
                 if (event.getMessage().length() > 1)
-                    TurokMod.getInstance().commandManager.callCommand(event.getMessage().substring(Command.getCommandPrefix().length() - 1));
+                    TurokMod.getInstance().commandManager.callCommand(event.getMessage().substring(Chat.getCommandPrefix().length() - 1));
                 else
-                    Command.sendChatMessage("Please enter a command.");
+                    Chat.sendChatMessage("Please enter a command.");
             } catch (Exception e) {
                 e.printStackTrace();
-                Command.sendChatMessage("Error occured while running command! (" + e.getMessage() + ")");
+                Chat.sendChatMessage("Error occured while running command! (" + e.getMessage() + ")");
             }
             event.setMessage("");
         }

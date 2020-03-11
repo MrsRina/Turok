@@ -4,8 +4,8 @@ import com.oldturok.turok.util.BlockInteractionHelper;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.chatcmd.Chat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 
@@ -53,7 +53,6 @@ public class AutoBarrier extends Module {
     private boolean missingObiDisable = false;
 
     private static EnumFacing getPlaceableSide(BlockPos pos) {
-
         for (EnumFacing side : EnumFacing.values()) {
 
             BlockPos neighbour = pos.offset(side);
@@ -68,9 +67,7 @@ public class AutoBarrier extends Module {
             }
 
         }
-
         return null;
-
     }
 
     @Override
@@ -192,7 +189,7 @@ public class AutoBarrier extends Module {
         if (missingObiDisable) {
             missingObiDisable = false;
             if (infoMessage.getValue()) {
-                Command.sendChatMessage("AutoBarrier <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                Chat.sendChatMessage("AutoBarrier <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
             }
             this.disable();
         }

@@ -5,9 +5,9 @@ import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.turok.component.ActiveModules;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import com.oldturok.turok.gui.turok.RootFontRenderer;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Wrapper;
 
 import org.lwjgl.opengl.GL11;
@@ -59,7 +59,7 @@ public class TurokActiveModulesUI extends AbstractComponentUI<ActiveModules> {
         mods.stream().forEach(module -> {
             int rgb = Color.HSBtoRGB(hue[0], 1, 1);
             String s = module.getHudInfo();
-            String text = module.getName() + (s == null?"" : " " + Command.SECTIONSIGN() + "7" + s);
+            String text = module.getName() + (s == null?"" : " " + Chat.SECTIONSIGN() + "7" + s);
             int textwidth = renderer.getStringWidth(text);
             int textheight = renderer.getFontHeight()+1;
             int red = (rgb >> 16) & 0xFF;

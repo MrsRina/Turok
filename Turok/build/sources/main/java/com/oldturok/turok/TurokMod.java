@@ -8,15 +8,15 @@ import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.setting.config.Configuration;
 import com.oldturok.turok.event.ForgeEventProcessor;
 import com.oldturok.turok.setting.SettingsRegister;
-import com.oldturok.turok.command.CommandManager;
 import com.oldturok.turok.gui.rgui.util.Docking;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
+import com.oldturok.turok.chatcmd.ChatManager;
 import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.setting.Settings;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.util.Friends;
 
@@ -211,7 +211,7 @@ public class TurokMod {
         return guiManager;
     }
 
-    public CommandManager getCommandManager() {
+    public ChatManager getCommandManager() {
         return commandManager;
     }
 }

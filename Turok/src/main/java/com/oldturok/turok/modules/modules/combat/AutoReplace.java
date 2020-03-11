@@ -3,8 +3,8 @@ package com.oldturok.turok.module.modules.combat;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.chatcmd.Chat;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.ClickType;
