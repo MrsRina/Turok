@@ -5,7 +5,7 @@ import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "NoEntityTrace", category = Module.Category.TUROK_MISC)
+@Module.Info(name = "NoEntityTrace", category = Module.Category.TUROK_MISC, description = "Blocks entities from stopping you from mining")
 public class NoEntityTrace extends Module {
     private Setting<TraceMode> mode = register(Settings.e("Mode", TraceMode.DYNAMIC));
 

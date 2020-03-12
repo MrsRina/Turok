@@ -11,10 +11,8 @@ import java.util.Set;
 
 public class ChatManager {
 	private ArrayList<Chat> chat_commands;
-	private static String[] turok_commands_list = new String[0];
 	
 	public ChatManager() {
-		turok_commands_list[0] = ("None");
 
 		Set<Class> classList = ClassFinder.findClasses(BindCommand.class.getPackage().getName(), Chat.class);
 		for (Class s : classList) {
@@ -28,10 +26,6 @@ public class ChatManager {
 				}
 			}
 		}
-		// turok_commands_list[1] = ("New Command Chat");
-		// turok_commands_list[2] = ("New Command Chat");
-		// turok_commands_list[3] = ("New Command Chat");
-		// turok_commands_list[4] = ("New Command Chat");
 
 		TurokMod.turok_log.info("Commands initialised");
 	}
@@ -54,7 +48,7 @@ public class ChatManager {
 			}
 		}
 		
-		Chat.sendChatMessage("Unknown command, try use some like this: " + turok_commands_list);
+		Chat.sendChatMessage("Unknown command, try use some like this: " + "turok_commands_list");
 	}
 	
 	public static String[] removeElement(String[] input, int indexToDelete) {

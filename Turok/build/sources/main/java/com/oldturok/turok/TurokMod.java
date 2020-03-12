@@ -69,6 +69,18 @@ public class TurokMod {
 	public TurokGUI guiManager;
 	public ChatManager chatManager;
 
+	private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
+		@Override
+		protected JsonObject doForward(JsonObject jsonObject) {
+			return jsonObject;
+		}
+
+		@Override
+		protected JsonObject doBackward(JsonObject jsonObject) {
+			return jsonObject;
+		}
+	}).buildAndRegister("");
+
 	@Mod.EventHandler
 	public void preInit(FMLInitializationEvent event) {}
 
@@ -94,10 +106,11 @@ public class TurokMod {
 		Wrapper.init();
 
 		guiManager  = new TurokGUI();
-		chatManager = new ChatManager();
+		guiManager.initializeGUI();
 
 		turok_log.info("\n\nTurok GUI");
-		guiManager.initializeGUI();
+		
+		chatManager = new ChatManager();
 
 		// I know, you dont have.
 		Friends.initFriends();
@@ -120,18 +133,6 @@ public class TurokMod {
 			exc.printStackTrace();
 		}
 	}
-	
-	private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
-		@Override
-		protected JsonObject doForward(JsonObject jsonObject) {
-			return jsonObject;
-		}
-
-		@Override
-		protected JsonObject doBackward(JsonObject jsonObject) {
-			return jsonObject;
-		}
-	}).buildAndRegister("");
 
 	public static void turok_configs() throws IOException {
 		get_folder_tk = ("Turok/");
