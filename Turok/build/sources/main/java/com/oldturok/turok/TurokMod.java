@@ -1,3 +1,5 @@
+package com.oldturok.turok;
+
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.AlignedComponent;
@@ -54,14 +56,15 @@ public class TurokMod {
 
 	public static final EventBus EVENT_BUS = new EventManager();
 
-	public static final Logger turok_log = LogManager.getLogger(MODID);
+	public static final Logger turok_log = LogManager.getLogger(TUROK_MOD_ID);
 
-	public String get_bind_file = "Binds.json";
+	private static String get_bind_file;
+	private static String get_folder_tk;
 
 	@Mod.Instance
-	private static final TurokMod INSTANCE;
+	private static TurokMod INSTANCE;
 
-	public static final int TUROK_GUI_BUTTON = Keyboard.KEY_P;
+	public static int TUROK_GUI_BUTTON = Keyboard.KEY_P;
 
 	public TurokGUI guiManager;
 	public ChatManager chatManager;
@@ -131,9 +134,10 @@ public class TurokMod {
 	}).buildAndRegister("");
 
 	public static void turok_configs() throws IOException {
-		String get_folder_tk = ("Turok/" + get_bind_file);
+		get_folder_tk = ("Turok/");
+		get_bind_file = ("Configure.json");
 
-		Path turok_config = Paths.get(get_folder_tk);
+		Path turok_config = Paths.get(get_folder_tk + get_bind_file);
 
 		if (!Files.exists(turok_config)) {
 			return;
@@ -177,7 +181,7 @@ public class TurokMod {
 		JsonObject object = new JsonObject();
 
 		TurokMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
-			JsonObject.frame_object = new JsonObject();
+			JsonObject frame_object = new JsonObject();
 
 			frame_object.add("x", new JsonPrimitive(frame.getX()));
 			frame_object.add("y", new JsonPrimitive(frame.getY()));
@@ -190,9 +194,11 @@ public class TurokMod {
 
 		TurokMod.INSTANCE.guiStateSetting.setValue(object);
 
-		Path turok_file = Paths.get(get_folder_tk);
+		Path turok_file   = Paths.get(get_folder_tk + get_bind_file);
+		Path turok_folder = Paths.get(get_folder_tk);
 
 		if (!Files.exists(turok_file)) {
+			Files.createDirectories(turok_folder);
 			Files.createFile(turok_file);
 		}
 
@@ -204,11 +210,11 @@ public class TurokMod {
 		return INSTANCE;
 	}
 
-	public static TurokGUI getGuiManager() {
+	public TurokGUI getGuiManager() {
 		return guiManager;
 	}
 
-	public static ChatManager getChatManager() {
+	public ChatManager getChatManager() {
 		return chatManager;
 	}
 }
