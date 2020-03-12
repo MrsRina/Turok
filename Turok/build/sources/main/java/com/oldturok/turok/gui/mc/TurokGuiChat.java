@@ -1,6 +1,6 @@
 package com.oldturok.turok.gui.mc;
 
-import com.oldturok.turok.chatcmd.Command;
+import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.TurokMod;
 
 import net.minecraft.util.text.ITextComponent;
@@ -21,8 +21,8 @@ public class TurokGuiChat extends GuiChat {
     public TurokGuiChat(String startString, String historybuffer, int sentHistoryCursor) {
         super(startString);
         this.startString = startString;
-        if (!startString.equals(Chat.getCommandPrefix()))
-            calculateCommand(startString.substring(Chat.getCommandPrefix().length()));
+        if (!startString.equals(Chat.getChatPrefix()))
+            calculateCommand(startString.substring(Chat.getChatPrefix().length()));
         this.historyBuffer = historybuffer;
         cursor = sentHistoryCursor;
     }
@@ -34,9 +34,10 @@ public class TurokGuiChat extends GuiChat {
 
         String chatLine = this.inputField.getText();
 
-        if (!chatLine.startsWith(Chat.getCommandPrefix())){
+        if (!chatLine.startsWith(Chat.getChatPrefix())){
             GuiChat newGUI = new GuiChat(chatLine) {
                 int cursor = TurokGuiChat.this.cursor;
+
                 @Override
                 protected void keyTyped(char typedChar, int keyCode) throws IOException {
                     this.sentHistoryCursor = cursor;
@@ -49,12 +50,12 @@ public class TurokGuiChat extends GuiChat {
             return;
         }
 
-        if (chatLine.equals(Chat.getCommandPrefix())) {
+        if (chatLine.equals(Chat.getChatPrefix())) {
             currentFillinLine = "";
             return;
         }
 
-        calculateCommand(chatLine.substring(Chat.getCommandPrefix().length()));
+        calculateCommand(chatLine.substring(Chat.getChatPrefix().length()));
     }
 
     protected void calculateCommand(String line){
@@ -64,7 +65,7 @@ public class TurokGuiChat extends GuiChat {
 
         if (args.length == 0) return;
 
-        for (Chat c : TurokMod.getInstance().getCommandManager().getCommands()) {
+        for (Chat c : TurokMod.getInstance().getChatManager().getCommands()) {
             if ((c.getLabel().startsWith(args[0]) && !line.endsWith(" ")) || c.getLabel().equals(args[0])) {
                 options.put(c.getLabel(), c);
             }
@@ -80,9 +81,6 @@ public class TurokGuiChat extends GuiChat {
         Chat alphaCommand = map.firstEntry().getValue();
 
         currentFillinLine = alphaCommand.getLabel().substring(args[0].length());
-
-        if (alphaCommand.getSyntaxChunks() == null || alphaCommand.getSyntaxChunks().length == 0)
-            return;
 
         if (!line.endsWith(" "))
             currentFillinLine += " ";

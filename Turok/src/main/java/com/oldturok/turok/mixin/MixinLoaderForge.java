@@ -11,15 +11,16 @@ import com.oldturok.turok.TurokMod;
 import java.util.Map;
 
 public class MixinLoaderForge implements IFMLLoadingPlugin {
-
     private static boolean isObfuscatedEnvironment = false;
 
     public MixinLoaderForge() {
-        TurokMod.log.info("Turok mixins initialized");
+        TurokMod.turok_log.info("Turok mixins initialized");
+
         MixinBootstrap.init();
         Mixins.addConfiguration("mixins.turok.json");
         MixinEnvironment.getDefaultEnvironment().setObfuscationContext("searge");
-        TurokMod.log.info(MixinEnvironment.getDefaultEnvironment().getObfuscationContext());
+
+        TurokMod.turok_log.info(MixinEnvironment.getDefaultEnvironment().getObfuscationContext());
     }
 
     @Override

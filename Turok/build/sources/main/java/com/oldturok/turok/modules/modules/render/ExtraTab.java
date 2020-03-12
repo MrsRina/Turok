@@ -2,8 +2,8 @@ package com.oldturok.turok.module.modules.render;
 
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.command.Command;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Friends;
 
 import net.minecraft.client.network.NetworkPlayerInfo;

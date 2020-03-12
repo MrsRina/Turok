@@ -1,5 +1,6 @@
 package com.oldturok.turok.chatcmd;
 
+import com.oldturok.turok.chat.BindCommand;
 import com.oldturok.turok.TurokMod;
 
 import java.util.LinkedList;
@@ -9,9 +10,29 @@ import java.util.Set;
 
 public class ChatManager {
 	private ArrayList<ChatManager> commands;
+	private static String[] turok_commands_list = new String[0];
 	
 	public ChatManager() {
-		TurokMod.log.info("Commands initialised");
+		turok_commands_list[0] = ("None");
+
+		Set<Class> classList = ClassFinder.findClasses(BindCommand.class.getPackage().getName(), Command.class);
+		for (Class s : classList) {
+			if (Command.class.isAssignableFrom(s)){
+				try {
+					Command command = (Command) s.getConstructor().newInstance();
+					commands.add(command);
+				} catch (Exception e) {
+					e.printStackTrace();
+					System.err.println("Couldn't initiate command " + s.getSimpleName() + "! Err: " + e.getClass().getSimpleName() + ", message: " + e.getMessage());
+				}
+			}
+		}
+		// turok_commands_list[1] = ("New Command Chat");
+		// turok_commands_list[2] = ("New Command Chat");
+		// turok_commands_list[3] = ("New Command Chat");
+		// turok_commands_list[4] = ("New Command Chat");
+
+		TurokMod.turok_log.info("Commands initialised");
 	}
 
 	public void callCommand(String command) {
@@ -25,14 +46,14 @@ public class ChatManager {
 			args[i] = strip(args[i], "\"");
 		}
 		
-		for (ChatManager c : commands){
-			if (c.getLabel().equalsIgnoreCase(label)){
-				c.call(parts);
+		for (ChatManager c : commands) {
+			if (c.getLabel().equalsIgnoreCase(label)) {
+				c.getMessage(parts);
 				return;
 			}
 		}
 		
-		ChatManager.sendChatMessage("Unknown command. try 'commands' for a list of commands.");
+		ChatManager.sendChatMessage("Unknown command, try use some like this: " + turok_commands_list);
 	}
 	
 	public static String[] removeElement(String[] input, int indexToDelete) {

@@ -213,7 +213,7 @@ public class FastAutoTrap extends Module {
         if (missingObiDisable) {
             missingObiDisable = false;
             if (infoMessage.getValue()) {
-                Command.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                Chat.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
             }
             this.disable();
         }

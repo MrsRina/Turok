@@ -16,14 +16,14 @@ public abstract class Chat {
 	protected String syntax;
 	protected String description;
 
-	public static Setting<String> commandPrefix = Settings.s("commandPrefix", "-");
+	public static Setting<String> chatPrefix = Settings.s("chatPrefix", "-");
 
 	public Chat(String label) {
 		this.label = label;
 		this.description = "Descriptionless";
 	}
 
-	public static void sendChatMessage(String message){
+	public static void sendChatMessage(String message) {
 		sendRawChatMessage("&4&a" + TurokMod.MODNAME + "&4&r  - " + message);
 	}
 
@@ -44,15 +44,15 @@ public abstract class Chat {
 		return description;
 	}
 
-	public static String getCommandPrefix() {
-		return commandPrefix.getValue();
+	public static String getChatPrefix() {
+		return chatPrefix.getValue();
 	}
 	
 	public String getLabel() {
 		return label;
 	}
 	
-	public abstract void call(String[] args);
+	public abstract void getMessage(String[] args);
 
     public static class ChatMessage extends TextComponentBase {
 		String text;

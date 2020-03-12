@@ -45,7 +45,7 @@ public class ModuleManager {
                 System.err.println("Couldn't initiate module " + aClass.getSimpleName() + "! Err: " + e.getClass().getSimpleName() + ", message: " + e.getMessage());
             }
         });
-        TurokMod.log.info("Modules initialised");
+        TurokMod.turok_log.info("Modules initialised");
         getModules().sort(Comparator.comparing(Module::getName));
     }
 

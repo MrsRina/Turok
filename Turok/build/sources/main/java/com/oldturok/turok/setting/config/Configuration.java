@@ -12,7 +12,6 @@ import java.util.Map;
 import java.io.*;
 
 public class Configuration {
-
     public static JsonObject produceConfig() {
         return produceConfig(SettingsRegister.ROOT);
     }
@@ -52,7 +51,7 @@ public class Configuration {
         try {
             loadConfiguration(new JsonParser().parse(new InputStreamReader(stream)).getAsJsonObject());
         } catch (IllegalStateException e) { // The JSON file is probably malformed.
-            TurokMod.log.error("Turok Config malformed: resetting.");
+            TurokMod.turok_log.error("Turok Config malformed: resetting.");
             loadConfiguration(new JsonObject()); // Just reset it!
         }
     }

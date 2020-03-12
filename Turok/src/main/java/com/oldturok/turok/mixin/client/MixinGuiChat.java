@@ -26,7 +26,7 @@ public abstract class MixinGuiChat {
     @Inject(method = "Lnet/minecraft/client/gui/GuiChat;keyTyped(CI)V", at = @At("RETURN"))
     public void returnKeyTyped(char typedChar, int keyCode, CallbackInfo info) {
         if (!(Wrapper.getMinecraft().currentScreen instanceof GuiChat) || Wrapper.getMinecraft().currentScreen instanceof TurokGuiChat) return;
-        if (inputField.getText().startsWith(Chat.getCommandPrefix())) {
+        if (inputField.getText().startsWith(Chat.getChatPrefix())) {
             Wrapper.getMinecraft().displayGuiScreen(new TurokGuiChat(inputField.getText(), historyBuffer, sentHistoryCursor));
         }
     }

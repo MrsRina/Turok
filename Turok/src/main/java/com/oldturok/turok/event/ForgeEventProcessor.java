@@ -97,13 +97,13 @@ public class ForgeEventProcessor {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onChatSent(ClientChatEvent event) {
-        if (event.getMessage().startsWith(Chat.getCommandPrefix())) {
+        if (event.getMessage().startsWith(Chat.getChatPrefix())) {
             event.setCanceled(true);
             try {
                 Wrapper.getMinecraft().ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
 
                 if (event.getMessage().length() > 1)
-                    TurokMod.getInstance().commandManager.callCommand(event.getMessage().substring(Chat.getCommandPrefix().length() - 1));
+                    TurokMod.getInstance().chatManager.callCommand(event.getMessage().substring(Chat.getChatPrefix().length() - 1));
                 else
                     Chat.sendChatMessage("Please enter a command.");
             } catch (Exception e) {
