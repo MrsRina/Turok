@@ -1,3 +1,5 @@
+package com.oldturok.turok;
+
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.AlignedComponent;
