@@ -1,6 +1,7 @@
 package com.oldturok.turok.chatcmd;
 
 import com.oldturok.turok.chat.BindCommand;
+import com.oldturok.turok.util.ClassFinder;
 import com.oldturok.turok.TurokMod;
 
 import java.util.LinkedList;
@@ -9,18 +10,18 @@ import java.util.List;
 import java.util.Set;
 
 public class ChatManager {
-	private ArrayList<ChatManager> commands;
+	private ArrayList<Chat> chat_commands;
 	private static String[] turok_commands_list = new String[0];
 	
 	public ChatManager() {
 		turok_commands_list[0] = ("None");
 
-		Set<Class> classList = ClassFinder.findClasses(BindCommand.class.getPackage().getName(), Command.class);
+		Set<Class> classList = ClassFinder.findClasses(BindCommand.class.getPackage().getName(), Chat.class);
 		for (Class s : classList) {
-			if (Command.class.isAssignableFrom(s)){
+			if (Chat.class.isAssignableFrom(s)){
 				try {
-					Command command = (Command) s.getConstructor().newInstance();
-					commands.add(command);
+					Chat command = (Chat) s.getConstructor().newInstance();
+					chat_commands.add(command);
 				} catch (Exception e) {
 					e.printStackTrace();
 					System.err.println("Couldn't initiate command " + s.getSimpleName() + "! Err: " + e.getClass().getSimpleName() + ", message: " + e.getMessage());
@@ -46,14 +47,14 @@ public class ChatManager {
 			args[i] = strip(args[i], "\"");
 		}
 		
-		for (ChatManager c : commands) {
+		for (Chat c : chat_commands) {
 			if (c.getLabel().equalsIgnoreCase(label)) {
 				c.getMessage(parts);
 				return;
 			}
 		}
 		
-		ChatManager.sendChatMessage("Unknown command, try use some like this: " + turok_commands_list);
+		Chat.sendChatMessage("Unknown command, try use some like this: " + turok_commands_list);
 	}
 	
 	public static String[] removeElement(String[] input, int indexToDelete) {
@@ -71,15 +72,15 @@ public class ChatManager {
 		return str;
 	}
 	
-	public ChatManager getCommandByLabel(String commandLabel){
-		for (ChatManager c : commands){
+	public Chat getCommandByLabel(String commandLabel){
+		for (Chat c : chat_commands){
 			if (c.getLabel().equals(commandLabel)) return c;
 		}
 		return null;
 	}
 	
-	public ArrayList<ChatManager> getCommands() {
-		return commands;
+	public ArrayList<Chat> getCommands() {
+		return chat_commands;
 	}
 	
 }

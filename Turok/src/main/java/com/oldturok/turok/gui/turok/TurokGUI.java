@@ -228,7 +228,7 @@ public class TurokGUI extends GUI {
                 else if (mc.player.getName() == "Omegabr") name = "Omaegaa";
                 else if (mc.player.getName()== "LeafyIsGone") name = "Lifyyyy";
                 else name = mc.player.getName();
-                users.setText(ChatFormatting.BLUE + name + ChatFormatting.RED + " welcome to Turok " + TurokMod.MODVER);
+                users.setText(ChatFormatting.BLUE + name + ChatFormatting.RED + " welcome to Turok " + TurokMod.TUROK_MOD_VERSION);
                 users.addLine(ChatFormatting.BLUE + "Rina like you! ^^");
                 users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
             });

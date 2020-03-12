@@ -16,7 +16,7 @@ public class BindCommand extends Chat {
     }
 
     @Override
-    public void call(String[] args) {
+    public void getMessage(String[] args) {
         if (args.length == 1) {
             Chat.sendChatMessage("Please specify a module.");
             return;

@@ -24,7 +24,7 @@ public abstract class Chat {
 	}
 
 	public static void sendChatMessage(String message) {
-		sendRawChatMessage("&4&a" + TurokMod.MODNAME + "&4&r  - " + message);
+		sendRawChatMessage("&4&a" + TurokMod.TUROK_MOD_NAME + "&4&r  - " + message);
 	}
 
 	public static void sendStringChatMessage(String[] messages) {

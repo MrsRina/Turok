@@ -1,5 +1,3 @@
-package com.oldturok.turok;
-
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.AlignedComponent;
@@ -48,11 +46,11 @@ import java.util.Map;
 import java.io.*;
 
 // Rina.
-@Mod(modid = TurokMod.MODID, name = TurokMod.MODNAME, version = TurokMod.MODVER)
+@Mod(modid = TurokMod.TUROK_MOD_ID, name = TurokMod.TUROK_MOD_NAME, version = TurokMod.TUROK_MOD_VERSION)
 public class TurokMod {
-	public static final String MODID   = "Turok";
-	public static final String MODNAME = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
-	public static final String MODVER  = "0.3.2";
+	public static final String TUROK_MOD_ID      = "Turok";
+	public static final String TUROK_MOD_NAME    = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
+	public static final String TUROK_MOD_VERSION = "0.3.2";
 
 	public static final EventBus EVENT_BUS = new EventManager();
 
@@ -88,7 +86,7 @@ public class TurokMod {
 
 		LagCompensator.INSTANCE = new LagCompensator();
 
-		Display.setTitle("Turok " + MODVER);
+		Display.setTitle("Turok " + TUROK_MOD_VERSION);
 
 		Wrapper.init();
 
@@ -119,7 +117,8 @@ public class TurokMod {
 			exc.printStackTrace();
 		}
 	}
-		private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
+	
+	private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
 		@Override
 		protected JsonObject doForward(JsonObject jsonObject) {
 			return jsonObject;

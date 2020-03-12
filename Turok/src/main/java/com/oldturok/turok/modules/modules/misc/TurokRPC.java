@@ -47,7 +47,7 @@ public class TurokRPC extends Module {
 
 		discord_presence.startTimestamp = System.currentTimeMillis() / 1000l;
 		discord_presence.largeImageKey  = "splash";
-		discord_presence.largeImageText = "Turok Client " + TurokMod.MODVER;
+		discord_presence.largeImageText = "Turok Client " + TurokMod.TUROK_MOD_VERSION;
 
 		new Thread(() -> {
 			while (!Thread.currentThread().isInterrupted()) {
