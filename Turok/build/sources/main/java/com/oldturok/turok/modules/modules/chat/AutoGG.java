@@ -6,6 +6,8 @@ import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 
 import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
+import com.oldturok.turok.module.modules.combat.TurokInsaneAura;
+
 import com.oldturok.turok.event.events.PacketEvent;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
@@ -30,7 +32,8 @@ public class AutoGG extends Module {
 	private ConcurrentHashMap<String, Integer> target_players = null;
 	private Setting<Boolean> doom_mode = register(Settings.b("Doom Fucking Mode", false));
 
-	private TurokCrystalAura function_turokcrystalaura = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
+	private TurokCrystalAura function_turokcrystalaura  = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
+	private TurokInsaneAura function_turokcrystalaura_2 = (TurokInsaneAura) ModuleManager.getModuleByName("TurokInsaneAura");
 
 	@Override
 	public void onEnable() {
@@ -119,7 +122,7 @@ public class AutoGG extends Module {
 		StringBuilder msg = new StringBuilder();
 
 		if (doom_mode.getValue()) {
-			msg.append("D o o m s h o p   M o t h e r f u c k " + name + ", fucking thanks Turok!");
+			msg.append("D o o m s h o p   M o t h e r f u c k " + name + ", thanks Turok!");
 		} else {
 			msg.append("GG " + name + ", we had a good pvp, thanks Turok.");
 		}

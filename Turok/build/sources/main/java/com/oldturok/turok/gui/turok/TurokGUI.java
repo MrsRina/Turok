@@ -238,7 +238,9 @@ public class TurokGUI extends GUI {
             users.setShadow(true);
             frames.add(frame_users);
         } else {
-            return;
+            if (frames.contains(frame_users)) {
+                frames.remove(frame_users);
+            }
         }
 
         frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");

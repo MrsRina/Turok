@@ -120,7 +120,7 @@ public class MixinMinecraft {
 
     private void save() {
         System.out.println("Shutting down: saving Turok configuration");
-        TurokMod.start_load_config();
+        TurokMod.load_config();
         System.out.println("Configuration saved.");
     }
 

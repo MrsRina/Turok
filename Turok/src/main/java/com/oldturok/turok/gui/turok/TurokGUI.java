@@ -212,34 +212,25 @@ public class TurokGUI extends GUI {
 
         frames = new ArrayList<>();
 
-        if (state_users) {
-            frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
-            frame_users.setCloseable(false);
-            frame_users.setPinneable(true);
+        frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
+        frame_users.setCloseable(false);
+        frame_users.setPinneable(true);
 
-            Label users = new Label("");
-            users.addTickListener(() -> {
-                Minecraft mc = Minecraft.getMinecraft();
+       Label users = new Label("");
+       users.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
 
-                String name = "";
+            String name = "";           
+            
+            name = mc.player.getName();
+            users.setText(name + " welcome to Turok " + TurokMod.TUROK_MOD_VERSION);
+            users.addLine("Rina like you! ^^");
+            users.addLine("Fps: " + Wrapper.getMinecraft().debugFPS);
+        });
 
-                if (mc.player.getName() == "69hr") name = "Cammm";
-                else if (mc.player.getName() == "itsSkylock") name = "Skyylockk";
-                else if (mc.player.getName() == "Omegabr") name = "Omaegaa";
-                else if (mc.player.getName()== "LeafyIsGone") name = "Lifyyyy";
-                else name = mc.player.getName();
-                users.setText(ChatFormatting.BLUE + name + ChatFormatting.RED + " welcome to Turok " + TurokMod.TUROK_MOD_VERSION);
-                users.addLine(ChatFormatting.BLUE + "Rina like you! ^^");
-                users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
-            });
-
-            frame_users.addChild(users);
-            users.setFontRenderer(fontRendererBig);
-            users.setShadow(true);
-            frames.add(frame_users);
-        } else {
-            return;
-        }
+        frame_users.addChild(users);
+        users.setFontRenderer(fontRendererBig);
+        users.setShadow(true);
 
         frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
         frame_array.setCloseable(false);
@@ -266,8 +257,8 @@ public class TurokGUI extends GUI {
             int poshZ = (int) (mc.player.posZ * value);
 
             coordsLabel.setText("Coords:");
-            coordsLabel.addLine(String.format(ChatFormatting.RED + "Nether: " + poshX + "x " + Integer.toString(posY) + "y " + poshZ + "z"));
-            coordsLabel.addLine(String.format(ChatFormatting.BLUE + "Overworld: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z"));
+            coordsLabel.addLine(String.format("Nether: " + poshX + "x " + Integer.toString(posY) + "y " + poshZ + "z"));
+            coordsLabel.addLine(String.format("Overworld: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z"));
         });
 
         frame_coords.addChild(coordsLabel);
@@ -308,18 +299,18 @@ public class TurokGUI extends GUI {
                 }
             }
 
-            count.setText(ChatFormatting.BLUE + "Turok Counts.");
-            count.addLine(ChatFormatting.BLUE + "Totems: " + ChatFormatting.RED + String.valueOf(totems));
-            count.addLine(ChatFormatting.BLUE + "Crystals: " + ChatFormatting.RED + String.valueOf(gapples));
-            count.addLine(ChatFormatting.BLUE + "Gapples: " + ChatFormatting.RED + String.valueOf(crystals));
-            count.addLine(ChatFormatting.BLUE + "EXPBottles: " + ChatFormatting.RED + String.valueOf(expbottles));
+            count.setText("Turok Counts.");
+            count.addLine("Totems: " +  String.valueOf(totems));
+            count.addLine("Crystals: " +  String.valueOf(gapples));
+            count.addLine("Gapples: " + String.valueOf(crystals));
+            count.addLine("EXPBottles: " +  String.valueOf(expbottles));
         });
 
         frame_counts.addChild(count);
         count.setFontRenderer(fontRendererBig);
         count.setShadow(true);
 
-
+        frames.add(frame_users);
         frames.add(frame_array);
         frames.add(frame_coords);
         frames.add(frame_counts);
