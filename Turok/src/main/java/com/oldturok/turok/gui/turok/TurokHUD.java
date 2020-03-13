@@ -44,8 +44,8 @@ import java.time.LocalDateTime;
 import java.math.RoundingMode;
 import java.util.*;
 
-// Update by Rina 09/03/20.
-public class TurokGUI extends GUI {
+// Rina.
+public class TurokHUD extends GUI {
     public static final RootFontRenderer fontRendererBig = new RootFontRenderer(1.0f);
     public static final RootFontRenderer fontRenderer = new RootFontRenderer(1.0f);
     public Theme theme;
@@ -63,12 +63,7 @@ public class TurokGUI extends GUI {
     public static int y = 10;
     public static int nexty = y;
 
-    public static boolean state_users = true;
-    public static boolean state_count = true;
-    public static boolean state_array = true;
-    public static boolean state_coord = true;
-
-    public TurokGUI() {
+    public TurokHUD() {
         super(new TurokTheme());
         theme = getTheme();
     }

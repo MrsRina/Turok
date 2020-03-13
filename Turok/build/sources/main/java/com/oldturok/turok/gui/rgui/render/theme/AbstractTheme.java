@@ -23,6 +23,7 @@ public abstract class AbstractTheme implements Theme {
     @Override
     public ComponentUI getUIForComponent(Component component) {
         ComponentUI a = getComponentUIForClass(component.getClass());
+
         if (a == null)
             throw new RuntimeException("No installed component UI for " + component.getClass().getName());
         return a;

@@ -97,7 +97,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
                 int x = event.getX();
                 if (y < 0){
                     if (x < component.getWidth() && x > ff.getStringWidth(component.getTitle()) + 2){
-                        if (component.isPinneable()){
+                        if (component.isPinneable()) {
                             component.setPinned(!component.isPinned());
                         }
                     }

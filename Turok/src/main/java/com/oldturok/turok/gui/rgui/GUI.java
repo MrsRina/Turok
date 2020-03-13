@@ -16,7 +16,6 @@ import java.util.Comparator;
 import java.util.ArrayList;
 
 public abstract class GUI extends AbstractContainer {
-
     Component focus = null;
 
     boolean press = false;
@@ -224,7 +223,6 @@ public abstract class GUI extends AbstractContainer {
     }
 
     public void handleWheel(int x, int y, int step){
-        //int intMouseMovement = Mouse.getDWheel();
         int intMouseMovement = step;
         if (intMouseMovement == 0) return;
         Component c = getComponentAt(x, y);

@@ -20,9 +20,9 @@ import static org.lwjgl.opengl.GL11.glEnable;
 
 import com.oldturok.turok.util.TurokGL; // TurokGL.
 
-// Rina update in 13/03/20.
-public class DisplayGuiScreen extends GuiScreen {
-    TurokGUI gui;
+// Rina.
+public class DisplayHudScreen extends GuiScreen {
+    TurokHUD hud;
 
     public final GuiScreen lastScreen;
 
@@ -31,12 +31,12 @@ public class DisplayGuiScreen extends GuiScreen {
 
     Framebuffer framebuffer;
 
-    public DisplayGuiScreen(GuiScreen lastScreen) {
+    public DisplayHudScreen(GuiScreen lastScreen) {
         this.lastScreen = lastScreen;
 
-        TurokGUI gui = TurokMod.getInstance().getGuiManager();
+        TurokHUD hud = TurokMod.getInstance().getHudManager();
 
-        for (Component c : gui.getChildren()){
+        for (Component c : hud.getChildren()){
             if (c instanceof Frame){
                 Frame child = (Frame) c;
                 if (child.isPinneable() && child.isVisible()){
@@ -50,42 +50,42 @@ public class DisplayGuiScreen extends GuiScreen {
 
     @Override
     public void onGuiClosed() {
-        TurokGUI gui = TurokMod.getInstance().getGuiManager();
+        TurokHUD hud = TurokMod.getInstance().getHudManager();
 
-        gui.getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
+        hud.getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
     }
 
     @Override
     public void initGui() {
-        gui = TurokMod.getInstance().getGuiManager();
+        hud = TurokMod.getInstance().getHudManager();
     }
 
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         calculateMouse();
 
-        TurokGL.refresh_color(190, 190, 190, 50);
-        RenderHelper.drawFilledRectangle(0, 0, Wrapper.getMinecraft().displayHeight, Wrapper.getMinecraft().displayWidth);
+		TurokGL.refresh_color(190, 190, 190, 50);
+		RenderHelper.drawFilledRectangle(0, 0, Wrapper.getMinecraft().displayHeight, Wrapper.getMinecraft().displayWidth);
 
-        gui.drawGUI();
-
+        hud.drawGUI();
+        
         glEnable(GL_TEXTURE_2D);
-        GlStateManager.color(1,1,1);
+        GlStateManager.color(1, 1, 1);
     }
 
     @Override
     protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
-        gui.handleMouseDown(this.mouseX, this.mouseY);
+        hud.handleMouseDown(this.mouseX, this.mouseY);
     }
 
     @Override
     protected void mouseReleased(int mouseX, int mouseY, int state) {
-        gui.handleMouseRelease(this.mouseX, this.mouseY);
+        hud.handleMouseRelease(this.mouseX, this.mouseY);
     }
 
     @Override
     protected void mouseClickMove(int mouseX, int mouseY, int clickedMouseButton, long timeSinceLastClick) {
-        gui.handleMouseDrag(this.mouseX, this.mouseY);
+        hud.handleMouseDrag(this.mouseX, this.mouseY);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class DisplayGuiScreen extends GuiScreen {
         if (Mouse.hasWheel()){
             int a = Mouse.getDWheel();
             if (a != 0){
-                gui.handleWheel(this.mouseX, this.mouseY, a);
+                hud.handleWheel(this.mouseX, this.mouseY, a);
             }
         }
     }
@@ -103,8 +103,8 @@ public class DisplayGuiScreen extends GuiScreen {
         if (keyCode == Keyboard.KEY_ESCAPE)
             mc.displayGuiScreen(lastScreen);
         else{
-            gui.handleKeyDown(keyCode);
-            gui.handleKeyUp(keyCode);
+            hud.handleKeyDown(keyCode);
+            hud.handleKeyUp(keyCode);
         }
     }
 

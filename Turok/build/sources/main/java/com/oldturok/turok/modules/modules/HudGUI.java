@@ -6,8 +6,6 @@ import com.oldturok.turok.TurokMod;
 
 import org.lwjgl.input.Keyboard;
 
-import com.oldturok.turok.util.TurokGL; // TurokGL.
-
 // Rina.
 @Module.Info(name = "HudGUI", category = Module.Category.TUROK_HIDDEN)
 public class HudGUI extends Module {
@@ -18,9 +16,6 @@ public class HudGUI extends Module {
 	@Override
 	public void onEnable() {
 		if (!(mc.currentScreen instanceof DisplayHudScreen)) {
-			TurokGL.refresh_color(190, 190, 190, 50);
-        	RenderHelper.drawFilledRectangle(0, 0, Wrapper.getMinecraft().displayHeight, Wrapper.getMinecraft().displayWidth);
-			
 			mc.displayGuiScreen(new DisplayHudScreen(mc.currentScreen));
 		}
 

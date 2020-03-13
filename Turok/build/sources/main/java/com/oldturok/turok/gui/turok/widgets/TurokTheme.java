@@ -6,6 +6,7 @@ import com.oldturok.turok.gui.rgui.render.theme.AbstractTheme;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import com.oldturok.turok.gui.rgui.component.use.Button;
 import com.oldturok.turok.gui.turok.TurokGUI;
+import com.oldturok.turok.gui.turok.TurokHUD;
 
 public class TurokTheme extends AbstractTheme {
     FontRenderer fontRenderer;
@@ -35,6 +36,6 @@ public class TurokTheme extends AbstractTheme {
         return fontRenderer;
     }
 
-    public class GUIUI extends AbstractComponentUI<TurokGUI> {
-    }
+    public class GUIUI extends AbstractComponentUI<TurokGUI> {}
+    public class HUDUI extends AbstractComponentUI<TurokHUD> {}
 }

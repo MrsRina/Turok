@@ -13,6 +13,7 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.chatcmd.ChatManager;
 import com.oldturok.turok.gui.turok.TurokGUI;
+import com.oldturok.turok.gui.turok.TurokHUD;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
@@ -55,6 +56,7 @@ public class TurokMod {
     public static final String TUROK_MOD_VERSION = "0.4.0";
 
     public static final int TUROK_GUI_BUTTON = Keyboard.KEY_P;
+    public static final int TUROK_HUD_BUTTON = Keyboard.KEY_O;
 
     private static final String TUROK_CONFIG_NAME_DEFAULT = "Turok.json";
     private static final String TUROK_FOLDER_NAME_DEFAULT = "Turok/";
@@ -64,6 +66,7 @@ public class TurokMod {
     public static final EventBus EVENT_BUS = new EventManager();
 
     public TurokGUI guiManager;
+    public TurokHUD hudManager;
     public ChatManager chatManager;
 
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
@@ -107,6 +110,9 @@ public class TurokMod {
 
         guiManager = new TurokGUI();
         guiManager.initializeGUI();
+
+        hudManager = new TurokHUD();
+        hudManager.initializeGUI();
 
         chatManager = new ChatManager();
 
@@ -224,8 +230,11 @@ public class TurokMod {
 
         TurokMod.INSTANCE.guiStateSetting.setValue(object);
 
-        Path file_bind   = Paths.get(get_cache());
         Path folder_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT);
+
+        Files.createDirectories(folder_bind);
+
+        Path file_bind = Paths.get(get_cache());
 
         if (!Files.exists(file_bind))
         	Files.createDirectories(folder_bind);
@@ -252,6 +261,10 @@ public class TurokMod {
 
     public TurokGUI getGuiManager() {
         return guiManager;
+    }
+
+    public TurokHUD getHudManager() {
+        return hudManager;
     }
 
     public ChatManager getChatManager() {

@@ -82,7 +82,10 @@ public class TurokGUI extends GUI {
     public void initializeGUI() {
         HashMap<Module.Category, Pair<Scrollpane, SettingsPanel>> categoryScrollpaneHashMap = new HashMap<>();
         for (Module module : ModuleManager.getModules()) {
-            if (module.getCategory().isHidden()) continue;
+            if (module.getCategory().isHidden()) {
+                continue;
+            }
+
             Module.Category moduleCategory = module.getCategory();
             if (!categoryScrollpaneHashMap.containsKey(moduleCategory)) {
                 Stretcherlayout stretcherlayout = new Stretcherlayout(1);
@@ -209,6 +212,7 @@ public class TurokGUI extends GUI {
 
             }
         });
+    }
 
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
         List<Map.Entry<K, V>> list =

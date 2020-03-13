@@ -6,6 +6,8 @@ import com.oldturok.turok.TurokMod;
 
 import org.lwjgl.input.Keyboard;
 
+import com.oldturok.turok.util.TurokGL; // TurokGL.
+
 // Update by Rina 09/03/20.
 // CickGUI is P.
 @Module.Info(name = "clickGUI", description = "Opens the Click GUI", category = Module.Category.TUROK_HIDDEN)
@@ -17,6 +19,9 @@ public class ClickGUI extends Module {
     @Override
     protected void onEnable() {
         if (!(mc.currentScreen instanceof DisplayGuiScreen)) {
+            TurokGL.refresh_color(190, 190, 190, 50);
+            RenderHelper.drawFilledRectangle(0, 0, Wrapper.getMinecraft().displayHeight, Wrapper.getMinecraft().displayWidth);
+
             mc.displayGuiScreen(new DisplayGuiScreen(mc.currentScreen));
         }
 

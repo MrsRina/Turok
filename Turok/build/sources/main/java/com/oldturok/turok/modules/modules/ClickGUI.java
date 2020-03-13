@@ -3,6 +3,7 @@ package com.oldturok.turok.module.modules;
 import com.oldturok.turok.gui.turok.DisplayGuiScreen;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.TurokMod;
+
 import org.lwjgl.input.Keyboard;
 
 // Update by Rina 09/03/20.
@@ -18,7 +19,7 @@ public class ClickGUI extends Module {
         if (!(mc.currentScreen instanceof DisplayGuiScreen)) {
             mc.displayGuiScreen(new DisplayGuiScreen(mc.currentScreen));
         }
+
         disable();
     }
-
 }

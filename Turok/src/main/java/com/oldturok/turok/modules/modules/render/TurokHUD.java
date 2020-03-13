@@ -20,26 +20,7 @@ import com.oldturok.turok.gui.turok.TurokGUI;
 public class TurokHUD extends Module {
 	private static RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
 
-	private Setting<Boolean> array_hud = register(Settings.b("ArraysHUD", true));
-	private Setting<Boolean> coords_hd = register(Settings.b("CoordsHUD", true));
 	private Setting<Boolean> armor_hud = register(Settings.b("ArmorHUD", true));
-	private Setting<Boolean> count_hud = register(Settings.b("CountHUD", true));
-	private Setting<Boolean> users_hud = register(Settings.b("UsersHUD", true));
-
-	private boolean show_array;
-	private boolean show_coords;
-	private boolean show_count;
-	private boolean show_users;
-
-	@Override
-	public void onUpdate() {
-		if (users_hud.getValue()) {
-			TurokGUI.state_users = true;
-		} else {
-			TurokGUI.state_users = false;
-			TurokGUI.frames.remove(TurokGUI.frame_users);
-		}
-	}
 
 	@Override
 	public void onRender() {

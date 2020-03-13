@@ -82,7 +82,10 @@ public class TurokGUI extends GUI {
     public void initializeGUI() {
         HashMap<Module.Category, Pair<Scrollpane, SettingsPanel>> categoryScrollpaneHashMap = new HashMap<>();
         for (Module module : ModuleManager.getModules()) {
-            if (module.getCategory().isHidden()) continue;
+            if (module.getCategory().isHidden()) {
+                continue;
+            }
+
             Module.Category moduleCategory = module.getCategory();
             if (!categoryScrollpaneHashMap.containsKey(moduleCategory)) {
                 Stretcherlayout stretcherlayout = new Stretcherlayout(1);
@@ -209,139 +212,6 @@ public class TurokGUI extends GUI {
 
             }
         });
-
-        frames = new ArrayList<>();
-
-        if (state_users) {
-            frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
-            frame_users.setCloseable(false);
-            frame_users.setPinneable(true);
-
-            Label users = new Label("");
-            users.addTickListener(() -> {
-                Minecraft mc = Minecraft.getMinecraft();
-
-                String name = "";
-
-                if (mc.player.getName() == "69hr") name = "Cammm";
-                else if (mc.player.getName() == "itsSkylock") name = "Skyylockk";
-                else if (mc.player.getName() == "Omegabr") name = "Omaegaa";
-                else if (mc.player.getName()== "LeafyIsGone") name = "Lifyyyy";
-                else name = mc.player.getName();
-                users.setText(ChatFormatting.BLUE + name + ChatFormatting.RED + " welcome to Turok " + TurokMod.TUROK_MOD_VERSION);
-                users.addLine(ChatFormatting.BLUE + "Rina like you! ^^");
-                users.addLine(ChatFormatting.BLUE + "Fps: " + ChatFormatting.RED + Wrapper.getMinecraft().debugFPS);
-            });
-
-            frame_users.addChild(users);
-            users.setFontRenderer(fontRendererBig);
-            users.setShadow(true);
-            frames.add(frame_users);
-        } else {
-            if (frames.contains(frame_users)) {
-                frames.remove(frame_users);
-            }
-        }
-
-        frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
-        frame_array.setCloseable(false);
-        frame_array.addChild(new ActiveModules());
-        frame_array.setPinneable(true);
-
-        frame_coords = new Frame(getTheme(), new Stretcherlayout(1), "Coordinates");
-        frame_coords.setCloseable(false);
-        frame_coords.setPinneable(true);
-
-        Label coordsLabel = new Label("");
-        coordsLabel.addTickListener(() -> {
-            Minecraft mc = Minecraft.getMinecraft();
-
-            boolean on_nether = (mc.world.getBiome(mc.player.getPosition()).getBiomeName().equals("Hell"));
-
-            float value = !on_nether ? 0.125f : 8;
-            
-            int posX = (int) (mc.player.posX);
-            int posY = (int) (mc.player.posY);
-            int posZ = (int) (mc.player.posZ);
-
-            int poshX = (int) (mc.player.posX * value);
-            int poshZ = (int) (mc.player.posZ * value);
-
-            coordsLabel.setText("Coords:");
-            coordsLabel.addLine(String.format(ChatFormatting.RED + "Nether: " + poshX + "x " + Integer.toString(posY) + "y " + poshZ + "z"));
-            coordsLabel.addLine(String.format(ChatFormatting.BLUE + "Overworld: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z"));
-        });
-
-        frame_coords.addChild(coordsLabel);
-        coordsLabel.setFontRenderer(fontRendererBig);
-        coordsLabel.setShadow(true);
-        frame_coords.setHeight(20);
-
-        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), "Turok Counts");
-        frame_counts.setCloseable(false);
-        frame_counts.setPinneable(true);
-
-        Label count = new Label("");
-        count.addTickListener(() -> {
-            Minecraft mc = Minecraft.getMinecraft();
-
-            int totems = 0;
-            int gapples = 0;
-            int crystals = 0;
-            int expbottles = 0;
-
-            for (int items = 0; items < 45; items++) {
-                ItemStack itemStack = Wrapper.getMinecraft().player.inventory.getStackInSlot(items);
-
-                if (itemStack.getItem() == Items.TOTEM_OF_UNDYING) {
-                    gapples += itemStack.stackSize;
-                }
-
-                if (itemStack.getItem() == Items.GOLDEN_APPLE) {
-                    gapples += itemStack.stackSize;
-                }
-
-                if (itemStack.getItem() == Items.END_CRYSTAL) {
-                    crystals += itemStack.stackSize;
-                }
-
-                if (itemStack.getItem() == Items.EXPERIENCE_BOTTLE) {
-                    expbottles += itemStack.stackSize;
-                }
-            }
-
-            count.setText(ChatFormatting.BLUE + "Turok Counts.");
-            count.addLine(ChatFormatting.BLUE + "Totems: " + ChatFormatting.RED + String.valueOf(totems));
-            count.addLine(ChatFormatting.BLUE + "Crystals: " + ChatFormatting.RED + String.valueOf(gapples));
-            count.addLine(ChatFormatting.BLUE + "Gapples: " + ChatFormatting.RED + String.valueOf(crystals));
-            count.addLine(ChatFormatting.BLUE + "EXPBottles: " + ChatFormatting.RED + String.valueOf(expbottles));
-        });
-
-        frame_counts.addChild(count);
-        count.setFontRenderer(fontRendererBig);
-        count.setShadow(true);
-
-
-        frames.add(frame_array);
-        frames.add(frame_coords);
-        frames.add(frame_counts);
-
-        for (Frame frame1 : frames) {
-            Minecraft mc = Minecraft.getMinecraft();
-
-            frame1.setY(x);
-            frame1.setY(y);
-
-            nexty = Math.max(y + frame1.getHeight() + 10, nexty);
-            x += (frame1.getWidth() + 10);
-            if (x * DisplayGuiScreen.getScale() > mc.displayWidth / 1.2f) {
-                y = nexty;
-                nexty = y;
-                x = 10;
-            }
-
-        addChild(frame1);
-        }
     }
 
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {

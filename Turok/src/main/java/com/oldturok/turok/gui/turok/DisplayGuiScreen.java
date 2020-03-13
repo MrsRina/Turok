@@ -18,9 +18,12 @@ import java.io.IOException;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.glEnable;
 
-public class DisplayGuiScreen extends GuiScreen {
+import com.oldturok.turok.util.TurokGL; // TurokGL.
 
+// Rina update in 13/03/20.
+public class DisplayGuiScreen extends GuiScreen {
     TurokGUI gui;
+
     public final GuiScreen lastScreen;
 
     public static int mouseX;
@@ -60,7 +63,9 @@ public class DisplayGuiScreen extends GuiScreen {
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         calculateMouse();
+
         gui.drawGUI();
+
         glEnable(GL_TEXTURE_2D);
         GlStateManager.color(1,1,1);
     }
