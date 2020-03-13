@@ -19,6 +19,7 @@ public class ClickGUI extends Module {
         if (!(mc.currentScreen instanceof DisplayGuiScreen)) {
             mc.displayGuiScreen(new DisplayGuiScreen(mc.currentScreen));
         }
+
         disable();
     }
 }

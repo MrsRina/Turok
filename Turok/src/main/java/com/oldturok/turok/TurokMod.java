@@ -55,6 +55,7 @@ public class TurokMod {
     public static final String TUROK_MOD_VERSION = "0.4.0";
 
     public static final int TUROK_GUI_BUTTON = Keyboard.KEY_P;
+    public static final int TUROK_HUD_BUTTON = Keyboard.KEY_O;
 
     private static final String TUROK_CONFIG_NAME_DEFAULT = "Turok.json";
     private static final String TUROK_FOLDER_NAME_DEFAULT = "Turok/";

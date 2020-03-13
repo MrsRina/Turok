@@ -46,6 +46,9 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
 
         TurokGL.DisableGL(GL11.GL_TEXTURE_2D);
 
+        TurokGL.refresh_color(190, 190, 190, 50);
+        RenderHelper.drawFilledRectangle(0, 0, Wrapper.getMinecraft().displayHeight, Wrapper.getMinecraft().displayWidth);
+
         if (component.isPinneable()) {
             if (component.isPinned()) {
                 TurokGL.refresh_color(100, 0, 0, 150);

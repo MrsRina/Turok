@@ -1,17 +1,18 @@
 package com.oldturok.turok.gui;
 
-import com.oldturok.turok.TurokMod;
+import com.oldturok.turok.gui.rgui.component.listen.RenderListener;
+import com.oldturok.turok.gui.rgui.component.container.use.Frame;
+import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.turok.DisplayGuiScreen;
 import com.oldturok.turok.gui.turok.TurokGUI;
-import com.oldturok.turok.gui.rgui.component.Component;
-import com.oldturok.turok.gui.rgui.component.container.use.Frame;
-import com.oldturok.turok.gui.rgui.component.listen.RenderListener;
 import com.oldturok.turok.util.Wrapper;
+import com.oldturok.turok.TurokMod;
+
 import net.minecraft.client.renderer.GlStateManager;
+
 import org.lwjgl.opengl.GL11;
 
 public class UIRenderer {
-	
 	public static void renderAndUpdateFrames(){
 	    if (Wrapper.getMinecraft().currentScreen instanceof DisplayGuiScreen || Wrapper.getMinecraft().gameSettings.showDebugInfo) return;
 		TurokGUI gui = TurokMod.getInstance().getGuiManager();
