@@ -64,9 +64,6 @@ public class DisplayGuiScreen extends GuiScreen {
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         calculateMouse();
 
-        TurokGL.refresh_color(190, 190, 190, 50);
-        RenderHelper.drawFilledRectangle(0, 0, Wrapper.getMinecraft().displayHeight, Wrapper.getMinecraft().displayWidth);
-
         gui.drawGUI();
 
         glEnable(GL_TEXTURE_2D);

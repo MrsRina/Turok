@@ -9,8 +9,7 @@ import com.oldturok.turok.gui.rgui.GUI;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContainerHelper {
-
+public class ContainerHelper {  
     public static void setTheme(Container parent, Theme newTheme){
         Theme old = parent.getTheme();
         parent.setTheme(newTheme);

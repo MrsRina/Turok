@@ -111,7 +111,6 @@ public abstract class GUI extends AbstractContainer {
             });
         }
 
-
         focus.setFocussed(true);
 
         press = true;

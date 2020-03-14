@@ -11,6 +11,7 @@ import com.oldturok.turok.gui.rgui.util.ContainerHelper;
 import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.gui.rgui.poof.use.FramePoof;
 import com.oldturok.turok.gui.rgui.util.Docking;
+import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.gui.rgui.GUI;
 import com.oldturok.turok.util.Wrapper;
@@ -54,6 +55,7 @@ public class TurokFrameUI<T extends Frame> extends AbstractComponentUI<Frame> {
                 TurokGL.refresh_color(100, 0, 0, 150);
                 RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
             }
+
             TurokGL.refresh_color(255, 255, 255, 255);
             ff.drawString(1, 1, component.getTitle());
 

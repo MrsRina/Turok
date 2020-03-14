@@ -2,6 +2,7 @@ package com.oldturok.turok.module.modules;
 
 import com.oldturok.turok.gui.turok.DisplayGuiScreen;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.gui.turok.*;
 import com.oldturok.turok.TurokMod;
 
 import org.lwjgl.input.Keyboard;
@@ -20,7 +21,7 @@ public class ClickGUI extends Module {
     protected void onEnable() {
         if (!(mc.currentScreen instanceof DisplayGuiScreen)) {
             TurokGL.refresh_color(190, 190, 190, 50);
-            RenderHelper.drawFilledRectangle(0, 0, Wrapper.getMinecraft().displayHeight, Wrapper.getMinecraft().displayWidth);
+            RenderHelper.drawFilledRectangle(0, 0, mc.displayHeight, mc.displayWidth);
 
             mc.displayGuiScreen(new DisplayGuiScreen(mc.currentScreen));
         }

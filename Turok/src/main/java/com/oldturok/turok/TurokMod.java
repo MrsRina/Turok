@@ -13,7 +13,6 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.chatcmd.ChatManager;
 import com.oldturok.turok.gui.turok.TurokGUI;
-import com.oldturok.turok.gui.turok.TurokHUD;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
@@ -66,7 +65,6 @@ public class TurokMod {
     public static final EventBus EVENT_BUS = new EventManager();
 
     public TurokGUI guiManager;
-    public TurokHUD hudManager;
     public ChatManager chatManager;
 
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
@@ -111,9 +109,6 @@ public class TurokMod {
         guiManager = new TurokGUI();
         guiManager.initializeGUI();
 
-        hudManager = new TurokHUD();
-        hudManager.initializeGUI();
-
         chatManager = new ChatManager();
 
         Friends.initFriends();
@@ -130,7 +125,10 @@ public class TurokMod {
         TurokMod.turok_log.info("Welcome to Turok.");
     }
 
-    public static String get_cache() {
+    public static String get_cache() throws IOException {
+        Path folder_binds = Paths.get(TUROK_FOLDER_NAME_DEFAULT);
+        Files.createDirectories(folder_binds);
+
         Path config              = Paths.get(TUROK_FOLDER_NAME_DEFAULT + "TurokCache_.txt");
         String turok_config_name = TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT;
 
@@ -208,13 +206,13 @@ public class TurokMod {
 
     public static void save_config() {
         try {
-            saveConfigurationUnsafe();
+            save_unsafe();
         }catch (IOException exc) {
             exc.printStackTrace();
         }
     }
 
-    public static void saveConfigurationUnsafe() throws IOException {
+    public static void save_unsafe() throws IOException {
         JsonObject object = new JsonObject();
         TurokMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
             JsonObject frame_object = new JsonObject();
@@ -261,10 +259,6 @@ public class TurokMod {
 
     public TurokGUI getGuiManager() {
         return guiManager;
-    }
-
-    public TurokHUD getHudManager() {
-        return hudManager;
     }
 
     public ChatManager getChatManager() {
