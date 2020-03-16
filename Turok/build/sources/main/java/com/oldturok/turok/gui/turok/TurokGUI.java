@@ -16,7 +16,6 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.gui.rgui.GUI;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.util.Pair;
@@ -215,25 +214,23 @@ public class TurokGUI extends GUI {
 
         frames = new ArrayList<>();
 
-        if (state_users) {
-           frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Turok Info");
-           frame_users.setCloseable(false);
-           frame_users.setPinneable(true);
+        frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Turok Info");
+        frame_users.setCloseable(false);
+        frame_users.setPinneable(true);
 
-           Label users = new Label("");
-           users.addTickListener(() -> {
-               Minecraft mc = Minecraft.getMinecraft();
+        Label users = new Label("");
+        users.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
 
-               String name = "";           
+            String name = "";           
                
-               name = mc.player.getName();
-               users.setText(name + " - " + "Turok " + TurokMod.TUROK_MOD_VERSION + " - " + Wrapper.getMinecraft().debugFPS);
-           });
+            name = mc.player.getName();
+            users.setText(name + " - " + "Turok " + TurokMod.TUROK_MOD_VERSION + " - " + Wrapper.getMinecraft().debugFPS);
+        });
 
-           frame_users.addChild(users);
-           users.setFontRenderer(fontRendererBig);
-           users.setShadow(true);
-        }
+        frame_users.addChild(users);
+        users.setFontRenderer(fontRendererBig);
+        users.setShadow(true);
 
         frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
         frame_array.setCloseable(false);
@@ -311,6 +308,11 @@ public class TurokGUI extends GUI {
         frame_counts.addChild(count);
         count.setFontRenderer(fontRendererBig);
         count.setShadow(true);
+
+        frames.add(frame_array);
+        frames.add(frame_coords);
+        frames.add(frame_counts);
+        frames.add(frame_users);
 
         for (Frame frame1 : frames) {
             Minecraft mc = Minecraft.getMinecraft();

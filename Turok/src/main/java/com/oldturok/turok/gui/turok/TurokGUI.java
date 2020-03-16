@@ -16,7 +16,6 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.gui.rgui.GUI;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.util.Pair;

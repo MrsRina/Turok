@@ -10,13 +10,12 @@ import com.oldturok.turok.event.ForgeEventProcessor;
 import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.gui.rgui.util.Docking;
 import com.oldturok.turok.module.ModuleManager;
+import com.oldturok.turok.gui.TurokChatCommand;
 import com.oldturok.turok.util.LagCompensator;
-import com.oldturok.turok.chatcmd.ChatManager;
 import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.util.Friends;
 import com.oldturok.TurokRPC;
@@ -55,8 +54,9 @@ public class TurokMod {
     public static final String TUROK_MOD_NAME    = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
     public static final String TUROK_MOD_VERSION = "0.4.0";
 
-    public static final int TUROK_GUI_BUTTON = Keyboard.KEY_P;
-    public static final int TUROK_HUD_BUTTON = Keyboard.KEY_O;
+    public static final int TUROK_GUI_BUTTON  = Keyboard.KEY_P;
+
+    public static final String TURKO_CHAT_PREFIX = "-";
 
     private static final String TUROK_CONFIG_NAME_DEFAULT = "Turok.json";
     private static final String TUROK_FOLDER_NAME_DEFAULT = "Turok/";
@@ -65,8 +65,8 @@ public class TurokMod {
 
     public static final EventBus EVENT_BUS = new EventManager();
 
+    public TurokChatCommand turok_chat_manager;
     public TurokGUI guiManager;
-    public ChatManager chatManager;
 
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
         @Override
@@ -110,11 +110,9 @@ public class TurokMod {
         guiManager = new TurokGUI();
         guiManager.initializeGUI();
 
-        chatManager = new ChatManager();
+        MinecraftForge.EVENT_BUS.register(turok_chat_manager = new TurokChatCommand());
 
         Friends.initFriends();
-
-        SettingsRegister.register("chatPrefix", Chat.chatPrefix);
 
         load_config();
 
@@ -261,9 +259,5 @@ public class TurokMod {
 
     public TurokGUI getGuiManager() {
         return guiManager;
-    }
-
-    public ChatManager getChatManager() {
-        return chatManager;
     }
 }

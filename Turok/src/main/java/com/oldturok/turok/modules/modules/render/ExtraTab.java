@@ -3,8 +3,8 @@ package com.oldturok.turok.module.modules.render;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokChat;
 
 import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.scoreboard.ScorePlayerTeam;
@@ -22,7 +22,7 @@ public class ExtraTab extends Module {
 
     public static String getPlayerName(NetworkPlayerInfo networkPlayerInfoIn) {
         String dname = networkPlayerInfoIn.getDisplayName() != null ? networkPlayerInfoIn.getDisplayName().getFormattedText() : ScorePlayerTeam.formatPlayerName(networkPlayerInfoIn.getPlayerTeam(), networkPlayerInfoIn.getGameProfile().getName());
-        if (Friends.isFriend(dname)) return String.format("%sa%s", Chat.SECTIONSIGN(), dname);
+        // if (Friends.isFriend(dname)) return String.format("%sa%s", Chat.SECTIONSIGN(), dname);
         return dname;
     }
 }

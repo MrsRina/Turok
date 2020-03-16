@@ -7,8 +7,8 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokChat;
 
 import net.minecraft.network.play.client.CPacketPlayerDigging;
 import net.minecraft.network.play.client.CPacketEntityAction;
@@ -82,7 +82,7 @@ public class FastAutoTrap extends Module {
 
     @Override
     protected void onEnable() {
-        Chat.sendChatMessage("FastAutoTrap -> " + ChatFormatting.GREEN + "Enabled!");
+        TurokChat.send_msg("FastAutoTrap -> " + ChatFormatting.GREEN + "Enabled!");
 
         if (mc.player == null) {
             this.disable();
@@ -97,7 +97,7 @@ public class FastAutoTrap extends Module {
 
     @Override
     protected void onDisable() {
-        Chat.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled!");
+        TurokChat.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled!");
 
         if (mc.player == null) {
             return;
@@ -134,7 +134,7 @@ public class FastAutoTrap extends Module {
         if (firstRun) {
             if (find_obi_in_hotbar() == -1) {
                 if (infoMessage.getValue()) {
-                    Chat.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                    TurokChat.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
                 }
                 this.disable();
                 return;
@@ -213,7 +213,7 @@ public class FastAutoTrap extends Module {
         if (missingObiDisable) {
             missingObiDisable = false;
             if (infoMessage.getValue()) {
-                Chat.sendChatMessage("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                TurokChat.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
             }
             this.disable();
         }

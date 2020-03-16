@@ -36,9 +36,6 @@
     "com/oldturok/turok/mixin/client/MixinEntityPig": {
       "canBeSteered": "Lnet/minecraft/entity/passive/EntityPig;func_82171_bF()Z"
     },
-    "com/oldturok/turok/mixin/client/MixinGuiChat": {
-      "Lnet/minecraft/client/gui/GuiChat;keyTyped(CI)V": "Lnet/minecraft/client/gui/GuiChat;func_73869_a(CI)V"
-    },
     "com/oldturok/turok/mixin/client/MixinModelBoat": {
       "render": "Lnet/minecraft/client/model/ModelBoat;func_78088_a(Lnet/minecraft/entity/Entity;FFFFFF)V"
     },
@@ -123,9 +120,6 @@
       "com/oldturok/turok/mixin/client/MixinEntityPig": {
         "canBeSteered": "Laad;cV()Z"
       },
-      "com/oldturok/turok/mixin/client/MixinGuiChat": {
-        "Lnet/minecraft/client/gui/GuiChat;keyTyped(CI)V": "Lbkn;a(CI)V"
-      },
       "com/oldturok/turok/mixin/client/MixinModelBoat": {
         "render": "Lbpj;a(Lvg;FFFFFF)V"
       },
@@ -208,9 +202,6 @@
       },
       "com/oldturok/turok/mixin/client/MixinEntityPig": {
         "canBeSteered": "Lnet/minecraft/entity/passive/EntityPig;func_82171_bF()Z"
-      },
-      "com/oldturok/turok/mixin/client/MixinGuiChat": {
-        "Lnet/minecraft/client/gui/GuiChat;keyTyped(CI)V": "Lnet/minecraft/client/gui/GuiChat;func_73869_a(CI)V"
       },
       "com/oldturok/turok/mixin/client/MixinModelBoat": {
         "render": "Lnet/minecraft/client/model/ModelBoat;func_78088_a(Lnet/minecraft/entity/Entity;FFFFFF)V"

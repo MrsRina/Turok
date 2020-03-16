@@ -42,11 +42,12 @@ import java.util.List;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
+
 import com.oldturok.turok.setting.builder.SettingBuilder;
 import com.oldturok.turok.module.modules.chat.AutoGG;
 import com.oldturok.turok.event.events.PacketEvent;
 import com.oldturok.turok.event.events.RenderEvent;
-import com.mojang.realmsclient.gui.ChatFormatting;
 import com.oldturok.turok.util.TurokTessellator;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.GeometryMasks;
@@ -54,9 +55,9 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Friends;
 import com.oldturok.turok.util.Wrapper;
+import com.oldturok.turok.TurokChat;
 
 import org.lwjgl.opengl.GL11;
 
@@ -117,7 +118,7 @@ public class TurokInsaneAura extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            Chat.sendChatMessage("InsaneTurokAura <- " + ChatFormatting.GREEN + "Enabled!");
+            TurokChat.send_msg("InsaneTurokAura <- " + ChatFormatting.GREEN + "Enabled!");
         } else {
             return;
         }
@@ -130,7 +131,7 @@ public class TurokInsaneAura extends Module {
         reset_rotation();
 
         if (prefixo_chat.getValue()) {
-            Chat.sendChatMessage("InsaneTurokAura -> " + ChatFormatting.RED + "Disabled!");
+            TurokChat.send_msg("InsaneTurokAura -> " + ChatFormatting.RED + "Disabled!");
         } else {
             return; 
         }

@@ -2,9 +2,6 @@ FD: com/oldturok/turok/mixin/client/MixinC00Handshake/protocolVersion com/oldtur
 FD: com/oldturok/turok/mixin/client/MixinC00Handshake/ip com/oldturok/turok/mixin/client/MixinC00Handshake/b
 FD: com/oldturok/turok/mixin/client/MixinC00Handshake/port com/oldturok/turok/mixin/client/MixinC00Handshake/c
 FD: com/oldturok/turok/mixin/client/MixinC00Handshake/requestedState com/oldturok/turok/mixin/client/MixinC00Handshake/d
-FD: com/oldturok/turok/mixin/client/MixinGuiChat/inputField com/oldturok/turok/mixin/client/MixinGuiChat/a
-FD: com/oldturok/turok/mixin/client/MixinGuiChat/historyBuffer com/oldturok/turok/mixin/client/MixinGuiChat/g
-FD: com/oldturok/turok/mixin/client/MixinGuiChat/sentHistoryCursor com/oldturok/turok/mixin/client/MixinGuiChat/h
 FD: com/oldturok/turok/mixin/client/MixinMinecraft/world com/oldturok/turok/mixin/client/MixinMinecraft/f
 FD: com/oldturok/turok/mixin/client/MixinMinecraft/player com/oldturok/turok/mixin/client/MixinMinecraft/h
 FD: com/oldturok/turok/mixin/client/MixinMinecraft/currentScreen com/oldturok/turok/mixin/client/MixinMinecraft/m
@@ -15,4 +12,3 @@ FD: com/oldturok/turok/mixin/client/MixinMinecraft/soundHandler com/oldturok/tur
 FD: com/oldturok/turok/mixin/client/MixinRenderGlobal/mc com/oldturok/turok/mixin/client/MixinRenderGlobal/h
 FD: com/oldturok/turok/mixin/client/MixinRenderGlobal/renderContainer com/oldturok/turok/mixin/client/MixinRenderGlobal/O
 FD: com/oldturok/turok/mixin/client/MixinStateImplementation/block com/oldturok/turok/mixin/client/MixinStateImplementation/a
-MD: com/oldturok/turok/mixin/client/MixinGuiChat/initGui ()V com/oldturok/turok/mixin/client/MixinGuiChat/b ()V

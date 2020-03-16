@@ -7,7 +7,6 @@ import com.oldturok.turok.util.TurokTessellator;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.gui.UIRenderer;
-import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.TurokMod;
 
@@ -93,25 +92,6 @@ public class ForgeEventProcessor {
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Keyboard.getEventKeyState())
             ModuleManager.onBind(Keyboard.getEventKey());
-    }
-
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public void onChatSent(ClientChatEvent event) {
-        if (event.getMessage().startsWith(Chat.getChatPrefix())) {
-            event.setCanceled(true);
-            try {
-                Wrapper.getMinecraft().ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
-
-                if (event.getMessage().length() > 1)
-                    TurokMod.getInstance().chatManager.callCommand(event.getMessage().substring(Chat.getChatPrefix().length() - 1));
-                else
-                    Chat.sendChatMessage("Please enter a command.");
-            } catch (Exception e) {
-                e.printStackTrace();
-                Chat.sendChatMessage("Error occured while running command! (" + e.getMessage() + ")");
-            }
-            event.setMessage("");
-        }
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)

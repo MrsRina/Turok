@@ -4,7 +4,6 @@
   "package": "com.oldturok.turok.mixin.client",
   "refmap": "mixins.turok.refmap.json",
   "client": [
-    "MixinGuiChat",
     "MixinNetworkManager",
     "MixinEntity",
     "MixinMinecraft",

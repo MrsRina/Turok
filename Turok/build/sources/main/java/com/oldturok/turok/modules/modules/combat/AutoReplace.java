@@ -4,7 +4,7 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.chatcmd.Chat;
+import com.oldturok.turok.TurokChat;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.ClickType;

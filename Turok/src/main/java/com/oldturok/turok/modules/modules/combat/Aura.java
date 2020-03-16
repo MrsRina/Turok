@@ -6,11 +6,12 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokChat;
+
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 import net.minecraft.network.play.client.CPacketPlayerDigging;
-import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
@@ -43,12 +44,12 @@ public class Aura extends Module {
 
     @Override
     public void onEnable() {
-        Chat.sendChatMessage("[Kill-Aura] " + ChatFormatting.GREEN + "Enabled!");
+        TurokChat.send_msg("[Kill-Aura] " + ChatFormatting.GREEN + "Enabled!");
     }
 
     @Override
     public void onDisable() {
-        Chat.sendChatMessage("[Kill-Aura] " + ChatFormatting.RED + "Disabled!");
+        TurokChat.send_msg("[Kill-Aura] " + ChatFormatting.RED + "Disabled!");
     }
 
     @Override
