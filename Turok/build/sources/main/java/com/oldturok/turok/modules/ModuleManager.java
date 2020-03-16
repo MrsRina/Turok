@@ -1,8 +1,8 @@
 package com.oldturok.turok.module;
 
 import com.oldturok.turok.event.events.RenderEvent;
-import com.oldturok.turok.module.modules.ClickGUI;
 import com.oldturok.turok.util.TurokTessellator;
+import com.oldturok.turok.module.modules.GUI;
 import com.oldturok.turok.util.ClassFinder;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.util.Wrapper;
@@ -32,7 +32,7 @@ public class ModuleManager {
     }
 
     public static void initialize() {
-        Set<Class> classList = ClassFinder.findClasses(ClickGUI.class.getPackage().getName(), Module.class);
+        Set<Class> classList = ClassFinder.findClasses(GUI.class.getPackage().getName(), Module.class);
         classList.forEach(aClass -> {
             try {
                 Module module = (Module) aClass.getConstructor().newInstance();

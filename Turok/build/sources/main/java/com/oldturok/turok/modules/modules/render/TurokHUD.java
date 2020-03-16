@@ -20,7 +20,15 @@ import com.oldturok.turok.gui.turok.TurokGUI;
 public class TurokHUD extends Module {
 	private static RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
 
-	private Setting<Boolean> armor_hud = register(Settings.b("ArmorHUD", true));
+	private Setting<Boolean> armor_hud = register(Settings.b("Show Armor HUD", true));
+	private Setting<Boolean> users_hud = register(Settings.b("Show Info Message", true));
+
+	@Override
+	public void onUpdate() {
+		if (users_hud.getValue()) {
+			TurokGUI.state_users = true;
+		}
+	}
 
 	@Override
 	public void onRender() {

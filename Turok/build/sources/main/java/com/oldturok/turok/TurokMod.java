@@ -19,6 +19,7 @@ import com.oldturok.turok.module.Module;
 import com.oldturok.turok.chatcmd.Chat;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.util.Friends;
+import com.oldturok.TurokRPC;
 
 import com.google.common.base.Converter;
 import com.google.gson.JsonPrimitive;
@@ -121,6 +122,8 @@ public class TurokMod {
 
         ModuleManager.updateLookup();
         ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
+
+        TurokRPC.start();
 
         TurokMod.turok_log.info("Welcome to Turok.");
     }

@@ -16,7 +16,7 @@ public abstract class Chat {
 	protected String syntax;
 	protected String description;
 
-	public static Setting<String> chatPrefix = Settings.s("chatPrefix", "-");
+	public static Setting <String> chatPrefix = Settings.s("chatPrefix", "-");
 
 	public Chat(String label) {
 		this.label = label;
@@ -24,7 +24,7 @@ public abstract class Chat {
 	}
 
 	public static void sendChatMessage(String message) {
-		sendRawChatMessage("&4&a" + TurokMod.TUROK_MOD_NAME + "&4&r  - " + message);
+		sendRawChatMessage(" " + TurokMod.TUROK_MOD_NAME + " -> " + message);
 	}
 
 	public static void sendStringChatMessage(String[] messages) {

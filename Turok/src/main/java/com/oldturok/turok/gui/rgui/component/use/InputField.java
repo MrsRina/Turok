@@ -84,9 +84,7 @@ public class InputField extends AbstractComponent {
 
                 glLineWidth(1);
 
-//                ColourHolder holder = ColourHolder.fromHex(fontRenderer.getBaseColor());
-//                holder.setGLColour();
-                GL11.glColor3f(1,1,1);
+                GL11.glColor3f(1, 1, 1);
 
                 boolean cursor = ((int) ((System.currentTimeMillis() - lastTypeMS) / 500) % 2 == 0) && isFocussed();
                 int x = 0;
@@ -128,8 +126,8 @@ public class InputField extends AbstractComponent {
                     if (i == getCursorRow() && cursor && !getCurrentState().isSelection()){
                         glBegin(GL_LINES);
                         {
-                            glVertex2d(x+2, 2);
-                            glVertex2d(x+2, fontRenderer.getFontHeight());
+                            glVertex2d(x + 2, 2);
+                            glVertex2d(x + 2, fontRenderer.getFontHeight());
                         }
                         glEnd();
                     }

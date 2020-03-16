@@ -15,7 +15,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
 public class Settings {
-
     public static FloatSettingBuilder floatBuilder() {
         return new FloatSettingBuilder();
     }

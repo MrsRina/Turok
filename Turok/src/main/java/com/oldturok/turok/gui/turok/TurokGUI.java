@@ -215,25 +215,35 @@ public class TurokGUI extends GUI {
 
         frames = new ArrayList<>();
 
-        frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
-        frame_users.setCloseable(false);
-        frame_users.setPinneable(true);
+        if (state_users) {
+           frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
+           frame_users.setCloseable(false);
+           frame_users.setPinneable(true);
 
-        Label users = new Label("");
-        users.addTickListener(() -> {
-            Minecraft mc = Minecraft.getMinecraft();
+           Label users = new Label("");
+           users.addTickListener(() -> {
+               Minecraft mc = Minecraft.getMinecraft();
 
-            String name = "";           
-            
-            name = mc.player.getName();
-            users.setText(name + " welcome to Turok " + TurokMod.TUROK_MOD_VERSION);
-            users.addLine("Rina like you! ^^");
-            users.addLine("Fps: " + Wrapper.getMinecraft().debugFPS);
-        });
+               String name = "";           
+               
+               name = mc.player.getName();
+               users.setText(name + " welcome to Turok " + TurokMod.TUROK_MOD_VERSION);
+               users.addLine("Rina like you! ^^");
+               users.addLine("Fps: " + Wrapper.getMinecraft().debugFPS);
+           });
 
-        frame_users.addChild(users);
-        users.setFontRenderer(fontRendererBig);
-        users.setShadow(true);
+           frame_users.addChild(users);
+           users.setFontRenderer(fontRendererBig);
+           users.setShadow(true);
+
+           frames.add(frame_users);
+        } else {
+            if (frames.equals(frame_users)) {
+                frames.remove(frame_users);
+            } else {
+                return;
+            }
+        }
 
         frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
         frame_array.setCloseable(false);
@@ -251,7 +261,7 @@ public class TurokGUI extends GUI {
             boolean on_nether = (mc.world.getBiome(mc.player.getPosition()).getBiomeName().equals("Hell"));
 
             float value = !on_nether ? 0.125f : 8;
-            
+
             int posX = (int) (mc.player.posX);
             int posY = (int) (mc.player.posY);
             int posZ = (int) (mc.player.posZ);
@@ -277,9 +287,9 @@ public class TurokGUI extends GUI {
         count.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
-            int totems = 0;
-            int gapples = 0;
-            int crystals = 0;
+            int totems     = 0;
+            int gapples    = 0;
+            int crystals   = 0;
             int expbottles = 0;
 
             for (int items = 0; items < 45; items++) {
@@ -313,7 +323,6 @@ public class TurokGUI extends GUI {
         count.setFontRenderer(fontRendererBig);
         count.setShadow(true);
 
-        frames.add(frame_users);
         frames.add(frame_array);
         frames.add(frame_coords);
         frames.add(frame_counts);

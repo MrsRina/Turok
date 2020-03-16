@@ -65,12 +65,6 @@ public class TurokGuiChat extends GuiChat {
 
         if (args.length == 0) return;
 
-        for (Chat c : TurokMod.getInstance().getChatManager().getCommands()) {
-            if ((c.getLabel().startsWith(args[0]) && !line.endsWith(" ")) || c.getLabel().equals(args[0])) {
-                options.put(c.getLabel(), c);
-            }
-        }
-
         if (options.isEmpty()) {
             currentFillinLine = "";
             return;
