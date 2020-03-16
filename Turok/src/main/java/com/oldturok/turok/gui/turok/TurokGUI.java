@@ -215,35 +215,23 @@ public class TurokGUI extends GUI {
 
         frames = new ArrayList<>();
 
-        if (state_users) {
-           frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Hiiii!!");
-           frame_users.setCloseable(false);
-           frame_users.setPinneable(true);
+        frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Turok Info");
+        frame_users.setCloseable(false);
+        frame_users.setPinneable(true);
 
-           Label users = new Label("");
-           users.addTickListener(() -> {
-               Minecraft mc = Minecraft.getMinecraft();
+        Label users = new Label("");
+        users.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
 
-               String name = "";           
+            String name = "";           
                
-               name = mc.player.getName();
-               users.setText(name + " welcome to Turok " + TurokMod.TUROK_MOD_VERSION);
-               users.addLine("Rina like you! ^^");
-               users.addLine("Fps: " + Wrapper.getMinecraft().debugFPS);
-           });
+            name = mc.player.getName();
+            users.setText(name + " - " + "Turok " + TurokMod.TUROK_MOD_VERSION + " - " + Wrapper.getMinecraft().debugFPS);
+        });
 
-           frame_users.addChild(users);
-           users.setFontRenderer(fontRendererBig);
-           users.setShadow(true);
-
-           frames.add(frame_users);
-        } else {
-            if (frames.equals(frame_users)) {
-                frames.remove(frame_users);
-            } else {
-                return;
-            }
-        }
+        frame_users.addChild(users);
+        users.setFontRenderer(fontRendererBig);
+        users.setShadow(true);
 
         frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
         frame_array.setCloseable(false);
@@ -269,17 +257,16 @@ public class TurokGUI extends GUI {
             int poshX = (int) (mc.player.posX * value);
             int poshZ = (int) (mc.player.posZ * value);
 
-            coordsLabel.setText("Coords:");
-            coordsLabel.addLine(String.format("Nether: " + poshX + "x " + Integer.toString(posY) + "y " + poshZ + "z"));
-            coordsLabel.addLine(String.format("Overworld: " + Integer.toString(posX) + "x " + Integer.toString(posY) + "y " + Integer.toString(posZ) + "z"));
+            coordsLabel.setText("");
+            coordsLabel.addLine(String.format("x" + poshX + " y" + posY + " z" + poshZ));
+            coordsLabel.addLine(String.format("x" + posX + " y" + posY + " z" + posZ));
         });
 
         frame_coords.addChild(coordsLabel);
         coordsLabel.setFontRenderer(fontRendererBig);
         coordsLabel.setShadow(true);
-        frame_coords.setHeight(20);
 
-        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), "Turok Counts");
+        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), "Turok Info");
         frame_counts.setCloseable(false);
         frame_counts.setPinneable(true);
 
@@ -312,11 +299,11 @@ public class TurokGUI extends GUI {
                 }
             }
 
-            count.setText("Turok Counts.");
-            count.addLine("Totems: " +  String.valueOf(totems));
-            count.addLine("Crystals: " +  String.valueOf(gapples));
-            count.addLine("Gapples: " + String.valueOf(crystals));
-            count.addLine("EXPBottles: " +  String.valueOf(expbottles));
+            count.setText("Turok Info");
+            count.addLine("Totems - "     + String.valueOf(totems));
+            count.addLine("Crystals - "   + String.valueOf(gapples));
+            count.addLine("Gapples - "    + String.valueOf(crystals));
+            count.addLine("EXPBottles - " + String.valueOf(expbottles));
         });
 
         frame_counts.addChild(count);
@@ -326,6 +313,7 @@ public class TurokGUI extends GUI {
         frames.add(frame_array);
         frames.add(frame_coords);
         frames.add(frame_counts);
+        frames.add(frame_users);
 
         for (Frame frame1 : frames) {
             Minecraft mc = Minecraft.getMinecraft();

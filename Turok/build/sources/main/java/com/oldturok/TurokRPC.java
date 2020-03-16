@@ -1,4 +1,4 @@
-package com.oldturok.turok.module.modules.misc;
+package com.oldturok;
 
 import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
 import com.oldturok.turok.setting.Settings;
@@ -12,10 +12,11 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.TurokMod;
 
+import net.minecraft.client.Minecraft;
+
 // Rina.
 // Turok RPC.
-@Module.Info(name = "TurokRPC", category = Module.Category.TUROK_MISC)
-public class TurokRPC extends Module {
+public class TurokRPC {
 	public static DiscordRichPresence discord_presence;
 
 	private static boolean discord_started;
@@ -24,23 +25,15 @@ public class TurokRPC extends Module {
 	public static String detail;
 	public static String state;
 
-	private Setting<Boolean> show_name = register(Settings.b("Show Name", true));
-	private Setting<Boolean> show_server = register(Settings.b("Show Server", true));
-	private Setting<Boolean> show_events = register(Settings.b("Currrent Events", true));
+	private static String name;
+	private static String server;
+	private static String event_1;
 
-	private String name;
-	private String server;
-	private String event_1;
+	public static TurokCrystalAura crystalfunction = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
+	public static Minecraft mc = Minecraft.getMinecraft();
 
-	TurokCrystalAura crystalfunction = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
-
-	@Override
-	public void onEnable() {
+	public static void start() {
 		discord_presence = new DiscordRichPresence();
-		discord_started = false;
-		
-		if (discord_started) return;
-		discord_started = true;
 
 		final DiscordEventHandlers handler_ = new DiscordEventHandlers();
 		discord_rpc.Discord_Initialize("683841698778185818", handler_, true, "");
@@ -52,10 +45,33 @@ public class TurokRPC extends Module {
 		new Thread(() -> {
 			while (!Thread.currentThread().isInterrupted()) {
 				try {
+					name = mc.player.getName();
+
+					if (mc.isIntegratedServerRunning()) {
+						server = "survival offline";
+					} else if (mc.getCurrentServerData() != null) {
+						server = mc.getCurrentServerData().serverIP;
+					} else {
+						server = "main menu";
+					}
+
+					if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled()) {
+						event_1 = "crystaling " + TurokCrystalAura.player_target;
+
+						life(true);
+					} else {
+						event_1 = mc.world.getBiome(mc.player.getPosition()).getBiomeName();
+
+						life(false);
+					}
+
+					detail = name + " - " + server;
+					state  = event_1 + "";
+
 					discord_rpc.Discord_RunCallbacks();
 
 					discord_presence.details = detail;
-					discord_presence.state = state;
+					discord_presence.state   = state;
 
 					discord_rpc.Discord_UpdatePresence(discord_presence);
 				}
@@ -75,51 +91,7 @@ public class TurokRPC extends Module {
 		}, "RPC-Callback-Handler").start();
 	}
 
-	@Override
-	public void onDisable() {
-		discord_rpc.Discord_Shutdown();
-	}
-
-	@Override
-	public void onUpdate() {
-		if (show_name.getValue()) {
-			name = mc.player.getName();
-		} else {
-			name = "";
-		}
-
-		if (show_server.getValue()) {
-			if (mc.isIntegratedServerRunning()) {
-				server = "survival offline";
-			} else if (mc.getCurrentServerData() != null) {
-				server = mc.getCurrentServerData().serverIP;
-			} else {
-				server = "main menu";
-			}
-		} else {
-			server = "";
-		}
-
-		if (show_events.getValue()) {
-			if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled()) {
-				event_1 = "crystaling " + TurokCrystalAura.player_target;
-
-				life(true);
-			} else {
-				event_1 = mc.world.getBiome(mc.player.getPosition()).getBiomeName();
-
-				life(false);
-			}
-
-		} else {
-			event_1 = "";
-		}
-
-		detail = name + " - " + server;
-		state = event_1 + "";
-	}
-
-	public void life(Boolean type) {
+	public static void life(Boolean type) {
 		if (mc.player.getHealth() < 5.0f) {
 			event_1 = "health " + Float.toString(mc.player.getHealth());			
 		} else {
@@ -132,8 +104,7 @@ public class TurokRPC extends Module {
 	}
 
 	static {
-		discord_rpc = DiscordRPC.INSTANCE;
+		discord_rpc      = DiscordRPC.INSTANCE;
 		discord_presence = new DiscordRichPresence();
-		discord_started = false;
 	}
 }
