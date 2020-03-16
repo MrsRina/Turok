@@ -3,9 +3,9 @@ package com.oldturok.turok.util;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
 import com.oldturok.turok.gui.turok.TurokGUI;
 
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.World;
-import net.minecraft.client.entity.EntityPlayerSP;
 
 import org.lwjgl.input.Keyboard;
 

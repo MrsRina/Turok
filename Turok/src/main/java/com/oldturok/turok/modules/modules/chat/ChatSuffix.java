@@ -10,19 +10,15 @@ import com.oldturok.turok.module.Module;
 
 import net.minecraft.network.play.client.CPacketChatMessage;
 
+import com.oldturok.turok.util.TurokFancyChat;
 import com.oldturok.turok.TurokMod;
 
 // Rina.
 @Module.Info(name = "ChatSuffix", category = Module.Category.TUROK_CHAT, description = "Modifies your chat messages")
 public class ChatSuffix extends Module {
-    private Setting<Boolean> commands       = register(Settings.b("Commands", true));
-    private Setting<Boolean> iSpeakSuffix   = register(Settings.b("I Speak Taco Suffix", false));
-    private Setting<Boolean> iAmTurokSuffix = register(Settings.b("I Am Turok Suffix", false));
-    private Setting<Boolean> turokSuffix    = register(Settings.b("Turok Suffix", true));
-
-    private final String TUROK_SUFFIX         = " \u23D0 \u1d1b\u1d1c\u0280\u0473\u1d0b";
-    private final String I_AM_TUROK_SUFFIX    = " \u23D0 \u026a \u1d00\u1d0d \u1d1b\u1d1c\u0280\u0473\u1d0b";
-    private final String I_SPEAK_TACO_SUFFIX  = " \u23D0 \u026a \u0073\u1d18\u1d07\u1d00\u1d0b \u1d1b\u1d00\u1d04\u1d0f";
+    private Setting <Boolean> commands     = register(Settings.b("Commands", true));
+    private Setting <Boolean> i_speak_taco = register(Settings.b("I Speak Taco Suffix", false));
+    private Setting <Boolean> turok        = register(Settings.b("Turok Suffix", true));
 
     boolean suffix_accept;
     String suffix;
@@ -30,28 +26,18 @@ public class ChatSuffix extends Module {
     @EventHandler
     public Listener<PacketEvent.Send> listener = new Listener<>(event -> {
         if (event.getPacket() instanceof CPacketChatMessage) {         
-            if (turokSuffix.getValue()) {
-                suffix = TUROK_SUFFIX;
+            if (turok.getValue()) {
+                suffix        = TurokFancyChat.TUROK_SUFFIX;
                 suffix_accept = true;
 
-                iAmTurokSuffix.setValue(false);
-                iSpeakSuffix.setValue(false);
+                i_speak_taco.setValue(false);
             } 
 
-            if (iAmTurokSuffix.getValue()) {
-                suffix = I_AM_TUROK_SUFFIX;
+            if (i_speak_taco.getValue()) {
+                suffix        = TurokFancyChat.I_SPEAK_TACO_SUFFIX;
                 suffix_accept = true;
 
-                iSpeakSuffix.setValue(false);
-                turokSuffix.setValue(false);
-            }
-
-            if (iSpeakSuffix.getValue()) {
-                suffix = I_SPEAK_TACO_SUFFIX;
-                suffix_accept = true;
-
-                iAmTurokSuffix.setValue(false);
-                turokSuffix.setValue(false);
+                turok.setValue(false);
             }
 
             String msg = ((CPacketChatMessage) event.getPacket()).getMessage();

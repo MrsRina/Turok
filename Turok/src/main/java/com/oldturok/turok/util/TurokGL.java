@@ -13,7 +13,7 @@ import de.matthiasmann.twl.utils.PNGDecoder;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.BufferUtils;
 
-import net.minecraft.util.ResourceLocation; //
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.client.Minecraft;
 
 // Coded by Rina, in 07/03/20.

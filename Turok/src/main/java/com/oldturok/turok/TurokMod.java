@@ -167,9 +167,16 @@ public class TurokMod {
         String turok_config_name_ = get_cache();
         Path turok_config         = Paths.get(turok_config_name_);
         
-        if (!Files.exists(turok_config)) {
-        	return;
-        }
+        Path folder_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT);
+
+        Files.createDirectories(folder_bind);
+
+        Path file_bind = Paths.get(get_cache());
+
+        Files.createDirectories(folder_bind);
+
+        if (!Files.exists(file_bind))
+            Files.createFile(file_bind);
         
         Configuration.loadConfiguration(turok_config);
 
@@ -231,15 +238,7 @@ public class TurokMod {
 
         TurokMod.INSTANCE.guiStateSetting.setValue(object);
 
-        Path folder_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT);
-
-        Files.createDirectories(folder_bind);
-
         Path file_bind = Paths.get(get_cache());
-
-        if (!Files.exists(file_bind))
-        	Files.createDirectories(folder_bind);
-            Files.createFile(file_bind);
 
         Configuration.saveConfiguration(file_bind);
         ModuleManager.getModules().forEach(Module::destroy);

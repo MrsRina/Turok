@@ -90,7 +90,7 @@ public class ModuleManager {
         GlStateManager.enableTexture2D();
         GlStateManager.enableDepth();
         GlStateManager.enableCull();
-//        GlStateManager.popMatrix();
+
         TurokTessellator.releaseGL();
         Minecraft.getMinecraft().profiler.endSection();
 

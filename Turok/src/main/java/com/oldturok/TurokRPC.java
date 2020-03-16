@@ -10,8 +10,9 @@ import club.minnced.discord.rpc.DiscordRPC;
 
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.TurokMod;
+
+import net.minecraft.client.Minecraft;
 
 // Rina.
 // Turok RPC.
@@ -29,14 +30,10 @@ public class TurokRPC {
 	private static String event_1;
 
 	public static TurokCrystalAura crystalfunction = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
-	public static mc = Wrapper.getMinecraft();
+	public static Minecraft mc = Minecraft.getMinecraft();
 
 	public static void start() {
 		discord_presence = new DiscordRichPresence();
-		discord_started = false;
-		
-		if (discord_started) return;
-		discord_started = true;
 
 		final DiscordEventHandlers handler_ = new DiscordEventHandlers();
 		discord_rpc.Discord_Initialize("683841698778185818", handler_, true, "");
@@ -109,6 +106,5 @@ public class TurokRPC {
 	static {
 		discord_rpc      = DiscordRPC.INSTANCE;
 		discord_presence = new DiscordRichPresence();
-		discord_started  = false;
 	}
 }
