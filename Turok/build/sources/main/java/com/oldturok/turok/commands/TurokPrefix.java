@@ -12,16 +12,15 @@ public class TurokPrefix extends TurokChat {
 
 	@Override
 	public boolean Get_Message(String[] message) {
-		String prefix = message[1];
-
-		if (prefix == null) {
-			TurokMessage.send_msg("Set a new character using 'prefix [character]'.");
-		} else {
+		if (message.length > 1) {
+			String prefix = message[1];
 			TurokMod.TUROK_CHAT_PREFIX = prefix;
-
+	
 			TurokMessage.send_msg("The new character is: " + TurokMod.TUROK_CHAT_PREFIX);
+		} else {
+			TurokMessage.send_msg("Set a new character using 'prefix [character]'.");
 		}
-
+	
 		return true;
 	}
 }
