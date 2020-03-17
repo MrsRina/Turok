@@ -5,6 +5,7 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
+import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.TurokChat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
@@ -189,7 +190,7 @@ public class AutoBarrier extends Module {
         if (missingObiDisable) {
             missingObiDisable = false;
             if (infoMessage.getValue()) {
-                TurokChat.send_msg("AutoBarrier <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                TurokMessage.send_msg("AutoBarrier <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
             }
             this.disable();
         }

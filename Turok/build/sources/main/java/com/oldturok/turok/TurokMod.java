@@ -54,8 +54,9 @@ public class TurokMod {
     public static final String TUROK_MOD_NAME    = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
     public static final String TUROK_MOD_VERSION = "0.4.0";
 
-    public static final int TUROK_GUI_BUTTON = Keyboard.KEY_P;
-    public static final int TUROK_HUD_BUTTON = Keyboard.KEY_O;
+    public static final int TUROK_GUI_BUTTON  = Keyboard.KEY_P;
+
+    public static String TUROK_CHAT_PREFIX = "-";
 
     private static final String TUROK_CONFIG_NAME_DEFAULT = "Turok.json";
     private static final String TUROK_FOLDER_NAME_DEFAULT = "Turok/";
@@ -81,9 +82,6 @@ public class TurokMod {
 
     @Mod.Instance
     private static TurokMod INSTANCE;
-
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) {}
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {

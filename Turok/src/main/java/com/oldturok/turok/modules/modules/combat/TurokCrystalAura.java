@@ -56,6 +56,7 @@ import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.TurokChat;
 
@@ -120,7 +121,7 @@ public class TurokCrystalAura extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            TurokChat.send_msg("TurokCrystalAura -> " + ChatFormatting.GREEN + "Enabled!");
+            TurokMessage.send_msg("TurokCrystalAura -> " + ChatFormatting.GREEN + "Enabled!");
         } else {
             return;
         }
@@ -133,7 +134,7 @@ public class TurokCrystalAura extends Module {
         reset_rotation();
 
         if (prefixo_chat.getValue()) {
-            TurokChat.send_msg("TurokCrystalAura <- " + ChatFormatting.RED + "Disabled!");
+            TurokMessage.send_msg("TurokCrystalAura <- " + ChatFormatting.RED + "Disabled!");
         } else {
             return; 
         }

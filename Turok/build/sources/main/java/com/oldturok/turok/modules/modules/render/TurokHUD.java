@@ -21,23 +21,6 @@ public class TurokHUD extends Module {
 	private static RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
 
 	private Setting<Boolean> armor_hud = register(Settings.b("Show Armor HUD", true));
-	private Setting<Boolean> users_hud = register(Settings.b("Show Info Message", true));
-
-	@Override
-	public void onDisable() {
-		TurokGUI.frames.add(TurokGUI.frame_array);
-		TurokGUI.frames.add(TurokGUI.frame_coords);
-        TurokGUI.frames.add(TurokGUI.frame_counts);
-       	TurokGUI.frames.add(TurokGUI.frame_users);
-	}
-
-	@Override
-	public void onEnable() {
-		TurokGUI.frames.remove(TurokGUI.frame_array);
-        TurokGUI.frames.remove(TurokGUI.frame_coords);
-        TurokGUI.frames.remove(TurokGUI.frame_counts);
-        TurokGUI.frames.remove(TurokGUI.frame_users);
-	}
 
 	@Override
 	public void onRender() {

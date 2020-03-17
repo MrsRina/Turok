@@ -1,6 +1,6 @@
 package com.oldturok.turok.util;
 
-// import com.oldturok.turok.commands.*
+import com.oldturok.turok.commands.*;
 import com.oldturok.turok.TurokChat;
 
 import net.minecraft.util.text.TextComponentString;
@@ -19,6 +19,9 @@ public class TurokChatManager {
 	public TurokChatManager(String prefix_, Style format_) {
 		prefix = prefix_;
 		format = format_;
+
+		command_list.add(new TurokDev());
+		command_list.add(new TurokPrefix());
 	}
 
 	public String[] GetArgs(String message) {

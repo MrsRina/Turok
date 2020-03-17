@@ -1,6 +1,7 @@
 package com.oldturok.turok.gui;
 
 import com.oldturok.turok.util.TurokChatManager;
+import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.TurokChat;
 import com.oldturok.turok.TurokMod;
 
@@ -16,7 +17,7 @@ public class TurokChatCommand {
 	public TurokChatManager chat_manager;
 
 	public TurokChatCommand() {
-		chat_manager = new TurokChatManager(TurokMod.TURKO_CHAT_PREFIX, new Style().setColor(TextFormatting.GRAY));
+		chat_manager = new TurokChatManager(TurokMod.TUROK_CHAT_PREFIX, new Style().setColor(TextFormatting.GRAY));
 	}
 
 	@SubscribeEvent
@@ -29,12 +30,13 @@ public class TurokChatCommand {
 		if (msg_args.length > 0) {
 			for (TurokChat chat : chat_manager.command_list) {
 				if (chat_manager.GetArgs(event.getMessage())[0].equalsIgnoreCase(chat.name)) {
-					command_us = TurokChat.get_message(chat_manager.GetArgs(event.getMessage()));
+					command_us = chat.Get_Message(chat_manager.GetArgs(event.getMessage()));
 				}
 			}
 
 			if (!command_us && chat_manager.ContainsPrefix(event.getMessage())) {
-				TurokChat.send_msg("Use command help for get hElP.");
+				
+				TurokMessage.send_msg("Use command help for get hElP.");
 
 				command_us = false;
 			}

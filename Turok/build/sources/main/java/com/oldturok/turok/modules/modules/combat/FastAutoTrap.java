@@ -8,6 +8,7 @@ import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.TurokChat;
 
 import net.minecraft.network.play.client.CPacketPlayerDigging;
@@ -82,7 +83,7 @@ public class FastAutoTrap extends Module {
 
     @Override
     protected void onEnable() {
-        TurokChat.send_msg("FastAutoTrap -> " + ChatFormatting.GREEN + "Enabled!");
+        TurokMessage.send_msg("FastAutoTrap -> " + ChatFormatting.GREEN + "Enabled!");
 
         if (mc.player == null) {
             this.disable();
@@ -97,7 +98,7 @@ public class FastAutoTrap extends Module {
 
     @Override
     protected void onDisable() {
-        TurokChat.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled!");
+        TurokMessage.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled!");
 
         if (mc.player == null) {
             return;
@@ -134,7 +135,7 @@ public class FastAutoTrap extends Module {
         if (firstRun) {
             if (find_obi_in_hotbar() == -1) {
                 if (infoMessage.getValue()) {
-                    TurokChat.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                    TurokMessage.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
                 }
                 this.disable();
                 return;
@@ -213,7 +214,7 @@ public class FastAutoTrap extends Module {
         if (missingObiDisable) {
             missingObiDisable = false;
             if (infoMessage.getValue()) {
-                TurokChat.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                TurokMessage.send_msg("FastAutoTrap <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
             }
             this.disable();
         }

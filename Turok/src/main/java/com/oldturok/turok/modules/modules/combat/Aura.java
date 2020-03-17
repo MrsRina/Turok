@@ -7,6 +7,7 @@ import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.TurokChat;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
@@ -44,12 +45,12 @@ public class Aura extends Module {
 
     @Override
     public void onEnable() {
-        TurokChat.send_msg("[Kill-Aura] " + ChatFormatting.GREEN + "Enabled!");
+        TurokMessage.send_msg("[Kill-Aura] " + ChatFormatting.GREEN + "Enabled!");
     }
 
     @Override
     public void onDisable() {
-        TurokChat.send_msg("[Kill-Aura] " + ChatFormatting.RED + "Disabled!");
+        TurokMessage.send_msg("[Kill-Aura] " + ChatFormatting.RED + "Disabled!");
     }
 
     @Override
