@@ -16,8 +16,11 @@ public class ActiveModules extends Label {
             @Override
             public void onPreRender() {
                 Frame parentFrame = ContainerHelper.getFirstParent(Frame.class, ActiveModules.this);
+                
                 if (parentFrame == null) return;
+                
                 Docking docking = parentFrame.getDocking();
+                
                 if (docking.isTop()) sort_up = true;
                 if (docking.isBottom()) sort_up = false;
             }

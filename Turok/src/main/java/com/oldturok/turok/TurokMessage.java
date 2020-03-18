@@ -12,7 +12,11 @@ import java.util.regex.Pattern;
 // Rina.
 public class TurokMessage {
 	public static void send_msg(String message) {
-		Wrapper.getPlayer().sendMessage(new ChatMessage(TurokMod.TUROK_MOD_NAME + " - " + " " + message));
+		Wrapper.getPlayer().sendMessage(new ChatMessage(message));
+	}
+
+	public static void send_client_msg(String message) {
+		send_msg(TurokMod.TUROK_MOD_NAME + " - " + " " + message);
 	}
 
 	public static class ChatMessage extends TextComponentBase {

@@ -79,9 +79,9 @@ public class HoleColor extends Module {
 
 		TurokTessellator.prepare(GL11.GL_LINES);
 		safe_holes.forEach((block_pos, bedrock) -> {
-			draw(block_pos, r.getValue(), g.getValue(), a.getValue());
-			draw(block_pos, r.getValue(), g.getValue(), a.getValue());
-			draw(block_pos, r.getValue(), g.getValue(), a.getValue());
+			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
+			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
+			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
 		});
 		TurokTessellator.release();
 	}

@@ -45,12 +45,12 @@ public class Aura extends Module {
 
     @Override
     public void onEnable() {
-        TurokMessage.send_msg("[Kill-Aura] " + ChatFormatting.GREEN + "Enabled!");
+        TurokMessage.send_msg("Kill-Aura <-" + ChatFormatting.GREEN + "Enabled!");
     }
 
     @Override
     public void onDisable() {
-        TurokMessage.send_msg("[Kill-Aura] " + ChatFormatting.RED + "Disabled!");
+        TurokMessage.send_msg("Kill-Aura -> " + ChatFormatting.RED + "Disabled!");
     }
 
     @Override

@@ -16,9 +16,9 @@ public class TurokPrefix extends TurokChat {
 			String prefix = message[1];
 			TurokMod.TUROK_CHAT_PREFIX = prefix;
 	
-			TurokMessage.send_msg("The new character is: " + TurokMod.TUROK_CHAT_PREFIX);
+			TurokMessage.send_client_msg("The new character is: " + TurokMod.TUROK_CHAT_PREFIX);
 		} else {
-			TurokMessage.send_msg("Set a new character using 'prefix [character]'.");
+			TurokMessage.send_client_msg("Set a new character using 'prefix [character]'.");
 		}
 	
 		return true;

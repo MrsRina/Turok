@@ -36,7 +36,7 @@ public class TurokChatCommand {
 
 			if (!command_us && chat_manager.ContainsPrefix(event.getMessage())) {
 				
-				TurokMessage.send_msg("Use command help for get hElP.");
+				TurokMessage.send_client_msg("Use command help for get hElP.");
 
 				command_us = false;
 			}

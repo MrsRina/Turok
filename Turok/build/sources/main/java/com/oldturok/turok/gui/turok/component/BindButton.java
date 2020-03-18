@@ -10,7 +10,7 @@ import org.lwjgl.input.Keyboard;
 // Update by Rina 05/03/20.
 public class BindButton extends EnumButton {
     static String[] lookingFor = new String[] {"_"};
-    static String[] none = new String[] {"NONE"};
+    static String[] none = new String[] {"None"};
     boolean waiting = false;
     Module m;
 

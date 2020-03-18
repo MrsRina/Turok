@@ -11,10 +11,11 @@ import com.oldturok.turok.TurokChat;
 import com.mojang.realmsclient.gui.ChatFormatting;
 
 import net.minecraft.network.play.client.CPacketEntityAction;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.network.play.client.CPacketAnimation;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.item.EntityXPOrb;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.block.BlockObsidian;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.BlockLiquid;
@@ -35,12 +36,13 @@ import static com.oldturok.turok.util.BlockInteractionHelper.canBeClicked;
 public class AutoBarrier extends Module {
 
     private Setting<Mode> mode = register(Settings.e("Mode", Mode.FULL));
-    private Setting<Boolean> triggerable = register(Settings.b("Triggerable", true));
-    private Setting<Integer> timeoutTicks = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(13).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
+    private Setting<Boolean> triggerable   = register(Settings.b("Triggerable", true));
+    private Setting<Integer> timeoutTicks  = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(13).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
     private Setting<Integer> blocksPerTick = register(Settings.integerBuilder("BlocksPerTick").withMinimum(1).withValue(4).withMaximum(9).build());
-    private Setting<Integer> tickDelay = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
-    private Setting<Boolean> rotate = register(Settings.b("Rotate", true));
-    private Setting<Boolean> infoMessage = register(Settings.b("InfoMessage", false));
+    private Setting<Integer> tickDelay     = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
+    private Setting<Boolean> rotate        = register(Settings.b("Rotate", true));
+    private Setting<Boolean> infoMessage   = register(Settings.b("InfoMessage", false));
+    private Setting<Boolean> no_animation  = register(Settings.b("No Place Animation", true));
 
     private int offsetStep = 0;
     private int delayStep = 0;
@@ -111,7 +113,6 @@ public class AutoBarrier extends Module {
 
     @Override
     public void onUpdate() {
-
         if (mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
             return;
         }
@@ -192,6 +193,7 @@ public class AutoBarrier extends Module {
             if (infoMessage.getValue()) {
                 TurokMessage.send_msg("AutoBarrier <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
             }
+
             this.disable();
         }
 
@@ -244,6 +246,10 @@ public class AutoBarrier extends Module {
 
         if (rotate.getValue()) {
             faceVectorPacketInstant(hitVec);
+        }
+
+        if (no_animation.getValue()) {
+            mc.player.connection.sendPacket(new CPacketAnimation(mc.player.getActiveHand()));
         }
 
         mc.playerController.processRightClickBlock(mc.player, mc.world, neighbour, opposite, hitVec, EnumHand.MAIN_HAND);

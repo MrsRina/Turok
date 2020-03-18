@@ -47,4 +47,8 @@ public class TurokGL {
 		DisableGL(GL11.GL_TEXTURE_2D);
         DisableGL(GL11.GL_BLEND);
 	}
+
+	public static void LineGL(float size) {
+		GL11.glLineWidth(size);
+	}
 }

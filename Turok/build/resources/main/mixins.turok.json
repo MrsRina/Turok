@@ -1,7 +1,7 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_8",
-  "package": "com.oldturok.turok.mixin.client",
+  "package": "base_mixins.client",
   "refmap": "mixins.turok.refmap.json",
   "client": [
     "MixinNetworkManager",

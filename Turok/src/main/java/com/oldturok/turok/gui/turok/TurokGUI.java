@@ -8,9 +8,9 @@ import com.oldturok.turok.gui.turok.component.SettingsPanel;
 import com.oldturok.turok.gui.turok.component.ActiveModules;
 import com.oldturok.turok.gui.rgui.component.use.CheckButton;
 import com.oldturok.turok.gui.rgui.util.ContainerHelper;
-import com.oldturok.turok.gui.turok.widgets.TurokTheme;
 import com.oldturok.turok.gui.rgui.component.use.Label;
 import com.oldturok.turok.gui.rgui.render.theme.Theme;
+import com.oldturok.turok.gui.turok.widgets.Widgets;
 import com.oldturok.turok.gui.rgui.util.Docking;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
@@ -68,7 +68,7 @@ public class TurokGUI extends GUI {
     public static boolean state_coord = true;
 
     public TurokGUI() {
-        super(new TurokTheme());
+        super(new Widgets());
         theme = getTheme();
     }
 

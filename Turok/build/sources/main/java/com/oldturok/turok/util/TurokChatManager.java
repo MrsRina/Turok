@@ -20,7 +20,6 @@ public class TurokChatManager {
 		prefix = prefix_;
 		format = format_;
 
-		command_list.add(new TurokDev());
 		command_list.add(new TurokPrefix());
 	}
 
