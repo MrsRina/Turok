@@ -129,9 +129,7 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
                 if (y < 0) {
                     if (x < component.getWidth() && x > ff.getStringWidth(component.getTitle()) - component.getWidth()) {
                         if (component.isPinneable()) {
-                            if (component.isPinned()) {
-                                component.setPinned(!(component.isPinned()));
-                            }
+                            component.setPinned(!(component.isPinned()));
                         }
                     }
                 }
