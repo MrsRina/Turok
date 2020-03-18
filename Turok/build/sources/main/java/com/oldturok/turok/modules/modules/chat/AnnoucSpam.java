@@ -30,7 +30,9 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.time.*;
 
 @Module.Info(name = "AnnoucSpam", category = Module.Category.TUROK_CHAT)
 public class AnnoucSpam extends Module {
@@ -50,12 +52,13 @@ public class AnnoucSpam extends Module {
 	public boolean moving = true;
 
 	public void update_tick() {
+		Date hora   = new Date();
+		String data = new SimpleDateFormat("dd/MM/yyyy").format(hora);
+
 		tick += tick_.getValue();
 
-		Random gerador = new Random(19700621);
-
 		if (mc.player.movementInput.moveForward == 0.0f && mc.player.movementInput.moveStrafe == 0.0f) {
-			moved  = 0.1f;
+			moved  += 0.1f;
 			send_m = false;
 		} else {
 			moved  = 0.0f;
@@ -67,9 +70,7 @@ public class AnnoucSpam extends Module {
 				send("I walked " + Float.toString(moved) + ", thanks Turok.");
 
 			} else {
-				send("Im just stoped, thanks Turok. My cache money: " + Integer.toString(gerador.nextInt(5000)));
-
-
+				send("Im just stoped, thanks Turok " + data);
 			}
 
 			tick = 0;
