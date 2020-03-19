@@ -16,7 +16,7 @@ import org.lwjgl.input.Keyboard;
 
 // Rina.
 // Thanks mememez...
-@Module.Info(name = "InventoryWalker", category = Module.Category.TUROK_HIDDEN)
+@Module.Info(name = "InventoryWalker", category = Module.Category.TUROK_MOVEMENT)
 public class InventoryWalker extends Module {
 	private static KeyBinding[] KEYS = new KeyBinding[]{mc.gameSettings.keyBindForward, mc.gameSettings.keyBindRight, mc.gameSettings.keyBindBack, mc.gameSettings.keyBindLeft, mc.gameSettings.keyBindJump, mc.gameSettings.keyBindSprint};
 	int JUMP                         = mc.gameSettings.keyBindJump.getKeyCode();

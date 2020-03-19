@@ -45,9 +45,9 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
     boolean effect_module_one = true;
     Boolean effect_module_r   = false;
 
-    int color_pinned_r = 0;
+    int color_pinned_r = 105;
 
-    float color_module_r = 150;
+    float color_module_r = 105;
 
     public static int speed_effect = 1;
 
@@ -76,11 +76,11 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
                 color_module_r -= 1f;
             }
 
-            if (color_module_r >= 250) {
+            if (color_module_r >= 255) {
                 effect_module_r = false;
             }
 
-            if (color_module_r <= 100) {
+            if (color_module_r <= 105) {
                 effect_module_r = true;
             }
         }

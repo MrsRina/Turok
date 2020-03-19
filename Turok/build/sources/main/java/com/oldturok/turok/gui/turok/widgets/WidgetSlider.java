@@ -17,7 +17,7 @@ public class WidgetSlider extends AbstractComponentUI<Slider> {
     boolean effect_slider_one = true;
     Boolean effect_slider_r   = false;
 
-    int color_slider_r = 0;
+    int color_slider_r = 105;
 
     @Override
     public void renderComponent(Slider component, FontRenderer aa) {
@@ -43,7 +43,7 @@ public class WidgetSlider extends AbstractComponentUI<Slider> {
             }
 
             if (color_slider_r <= 105) {
-                effect_slider_r = false;
+                effect_slider_r = true;
             }
         }
 

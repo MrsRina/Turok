@@ -27,9 +27,9 @@ public class WidgetCheckButton<T extends CheckButton> extends AbstractComponentU
     protected Color downColourToggle = idleColourToggle.brighter();
 
     boolean effect_button_one = true;
-    Boolean effect_button_r   = false;
+    Boolean effect_button_r   = true;
 
-    int color_button_r = 0;
+    int color_button_r = 105;
 
     @Override
     public void renderComponent(CheckButton component, FontRenderer ff) {

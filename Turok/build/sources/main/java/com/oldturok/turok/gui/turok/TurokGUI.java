@@ -91,6 +91,7 @@ public class TurokGUI extends GUI {
                 stretcherlayout.setComponentOffsetWidth(0);
                 Scrollpane scrollpane = new Scrollpane(getTheme(), stretcherlayout, 300, 260);
                 scrollpane.setMaximumHeight(600);
+                scrollpane.setMaximumWidth(600);
                 categoryScrollpaneHashMap.put(moduleCategory, new Pair<>(scrollpane, new SettingsPanel(getTheme(), null)));
             }
 
@@ -214,9 +215,10 @@ public class TurokGUI extends GUI {
 
         frames = new ArrayList<>();
 
-        frame_users = new Frame(getTheme(), new Stretcherlayout(1), "Turok Info");
+        frame_users = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.BLACK + "Turok Info");
         frame_users.setCloseable(false);
         frame_users.setPinneable(true);
+        frame_users.setMaximumWidth(600);
 
         Label users = new Label("");
         users.addTickListener(() -> {
@@ -225,21 +227,23 @@ public class TurokGUI extends GUI {
             String name = "";           
                
             name = mc.player.getName();
-            users.setText(name + " - " + "Turok " + TurokMod.TUROK_MOD_VERSION + " - " + Wrapper.getMinecraft().debugFPS);
+            users.setText(name + ChatFormatting.RED + " - " + "Turok " + TurokMod.TUROK_MOD_VERSION + " - " + Wrapper.getMinecraft().debugFPS);
         });
 
         frame_users.addChild(users);
         users.setFontRenderer(fontRendererBig);
         users.setShadow(true);
 
-        frame_array = new Frame(getTheme(), new Stretcherlayout(1), "Turok Modules Array");
+        frame_array = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.BLACK + "Turok Modules Array");
         frame_array.setCloseable(false);
         frame_array.addChild(new ActiveModules());
         frame_array.setPinneable(true);
+        frame_array.setMaximumWidth(600);
 
-        frame_coords = new Frame(getTheme(), new Stretcherlayout(1), "Coordinates");
+        frame_coords = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.BLACK + "Coordinates");
         frame_coords.setCloseable(false);
         frame_coords.setPinneable(true);
+        frame_coords.setMaximumWidth(600);
 
         Label coordsLabel = new Label("");
         coordsLabel.addTickListener(() -> {
@@ -257,17 +261,18 @@ public class TurokGUI extends GUI {
             int poshZ = (int) (mc.player.posZ * value);
 
             coordsLabel.setText("");
-            coordsLabel.addLine(String.format("x" + poshX + " y" + posY + " z" + poshZ));
-            coordsLabel.addLine(String.format("x" + posX + " y" + posY + " z" + posZ));
+            coordsLabel.addLine(ChatFormatting.RED  + String.format("x" + poshX + " y" + posY + " z" + poshZ));
+            coordsLabel.addLine(ChatFormatting.BLUE + String.format("x" + posX + " y" + posY + " z" + posZ));
         });
 
         frame_coords.addChild(coordsLabel);
         coordsLabel.setFontRenderer(fontRendererBig);
         coordsLabel.setShadow(true);
 
-        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), "Turok Info");
+        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.BLACK + "Turok Info");
         frame_counts.setCloseable(false);
         frame_counts.setPinneable(true);
+        frame_counts.setMaximumWidth(600);
 
         Label count = new Label("");
         count.addTickListener(() -> {
@@ -298,11 +303,11 @@ public class TurokGUI extends GUI {
                 }
             }
 
-            count.setText("Turok Info");
-            count.addLine("Totems - "     + String.valueOf(totems));
-            count.addLine("Crystals - "   + String.valueOf(gapples));
-            count.addLine("Gapples - "    + String.valueOf(crystals));
-            count.addLine("EXPBottles - " + String.valueOf(expbottles));
+            count.setText(ChatFormatting.BLACK + "Turok Info");
+            count.addLine(ChatFormatting.RED + "Totems - "     + String.valueOf(totems));
+            count.addLine(ChatFormatting.RED + "Crystals - "   + String.valueOf(gapples));
+            count.addLine(ChatFormatting.RED + "Gapples - "    + String.valueOf(crystals));
+            count.addLine(ChatFormatting.RED + "EXPBottles - " + String.valueOf(expbottles));
         });
 
         frame_counts.addChild(count);

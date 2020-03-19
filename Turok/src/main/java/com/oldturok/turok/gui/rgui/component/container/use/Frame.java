@@ -108,11 +108,11 @@ public class Frame extends OrganisedContainer {
             }
         });
 
-        addMouseListener(new GayMouseListener());
+        addMouseListener(new HeterosMouseListener());
     }
 
     // what is this naming??
-    public class GayMouseListener implements MouseListener {
+    public class HeterosMouseListener implements MouseListener {
         @Override
         public void onMouseDown(MouseButtonEvent event) {
             dx = event.getX() + getOriginOffsetX();
