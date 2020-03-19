@@ -26,13 +26,34 @@ public class WidgetCheckButton<T extends CheckButton> extends AbstractComponentU
     protected Color idleColourToggle = new Color(0, 0, 255);
     protected Color downColourToggle = idleColourToggle.brighter();
 
+    boolean effect_button_one = true;
+    Boolean effect_button_r   = false;
+
+    int color_button_r = 0;
+
     @Override
     public void renderComponent(CheckButton component, FontRenderer ff) {
         int color = component.isPressed() ? 0xdddddd : component.isToggled() ? 0xdddddd : 0xdddddd;
         
         if (component.isHovered()) color = (color & 0x9dc4dc) << 1;
         if (component.isToggled()) {
-            TurokGL.refresh_color(255, 0, 0, 150);
+            if (effect_button_one) {
+                if (effect_button_r) {
+                    color_button_r += 1;
+                } else {
+                    color_button_r -= 1;
+                }
+
+                if (color_button_r >= 255) {
+                    effect_button_r = false;
+                }
+
+                if (color_button_r <= 105) {
+                    effect_button_r = true;
+                }
+            }
+
+            TurokGL.refresh_color(color_button_r, 0, 0, 150);
             RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
 
             TurokGUI.fontRenderer.drawString(1, 1, color, component.getName());

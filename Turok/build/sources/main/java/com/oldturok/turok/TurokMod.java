@@ -123,33 +123,6 @@ public class TurokMod {
         TurokMod.turok_log.info("Welcome to Turok.");
     }
 
-    public static String get_cache() throws IOException {
-        Path folder_binds = Paths.get(TUROK_FOLDER_NAME_DEFAULT);
-        Files.createDirectories(folder_binds);
-
-        Path config              = Paths.get(TUROK_FOLDER_NAME_DEFAULT + "TurokCache_.txt");
-        String turok_config_name = TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT;
-
-        try (BufferedReader reader = Files.newBufferedReader(config)) {
-            turok_config_name = reader.readLine();
-            if (!name_valid(turok_config_name)) {
-            	turok_config_name = TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT;
-            }
-
-        } catch (NoSuchFileException exc) {
-            try (BufferedWriter writer = Files.newBufferedWriter(config)) {
-                writer.write(TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT);
-            } catch (IOException exc_) {
-                exc_.printStackTrace();
-            }
-
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
-
-        return turok_config_name;
-    }
-
     public static void load_config() {
         try {
             load_configs();
@@ -159,14 +132,14 @@ public class TurokMod {
     }
 
     public static void load_configs() throws IOException {
-        String turok_config_name_ = get_cache();
+        String turok_config_name_ = TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT;
         Path turok_config         = Paths.get(turok_config_name_);
         
         Path folder_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT);
 
         Files.createDirectories(folder_bind);
 
-        Path file_bind = Paths.get(get_cache());
+        Path file_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT);
 
         Files.createDirectories(folder_bind);
 
@@ -233,7 +206,7 @@ public class TurokMod {
 
         TurokMod.INSTANCE.guiStateSetting.setValue(object);
 
-        Path file_bind = Paths.get(get_cache());
+        Path file_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT);
 
         Configuration.saveConfiguration(file_bind);
         ModuleManager.getModules().forEach(Module::destroy);

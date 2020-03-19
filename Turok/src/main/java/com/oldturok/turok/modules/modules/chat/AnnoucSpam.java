@@ -39,19 +39,19 @@ public class AnnoucSpam extends Module {
 	private Setting<Integer> tick_ = register(Settings.integerBuilder("Tick").withRange(1, 50).withValue(10).build());
 	private Setting<Integer> delay = register(Settings.integerBuilder("Delay").withRange(2000, 10000).withValue(2000).build());
 
+	private Setting<Boolean> walk   = register(Settings.b("Walk", false));
 	private Setting<Boolean> combat = register(Settings.b("Combat Modules", false));
-	private Setting<Boolean> toxic  = register(Settings.b("Toxic :(", false));
 
 	public int tick;
 	public int no_spam;
 
-	public boolean send_m = false; 
+	public boolean send_m = false;
 
 	public int old_x;
 	public int old_z;
 
-	public float x;
-	public float z;
+	public static int x;
+	public static int z;
 
 	public int moved;
 
@@ -64,6 +64,11 @@ public class AnnoucSpam extends Module {
 	public float stable_health;
 	public float health;
 	public float damage;
+
+	public static ArrayList<Module> combat_modules = new ArrayList<>();
+
+	public Boolean combat_actived = false;
+	public String type_module;
 
 	@EventHandler
 	private Listener<PacketEvent.Send> packetEventSendListener = new Listener<>(event -> {
@@ -79,19 +84,25 @@ public class AnnoucSpam extends Module {
 	});
 
 	public void get_value() {
-		old_x = (int) mc.player.posX;
-		old_z = (int) mc.player.posZ;
+		if (mc.player.movementInput.moveForward >= 0.1f) {
+			x = old_x;
+			z = old_z;
 
-		if (old_x != mc.player.posX || old_z != mc.player.posZ) {
-			moved = (int) (old_x - mc.player.posX) + (int) (old_z - mc.player.posZ);
+			old_x = (int) mc.player.posX;
+			old_z = (int) mc.player.posZ;
 
-			send_m = false;
-		} else {
+			moved = (x - old_x) + (z - old_z);
+
 			send_m = true;
+		} else {
+			send_m = false;
 		}
 	}
 
 	public void reset_var() {
+		x = old_x;
+		z = old_z;
+
 		old_x = (int) mc.player.posX;
 		old_z = (int) mc.player.posZ;
 
@@ -111,7 +122,9 @@ public class AnnoucSpam extends Module {
 
 					block_break = false;
 				} else {
-					send("I walked " + Integer.toString(moved) + ", thanks Turok.");
+					if (walk.getValue()) {
+						send("I walked " + Integer.toString(moved) + ", thanks Turok.");
+					}
 				}
 			} else {
 				if (block_break) {
@@ -119,10 +132,24 @@ public class AnnoucSpam extends Module {
 
 					block_break = false;
 				} else {
-					send("Im just stoped, thanks Turok " + data);
+					if (combat.getValue()) {
+						active_module_combat();
 
-					reset_var();
+						if (combat_actived) {
+							send("I actived " + type_module + ", thanks Turok");
+
+							type_module    = "null";
+							combat_actived = false;
+						}
+
+					} else {
+						if (walk.getValue()) {
+							send("Im just stoped, thanks Turok " + data);
+						}
+					}
 				}
+
+				reset_var();
 			}
 
 			tick = 0;
@@ -133,15 +160,14 @@ public class AnnoucSpam extends Module {
 		send("I breaked " + block + ", thanks Turok.");
 	}
 
-	public void active_module_combat(String module) {
-		send("I actived " + module + ", thanks Turok.");
-	}
-
-	public void got_damage(String damage) {
-		if (toxic.getValue()) {
-			send("I fucking lost " + damage + ", thanks Turok.");
-		} else {
-			send("I lost " + damage + ", thanks Turok.");
+	public void active_module_combat() {
+		for (Module combat : combat_modules) {
+			if (ModuleManager.isModuleEnabled(combat.getName())) {
+				if (combat.getCategory().equals("Turok Combat")) {
+					type_module    = combat.getName();
+					combat_actived = true;
+				}
+			}
 		}
 	}
 

@@ -23,6 +23,7 @@ import com.oldturok.turok.TurokMod;
 import org.lwjgl.opengl.GL11;
 
 import com.oldturok.turok.util.TurokGL; // TurokGL.
+import com.oldturok.turok.util.TurokColor; // TurokColor.
 
 // Rina.
 // Modfify.
@@ -30,25 +31,23 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
     ColourHolder frameColour   = TurokGUI.primaryColour.setA(100);
     ColourHolder outlineColour = frameColour.darker();
 
-    Component yLineComponent = null;
-    Component xLineComponent = null;
+    Component yLineComponent   = null;
+    Component xLineComponent   = null;
     Component centerXComponent = null;
     Component centerYComponent = null;
 
     boolean centerX = false;
     boolean centerY = false;
 
-    int xLineOffset = 0;
+    boolean effect_pinned_one = true;
+    Boolean effect_pinned_r   = false;
 
-    boolean effect_one = false;
-    Boolean effect_two = false;
+    boolean effect_module_one = true;
+    Boolean effect_module_r   = false;
 
-    int effect_tick = 0;
+    int color_pinned_r = 0;
 
-    int widht;
-    int height;
-
-    int color = 0;
+    float color_module_r = 150;
 
     public static int speed_effect = 1;
 
@@ -61,45 +60,70 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
         TurokGL.DisableGL(GL11.GL_TEXTURE_2D);
 
         if (component.isPinneable()) {
-            if (component.isPinned()) {
-                TurokGL.refresh_color(color, 0, 0, 150);
-
-                RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
-            } else {
-                if (effect_one) {
-                    color += 1;
-                } else {
-                    color -= 1;
-                }
-
-                if (color >= 255) {
-                    effect_one = false;
-                }
-
-                if (color <= 0) {
-                    effect_one = true;
-                }
-
-                TurokGL.refresh_color(color, 0, 0, 150);
-
-                RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
-            }
-
-            TurokGL.refresh_color(255, 255, 255, 255);
-            ff.drawString(1, 1, component.getTitle());
+            draw_pinned(component);
         } else {
-            TurokGL.refresh_color(0, 0, 0, 150);
-            RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
-
-            TurokGL.refresh_color(0, 0, 0, 255);
-            RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
-
-            TurokGL.refresh_color(0, 0, 0, 255);
-            ff.drawString(1, 1, component.getTitle());
+            draw_module(component, fontRenderer);
         }
 
         TurokGL.FixRefreshColor();
     }
+
+    public void draw_module(Frame component, FontRenderer fontRenderer) {
+        if (effect_module_one) {
+            if (effect_module_r) {
+                color_module_r += 1f;
+            } else {
+                color_module_r -= 1f;
+            }
+
+            if (color_module_r >= 250) {
+                effect_module_r = false;
+            }
+
+            if (color_module_r <= 100) {
+                effect_module_r = true;
+            }
+        }
+
+        TurokGL.refresh_color(color_module_r, 0, 0, 150);
+        RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
+
+        TurokGL.refresh_color(color_module_r, 0, 0, 255);
+        RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
+
+        TurokColor color = new TurokColor(color_pinned_r, 0, 0);
+
+        fontRenderer.drawString(1, 1, color.hex(), component.getTitle());
+    }
+
+    public void draw_pinned(Frame component) {
+        if (component.isPinned()) {
+            if (effect_pinned_one) {
+                if (effect_pinned_r) {
+                    color_pinned_r += 1;
+                } else {
+                    color_pinned_r -= 1;
+                }
+
+                if (color_pinned_r >= 255) {
+                    effect_pinned_r = false;
+                }
+
+                if (color_pinned_r <= 105) {
+                    effect_pinned_r = true;
+                }
+            }
+
+            TurokGL.refresh_color(color_pinned_r, 0, 0, 150);
+        } else {
+            TurokGL.refresh_color(0, 0, 0, 150);
+        }
+
+        RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), component.getHeight());
+
+        ff.drawString(1, 1, component.getTitle());
+    }
+
 
     @Override
     public void handleMouseRelease(Frame component, int x, int y, int button) {
@@ -129,7 +153,7 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
                 if (y < 0) {
                     if (x < component.getWidth() && x > ff.getStringWidth(component.getTitle()) - component.getWidth()) {
                         if (component.isPinneable()) {
-                            component.setPinned(!(component.isPinned()));
+                            component.setPinned(!component.isPinned());
                         }
                     }
                 }
