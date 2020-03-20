@@ -34,7 +34,7 @@ import java.util.*;
 import java.time.*;
 
 // Rina.
-@Module.Info(name = "AnnoucSpam", category = Module.Category.TUROK_CHAT)
+@Module.Info(name = "AnnoucSpam", description = "For spam annouc.", category = Module.Category.TUROK_CHAT)
 public class AnnoucSpam extends Module {
 	private Setting<Integer> tick_ = register(Settings.integerBuilder("Tick").withRange(1, 50).withValue(10).build());
 	private Setting<Integer> delay = register(Settings.integerBuilder("Delay").withRange(2000, 10000).withValue(2000).build());

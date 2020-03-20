@@ -16,6 +16,9 @@ public class CFontRenderer extends CFont {
 	
 	private final int[] colorCode = new int[32];
 	private final String colorcodeIdentifiers = "0123456789abcdefklmnor";
+
+	public float main_x;
+	public float main_y;
 	
 	public CFontRenderer(Font font, boolean antiAlias, boolean fractionalMetrics) {
 		super(font, antiAlias, fractionalMetrics);
@@ -39,8 +42,19 @@ public class CFontRenderer extends CFont {
 	public float drawCenteredString(String text, float x, float y, int color) {
 		return drawString(text, x - getStringWidth(text) / 2, y, color);
 	}
+
+	public float getX() {
+		return main_x;
+	}
+
+	public float getY() {
+		return main_y;
+	}
 	
 	public float drawString(String text, double x, double y, int color, boolean shadow) {
+		main_x = (float) x;
+		main_y = (float) y;
+
 		x -= 1;
 		y -= 2;
 		if (text == null) {
@@ -155,7 +169,7 @@ public class CFontRenderer extends CFont {
 		}
 		return (float) x / 2.0F;
 	}
-	
+
 	@Override
 	public int getStringWidth(String text) {
 		if (text == null) {

@@ -14,7 +14,7 @@ import com.oldturok.turok.util.TurokFancyChat;
 import com.oldturok.turok.TurokMod;
 
 // Rina.
-@Module.Info(name = "ChatSuffix", category = Module.Category.TUROK_CHAT, description = "Modifies your chat messages")
+@Module.Info(name = "Chat Suffix", category = Module.Category.TUROK_CHAT, description = "A different chat.")
 public class ChatSuffix extends Module {
     private Setting <Boolean> commands     = register(Settings.b("Commands", true));
     private Setting <Boolean> i_speak_taco = register(Settings.b("I Speak Taco Suffix", false));

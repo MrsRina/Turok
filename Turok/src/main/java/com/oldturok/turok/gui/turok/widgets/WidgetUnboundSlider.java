@@ -11,9 +11,11 @@ import org.lwjgl.opengl.GL11;
 import com.oldturok.turok.util.TurokGL;
 
 public class WidgetUnboundSlider extends AbstractComponentUI<UnboundSlider> {
+    public String text;    
+
     @Override
     public void renderComponent(UnboundSlider component, FontRenderer fontRenderer) {
-        String text = component.getText() + ": " + component.getValue();
+        text = component.getText() + ": " + component.getValue();
         int color = component.isPressed() ? 0xdddddd : 0xdddddd;
         float value_ = (float) component.getValue();
         if (component.isHovered()) color = (color & 0x9dc4dc) << 1; 
@@ -22,11 +24,18 @@ public class WidgetUnboundSlider extends AbstractComponentUI<UnboundSlider> {
         fontRenderer.drawString(1, component.getHeight() - fontRenderer.getFontHeight() / 2 - 4, color, text);
 
         TurokGL.FixRefreshColor();
+
+        component.setWidth(1 + 1 + component.getTheme().getFontRenderer().getStringWidth(text) + 1);
     }
 
     @Override
     public void handleAddComponent(UnboundSlider component, Container container) {
         component.setHeight(component.getTheme().getFontRenderer().getFontHeight());
-        component.setWidth(component.getTheme().getFontRenderer().getStringWidth(component.getText()));
+
+        if (1 + 1 + component.getTheme().getFontRenderer().getStringWidth(text) < component.getWidth()) {
+            component.setWidth(component.getTheme().getFontRenderer().getStringWidth(text));
+        } else {
+            component.setWidth(1 + 1 + component.getTheme().getFontRenderer().getStringWidth(text) + 10);
+        }
     }
 }

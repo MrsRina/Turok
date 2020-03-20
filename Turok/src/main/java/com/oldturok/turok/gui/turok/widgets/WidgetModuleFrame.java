@@ -59,6 +59,10 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
 
         TurokGL.DisableGL(GL11.GL_TEXTURE_2D);
 
+        if (fontRenderer.getStringWidth(component.getTitle()) > component.getwidth()) {
+            component.setWidth(fontRenderer.getStringWidth(component.getTitle()) + 1);
+        }
+
         if (component.isPinneable()) {
             draw_pinned(component);
         } else {

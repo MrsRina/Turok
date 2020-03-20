@@ -9,7 +9,7 @@ import net.minecraft.item.ItemExpBottle;
 import net.minecraft.item.Item;
 
 // Rina.
-@Module.Info(name = "FastBP", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "FastBP", description = "Fast Break and Place", category = Module.Category.TUROK_COMBAT)
 public class FastBP extends Module {
 	private Setting<Boolean> break_ = register(Settings.b("Break", true));
 	private Setting<Boolean> place = register(Settings.b("Place", true));

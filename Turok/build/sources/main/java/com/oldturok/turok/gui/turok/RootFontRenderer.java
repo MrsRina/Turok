@@ -13,13 +13,16 @@ public class RootFontRenderer implements FontRenderer {
     private final float fontsize;
     private final net.minecraft.client.gui.FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
 
+    public int main_x;
+    public int main_y;
+
     public RootFontRenderer(float fontsize) {
         this.fontsize = fontsize;
     }
 
     @Override
     public int getFontHeight() {
-        return (int) (Minecraft.getMinecraft().fontRenderer.FONT_HEIGHT*fontsize);
+        return (int) (Minecraft.getMinecraft().fontRenderer.FONT_HEIGHT * fontsize);
     }
 
     @Override
@@ -28,8 +31,18 @@ public class RootFontRenderer implements FontRenderer {
     }
 
     @Override
+    public int getX() {
+        return main_x;
+    }
+
+    @Override
+    public int getY() {
+        return main_y;
+    }
+
+    @Override
     public int getStringWidth(String text) {
-        return (int) (fontRenderer.getStringWidth(text)*fontsize);
+        return (int) (fontRenderer.getStringWidth(text) * fontsize);
     }
 
     @Override
@@ -53,9 +66,12 @@ public class RootFontRenderer implements FontRenderer {
     }
 
     public void drawString(int x, int y, int colour, String text, boolean shadow) {
+        main_x = x;
+        main_y = y;
+
         prepare(x, y);
         Minecraft.getMinecraft().fontRenderer.drawString(text, 0, 0, colour, shadow);
-        pop(x,y);
+        pop(x, y);
     }
 
     @Override

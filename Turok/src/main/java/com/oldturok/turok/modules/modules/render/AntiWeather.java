@@ -3,7 +3,7 @@ package com.oldturok.turok.module.modules.render;
 import com.oldturok.turok.module.Module;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "AntiWeather", description = "Removes rain from your world", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "Anti Weather", description = "Removes rain from any server : (", category = Module.Category.TUROK_RENDER)
 public class AntiWeather extends Module {
     @Override
     public void onUpdate() {

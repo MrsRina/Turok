@@ -26,6 +26,7 @@ public abstract class AbstractComponent implements Component {
 
     protected int priority = 0;
     private Setting<Boolean> visible = Settings.b("Visible", true);
+
     float opacity = 1f;
     private boolean focus = false;
     ComponentUI ui;
@@ -176,9 +177,10 @@ public abstract class AbstractComponent implements Component {
     public void setHeight(int height) {
         height = Math.max(getMinimumHeight(), Math.min(height, getMaximumHeight()));
 
-        final int oldWidth = getWidth();
+        final int oldWidth  = getWidth();
         final int oldHeight = getHeight();
         this.height = height;
+
         getUpdateListeners().forEach(listener -> listener.updateSize(this, oldWidth, oldHeight)); // First call components own updatelisteners
         if (getParent() != null)
             getParent().getUpdateListeners().forEach(listener -> listener.updateSize(this, oldWidth, oldHeight)); // And then notify the parent

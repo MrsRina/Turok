@@ -15,7 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import org.lwjgl.opengl.GL11;
 
 // Rina.
-@Module.Info(name = "BlockHighLight", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "Block Highlight", description = "For you see better the block on split.", category = Module.Category.TUROK_RENDER)
 public class BlockHighLight extends Module {
 	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(200));
 	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(200));

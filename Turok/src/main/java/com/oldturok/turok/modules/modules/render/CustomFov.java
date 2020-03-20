@@ -5,7 +5,7 @@ import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 
 // Rina.
-@Module.Info(name = "CustomFOV", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "Custom FOV", description = "Custom FOV?", category = Module.Category.TUROK_RENDER)
 public class CustomFov extends Module {
 	private Setting<Float> custom_fov = register(Settings.floatBuilder("FOV").withMinimum(30f).withValue(110f).withMaximum(180f));
 

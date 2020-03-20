@@ -36,8 +36,8 @@ public class UnboundSlider extends AbstractComponent {
 
             @Override
             public void onMouseDrag(MouseButtonEvent event) {
-                int diff = (originX - event.getX())/sensitivity;
-                setValue(Math.floor((originValue-(diff*(originValue==0 ? 1 : Math.abs(originValue)/10f)))*10f)/10f);
+                int diff = (originX - event.getX()) / sensitivity;
+                setValue(Math.floor((originValue - (diff * (originValue == 0 ? 1 : Math.abs(originValue) / 10f))) * 10f) / 10f);
             }
 
             @Override

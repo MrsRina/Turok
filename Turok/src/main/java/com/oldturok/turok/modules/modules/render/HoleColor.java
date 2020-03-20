@@ -19,9 +19,10 @@ import org.lwjgl.opengl.GL11;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.List;
 import java.awt.*;
+import java.io.*;
 
 // Rina.
-@Module.Info(name = "HoleColor", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "ESP Hole Color", description = "For draw block into holes.", category = Module.Category.TUROK_RENDER)
 public class HoleColor extends Module {
 	private ConcurrentHashMap<BlockPos, Boolean> safe_holes;
 	private final BlockPos[] barrier_ = {
@@ -33,10 +34,11 @@ public class HoleColor extends Module {
 	};
 
 	private Setting<Double> range = register(Settings.d("Range", 10.0d));
-	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(255));
-	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(255));
-	private Setting<Integer> b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
-	private Setting<Integer> a = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Integer> r    = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> g    = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> b    = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> a    = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Boolean> rgb  = register(Settings.b("RGB", true));
 
 	@Override
 	public void onUpdate() {
@@ -79,9 +81,28 @@ public class HoleColor extends Module {
 
 		TurokTessellator.prepare(GL11.GL_LINES);
 		safe_holes.forEach((block_pos, bedrock) -> {
-			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
-			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
-			draw(block_pos, r.getValue(), g.getValue(), b.getValue());
+			int r = 0;
+			int g = 0;
+			int b = 0;
+
+			if (rgb.getValue()) {
+				float[] tick_color = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
+				int color_rgb      = Color.HSBtoRGB(tick_color[0], 1, 1);
+
+				tick_color[0] += 0.1f;
+
+				r = ((color_rgb >> 16) & 0xFF);
+				g = ((color_rgb >> 8) & 0xFF);
+				b = (color_rgb & 0xFF);
+			} else {
+				r = r.getValue();
+				g = g.getValue();
+				b = b.getValue();
+			}
+
+			draw(block_pos, r, g, b);
+			draw(block_pos, r, g, b);
+			draw(block_pos, r, g, b);
 		});
 		TurokTessellator.release();
 	}

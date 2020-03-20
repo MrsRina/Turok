@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.Objects;
 
 // Rina.
-@Module.Info(name = "AutoGG", category = Module.Category.TUROK_CHAT)
+@Module.Info(name = "Auto GG", description = "When you kill auto say.", category = Module.Category.TUROK_CHAT)
 public class AutoGG extends Module {
 	private ConcurrentHashMap<String, Integer> target_players = null;
 	private Setting<Boolean> doom_mode = register(Settings.b("Doom Fucking Mode", false));

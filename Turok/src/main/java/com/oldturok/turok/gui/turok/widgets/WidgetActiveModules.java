@@ -61,7 +61,7 @@ public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
             int module_width  = renderer.getStringWidth(module_name);
             int module_height = renderer.getFontHeight() + 1;
 
-            renderer.drawStringWithShadow(xFunc.apply(module_width), module_y[0], 150, 0, 0, module_name);
+            renderer.drawStringWithShadow(xFunc.apply(module_width), module_y[0], 200, 0, 0, module_name);
             module_y[0] += module_height;
         });
 

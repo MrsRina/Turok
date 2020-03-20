@@ -7,7 +7,7 @@ import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 
 // Rina.
-@Module.Info(name = "WalkEat", category = Module.Category.TUROK_MOVEMENT)
+@Module.Info(name = "Walk Eat", description = "Walk eating.", category = Module.Category.TUROK_MOVEMENT)
 public class WalkEat extends Module {
 	@EventHandler
 	private Listener<InputUpdateEvent> eventListener = new Listener<>(event -> {

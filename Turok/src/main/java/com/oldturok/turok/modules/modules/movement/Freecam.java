@@ -17,7 +17,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.Entity;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "Freecam", category = Module.Category.TUROK_PLAYER, description = "Leave your body and trascend into the realm of the gods")
+@Module.Info(name = "Free Camera", category = Module.Category.TUROK_PLAYER, description = "Leave your body and trascend into the realm of the gods")
 public class Freecam extends Module {
 
     private Setting<Integer> speed = register(Settings.i("Speed", 5)); // /100 in practice

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemExpBottle;
 import net.minecraft.item.Item;
 
 // Rina.
-@Module.Info(name = "FastCE", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "FastCE", description = "Fast Crystal and Exp Bottles.", category = Module.Category.TUROK_COMBAT)
 public class FastCE extends Module {
 	private Setting<Boolean> crystal = register(Settings.b("Crystal", true));
 	private Setting<Boolean> expbottle = register(Settings.b("Exp Bottles", true));

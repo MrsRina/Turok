@@ -20,7 +20,7 @@ public class EnumButton extends Button {
                     double p = (double) info.getX() / (double) component.getWidth();
                     if (p <= 0.5){ // left
                         EnumButton.this.increaseIndex(-1);
-                    }else{ // right
+                    } else {
                         EnumButton.this.increaseIndex(1);
                     }
                 }

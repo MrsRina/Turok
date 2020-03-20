@@ -29,7 +29,7 @@ import java.util.Iterator;
 
 // Update by Rina 09/03/20.
 // Ah!
-@Module.Info(name = "Aura", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "Aura", description = "KillAura.", category = Module.Category.TUROK_COMBAT)
 public class Aura extends Module {
     private Setting<Boolean> attackPlayers = register(Settings.b("Players", true));
     private Setting<Boolean> attackMobs    = register(Settings.b("Mobs", false));
@@ -45,12 +45,12 @@ public class Aura extends Module {
 
     @Override
     public void onEnable() {
-        TurokMessage.send_msg("Kill-Aura <-" + ChatFormatting.GREEN + "Enabled!");
+        TurokMessage.send_msg("Kill-Aura <- " + ChatFormatting.GREEN + "ON");
     }
 
     @Override
     public void onDisable() {
-        TurokMessage.send_msg("Kill-Aura -> " + ChatFormatting.RED + "Disabled!");
+        TurokMessage.send_msg("Kill-Aura -> " + ChatFormatting.RED + "OFF");
     }
 
     @Override

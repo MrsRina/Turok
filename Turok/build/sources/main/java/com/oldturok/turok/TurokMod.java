@@ -52,7 +52,7 @@ import java.io.*;
 public class TurokMod {
     public static final String TUROK_MOD_ID      = "turok";
     public static final String TUROK_MOD_NAME    = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
-    public static final String TUROK_MOD_VERSION = "0.4.0";
+    public static final String TUROK_MOD_VERSION = "0.4.1";
 
     public static final int TUROK_GUI_BUTTON  = Keyboard.KEY_P;
 
@@ -137,11 +137,11 @@ public class TurokMod {
         
         Path folder_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT);
 
-        Files.createDirectories(folder_bind);
+        if (!Files.exists(folder_bind)) {
+            Files.createDirectories(folder_bind);
+        }
 
         Path file_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT);
-
-        Files.createDirectories(folder_bind);
 
         if (!Files.exists(file_bind))
             Files.createFile(file_bind);

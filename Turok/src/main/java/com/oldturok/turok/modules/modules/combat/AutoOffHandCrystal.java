@@ -1,4 +1,4 @@
-package com.oldturok.turok.module.modules.combat;
+ description = "",package com.oldturok.turok.module.modules.combat;
 
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
@@ -12,7 +12,7 @@ import net.minecraft.init.Items;
 
 // Rina.
 // aa.
-@Module.Info(name = "AutoOffHandCrystal", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "AutoOffHandCrystal", description = "Auto off hand crystal.", category = Module.Category.TUROK_COMBAT)
 public class AutoOffHandCrystal extends Module {
 	private Setting<Boolean> disable = register(Settings.b("Auto Gapple/Totem Disable", true));
 

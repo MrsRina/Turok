@@ -101,6 +101,8 @@ public class TurokGUI extends GUI {
             CheckButton checkButton = new CheckButton(module.getName());
             checkButton.setToggled(module.isEnabled());
 
+            int old_height = getHeight();
+
             checkButton.addTickListener(() -> {
                 checkButton.setToggled(module.isEnabled());
                 checkButton.setName(module.getName());
@@ -111,8 +113,8 @@ public class TurokGUI extends GUI {
                 public void onMouseDown(MouseButtonEvent event) {
                     if (event.getButton() == 1) { 
                         pair.getValue().setModule(module);
-                        pair.getValue().setX(event.getX() + scrollpane.getWidth() - event.getX());
-                        pair.getValue().setY(scrollpane.getY());
+                        pair.getValue().setX(1);
+                        pair.getValue().setY(checkButton.getY() + fontRenderer.getStringHeight(checkButton.getName()));
                     }
                 }
 
@@ -144,6 +146,7 @@ public class TurokGUI extends GUI {
                     }
                 }
             });
+
             scrollpane.addChild(checkButton);
         }
 
