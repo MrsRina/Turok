@@ -36,7 +36,7 @@ import java.util.List;
 // I really dont pasted, the rights its on.
 // Enjoy.
 //
-@Module.Info(name = "Turok Seppuku Fly",  description = "A seppuku fly embed in Turok!",, category = Module.Category.TUROK_MOVEMENT)
+@Module.Info(name = "Turok Seppuku Fly",  description = "A seppuku fly embed in Turok!", category = Module.Category.TUROK_MOVEMENT)
 public class SeppukuFly extends Module {
     public final Setting<Float> fly_speed;
     public final Setting<Boolean> fly_no_kick;

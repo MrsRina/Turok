@@ -1,4 +1,4 @@
- description = "",package com.oldturok.turok.module.modules.combat;
+package com.oldturok.turok.module.modules.combat;
 
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;

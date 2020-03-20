@@ -32,7 +32,7 @@ import static com.oldturok.turok.util.BlockInteractionHelper.faceVectorPacketIns
 import static com.oldturok.turok.util.BlockInteractionHelper.canBeClicked;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "AutoBarrier", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "Auto Barrier", description = "Auto barrier using obsidians.", category = Module.Category.TUROK_COMBAT)
 public class AutoBarrier extends Module {
 
     private Setting<Mode> mode = register(Settings.e("Mode", Mode.FULL));
@@ -191,7 +191,7 @@ public class AutoBarrier extends Module {
         if (missingObiDisable) {
             missingObiDisable = false;
             if (infoMessage.getValue()) {
-                TurokMessage.send_msg("AutoBarrier <- " + ChatFormatting.RED + "Disabled" + ChatFormatting.RESET + ", Obsidian missing!");
+                TurokMessage.send_msg("AutoBarrier <- " + ChatFormatting.RED + "OFF");
             }
 
             this.disable();

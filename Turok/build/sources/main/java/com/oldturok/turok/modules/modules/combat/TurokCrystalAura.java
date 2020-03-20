@@ -65,7 +65,7 @@ import org.lwjgl.opengl.GL11;
 // Update by Rina 04/03/20.
 // A TurokCA for pings more highs >> 250 ms..
 // By Rina.
-@Module.Info(name = "TurokCrystalAura", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "Turok Crystal Aura", description = "A aura for break crystals, fast and good for high ping.", category = Module.Category.TUROK_COMBAT)
 public class TurokCrystalAura extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     
@@ -121,7 +121,7 @@ public class TurokCrystalAura extends Module {
     @Override
     public void onEnable() {
         if (prefixo_chat.getValue()) {
-            TurokMessage.send_msg("TurokCrystalAura -> " + ChatFormatting.GREEN + "Enabled!");
+            TurokMessage.send_msg("TurokCrystalAura -> " + ChatFormatting.GREEN + "ON");
         } else {
             return;
         }
@@ -134,7 +134,7 @@ public class TurokCrystalAura extends Module {
         reset_rotation();
 
         if (prefixo_chat.getValue()) {
-            TurokMessage.send_msg("TurokCrystalAura <- " + ChatFormatting.RED + "Disabled!");
+            TurokMessage.send_msg("TurokCrystalAura <- " + ChatFormatting.RED + "OFF");
         } else {
             return; 
         }

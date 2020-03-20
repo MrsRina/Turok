@@ -4,6 +4,7 @@ import com.oldturok.turok.gui.rgui.component.AlignedComponent;
 import com.oldturok.turok.gui.rgui.render.AbstractComponentUI;
 import com.oldturok.turok.gui.turok.component.ActiveModules;
 import com.oldturok.turok.gui.rgui.render.font.FontRenderer;
+import com.oldturok.turok.module.modules.render.TurokHUD;
 import com.oldturok.turok.gui.turok.RootFontRenderer;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.Module;
@@ -21,6 +22,8 @@ import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.glDisable;
 
 public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
+    public TurokHUD get_hud = ModuleManager.getModuleByName("TurokHUD");
+
     @Override
     public void renderComponent(ActiveModules component, FontRenderer f) {
         GL11.glDisable(GL11.GL_CULL_FACE);
@@ -61,8 +64,29 @@ public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
             int module_width  = renderer.getStringWidth(module_name);
             int module_height = renderer.getFontHeight() + 1;
 
-            renderer.drawStringWithShadow(xFunc.apply(module_width), module_y[0], 200, 0, 0, module_name);
+            int r = 0;
+            int g = 0;
+            int b = 0;
+
+            if (get_hud.array_rgb.getValue()) {
+                float[] tick_color = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
+                int color_rgb      = Color.HSBtoRGB(tick_color[0], 1, 1);
+
+                r = ((color_rgb >> 16) & 0xFF);
+                g = ((color_rgb >> 8) & 0xFF);
+                b = (color_rgb & 0xFF);
+            } else {
+                r = get_hud.array_r.getValue();
+                g = get_hud.array_g.getValue();
+                b = get_hud.array_b.getValue();
+            }
+
+            renderer.drawStringWithShadow(xFunc.apply(module_width), module_y[0], r, g, b, module_name);
             module_y[0] += module_height;
+
+            if (get_hud.array_rgb.getValue()) {
+                tick_color[0] += 0.1f;
+            }
         });
 
         component.setHeight(module_y[0]);

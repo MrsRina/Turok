@@ -23,6 +23,14 @@ public class TurokChatManager {
 		command_list.add(new TurokPrefix());
 	}
 
+	public void set_new_prefix(String prefix) {
+		prefix = prefix;
+	}
+
+	public String get_prefix() {
+		return prefix;
+	}
+
 	public String[] GetArgs(String message) {
 		String[] arguments = {};
 

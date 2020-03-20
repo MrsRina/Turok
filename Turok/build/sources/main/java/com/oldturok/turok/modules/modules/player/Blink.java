@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "Blink", category = Module.Category.TUROK_PLAYER)
+@Module.Info(name = "Blink", description = "Clone you and back type a phantasmm! buuu!", category = Module.Category.TUROK_PLAYER)
 public class Blink extends Module {
     Queue<CPacketPlayer> packets = new LinkedList<>();
     @EventHandler
@@ -24,6 +24,7 @@ public class Blink extends Module {
             packets.add((CPacketPlayer) event.getPacket());
         }
     });
+
     private EntityOtherPlayerMP clonedPlayer;
 
     @Override

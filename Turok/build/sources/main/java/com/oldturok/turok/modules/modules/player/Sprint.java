@@ -3,7 +3,7 @@ package com.oldturok.turok.module.modules.movement;
 import com.oldturok.turok.module.Module;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "Sprint", description = "Automatically makes the player sprint", category = Module.Category.TUROK_PLAYER)
+@Module.Info(name = "Sprint", description = "Make you run!", category = Module.Category.TUROK_PLAYER)
 public class Sprint extends Module {
 
 	@Override

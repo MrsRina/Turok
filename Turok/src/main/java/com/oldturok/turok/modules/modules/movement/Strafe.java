@@ -11,7 +11,7 @@ import net.minecraftforge.client.event.InputUpdateEvent;
 import net.minecraft.util.math.MathHelper;
 
 // Rina.
-@Module.Info(name = "Strafe", description = "Strafe: only one speed for jump motion.",, category = Module.Category.TUROK_MOVEMENT)
+@Module.Info(name = "Strafe", description = "Strafe: only one speed for jump motion.", category = Module.Category.TUROK_MOVEMENT)
 public class Strafe extends Module {
 	float player_forward;
 	float player_strafe;
