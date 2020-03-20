@@ -1,5 +1,6 @@
 package com.oldturok.turok.commands;
 
+import com.oldturok.turok.util.TurokChatCommand;
 import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.TurokChat;
 import com.oldturok.turok.TurokMod;
@@ -14,9 +15,12 @@ public class TurokPrefix extends TurokChat {
 	public boolean Get_Message(String[] message) {
 		if (message.length > 1) {
 			String prefix = message[1];
-			TurokMod.TUROK_CHAT_PREFIX = prefix;
+
+			TurokChatCommand.set_new_prefix(prefix);
+
+			TurokMod.TUROK_CHAT_PREFIX = TurokChatCommand.get_prefix();
 	
-			TurokMessage.send_client_msg("The new character is: " + TurokMod.TUROK_CHAT_PREFIX);
+			TurokMessage.send_client_msg("The new character is: " + TurokChatCommand.get_prefix());
 		} else {
 			TurokMessage.send_client_msg("Set a new character using 'prefix [character]'.");
 		}
