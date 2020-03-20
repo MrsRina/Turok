@@ -39,7 +39,7 @@ import static com.oldturok.turok.util.BlockInteractionHelper.canBeClicked;
 import static com.oldturok.turok.util.BlockInteractionHelper.faceVectorPacketInstant;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "Fast Auto Trap", description = "AutoTrap based on KAMI.", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "FastAutoTrap", description = "AutoTrap based on KAMI.", category = Module.Category.TUROK_COMBAT)
 public class FastAutoTrap extends Module {
     private Setting<Double> range = register(Settings.doubleBuilder("Range").withMinimum(3.5).withValue(5.0).withMaximum(10.0).build());
     private Setting<Integer> blocksPerTick = register(Settings.integerBuilder("BlocksPerTick").withMinimum(1).withValue(7).withMaximum(23).build());

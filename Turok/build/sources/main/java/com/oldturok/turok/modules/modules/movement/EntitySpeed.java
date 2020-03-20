@@ -14,7 +14,7 @@ import net.minecraft.util.MovementInput;
 import net.minecraft.entity.Entity;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "Entity Speed", category = Module.Category.TUROK_MOVEMENT, description = "Abuse client-sided movement to shape sound barrier breaking rideables")
+@Module.Info(name = "EntitySpeed", category = Module.Category.TUROK_MOVEMENT, description = "Abuse client-sided movement to shape sound barrier breaking rideables")
 public class EntitySpeed extends Module {
     private Setting<Float> speed = register(Settings.f("Speed", 1));
     private Setting<Boolean> antiStuck = register(Settings.b("AntiStuck"));

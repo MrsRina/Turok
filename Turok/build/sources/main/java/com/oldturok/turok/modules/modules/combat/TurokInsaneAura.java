@@ -65,7 +65,7 @@ import org.lwjgl.opengl.GL11;
 // A TurokCA more fast than TurokCrystalAura, for low ping.
 // By Rina || Update by Rina 04/03/20.
 // description = "The definition of insanity".
-@Module.Info(name = "Turok Insane Aura", description = "A insane aura for break crystals very fast and not good for high ping.", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "TurokInsaneAura", description = "A insane aura for break crystals very fast and not good for high ping.", category = Module.Category.TUROK_COMBAT)
 public class TurokInsaneAura extends Module {
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Min Dmg").withMinimum(0).withMaximum(16).withValue(2));
     

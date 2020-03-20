@@ -13,7 +13,7 @@ import com.oldturok.turok.util.Wrapper;
 import net.minecraft.client.Minecraft;
 
 // Rina.
-@Module.Info(name = "Fast Bow", description = "For fast bow.", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "FastBow", description = "For fast bow.", category = Module.Category.TUROK_COMBAT)
 public class FastBow extends Module {
 	public void onUpdate() {
 		if (mc.player.inventory.getCurrentItem().getItem() instanceof ItemBow) {

@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.init.Items;
 
 // Rina.
-@Module.Info(name = "Auto Gapple", description = "Auto off hand gapple.", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "AutoGapple", description = "Auto off hand gapple.", category = Module.Category.TUROK_COMBAT)
 public class AutoGapple extends Module {
 	private Setting<Boolean> totem_disable = register(Settings.b("Totem Disable", true));
 

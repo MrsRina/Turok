@@ -32,7 +32,7 @@ import static com.oldturok.turok.util.BlockInteractionHelper.faceVectorPacketIns
 import static com.oldturok.turok.util.BlockInteractionHelper.canBeClicked;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "Auto Barrier", description = "Auto barrier using obsidians.", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "AutoBarrier", description = "Auto barrier using obsidians.", category = Module.Category.TUROK_COMBAT)
 public class AutoBarrier extends Module {
 
     private Setting<Mode> mode = register(Settings.e("Mode", Mode.FULL));

@@ -22,7 +22,7 @@ import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.glDisable;
 
 public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
-    public TurokHUD get_hud = (TurokHUD) ModuleManager.getModuleByName("Turok HUD");
+    public TurokHUD get_hud = (TurokHUD) ModuleManager.getModuleByName("TurokHUD");
 
     @Override
     public void renderComponent(ActiveModules component, FontRenderer f) {
@@ -31,6 +31,8 @@ public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
         GL11.glEnable(GL11.GL_TEXTURE_2D);
 
         RootFontRenderer renderer = new RootFontRenderer(1.0f);
+
+        float[] tick_color = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
 
         List<Module> mods = ModuleManager.getModules().stream()
                 .filter(Module::isEnabled)
@@ -64,27 +66,16 @@ public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
             int module_width  = renderer.getStringWidth(module_name);
             int module_height = renderer.getFontHeight() + 1;
 
-            int r = 0;
-            int g = 0;
-            int b = 0;
+            int color_rgb      = Color.HSBtoRGB(tick_color[0], 1, 1);
 
             if (get_hud.array_rgb.getValue()) {
-                float[] tick_color = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
-                int color_rgb      = Color.HSBtoRGB(tick_color[0], 1, 1);
-
-                r = ((color_rgb >> 16) & 0xFF);
-                g = ((color_rgb >> 8) & 0xFF);
-                b = (color_rgb & 0xFF);
-
-                tick_color[0] += 0.1f;
+                renderer.drawStringWithShadow(xFunc.apply(module_width), module_y[0], ((color_rgb >> 16) & 0xFF), ((color_rgb >> 8) & 0xFF), (color_rgb & 0xFF), module_name);
             } else {
-                r = get_hud.array_r.getValue();
-                g = get_hud.array_g.getValue();
-                b = get_hud.array_b.getValue();
+                renderer.drawStringWithShadow(xFunc.apply(module_width), module_y[0], get_hud.array_r.getValue(), get_hud.array_g.getValue(), get_hud.array_b.getValue(), module_name);
             }
 
-            renderer.drawStringWithShadow(xFunc.apply(module_width), module_y[0], r, g, b, module_name);
-            module_y[0] += module_height;
+            module_y[0]   += module_height;
+            tick_color[0] += 0.1f;
         });
 
         component.setHeight(module_y[0]);

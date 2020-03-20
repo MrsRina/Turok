@@ -22,7 +22,7 @@ import java.awt.*;
 import java.io.*;
 
 // Rina.
-@Module.Info(name = "ESP Hole Color", description = "For draw block into holes.", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "HoleColor", description = "For draw block into holes.", category = Module.Category.TUROK_RENDER)
 public class HoleColor extends Module {
 	private ConcurrentHashMap<BlockPos, Boolean> safe_holes;
 	private final BlockPos[] barrier_ = {
@@ -50,7 +50,7 @@ public class HoleColor extends Module {
 
 		int range_ = (int) Math.ceil(range.getValue());
 
-		TurokCrystalAura crystal_function = (TurokCrystalAura) ModuleManager.getModuleByName("Turok Crystal Aura");
+		TurokCrystalAura crystal_function = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
 		List<BlockPos> block_pos = crystal_function.get_sphere(get_player_pos(), range_, range_, false, true, 0);
 
 		for (BlockPos pos : block_pos) {

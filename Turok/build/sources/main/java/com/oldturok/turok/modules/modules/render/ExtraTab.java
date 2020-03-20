@@ -10,7 +10,7 @@ import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 
 // Update by Rina 09/03/20.
-@Module.Info(name = "Extra Tab", description = "Expand expand.", category = Module.Category.TUROK_HIDDEN)
+@Module.Info(name = "ExtraTab", description = "Expand expand.", category = Module.Category.TUROK_HIDDEN)
 public class ExtraTab extends Module {
     public Setting<Integer> tabSize = register(Settings.integerBuilder("Players").withMinimum(1).withValue(80).build());
 

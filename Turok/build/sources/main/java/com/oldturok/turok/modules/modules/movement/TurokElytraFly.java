@@ -12,7 +12,7 @@ import com.oldturok.turok.module.Module;
 
 // Rina.
 // Modify.
-@Module.Info(name = "Turok Elytra Fly", description = "A Turok module for get fly into elytra.", category = Module.Category.TUROK_MOVEMENT)
+@Module.Info(name = "TurokElytraFly", description = "A Turok module for get fly into elytra.", category = Module.Category.TUROK_MOVEMENT)
 public class TurokElytraFly extends Module {
     private Setting<Enum_fly_mode> fly_mode = register(Settings.e("Mode", Enum_fly_mode.BOOST));
     
