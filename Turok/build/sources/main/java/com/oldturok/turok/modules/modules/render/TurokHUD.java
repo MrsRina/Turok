@@ -24,10 +24,10 @@ public class TurokHUD extends Module {
 	private Setting<Boolean> armor_hud = register(Settings.b("Show Armor HUD", true));
 	
 	// Array.
-	private Setting<Boolean> array_rgb = register(Settings.b("Array RGB", true));
-	private Setting<Integer> array_r   = register(Settings.integerBuilder("Array Red").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> array_g   = register(Settings.integerBuilder("Array Green").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> array_b   = register(Settings.integerBuilder("Array Blue").withMinimum(0).withMaximum(255).withValue(0));
+	public Setting<Boolean> array_rgb = register(Settings.b("Array RGB", true));
+	public Setting<Integer> array_r   = register(Settings.integerBuilder("Array Red").withMinimum(0).withMaximum(255).withValue(0));
+	public Setting<Integer> array_g   = register(Settings.integerBuilder("Array Green").withMinimum(0).withMaximum(255).withValue(0));
+	public Setting<Integer> array_b   = register(Settings.integerBuilder("Array Blue").withMinimum(0).withMaximum(255).withValue(0));
 
 	@Override
 	public void onRender() {

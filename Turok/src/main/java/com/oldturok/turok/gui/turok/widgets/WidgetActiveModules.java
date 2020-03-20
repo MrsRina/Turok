@@ -22,7 +22,7 @@ import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.glDisable;
 
 public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
-    public TurokHUD get_hud = ModuleManager.getModuleByName("TurokHUD");
+    public TurokHUD get_hud = (TurokHUD) ModuleManager.getModuleByName("Turok HUD");
 
     @Override
     public void renderComponent(ActiveModules component, FontRenderer f) {
@@ -75,6 +75,8 @@ public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
                 r = ((color_rgb >> 16) & 0xFF);
                 g = ((color_rgb >> 8) & 0xFF);
                 b = (color_rgb & 0xFF);
+
+                tick_color[0] += 0.1f;
             } else {
                 r = get_hud.array_r.getValue();
                 g = get_hud.array_g.getValue();
@@ -83,10 +85,6 @@ public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
 
             renderer.drawStringWithShadow(xFunc.apply(module_width), module_y[0], r, g, b, module_name);
             module_y[0] += module_height;
-
-            if (get_hud.array_rgb.getValue()) {
-                tick_color[0] += 0.1f;
-            }
         });
 
         component.setHeight(module_y[0]);

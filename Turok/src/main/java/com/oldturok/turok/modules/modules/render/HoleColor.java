@@ -22,7 +22,7 @@ import java.awt.*;
 import java.io.*;
 
 // Rina.
-@Module.Info(name = "ESP Hole Color", description = "For draw block into holes.", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "HoleColor", description = "For draw block into holes.", category = Module.Category.TUROK_RENDER)
 public class HoleColor extends Module {
 	private ConcurrentHashMap<BlockPos, Boolean> safe_holes;
 	private final BlockPos[] barrier_ = {
@@ -33,12 +33,12 @@ public class HoleColor extends Module {
 		new BlockPos(-1, 0, 0)
 	};
 
-	private Setting<Double> range = register(Settings.d("Range", 10.0d));
-	private Setting<Integer> r    = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> g    = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> b    = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> a    = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(255));
-	private Setting<Boolean> rgb  = register(Settings.b("RGB", true));
+	private Setting<Double> range    = register(Settings.d("Range", 10.0d));
+	private Setting<Integer> color_r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> color_g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> color_b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> a       = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Boolean> rgb     = register(Settings.b("RGB", true));
 
 	@Override
 	public void onUpdate() {
@@ -50,7 +50,7 @@ public class HoleColor extends Module {
 
 		int range_ = (int) Math.ceil(range.getValue());
 
-		TurokCrystalAura crystal_function = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
+		TurokCrystalAura crystal_function = (TurokCrystalAura) ModuleManager.getModuleByName("Turok Crystal Aura");
 		List<BlockPos> block_pos = crystal_function.get_sphere(get_player_pos(), range_, range_, false, true, 0);
 
 		for (BlockPos pos : block_pos) {
@@ -95,9 +95,9 @@ public class HoleColor extends Module {
 				g = ((color_rgb >> 8) & 0xFF);
 				b = (color_rgb & 0xFF);
 			} else {
-				r = r.getValue();
-				g = g.getValue();
-				b = b.getValue();
+				r = color_r.getValue();
+				g = color_g.getValue();
+				b = color_b.getValue();
 			}
 
 			draw(block_pos, r, g, b);

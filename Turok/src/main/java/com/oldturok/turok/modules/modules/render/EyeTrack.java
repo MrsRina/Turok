@@ -21,7 +21,7 @@ import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 
 // Rina.
-@Module.Info(name = "Eye Track", description = "A eye track or eye finder.", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "EyeTrack", description = "A eye track or eye finder.", category = Module.Category.TUROK_RENDER)
 public class EyeTrack extends Module {
 	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
 	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));

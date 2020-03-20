@@ -6,7 +6,7 @@ import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 
 // Rina.
-@Module.Info(name = "I am Turok!", description = "Just a simple module for say I am Turok!", category = Module.Category.TUROK_CHAT)
+@Module.Info(name = "Turok", description = "Just a simple module for say I am Turok!", category = Module.Category.TUROK_CHAT)
 public class ImTurok extends Module {
 	private Setting<Boolean> toxic = register(Settings.b("Toxic Mode Ugly : (", false));
 

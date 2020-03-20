@@ -2,6 +2,7 @@ package com.oldturok.turok.util;
 
 import com.oldturok.turok.commands.*;
 import com.oldturok.turok.TurokChat;
+import com.oldturok.turok.TurokMod;
 
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
@@ -13,35 +14,25 @@ import java.util.ArrayList;
 public class TurokChatManager {
 	public ArrayList<TurokChat> command_list = new ArrayList<TurokChat>();
 
-	public final String prefix;
-	public final Style format;
+	public Style format;
 
-	public TurokChatManager(String prefix_, Style format_) {
-		prefix = prefix_;
+	public TurokChatManager(Style format_) {
 		format = format_;
 
 		command_list.add(new TurokPrefix());
 	}
 
-	public void set_new_prefix(String prefix) {
-		prefix = prefix;
-	}
-
-	public String get_prefix() {
-		return prefix;
-	}
-
 	public String[] GetArgs(String message) {
 		String[] arguments = {};
 
-		if (message.startsWith(prefix)) {
-			arguments = message.replaceFirst(prefix, "").split(" ");
+		if (message.startsWith(TurokMod.TUROK_CHAT_PREFIX)) {
+			arguments = message.replaceFirst(TurokMod.TUROK_CHAT_PREFIX, "").split(" ");
 		}
 
 		return arguments;
 	}
 
 	public boolean ContainsPrefix(String message) {
-		return message.startsWith(prefix);
+		return message.startsWith(TurokMod.TUROK_CHAT_PREFIX);
 	}
 }

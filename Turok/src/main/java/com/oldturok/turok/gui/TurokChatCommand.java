@@ -17,7 +17,7 @@ public class TurokChatCommand {
 	public TurokChatManager chat_manager;
 
 	public TurokChatCommand() {
-		chat_manager = new TurokChatManager(TurokMod.TUROK_CHAT_PREFIX, new Style().setColor(TextFormatting.GRAY));
+		chat_manager = new TurokChatManager(new Style().setColor(TextFormatting.GRAY));
 	}
 
 	@SubscribeEvent

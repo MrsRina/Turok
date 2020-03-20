@@ -20,7 +20,7 @@ import java.util.Map;
 
 // Rina.
 // Thanks who made it, i really dont know how i do.
-@Module.Info(name = "Auto Replace", description = "Auto replace crystals stacks or any item.", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "AutoReplace", description = "Auto replace crystals stacks or any item.", category = Module.Category.TUROK_COMBAT)
 public class AutoReplace extends Module {
 	private Setting<Integer> stack_value = register(Settings.integerBuilder("Replace in").withMinimum(1).withValue(16).withMaximum(63).build());
 

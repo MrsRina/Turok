@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.init.Items;
 
 // Rina.
-@Module.Info(name = "Auto Totem", description = "Auto off hand Totem.", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "AutoTotem", description = "Auto off hand Totem.", category = Module.Category.TUROK_COMBAT)
 public class AutoTotem extends Module {
 	int count;
 	boolean item = false;
