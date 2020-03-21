@@ -20,4 +20,9 @@ public class CustomFov extends Module {
 	public void onUpdate() {
 		mc.gameSettings.fovSetting = custom_fov.getValue();
 	}
+
+	@Override
+	public String getHudInfo() {
+		return String.valueOf(custom_fov.getValue());
+	}
 }

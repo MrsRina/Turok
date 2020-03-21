@@ -20,12 +20,38 @@ import net.minecraft.util.math.Vec3d;
 
 import org.lwjgl.opengl.GL11;
 
+import java.awt.*;
+
 // Rina.
 @Module.Info(name = "EyeTrack", description = "A eye track or eye finder.", category = Module.Category.TUROK_RENDER)
 public class EyeTrack extends Module {
-	private Setting<Integer> r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Integer> color_r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> color_g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> color_b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Boolean> rgb     = register(Settings.b("RGB", false));
+
+	int r;
+	int g;
+	int b;
+
+	@Override
+	public void onUpdate() {
+		float[] tick_color = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
+		int color_rgb      = Color.HSBtoRGB(tick_color[0], 1, 1);
+
+		tick_color[0] += 0.1f;
+
+		if (rgb.getValue()) {
+			r = ((color_rgb >> 16) & 0xFF);
+			g = ((color_rgb >> 8) & 0xFF);
+			b = (color_rgb & 0xFF);
+		} else {
+			r = color_r.getValue();
+			g = color_g.getValue();
+			b = color_b.getValue();
+		}
+
+	}
 
 	@Override
 	public void onWorldRender(RenderEvent event) {
@@ -50,7 +76,7 @@ public class EyeTrack extends Module {
 		double posY_ = result.hitVec.y - mc.getRenderManager().renderPosY;
 		double posZ_ = result.hitVec.z - mc.getRenderManager().renderPosZ;
 
-		GL11.glColor4f(r.getValue()/255, g.getValue()/255, b.getValue()/255, 1.0f);
+		GL11.glColor4f(r/255, g/255, b/255, 1.0f);
 
 		GlStateManager.glLineWidth(1.5f);
 
@@ -72,7 +98,7 @@ public class EyeTrack extends Module {
 			float y = block_pos.y - 0.01f;
 			float z = block_pos.z - 0.01f;
 
-			TurokTessellator.drawBox(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r.getValue(), g.getValue(), b.getValue(), 70, GeometryMasks.Quad.ALL);
+			TurokTessellator.drawBox(TurokTessellator.getBufferBuilder(), x, y, z, 1.01f, 1.01f, 1.01f, r, g, b, 70, GeometryMasks.Quad.ALL);
 			TurokTessellator.release();
 		}
 

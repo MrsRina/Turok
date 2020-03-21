@@ -18,8 +18,8 @@ public class EnumButton extends Button {
             public void execute(EnumButton component, ButtonInfo info) {
                 if (info.getButton() == 0){
                     double p = (double) info.getX() / (double) component.getWidth();
-                    if (p <= 0.5){ // left
-                        EnumButton.this.increaseIndex(-1);
+                    if (p <= 0.5){
+                        EnumButton.this.increaseIndex(- 1);
                     } else {
                         EnumButton.this.increaseIndex(1);
                     }

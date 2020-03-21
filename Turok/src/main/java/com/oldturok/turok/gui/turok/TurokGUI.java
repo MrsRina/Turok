@@ -18,6 +18,7 @@ import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.gui.rgui.GUI;
 import com.oldturok.turok.util.Wrapper;
+import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.util.Pair;
 import com.oldturok.turok.TurokMod;
 
@@ -62,10 +63,9 @@ public class TurokGUI extends GUI {
     public static int y = 10;
     public static int nexty = y;
 
+    public static boolean state_coord = true;
     public static boolean state_users = true;
     public static boolean state_count = true;
-    public static boolean state_array = true;
-    public static boolean state_coord = true;
 
     public TurokGUI() {
         super(new Widgets());
@@ -218,7 +218,9 @@ public class TurokGUI extends GUI {
 
         frames = new ArrayList<>();
 
-        frame_users = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.BLACK + "Turok Info");
+        TurokMessage.send_client_msg("Gay");
+
+        frame_users = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
         frame_users.setCloseable(false);
         frame_users.setPinneable(true);
         frame_users.setMaximumWidth(600);
@@ -237,13 +239,13 @@ public class TurokGUI extends GUI {
         users.setFontRenderer(fontRendererBig);
         users.setShadow(true);
 
-        frame_array = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.BLACK + "Turok Modules Array");
+        frame_array = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Modules Array");
         frame_array.setCloseable(false);
         frame_array.addChild(new ActiveModules());
         frame_array.setPinneable(true);
         frame_array.setMaximumWidth(600);
 
-        frame_coords = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.BLACK + "Coordinates");
+        frame_coords = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Coordinates");
         frame_coords.setCloseable(false);
         frame_coords.setPinneable(true);
         frame_coords.setMaximumWidth(600);
@@ -264,15 +266,15 @@ public class TurokGUI extends GUI {
             int poshZ = (int) (mc.player.posZ * value);
 
             coordsLabel.setText("");
-            coordsLabel.addLine(ChatFormatting.RED  + String.format("x" + poshX + " y" + posY + " z" + poshZ));
-            coordsLabel.addLine(ChatFormatting.BLUE + String.format("x" + posX + " y" + posY + " z" + posZ));
+            coordsLabel.addLine(ChatFormatting.RED  + String.format(poshX + "x " + posY + "y " + poshZ + "z"));
+            coordsLabel.addLine(ChatFormatting.BLUE + String.format(posX + "x " + posY + "y " + posZ + "z"));
         });
 
         frame_coords.addChild(coordsLabel);
         coordsLabel.setFontRenderer(fontRendererBig);
-        coordsLabel.setShadow(true);
+        coordsLabel.setShadow(false);
 
-        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.BLACK + "Turok Info");
+        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
         frame_counts.setCloseable(false);
         frame_counts.setPinneable(true);
         frame_counts.setMaximumWidth(600);
@@ -306,7 +308,7 @@ public class TurokGUI extends GUI {
                 }
             }
 
-            count.setText(ChatFormatting.BLACK + "Turok Info");
+            count.setText(ChatFormatting.RED + "Turok Info");
             count.addLine(ChatFormatting.RED + "Totems - "     + String.valueOf(totems));
             count.addLine(ChatFormatting.RED + "Crystals - "   + String.valueOf(gapples));
             count.addLine(ChatFormatting.RED + "Gapples - "    + String.valueOf(crystals));
@@ -315,7 +317,7 @@ public class TurokGUI extends GUI {
 
         frame_counts.addChild(count);
         count.setFontRenderer(fontRendererBig);
-        count.setShadow(true);
+        count.setShadow(false);
 
         frames.add(frame_array);
         frames.add(frame_coords);
@@ -336,7 +338,7 @@ public class TurokGUI extends GUI {
                 x = 10;
             }
 
-        addChild(frame1);
+            addChild(frame1);
         }
     }
 

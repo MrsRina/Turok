@@ -25,17 +25,12 @@ public class WidgetUnboundSlider extends AbstractComponentUI<UnboundSlider> {
 
         TurokGL.FixRefreshColor();
 
-        component.setWidth(1 + 1 + component.getTheme().getFontRenderer().getStringWidth(text) + 1);
+        component.setWidth(component.getTheme().getFontRenderer().getStringWidth(text));
     }
 
     @Override
     public void handleAddComponent(UnboundSlider component, Container container) {
         component.setHeight(component.getTheme().getFontRenderer().getFontHeight());
-
-        if (1 + 1 + component.getTheme().getFontRenderer().getStringWidth(text) < component.getWidth()) {
-            component.setWidth(component.getTheme().getFontRenderer().getStringWidth(text));
-        } else {
-            component.setWidth(1 + 1 + component.getTheme().getFontRenderer().getStringWidth(text) + 10);
-        }
+        component.setWidth(component.getTheme().getFontRenderer().getStringWidth(text));
     }
 }

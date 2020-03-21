@@ -169,11 +169,11 @@ public class SettingsPanel extends OrganisedContainer {
 
         setAffectLayout(false);
         for (Component component : children) {
-            component.setX(1);
-            component.setWidth(getWidth() - 1);
+            component.setX(5);
+            component.setWidth(getWidth() - 5);
 
-            if (getHeight() - component.getHeight() + component.getY() > getHeight()) {
-                setHeight(getHeight() + component.getHeight() + 2);
+            if (component.getY() + (getHeight() - component.getY() + component.getHeight()) > getHeight()) {
+                setHeight(getHeight() + (component.getY() - component.getHeight()) + 2);
             }
         }
     }

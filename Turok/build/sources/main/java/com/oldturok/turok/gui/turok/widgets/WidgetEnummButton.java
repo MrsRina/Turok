@@ -32,7 +32,7 @@ public class WidgetEnummButton extends AbstractComponentUI<EnumButton> {
         if (component.isHovered())
             c = (c & 0x7f7f7f) << 1;
 
-        GL11.glColor3f(1,1,1);
+        GL11.glColor3f(1, 1, 1);
         GL11.glEnable(GL11.GL_TEXTURE_2D);
 
         int parts = component.getModes().length;
