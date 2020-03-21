@@ -63,9 +63,10 @@ public class TurokGUI extends GUI {
     public static int y = 10;
     public static int nexty = y;
 
-    public static boolean state_coord = true;
-    public static boolean state_users = true;
-    public static boolean state_count = true;
+    public static boolean state_arrays = true;
+    public static boolean state_counts = true;
+    public static boolean state_coords = true;
+    public static Boolean state_users  = true;
 
     public TurokGUI() {
         super(new Widgets());
@@ -216,11 +217,8 @@ public class TurokGUI extends GUI {
             }
         });
 
-        frames = new ArrayList<>();
-
-        TurokMessage.send_client_msg("Gay");
-
-        frame_users = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
+        // Rina.
+        frame_users = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok");
         frame_users.setCloseable(false);
         frame_users.setPinneable(true);
         frame_users.setMaximumWidth(600);
@@ -237,21 +235,23 @@ public class TurokGUI extends GUI {
 
         frame_users.addChild(users);
         users.setFontRenderer(fontRendererBig);
-        users.setShadow(true);
+        users.setShadow(false);
 
+        // array.
         frame_array = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Modules Array");
         frame_array.setCloseable(false);
         frame_array.addChild(new ActiveModules());
         frame_array.setPinneable(true);
         frame_array.setMaximumWidth(600);
 
+        // Coords.
         frame_coords = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Coordinates");
         frame_coords.setCloseable(false);
         frame_coords.setPinneable(true);
         frame_coords.setMaximumWidth(600);
 
-        Label coordsLabel = new Label("");
-        coordsLabel.addTickListener(() -> {
+        Label coords = new Label("");
+        coords.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
             boolean on_nether = (mc.world.getBiome(mc.player.getPosition()).getBiomeName().equals("Hell"));
@@ -265,15 +265,16 @@ public class TurokGUI extends GUI {
             int poshX = (int) (mc.player.posX * value);
             int poshZ = (int) (mc.player.posZ * value);
 
-            coordsLabel.setText("");
-            coordsLabel.addLine(ChatFormatting.RED  + String.format(poshX + "x " + posY + "y " + poshZ + "z"));
-            coordsLabel.addLine(ChatFormatting.BLUE + String.format(posX + "x " + posY + "y " + posZ + "z"));
+            coords.setText("");
+            coords.addLine(ChatFormatting.RED  + String.format(poshX + "x " + posY + "y " + poshZ + "z"));
+            coords.addLine(ChatFormatting.BLUE + String.format(posX + "x " + posY + "y " + posZ + "z"));
         });
 
-        frame_coords.addChild(coordsLabel);
-        coordsLabel.setFontRenderer(fontRendererBig);
-        coordsLabel.setShadow(false);
+        frame_coords.addChild(coords);
+        coords.setFontRenderer(fontRendererBig);
+        coords.setShadow(false);
 
+        /// Turok Info.
         frame_counts = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
         frame_counts.setCloseable(false);
         frame_counts.setPinneable(true);
@@ -318,28 +319,6 @@ public class TurokGUI extends GUI {
         frame_counts.addChild(count);
         count.setFontRenderer(fontRendererBig);
         count.setShadow(false);
-
-        frames.add(frame_array);
-        frames.add(frame_coords);
-        frames.add(frame_counts);
-        frames.add(frame_users);
-
-        for (Frame frame1 : frames) {
-            Minecraft mc = Minecraft.getMinecraft();
-
-            frame1.setY(x);
-            frame1.setY(y);
-
-            nexty = Math.max(y + frame1.getHeight() + 10, nexty);
-            x += (frame1.getWidth() + 10);
-            if (x * DisplayGuiScreen.getScale() > mc.displayWidth / 1.2f) {
-                y = nexty;
-                nexty = y;
-                x = 10;
-            }
-
-            addChild(frame1);
-        }
     }
 
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {

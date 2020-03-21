@@ -120,6 +120,8 @@ public class TurokMod {
 
         TurokRPC.start();
 
+        ModuleManager.getModuleByName("TurokHUD").enable();
+
         TurokMod.turok_log.info("Welcome to Turok.");
     }
 
