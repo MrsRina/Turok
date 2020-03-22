@@ -21,7 +21,6 @@ public class TurokChatManager {
 		prefix = prefix;
 		format = format_;
 
-		command_list.add(new TurokPrefix());
 		command_list.add(new TurokHelp());
 	}
 
