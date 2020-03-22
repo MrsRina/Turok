@@ -16,10 +16,8 @@
     "MixinGuiScreen",
     "MixinBlockLiquid",
     "MixinRenderPlayer",
-    "MixinGuiPlayerTabOverlay",
     "MixinC00Handshake",
     "MixinNetHandlerPlayClient",
-    "MixinRenderLiving",
     "MixinPlayerControllerMP",
     "MixinEntityLlama"
   ]

@@ -2,7 +2,6 @@ package com.oldturok.turok.event;
 
 import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.event.events.DisplaySizeChangedEvent;
-import com.oldturok.turok.module.modules.render.BossStack;
 import com.oldturok.turok.util.TurokTessellator;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.gui.turok.TurokGUI;
@@ -83,8 +82,6 @@ public class ForgeEventProcessor {
             UIRenderer.renderAndUpdateFrames();
             GL11.glPopMatrix();
             TurokTessellator.releaseGL();
-        } else if (event.getType() == RenderGameOverlayEvent.ElementType.BOSSINFO && ModuleManager.isModuleEnabled("BossStack")) {
-            BossStack.render(event);
         }
     }
 
