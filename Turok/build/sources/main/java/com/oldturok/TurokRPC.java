@@ -45,17 +45,21 @@ public class TurokRPC {
 		new Thread(() -> {
 			while (!Thread.currentThread().isInterrupted()) {
 				try {
-					name = mc.player.getName();
+					if (mc.player == null) {
+						name = "";
+					} else {
+						name = mc.player.getName();
+					}
 
 					if (mc.isIntegratedServerRunning()) {
-						server = "survival offline";
+						server = "";
 					} else if (mc.getCurrentServerData() != null) {
 						server = mc.getCurrentServerData().serverIP;
 					} else {
 						server = "main menu";
 					}
 
-					if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled()) {
+					if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled() || ModuleManager.getModuleByName("TurokInsaneAura").isEnabled()) {
 						event_1 = "crystaling " + TurokCrystalAura.player_target;
 
 						life(true);

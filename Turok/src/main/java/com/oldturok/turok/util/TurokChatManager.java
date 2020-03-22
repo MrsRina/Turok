@@ -15,24 +15,34 @@ public class TurokChatManager {
 	public ArrayList<TurokChat> command_list = new ArrayList<TurokChat>();
 
 	public Style format;
+	public String prefix;
 
-	public TurokChatManager(Style format_) {
+	public TurokChatManager(String prefix, Style format_) {
 		format = format_;
 
 		command_list.add(new TurokPrefix());
+		command_list.add(new TurokHelp());
+	}
+
+	public void set_prefix(String prefix) {
+		prefix = prefix;
+	}
+
+	public String get_prefix() {
+		return prefix;
 	}
 
 	public String[] GetArgs(String message) {
 		String[] arguments = {};
 
-		if (message.startsWith(TurokMod.TUROK_CHAT_PREFIX)) {
-			arguments = message.replaceFirst(TurokMod.TUROK_CHAT_PREFIX, "").split(" ");
+		if (message.startsWith(prefix)) {
+			arguments = message.replaceFirst(prefix, "").split(" ");
 		}
 
 		return arguments;
 	}
 
 	public boolean ContainsPrefix(String message) {
-		return message.startsWith(TurokMod.TUROK_CHAT_PREFIX);
+		return message.startsWith(prefix);
 	}
 }

@@ -15,15 +15,15 @@ public class TurokPrefix extends TurokChat {
 
 	@Override
 	public boolean Get_Message(String[] message) {
-		if (message.length == 1) {
-			String prefix = message[1];
+		if (message.length >= 2) {
+			String prefix = message[2];
 
-			TurokMod.TUROK_CHAT_PREFIX = message[1];
+			set_prefix(message[2]);
 
-			TurokMessage.send_client_msg(ChatFormatting.GREEN + "The new character is: " + message[1]);
-		} else if (message.length > 2) {
+			TurokMessage.send_client_msg(ChatFormatting.GREEN + "The new character is: " + message[2]);
+		} else if (message.length > 3) {
 			TurokMessage.send_client_msg(ChatFormatting.RED + "For set a new prefix you need only one argument.");
-		} else {
+		} else if (message.length == 1){
 			TurokMessage.send_client_msg(ChatFormatting.RED + "Set a new character using 'prefix [character]'.");
 		}
 	
