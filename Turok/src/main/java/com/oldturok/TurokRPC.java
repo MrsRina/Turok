@@ -1,6 +1,7 @@
 package com.oldturok;
 
 import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
+import com.oldturok.turok.module.modules.combat.TurokInsaneAura;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 
@@ -46,13 +47,13 @@ public class TurokRPC {
 			while (!Thread.currentThread().isInterrupted()) {
 				try {
 					if (mc.player == null) {
-						name = "";
+						name = "turok";
 					} else {
 						name = mc.player.getName();
 					}
 
 					if (mc.isIntegratedServerRunning()) {
-						server = "";
+						server = "just offline";
 					} else if (mc.getCurrentServerData() != null) {
 						server = mc.getCurrentServerData().serverIP;
 					} else {
@@ -60,7 +61,7 @@ public class TurokRPC {
 					}
 
 					if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled() || ModuleManager.getModuleByName("TurokInsaneAura").isEnabled()) {
-						event_1 = "crystaling " + TurokCrystalAura.player_target;
+						event_1 = "crystaling...";
 
 						life(true);
 					} else {
@@ -96,17 +97,19 @@ public class TurokRPC {
 	}
 
 	public static void life(Boolean type) {
-		if (mc.player.getHealth() < 5.0f) {
-			event_1 = "health " + Float.toString(mc.player.getHealth());			
+		if (mc.player.getHealth() < 4.0f) {
+			event_1 = "low health";
 		} else {
 			if (type) {
-				event_1 = "crystaling " + TurokCrystalAura.player_target;
+				event_1 = "crystaling...";
 			} else {
-				event_1 = mc.world.getBiome(mc.player.getPosition()).getBiomeName();
+				// Relaxing in hell!, nooo!!, relaxing in savana, yes yes, God is more God is more!.
+				event_1 = "relaxing in " +  mc.world.getBiome(mc.player.getPosition()).getBiomeName();
 			}
 		}
 	}
 
+	// I used like referece KAMI BLUE discord for INSTANCE, I can say, is not equal.
 	static {
 		discord_rpc      = DiscordRPC.INSTANCE;
 		discord_presence = new DiscordRichPresence();
