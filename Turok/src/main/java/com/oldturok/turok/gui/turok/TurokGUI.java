@@ -66,7 +66,7 @@ public class TurokGUI extends GUI {
     public static boolean state_arrays = true;
     public static boolean state_counts = true;
     public static boolean state_coords = true;
-    public static Boolean state_users  = true;
+    public static Boolean state_users  = false;
 
     public TurokGUI() {
         super(new Widgets());
@@ -319,6 +319,11 @@ public class TurokGUI extends GUI {
         frame_counts.addChild(count);
         count.setFontRenderer(fontRendererBig);
         count.setShadow(false);
+
+        addChild(frame_users);
+        addChild(frame_coords);
+        addChild(frame_array);
+        addChild(frame_counts);
     }
 
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {

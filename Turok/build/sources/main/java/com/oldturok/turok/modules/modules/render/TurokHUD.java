@@ -23,9 +23,6 @@ public class TurokHUD extends Module {
 	private static RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
 
 	private Setting<Boolean> armor_hud  = register(Settings.b("Show Armor HUD", true));
-	private Setting<Boolean> coords_hud = register(Settings.b("Show Coordinates HUD", true));
-	private Setting<Boolean> watter_hud = register(Settings.b("Show WatterMark HUD", true));
-	private Setting<Boolean> count_hud  = register(Settings.b("Show Count Info HUD", true));
 	
 	// Array.
 	public Setting<Boolean> array_rgb = register(Settings.b("Array RGB", true));

@@ -172,8 +172,8 @@ public class SettingsPanel extends OrganisedContainer {
             component.setX(5);
             component.setWidth(getWidth() - 5);
 
-            if (component.getY() + (getHeight() - component.getY() + component.getHeight()) > getHeight()) {
-                setHeight(getHeight() + (component.getY() - component.getHeight()) + 2);
+            if (component.getY() > getHeight()) {
+                setHeight(getHeight() + component.getHeight() + 2);
             }
         }
     }

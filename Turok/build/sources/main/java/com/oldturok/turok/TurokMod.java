@@ -11,6 +11,7 @@ import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.gui.rgui.util.Docking;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.gui.TurokChatCommand;
+import com.oldturok.turok.util.TurokIRCManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.setting.Settings;
@@ -65,6 +66,7 @@ public class TurokMod {
 
     public static final EventBus EVENT_BUS = new EventManager();
 
+    public static TurokIRCManager chat_irc;
     public TurokChatCommand turok_chat_manager;
     public TurokGUI guiManager;
 
