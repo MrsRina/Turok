@@ -310,7 +310,5 @@ public class AutoBarrier extends Module {
                 new Vec3d(0, -1, -1),
                 new Vec3d(0, -1, 0)
         };
-
     }
-
 }
