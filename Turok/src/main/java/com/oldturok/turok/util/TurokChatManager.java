@@ -18,6 +18,7 @@ public class TurokChatManager {
 	public String prefix;
 
 	public TurokChatManager(String prefix, Style format_) {
+		prefix = prefix;
 		format = format_;
 
 		command_list.add(new TurokPrefix());
