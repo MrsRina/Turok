@@ -22,5 +22,7 @@ public class TurokString {
 		if (str.startsWith(key) && str.endsWith(key)) {
 			return str.substring(key.length(), str.length() - key.length());
 		}
+
+		return str;
 	}
 }

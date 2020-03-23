@@ -92,13 +92,13 @@ public class NameTag extends Module {
 			.filter(player -> !EntityUtil.isFakeLocalPlayer(player))
 			.filter(player -> mc.player.getDistance(player) < range.getValue())
 			.sorted(Comparator.comparing(player -> - mc.player.getDistance(player)))
-			.forEach(this::draw);
+			.forEach(this::drawStates);
 		}
 
 		disable_gl();
 	}
 
-	public void draw(EntityPlayer player) {
+	public void drawStates(Entity player) {
 		String player_stats    = player.getName() + (health.getValue() ? " " + "|" + Math.round(((EntityLivingBase) player).getHealth() + (player instanceof EntityPlayer ? ((EntityPlayer) player).getAbsorptionAmount() : 0)) : "");
 		int width_player_stats = font_render_In.getStringWidth(player_stats) / 2;
 
@@ -158,10 +158,12 @@ public class NameTag extends Module {
 
 			font_render_In.drawString(player_stats, - width_player_stats, 10, color);
 		} else {
-			InventoryPlayer inventory = player.inventory;
+			EntityPlayer player_ = (EntityPlayer) player;
 
-			ItemStack player_main_hand = player.getHeldItemMainhand(); // Main hand.
-			ItemStack player_off_hand  = player.getHeldItemOffhand();  // Off Hand.
+			InventoryPlayer inventory = player_.inventory;
+
+			ItemStack player_main_hand = player_.getHeldItemMainhand(); // Main hand.
+			ItemStack player_off_hand  = player_.getHeldItemOffhand();  // Off Hand.
 			
 			ItemStack player_helmet     = inventory.armorItemInSlot(3); // Helmet.
 			ItemStack player_chestplace = inventory.armorItemInSlot(2); // Chestplace.
