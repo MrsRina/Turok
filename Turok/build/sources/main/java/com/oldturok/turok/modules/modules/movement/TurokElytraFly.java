@@ -22,12 +22,15 @@ public class TurokElytraFly extends Module {
             mc.player.setVelocity(0.0, -0.003, 0.0);
             mc.player.capabilities.setFlySpeed(0.915f);
         }
+
         if (mc.player.onGround) {
             mc.player.capabilities.allowFlying = false;
         }
+
         if (!mc.player.isElytraFlying()) {
             return;
         }
+
         switch (fly_mode.getValue()) {
             case BOOST: {
                 if (mc.player.isInWater()) {

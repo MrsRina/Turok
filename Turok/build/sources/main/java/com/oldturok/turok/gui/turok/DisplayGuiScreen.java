@@ -34,7 +34,7 @@ public class DisplayGuiScreen extends GuiScreen {
     public DisplayGuiScreen(GuiScreen lastScreen) {
         this.lastScreen = lastScreen;
 
-        TurokGUI gui = TurokMod.getInstance().getGuiManager();
+        TurokGUI gui = TurokMod.get_instance().get_gui_manager();
 
         for (Component c : gui.getChildren()){
             if (c instanceof Frame){
@@ -50,14 +50,14 @@ public class DisplayGuiScreen extends GuiScreen {
 
     @Override
     public void onGuiClosed() {
-        TurokGUI gui = TurokMod.getInstance().getGuiManager();
+        TurokGUI gui = TurokMod.get_instance().get_gui_manager();
 
         gui.getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
     }
 
     @Override
     public void initGui() {
-        gui = TurokMod.getInstance().getGuiManager();
+        gui = TurokMod.get_instance().get_gui_manager();
     }
 
     @Override

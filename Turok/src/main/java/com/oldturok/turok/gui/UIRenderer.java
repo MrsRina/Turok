@@ -15,7 +15,7 @@ import org.lwjgl.opengl.GL11;
 public class UIRenderer {
 	public static void renderAndUpdateFrames(){
 	    if (Wrapper.getMinecraft().currentScreen instanceof DisplayGuiScreen || Wrapper.getMinecraft().gameSettings.showDebugInfo) return;
-		TurokGUI gui = TurokMod.getInstance().getGuiManager();
+		TurokGUI gui = TurokMod.get_instance().get_gui_manager();
 
         GL11.glDisable(GL11.GL_TEXTURE_2D);
 		for (Component c : gui.getChildren()){

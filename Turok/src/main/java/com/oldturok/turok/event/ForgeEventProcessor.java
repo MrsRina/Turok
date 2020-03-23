@@ -42,7 +42,7 @@ public class ForgeEventProcessor {
             displayWidth = Minecraft.getMinecraft().displayWidth;
             displayHeight = Minecraft.getMinecraft().displayHeight;
 
-            TurokMod.getInstance().getGuiManager().getChildren().stream()
+            TurokMod.get_instance().get_gui_manager().getChildren().stream()
                     .filter(component -> component instanceof Frame)
                     .forEach(component -> TurokGUI.dock((Frame) component));
         }
@@ -51,8 +51,9 @@ public class ForgeEventProcessor {
     @SubscribeEvent
     public void onTick(TickEvent.ClientTickEvent event) {
         if (Wrapper.getPlayer() == null) return;
+
         ModuleManager.onUpdate();
-        TurokMod.getInstance().getGuiManager().callTick(TurokMod.getInstance().getGuiManager());
+        TurokMod.get_instance().get_gui_manager().callTick(TurokMod.get_instance().get_gui_manager());
     }
 
     @SubscribeEvent

@@ -33,15 +33,37 @@ public class HoleColor extends Module {
 		new BlockPos(-1, 0, 0)
 	};
 
-	private Setting<Double> range    = register(Settings.d("Range", 10.0d));
+	private Setting<Double> range = register(Settings.d("Range", 10.0d));
+
 	private Setting<Integer> color_r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
 	private Setting<Integer> color_g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
 	private Setting<Integer> color_b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(0));
 	private Setting<Integer> a       = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(255));
 	private Setting<Boolean> rgb     = register(Settings.b("RGB", true));
 
+	private Setting<TypeHole> type = register(Settings.e("Hole Type", TypeHole.OUTLINE));
+
+	public int prepare;
+	public int mask;
+
 	@Override
 	public void onUpdate() {
+		switch (type.getValue()) {
+			case OUTLINE : {
+				prepare = GL11.GL_LINES;
+				mask    = GeometryMasks.Line.ALL;
+
+				break;
+			}
+
+			case BOX : {
+				prepare = GL11.GL_QUADS;
+				mask    = GeometryMasks.Quad.ALL;
+
+				break;
+			}
+		}
+
 		if (safe_holes == null) {
 			safe_holes = new ConcurrentHashMap<>();
 		} else {
@@ -79,7 +101,7 @@ public class HoleColor extends Module {
 		if (mc.player == null || safe_holes == null) return;
 		if (safe_holes.isEmpty()) return;
 
-		TurokTessellator.prepare(GL11.GL_LINES);
+		TurokTessellator.prepare(prepare);
 		safe_holes.forEach((block_pos, bedrock) -> {
 			int r = 0;
 			int g = 0;
@@ -109,6 +131,11 @@ public class HoleColor extends Module {
 
 	private void draw(BlockPos block_pos, int r, int g, int b) {
 		Color color = new Color(r, g, b, a.getValue());
-		TurokTessellator.drawLines(block_pos, color.getRGB(), GeometryMasks.Line.ALL);
+		TurokTessellator.drawLines(block_pos, color.getRGB(), mask);
+	}
+
+	public enum TypeHole {
+		OUTLINE,
+		BOX;
 	}
 }

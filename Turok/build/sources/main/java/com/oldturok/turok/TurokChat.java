@@ -27,7 +27,7 @@ public abstract class TurokChat {
 		return name;
 	}
 
-	public String get_prefix() {
+	public static String get_prefix() {
 		return prefix.getValue();
 	}
 

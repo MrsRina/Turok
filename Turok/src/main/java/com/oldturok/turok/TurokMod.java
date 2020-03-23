@@ -11,7 +11,6 @@ import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.gui.rgui.util.Docking;
 import com.oldturok.turok.util.TurokChatManager;
 import com.oldturok.turok.module.ModuleManager;
-import com.oldturok.turok.util.TurokIRCManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.setting.Settings;
@@ -66,9 +65,8 @@ public class TurokMod {
 
     public static final EventBus EVENT_BUS = new EventManager();
 
-    public static TurokIRCManager chat_irc;
     public TurokChatManager turok_chat_manager;
-    public TurokGUI guiManager;
+    public TurokGUI gui_manager;
 
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
         @Override
@@ -106,8 +104,8 @@ public class TurokMod {
 
         Wrapper.init();
 
-        guiManager = new TurokGUI();
-        guiManager.initializeGUI();
+        gui_manager = new TurokGUI();
+        gui_manager.initializeGUI();
 
         turok_chat_manager = new TurokChatManager();
 
@@ -154,7 +152,7 @@ public class TurokMod {
 
         JsonObject gui = TurokMod.INSTANCE.guiStateSetting.getValue();
         for (Map.Entry<String, JsonElement> entry : gui.entrySet()) {
-            Optional<Component> optional = TurokMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).filter(component -> ((Frame) component).getTitle().equals(entry.getKey())).findFirst();
+            Optional<Component> optional = TurokMod.INSTANCE.gui_manager.getChildren().stream().filter(component -> component instanceof Frame).filter(component -> ((Frame) component).getTitle().equals(entry.getKey())).findFirst();
             
             if (optional.isPresent()) {
                 JsonObject object = entry.getValue().getAsJsonObject();
@@ -183,7 +181,7 @@ public class TurokMod {
             }
         }
 
-        TurokMod.getInstance().getGuiManager().getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
+        TurokMod.get_instance().get_gui_manager().getChildren().stream().filter(component -> (component instanceof Frame) && (((Frame) component).isPinneable()) && component.isVisible()).forEach(component -> component.setOpacity(0f));
     }
 
     public static void save_config() {
@@ -196,7 +194,7 @@ public class TurokMod {
 
     public static void save_unsafe() throws IOException {
         JsonObject object = new JsonObject();
-        TurokMod.INSTANCE.guiManager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
+        TurokMod.INSTANCE.gui_manager.getChildren().stream().filter(component -> component instanceof Frame).map(component -> (Frame) component).forEach(frame -> {
             JsonObject frame_object = new JsonObject();
 
             frame_object.add("x", new JsonPrimitive(frame.getX()));
@@ -227,11 +225,15 @@ public class TurokMod {
         }
     }
 
-    public static TurokMod getInstance() {
+    public static TurokMod get_instance() {
         return INSTANCE;
     }
 
-    public TurokGUI getGuiManager() {
-        return guiManager;
+    public TurokGUI get_gui_manager() {
+        return gui_manager;
+    }
+
+    public TurokChatManager get_chat_manager() {
+        return turok_chat_manager;
     }
 }
