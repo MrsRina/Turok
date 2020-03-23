@@ -328,7 +328,13 @@ public class TurokInsaneAura extends Module {
             }
 
             TurokTessellator.prepare(prepare);
-            TurokTessellator.drawBox(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
+
+            if (bloco_linha.getValue()) {
+                TurokTessellator.drawLines(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
+            } else {
+                TurokTessellator.drawBox(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
+            }
+
             TurokTessellator.release();
         }
     }

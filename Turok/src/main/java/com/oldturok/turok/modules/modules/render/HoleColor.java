@@ -46,6 +46,8 @@ public class HoleColor extends Module {
 	public int prepare;
 	public int mask;
 
+	public boolean type_;
+
 	@Override
 	public void onUpdate() {
 		switch (type.getValue()) {
@@ -53,12 +55,16 @@ public class HoleColor extends Module {
 				prepare = GL11.GL_LINES;
 				mask    = GeometryMasks.Line.ALL;
 
+				type_ = true;
+
 				break;
 			}
 
 			case BOX : {
 				prepare = GL11.GL_QUADS;
 				mask    = GeometryMasks.Quad.ALL;
+
+				type_ = false;
 
 				break;
 			}
@@ -126,12 +132,18 @@ public class HoleColor extends Module {
 			draw(block_pos, r, g, b);
 			draw(block_pos, r, g, b);
 		});
+
 		TurokTessellator.release();
 	}
 
 	private void draw(BlockPos block_pos, int r, int g, int b) {
 		Color color = new Color(r, g, b, a.getValue());
-		TurokTessellator.drawLines(block_pos, color.getRGB(), mask);
+
+		if (type_) {
+			TurokTessellator.drawLines(block_pos, color.getRGB(), mask);
+		} else {
+			TurokTessellator.drawBox(block_pos, color.getRGB(), mask);
+		}
 	}
 
 	public enum TypeHole {

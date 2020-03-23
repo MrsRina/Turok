@@ -45,7 +45,7 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
     boolean effect_module_one = true;
     Boolean effect_module_r   = false;
 
-    int color_pinned_r = 105;
+    public static int color_pinned_r = 105;
 
     float color_module_r = 105;
 
@@ -56,6 +56,20 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
     @Override
     public void renderComponent(Frame component, FontRenderer fontRenderer) {
         if (component.getOpacity() == 0) return;
+
+        if (effect_pinned_r) {
+            color_pinned_r += 1;
+        } else {
+            color_pinned_r -= 1;
+        }
+
+        if (color_pinned_r >= 255) {
+            effect_pinned_r = false;
+        }
+
+        if (color_pinned_r <= 105) {
+            effect_pinned_r = true;
+        }
 
         TurokGL.DisableGL(GL11.GL_TEXTURE_2D);
 
@@ -102,22 +116,6 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
 
     public void draw_pinned(Frame component) {
         if (component.isPinned()) {
-            if (effect_pinned_one) {
-                if (effect_pinned_r) {
-                    color_pinned_r += 1;
-                } else {
-                    color_pinned_r -= 1;
-                }
-
-                if (color_pinned_r >= 255) {
-                    effect_pinned_r = false;
-                }
-
-                if (color_pinned_r <= 105) {
-                    effect_pinned_r = true;
-                }
-            }
-
             TurokGL.refresh_color(color_pinned_r, 0, 0, 150);
         } else {
             TurokGL.refresh_color(0, 0, 0, 150);

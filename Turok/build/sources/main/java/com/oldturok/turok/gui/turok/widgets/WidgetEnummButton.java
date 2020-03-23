@@ -68,6 +68,7 @@ public class WidgetEnummButton extends AbstractComponentUI<EnumButton> {
         for (String s : component.getModes()) {
             width = Math.max(width, smallFontRenderer.getStringWidth(s));
         }
+
         component.setWidth(smallFontRenderer.getStringWidth(component.getName()) + width + 1);
         component.setHeight(smallFontRenderer.getFontHeight() + 2);
     }
