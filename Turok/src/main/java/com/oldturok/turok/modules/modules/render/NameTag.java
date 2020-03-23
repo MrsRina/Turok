@@ -32,7 +32,7 @@ import java.awt.*;
 import static org.lwjgl.opengl.GL11.*;
 
 // Rina.
-@Module.Info(name = "NameTag", description = "A name tag unique for Turok.", category = Module.Category.TUROK_PLAYER)
+@Module.Info(name = "NameTag", description = "A name tag unique for Turok.", category = Module.Category.TUROK_HIDDEN)
 public class NameTag extends Module {
 	private Setting<Integer> range = register(Settings.integerBuilder("Range").withMinimum(1).withValue(10).withMaximum(30));
 	private Setting<Float> scale_  = register(Settings.floatBuilder("Scale").withMinimum(1.0f).withValue(2.0f).withMaximum(30.0f));
