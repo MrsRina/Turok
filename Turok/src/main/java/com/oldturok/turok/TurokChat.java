@@ -1,30 +1,39 @@
 package com.oldturok.turok;
 
 import com.oldturok.turok.TurokMod;
+import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.setting.Settings;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 // Rina.
-public class TurokChat {
+public abstract class TurokChat {
 	public String name;
 	public String description;
-	public String prefix;
+
+	public static Setting<String> prefix = Settings.s("commandPrefix", ".");
 
 	public TurokChat(String name, String description) {
 		this.name        = name;
 		this.description = description;
 	}
 
-	public void set_prefix(String prefix) {
-		this.prefix = prefix;
+	public String get_decrption() {
+		return description;
+	}
+
+	public String get_name() {
+		return name;
 	}
 
 	public String get_prefix() {
-		return this.prefix;
+		return prefix.getValue();
 	}
 
-	public boolean Get_Message(String[] message) {
-		return false;
+	public void set_prefix(String new_prefix) {
+		prefix.setValue(new_prefix);
 	}
+
+	public abstract void command(String[] message);
 }

@@ -9,8 +9,8 @@ import com.oldturok.turok.setting.config.Configuration;
 import com.oldturok.turok.event.ForgeEventProcessor;
 import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.gui.rgui.util.Docking;
+import com.oldturok.turok.util.TurokChatManager;
 import com.oldturok.turok.module.ModuleManager;
-import com.oldturok.turok.gui.TurokChatCommand;
 import com.oldturok.turok.util.TurokIRCManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.gui.turok.TurokGUI;
@@ -67,7 +67,7 @@ public class TurokMod {
     public static final EventBus EVENT_BUS = new EventManager();
 
     public static TurokIRCManager chat_irc;
-    public TurokChatCommand turok_chat_manager;
+    public TurokChatManager turok_chat_manager;
     public TurokGUI guiManager;
 
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
@@ -109,7 +109,7 @@ public class TurokMod {
         guiManager = new TurokGUI();
         guiManager.initializeGUI();
 
-        MinecraftForge.EVENT_BUS.register(turok_chat_manager = new TurokChatCommand());
+        turok_chat_manager = new TurokChatManager();
 
         Friends.initFriends();
 

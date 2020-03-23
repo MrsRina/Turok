@@ -3,6 +3,8 @@ package com.oldturok.turok;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.TurokMod;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
+
 import net.minecraft.util.text.TextComponentBase;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.client.Minecraft;
@@ -20,6 +22,10 @@ public class TurokMessage {
 
 	public static void send_client_msg(String message) {
 		send_msg(TurokMod.TUROK_MOD_NAME + " - " + " " + message);
+	}
+
+	public static void send_error_msg(String message) {
+		send_msg(TurokMod.TUROK_MOD_NAME + ": " + ChatFormatting.RED + message);
 	}
 
 	public static class ChatMessage extends TextComponentBase {
