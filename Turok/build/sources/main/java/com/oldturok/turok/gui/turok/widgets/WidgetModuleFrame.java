@@ -67,7 +67,7 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
             effect_pinned_r = false;
         }
 
-        if (color_pinned_r <= 105) {
+        if (color_pinned_r <= 50) {
             effect_pinned_r = true;
         }
 

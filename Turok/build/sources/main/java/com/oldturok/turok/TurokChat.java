@@ -12,7 +12,7 @@ public abstract class TurokChat {
 	public String name;
 	public String description;
 
-	public static Setting<String> prefix = Settings.s("commandPrefix", ".");
+	public static Setting<String> prefix = Settings.s("prefix", "-");
 
 	public TurokChat(String name, String description) {
 		this.name        = name;

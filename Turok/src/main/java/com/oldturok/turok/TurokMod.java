@@ -18,6 +18,7 @@ import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokChat;
 import com.oldturok.TurokRPC;
 
 import com.google.common.base.Converter;
@@ -108,6 +109,8 @@ public class TurokMod {
         gui_manager.initializeGUI();
 
         turok_chat_manager = new TurokChatManager();
+
+        SettingsRegister.register("prefix", TurokChat.prefix);
 
         Friends.initFriends();
 
