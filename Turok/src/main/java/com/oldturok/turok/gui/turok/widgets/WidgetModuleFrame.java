@@ -45,7 +45,7 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
     boolean effect_module_one = true;
     Boolean effect_module_r   = false;
 
-    public static int color_pinned_r = 105;
+    public static float color_pinned_r = 105.0f;
 
     float color_module_r = 105;
 
@@ -58,9 +58,9 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
         if (component.getOpacity() == 0) return;
 
         if (effect_pinned_r) {
-            color_pinned_r += 1;
+            color_pinned_r += 0.50f;
         } else {
-            color_pinned_r -= 1;
+            color_pinned_r -= 0.50f;
         }
 
         if (color_pinned_r >= 255) {
@@ -94,11 +94,11 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
                 color_module_r -= 1f;
             }
 
-            if (color_module_r >= 255) {
+            if (color_module_r >= 255.0f) {
                 effect_module_r = false;
             }
 
-            if (color_module_r <= 105) {
+            if (color_module_r <= 105.0f) {
                 effect_module_r = true;
             }
         }

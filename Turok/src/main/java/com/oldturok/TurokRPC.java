@@ -50,8 +50,8 @@ public class TurokRPC {
 					if (mc.player != null) {
 						name = mc.player.getName();
 					} else {
-						name = "...";
-						event_extra = ""
+						name        = "...";
+						event_extra = "";
 					}
 
 					if (mc.world != null) {
@@ -80,8 +80,8 @@ public class TurokRPC {
 						}
 
 					} else {
-						server = "main menu";
-						event_extra = "..."
+						server      = "main menu";
+						event_extra = "...";
 					}
 
 					detail = name + " - " + server;
@@ -106,11 +106,6 @@ public class TurokRPC {
 				}
 			}
 		}, "RPC-Callback-Handler").start();
-	}
-
-	public static void life(Boolean type) {
-
-		}
 	}
 
 	// I used like referece KAMI BLUE discord for INSTANCE, I can say, is not equal.

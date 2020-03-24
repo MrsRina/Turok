@@ -10,6 +10,7 @@ import com.oldturok.turok.event.ForgeEventProcessor;
 import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.gui.rgui.util.Docking;
 import com.oldturok.turok.util.TurokChatManager;
+import com.oldturok.turok.util.TurokIRCManager;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.gui.turok.TurokGUI;
@@ -67,6 +68,7 @@ public class TurokMod {
     public static final EventBus EVENT_BUS = new EventManager();
 
     public TurokChatManager turok_chat_manager;
+    public TurokIRCManager irc_manager;
     public TurokGUI gui_manager;
 
     private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
@@ -104,6 +106,8 @@ public class TurokMod {
         LagCompensator.INSTANCE = new LagCompensator();
 
         Wrapper.init();
+
+        irc_manager.initBOT();
 
         gui_manager = new TurokGUI();
         gui_manager.initializeGUI();

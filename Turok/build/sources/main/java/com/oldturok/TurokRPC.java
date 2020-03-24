@@ -29,6 +29,7 @@ public class TurokRPC {
 	private static String name;
 	private static String server;
 	private static String event_1;
+	private static String event_extra;
 
 	public static TurokCrystalAura crystalfunction = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
 	public static Minecraft mc = Minecraft.getMinecraft();
@@ -46,32 +47,45 @@ public class TurokRPC {
 		new Thread(() -> {
 			while (!Thread.currentThread().isInterrupted()) {
 				try {
-					if (mc.player == null) {
-						name = "turok";
-					} else {
+					if (mc.player != null) {
 						name = mc.player.getName();
+					} else {
+						name        = "...";
+						event_extra = "";
 					}
 
-					if (mc.isIntegratedServerRunning()) {
-						server = "just offline";
-					} else if (mc.getCurrentServerData() != null) {
-						server = mc.getCurrentServerData().serverIP;
+					if (mc.world != null) {
+						if (mc.isIntegratedServerRunning()) {
+							server = "just offline";
+
+							event_1 = "relaxing in " +  mc.world.getBiome(mc.player.getPosition()).getBiomeName();
+						} else if (mc.getCurrentServerData() != null) {
+							server = mc.getCurrentServerData().serverIP;
+
+							event_extra = "";
+
+							if (mc.player.getHealth() < 4.0f) {
+								if (mc.player.isDead) {
+									event_1 = "died";
+								} else {
+									event_1 = "low health";
+								}
+							} else {
+								if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled() || ModuleManager.getModuleByName("TurokInsaneAura").isEnabled()) {
+									event_1 = "crystaling...";
+								} else {
+									event_1 = "relaxing in " +  mc.world.getBiome(mc.player.getPosition()).getBiomeName();
+								}
+							}
+						}
+
 					} else {
-						server = "main menu";
-					}
-
-					if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled() || ModuleManager.getModuleByName("TurokInsaneAura").isEnabled()) {
-						event_1 = "crystaling...";
-
-						life(true);
-					} else {
-						event_1 = mc.world.getBiome(mc.player.getPosition()).getBiomeName();
-
-						life(false);
+						server      = "main menu";
+						event_extra = "...";
 					}
 
 					detail = name + " - " + server;
-					state  = event_1 + "";
+					state  = event_1 + event_extra;
 
 					discord_rpc.Discord_RunCallbacks();
 
@@ -79,9 +93,7 @@ public class TurokRPC {
 					discord_presence.state   = state;
 
 					discord_rpc.Discord_UpdatePresence(discord_presence);
-				}
-
-				catch (Exception exc) {
+				} catch (Exception exc) {
 					exc.printStackTrace();
 				}
 
@@ -94,19 +106,6 @@ public class TurokRPC {
 				}
 			}
 		}, "RPC-Callback-Handler").start();
-	}
-
-	public static void life(Boolean type) {
-		if (mc.player.getHealth() < 4.0f) {
-			event_1 = "low health";
-		} else {
-			if (type) {
-				event_1 = "crystaling...";
-			} else {
-				// Relaxing in hell!, nooo!!, relaxing in savana, yes yes, God is more God is more!.
-				event_1 = "relaxing in " +  mc.world.getBiome(mc.player.getPosition()).getBiomeName();
-			}
-		}
 	}
 
 	// I used like referece KAMI BLUE discord for INSTANCE, I can say, is not equal.

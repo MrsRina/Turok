@@ -9,11 +9,13 @@ buildscript {
             name = 'forge'
             url = 'http://files.minecraftforge.net/maven'
         }
+
         maven {
             name = 'SpongePowered'
             url = 'http://repo.spongepowered.org/maven'
         }
     }
+
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
         classpath 'org.spongepowered:mixingradle:0.4-SNAPSHOT'
@@ -29,6 +31,7 @@ version project.modVersion
 group project.modGroup
 
 sourceCompatibility = targetCompatibility = '1.8'
+
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
@@ -46,18 +49,22 @@ repositories {
         name = 'spongepowered-repo'
         url = 'http://repo.spongepowered.org/maven/'
     }
+
     maven {
         name = 'impactdevelopment-repo'
         url = 'https://impactdevelopment.github.io/maven/'
     }
+
     maven {
         name = 'swt-repo'
         url = "http://maven-eclipse.github.io/maven"
     }
+
     maven {
         name = "jitpack.io"
         url = "https://jitpack.io"
     }
+
     mavenCentral()
 }
 
@@ -68,6 +75,7 @@ dependencies {
         exclude module: 'gson'
         exclude module: 'commons-io'
     }
+
     compile "com.github.ZeroMemes:Alpine:1.5"
     compile group: 'net.jodah', name: 'typetools', version: '0.5.0'
     compile group: 'org.yaml', name: 'snakeyaml', version: '1.19'
@@ -76,7 +84,7 @@ dependencies {
     }
 
     compile 'club.minnced:java-discord-rpc:v2.0.1' // Discord rpc.
-    compile group: 'org.l33tlabs.twl', name: 'pngdecoder', version: '1.0' // PNGDecode.
+    compile "net.dv8tion:JDA:3.8.0_436" // Discord IRC.
 }
 
 processResources {
@@ -106,6 +114,7 @@ shadowJar {
         include(dependency('org.reflections:reflections'))
         include(dependency('org.javassist:javassist'))
     }
+
     exclude 'dummyThing'
     exclude 'LICENSE.txt'
     classifier = 'release'
