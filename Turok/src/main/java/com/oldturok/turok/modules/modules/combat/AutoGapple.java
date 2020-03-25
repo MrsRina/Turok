@@ -14,6 +14,7 @@ import net.minecraft.init.Items;
 @Module.Info(name = "AutoGapple", description = "Auto off hand gapple.", category = Module.Category.TUROK_COMBAT)
 public class AutoGapple extends Module {
 	private Setting<Boolean> totem_disable = register(Settings.b("Totem Disable", true));
+	private Setting<Boolean> totem_safe    = register(Settings.b("Auto Safe", true));
 
 	int count;
 	boolean item = false;
@@ -39,6 +40,12 @@ public class AutoGapple extends Module {
 
 	@Override
 	public void onUpdate() {
+		if (totem_safe.getValue()) {
+			if (mc.player.getHealth() < 4.0f) {
+				disable();
+			}
+		}
+
 		if (mc.currentScreen instanceof GuiContainer) return;
 
 		if (item) {

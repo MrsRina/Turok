@@ -18,7 +18,10 @@ public class WidgetUnboundSlider extends AbstractComponentUI<UnboundSlider> {
         text = component.getText() + ": " + component.getValue();
         int color = component.isPressed() ? 0xdddddd : 0xdddddd;
         float value_ = (float) component.getValue();
-        if (component.isHovered()) color = (color & 0x9dc4dc) << 1; 
+        
+        if (component.isHovered()) {
+            color = (color & 0x9dc4dc) << 1;
+        }
 
         TurokGL.refresh_color(255, 0, 0, 255);
         fontRenderer.drawString(1, component.getHeight() - fontRenderer.getFontHeight() / 2 - 4, color, text);

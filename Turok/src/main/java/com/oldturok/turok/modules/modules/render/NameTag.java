@@ -32,7 +32,7 @@ import java.util.Collection;
 import java.util.ArrayList;
 import java.util.List;
 
-@Module.Info(name = "NameTag", description = "Show which item player using.", category = Module.Category.TUROK_RENDER)
+@Module.Info(name = "NameTag", description = "Show which item player using.", category = Module.Category.TUROK_HIDDEN)
 public class NameTag extends Module {
 	private Setting<Integer> range = register(Settings.integerBuilder("Range").withMinimum(0).withMaximum(50).withValue(10));
 	private Setting<Float> scale   = register(Settings.floatBuilder("Scale").withMinimum(0.5f).withMaximum(50f).withValue(3f).build());
@@ -86,10 +86,12 @@ public class NameTag extends Module {
 		double y = player_data_interp.y + player_extra_y;
 		double z = player_data_interp.z;
 
+		boolean is_front = (mc.getRenderManager().options.thirdPersonView == 2);
+
 		GlStateManager.translate(x, y, z);
 
 		GlStateManager.rotate(- player_view_y, 0.0f, 1.0f, 0.0f);
-		GlStateManager.rotate((float) (mc.getRenderManager().options.thirdPersonView == 2 ? -1 : 1) * player_view_x, 1.0f, 0.0f, 0.0f);
+		GlStateManager.rotate((float) (is_front ? -1 : 1) * player_view_x, 1.0f, 0.0f, 0.0f);
 
 		GlStateManager.scale(player_math_cal, player_math_cal, player_math_cal);
 		GlStateManager.scale(- 0.025f, - 0.025f, 0.025f);
@@ -103,8 +105,8 @@ public class NameTag extends Module {
 
 		glTranslatef(0, - 20, 0);
 
-		draw(GL_QUADS, draw_tessellator, bufferbuilder, tag_name_width, 0.0f, 0.5f);
-		draw(GL_LINE_LOOP, draw_tessellator, bufferbuilder, tag_name_width, 0.1f, 0.1f);
+		draw(GL_QUADS, draw_tessellator, bufferbuilder, tag_life_width, 0.0f, 0.5f);
+		draw(GL_LINE_LOOP, draw_tessellator, bufferbuilder, tag_life_width, 0.1f, 0.1f);
 
 		GlStateManager.enableTexture2D();
 		GlStateManager.glNormal3f(0.0f, 1.0f, 0.0f);
@@ -146,15 +148,17 @@ public class NameTag extends Module {
 		GlStateManager.scale(0.3f, 0.3f, 0.3f);
 		GlStateManager.popMatrix();
 
-		render_item.zLevel = 200f;
+		RenderHelper.enableGUIStandardItemLighting();
 
 		GlStateManager.disableDepth();
 		GlStateManager.enableTexture2D();
 
-		render_item.renderItemAndEffectIntoGUI(stack, x, y);
-		render_item.renderItemOverlayIntoGUI(render_Font, stack, x, y, null);
-
+		render_item.zLevel = - 100f;
+		render_item.renderItemIntoGUI(stack, x, y);
+		render_item.renderItemOverlayIntoGUI(render_Font, stack, x, y, "");
 		render_item.zLevel = 0.0f;
+
+		GlStateManager.enableDepth();
 
 		RenderHelper.disableStandardItemLighting();
 		GlStateManager.enableAlpha();
@@ -235,5 +239,7 @@ public class NameTag extends Module {
 
 			x += 16;
 		}
+
+		GlStateManager.enableDepth();
 	}
 }

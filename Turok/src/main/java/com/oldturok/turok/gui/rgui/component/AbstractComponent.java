@@ -1,5 +1,6 @@
 package com.oldturok.turok.gui.rgui.component;
 
+import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.render.ComponentUI;
 import com.oldturok.turok.gui.rgui.component.listen.*;
@@ -184,6 +185,11 @@ public abstract class AbstractComponent implements Component {
         getUpdateListeners().forEach(listener -> listener.updateSize(this, oldWidth, oldHeight)); // First call components own updatelisteners
         if (getParent() != null)
             getParent().getUpdateListeners().forEach(listener -> listener.updateSize(this, oldWidth, oldHeight)); // And then notify the parent
+    }
+
+    @Override
+    public void embedFrame(Frame frame) {
+        frame.setHeight(500);
     }
 
     @Override

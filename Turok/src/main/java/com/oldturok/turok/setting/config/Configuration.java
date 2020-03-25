@@ -23,13 +23,17 @@ public class Configuration {
         }
         for (Map.Entry<String, Setting> entry : register.settingHashMap.entrySet()) {
             Setting setting = entry.getValue();
-            if (!(setting instanceof Convertable)) continue;
-            object.add(entry.getKey(), (JsonElement) ((Convertable) setting).converter().convert(setting.getValue()));
+
+            if (!(entry.getName().equals("gui"))) {
+                if (!(setting instanceof Convertable)) continue;
+                object.add(entry.getKey(), (JsonElement) ((Convertable) setting).converter().convert(setting.getValue()));
+            }
         }
+
         return object;
     }
 
-    public static void saveConfiguration(Path path) throws IOException {
+    public static void saveConfiguration(Path path, boolean bind_or_frame) throws IOException {
         saveConfiguration(Files.newOutputStream(path));
     }
 
@@ -64,6 +68,7 @@ public class Configuration {
         for (Map.Entry<String, JsonElement> entry : input.entrySet()) {
             String key = entry.getKey();
             JsonElement element = entry.getValue();
+
             if (register.registerHashMap.containsKey(key)) {
                 loadConfiguration(register.subregister(key), element.getAsJsonObject());
             } else {

@@ -57,7 +57,7 @@ public class ChatSuffix extends Module {
             if (suffix_accept == true){
                 msg += suffix;
             } else {
-                return;
+                msg += "";
             }
                 
             if (msg.length() >= 256) msg = msg.substring(0, 256);

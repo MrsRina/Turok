@@ -29,12 +29,12 @@ public class BindButton extends EnumButton {
                 
                 if (key == Keyboard.KEY_BACK) {
                     m.getBind().setKey(-1);
-                    modes = new String[]{m.getBind().toString()};
+                    modes = new String[] {m.getBind().toString()};
                     waiting = false;
 
                 } else {
                     m.getBind().setKey(key);
-                    modes = new String[]{m.getBind().toString()};
+                    modes = new String[] {m.getBind().toString()};
                     waiting = false;
                 }
             }

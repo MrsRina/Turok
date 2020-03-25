@@ -59,8 +59,9 @@ public class TurokMod {
 
     public static String TUROK_CHAT_PREFIX = "-";
 
-    private static final String TUROK_CONFIG_NAME_DEFAULT = "Turok.json";
-    private static final String TUROK_FOLDER_NAME_DEFAULT = "Turok/";
+    private static final String TUROK_CONFIG_FRAMES = "Frames.json";
+    private static final String TUROK_CONFIG_BINDS  = "Binds.json";
+    private static final String TUROK_CONFIG_FOLDER = "Turok/";
 
     public static final Logger turok_log = LogManager.getLogger("turok");
 
@@ -123,6 +124,7 @@ public class TurokMod {
 
         TurokRPC.start();
 
+        ModuleManager.getModuleByName("FreeCamera").disable();
         ModuleManager.getModuleByName("TurokHUD").enable();
 
         TurokMod.turok_log.info("Welcome to Turok.");
@@ -137,21 +139,27 @@ public class TurokMod {
     }
 
     public static void load_configs() throws IOException {
-        String turok_config_name_ = TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT;
-        Path turok_config         = Paths.get(turok_config_name_);
+        String turok_frames_name = TUROK_CONFIG_FOLDER + TUROK_CONFIG_FRAMES;
+        String turok_binds_name  = TUROK_CONFIG_FOLDER + TUROK_CONFIG_BINDS;
+
+        Path turok_config_frames = Paths.get(turok_frames_name);
+        Path turok_config_binds  = Paths.get(turok_binds_name);
         
-        Path folder_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT);
+        Path folder_bind = Paths.get(TUROK_CONFIG_FOLDER);
 
         if (!Files.exists(folder_bind)) {
             Files.createDirectories(folder_bind);
         }
 
-        Path file_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT);
+        if (!Files.exists(turok_config_frames)) {
+            Files.createFile(turok_config_frames);
+        }
 
-        if (!Files.exists(file_bind))
-            Files.createFile(file_bind);
+        if (!Files.exists(turok_config_binds)) {
+            Files.createFile(turok_config_binds);
+        }
         
-        Configuration.loadConfiguration(turok_config);
+        Configuration.loadConfiguration(turok_config_binds);
 
         JsonObject gui = TurokMod.INSTANCE.guiStateSetting.getValue();
         for (Map.Entry<String, JsonElement> entry : gui.entrySet()) {
@@ -164,7 +172,7 @@ public class TurokMod {
                 frame.setX(object.get("x").getAsInt());
                 frame.setY(object.get("y").getAsInt());
                
-                Docking docking = Docking.values()[object.get("docking").getAsInt()];
+                Docking docking = Docking.values() [object.get("docking").getAsInt()];
                 
                 if (docking.isLeft()){
                 	ContainerHelper.setAlignment(frame, AlignedComponent.Alignment.LEFT);
@@ -211,7 +219,7 @@ public class TurokMod {
 
         TurokMod.INSTANCE.guiStateSetting.setValue(object);
 
-        Path file_bind = Paths.get(TUROK_FOLDER_NAME_DEFAULT + TUROK_CONFIG_NAME_DEFAULT);
+        Path file_bind = Paths.get(TUROK_CONFIG_FOLDER + TUROK_CONFIG_BINDS);
 
         Configuration.saveConfiguration(file_bind);
         ModuleManager.getModules().forEach(Module::destroy);

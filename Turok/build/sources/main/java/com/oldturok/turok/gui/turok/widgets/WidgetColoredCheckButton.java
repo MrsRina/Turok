@@ -30,12 +30,11 @@ public class WidgetColoredCheckButton extends WidgetCheckButton <ColorizedCheckB
             GL11.glColor3f(backgroundColour.getRed()/255f, backgroundColour.getGreen()/255f, backgroundColour.getBlue()/255f);
         }
 
-//        RenderHelper.drawRoundedRectangle(0,0,component.getWidth(), component.getHeight(), 3f);
         GL11.glLineWidth(2.5f);
         GL11.glBegin(GL11.GL_LINES);
         {
-            GL11.glVertex2d(0,component.getHeight());
-            GL11.glVertex2d(component.getWidth(),component.getHeight());
+            GL11.glVertex2d(0, component.getHeight());
+            GL11.glVertex2d(component.getWidth(), component.getHeight());
         }
         GL11.glEnd();
 

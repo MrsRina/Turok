@@ -319,7 +319,7 @@ public class TurokGUI extends GUI {
                 }
             }
 
-            count_totem.setText(ChatFormatting.RED + "Totems " + String.valueOf(totems));
+            count_totem.setText(ChatFormatting.RED + "Totems " + ChatFormatting.GRAY + String.valueOf(totems));
         });
 
         frame_counts_totem.addChild(count_totem);
@@ -346,7 +346,7 @@ public class TurokGUI extends GUI {
                 }
             }
 
-            count_gapple.setText(ChatFormatting.RED + "Gapples " + String.valueOf(gapples));
+            count_gapple.setText(ChatFormatting.RED + "Gapples " + ChatFormatting.GRAY + String.valueOf(gapples));
         });
 
         frame_counts_gapple.addChild(count_gapple);
@@ -373,7 +373,7 @@ public class TurokGUI extends GUI {
                 }
             }
 
-            count_crystal.setText(ChatFormatting.RED + "Crystals " + String.valueOf(crystals));
+            count_crystal.setText(ChatFormatting.RED + "Crystals " + ChatFormatting.GRAY + String.valueOf(crystals));
         });
 
         frame_counts_crystal.addChild(count_crystal);
@@ -400,7 +400,7 @@ public class TurokGUI extends GUI {
                 }
             }
 
-            count_exp.setText(ChatFormatting.RED + "EXPBottles " + String.valueOf(expbottles));
+            count_exp.setText(ChatFormatting.RED + "EXPBottles " + ChatFormatting.GRAY + String.valueOf(expbottles));
         });
 
         frame_counts_exp.addChild(count_exp);

@@ -1,5 +1,6 @@
 package com.oldturok.turok.gui.rgui.component;
 
+import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.container.Container;
 import com.oldturok.turok.gui.rgui.render.ComponentUI;
 import com.oldturok.turok.gui.rgui.render.theme.Theme;
@@ -19,6 +20,8 @@ public interface Component {
     public void setY(int y);
     public void setWidth(int width);
     public void setHeight(int height);
+
+    public void embedFrame(Frame frame);
 
     public Component setMinimumWidth(int width);
     public Component setMaximumWidth(int width);
