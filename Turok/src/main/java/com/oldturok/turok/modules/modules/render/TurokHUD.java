@@ -67,20 +67,26 @@ public class TurokHUD extends Module {
 
 			for (ItemStack is : mc.player.inventory.armorInventory) {
 				iteration++;
-				if (is.isEmpty()) continue;
+
+				if (is.isEmpty()) {
+					continue;
+				}
+
 				int x = i - 90 + (9 - iteration) * 20 + 2;
+
 				GlStateManager.enableDepth();
 
-				itemRender.zLevel = 200F;
+				itemRender.zLevel = 200f;
 				itemRender.renderItemAndEffectIntoGUI(is, x, y);
 				itemRender.renderItemOverlayIntoGUI(mc.fontRenderer, is, x, y, "");
-				itemRender.zLevel = 0F;
+				itemRender.zLevel = 0f;
 
 				GlStateManager.enableTexture2D();
 				GlStateManager.disableLighting();
 				GlStateManager.disableDepth();
 
 				String s = is.getCount() > 1 ? is.getCount() + "" : "";
+
 				mc.fontRenderer.drawStringWithShadow(s, x + 19 - 2 - mc.fontRenderer.getStringWidth(s), y + 9, 0xffffff);
 			}
 

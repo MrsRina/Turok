@@ -27,6 +27,7 @@ public class TurokRPC {
 	public static String state;
 
 	private static String name;
+	private static String separe;
 	private static String server;
 	private static String event_1;
 	private static String event_extra;
@@ -48,10 +49,13 @@ public class TurokRPC {
 			while (!Thread.currentThread().isInterrupted()) {
 				try {
 					if (mc.player != null) {
-						name = mc.player.getName();
+						name   = mc.player.getName();
+						separe = " - ";
 					} else {
-						name        = "...";
+						name        = "";
+						separe      = " ";
 						event_extra = "";
+						event_1     = "";
 					}
 
 					if (mc.world != null) {
@@ -81,10 +85,12 @@ public class TurokRPC {
 
 					} else {
 						server      = "main menu";
+						separe      = " ";
 						event_extra = "...";
+						event_1     = "";
 					}
 
-					detail = name + " - " + server;
+					detail = name + separe + server;
 					state  = event_1 + event_extra;
 
 					discord_rpc.Discord_RunCallbacks();

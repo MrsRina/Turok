@@ -8,8 +8,6 @@ import java.nio.ByteBuffer;
 import java.awt.*;
 import java.io.*;
 
-import de.matthiasmann.twl.utils.PNGDecoder;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.BufferUtils;
 

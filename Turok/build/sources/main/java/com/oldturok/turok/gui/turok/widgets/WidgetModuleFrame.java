@@ -47,7 +47,7 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
 
     public static float color_pinned_r = 105.0f;
 
-    float color_module_r = 105;
+    public static int color_module_r = 105;
 
     public static int speed_effect = 1;
 
@@ -89,16 +89,16 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
     public void draw_module(Frame component, FontRenderer fontRenderer) {
         if (effect_module_one) {
             if (effect_module_r) {
-                color_module_r += 1f;
+                color_module_r += 1;
             } else {
-                color_module_r -= 1f;
+                color_module_r -= 1;
             }
 
-            if (color_module_r >= 255.0f) {
+            if (color_module_r >= 255) {
                 effect_module_r = false;
             }
 
-            if (color_module_r <= 105.0f) {
+            if (color_module_r <= 105) {
                 effect_module_r = true;
             }
         }
@@ -109,7 +109,7 @@ public class WidgetModuleFrame <T extends Frame> extends AbstractComponentUI<Fra
         TurokGL.refresh_color(0, 0, 0, 255);
         RenderHelper.drawFilledRectangle(0, 0, component.getWidth(), ff.getStringHeight(component.getTitle()) + 2);
 
-        TurokColor color = new TurokColor(color_pinned_r, 0, 0);
+        TurokColor color = new TurokColor(color_module_r, 0, 0);
 
         fontRenderer.drawString(1, 1, color.hex(), component.getTitle());
     }

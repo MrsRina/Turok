@@ -1,81 +1,44 @@
-package com.oldturok.turok.module.modules.player;
+package com.oldturok.turok.module.modules.render;
 
-import com.oldturok.turok.util.TurokEnchantManager;
+import com.oldturok.turok.gui.turok.widgets.WidgetModuleFrame;
 import com.oldturok.turok.event.events.RenderEvent;
-import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.EntityUtil;
+import com.oldturok.turok.util.TurokColor;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Friends;
-import com.oldturok.turok.util.TurokGL;
 
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.client.renderer.*;
-import net.minecraft.init.Enchantments;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
-
-import java.util.Comparator;
-import java.util.ArrayList;
-import java.util.List;
-import java.awt.*;
+import net.minecraft.init.Items;
 
 import static org.lwjgl.opengl.GL11.*;
 
-// Rina.
-@Module.Info(name = "NameTag", description = "A name tag unique for Turok.", category = Module.Category.TUROK_HIDDEN)
+import java.util.stream.Collectors;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Collection;
+import java.util.ArrayList;
+import java.util.List;
+
+@Module.Info(name = "NameTag", description = "Show which item player using.", category = Module.Category.TUROK_RENDER)
 public class NameTag extends Module {
-	private Setting<Integer> range = register(Settings.integerBuilder("Range").withMinimum(1).withValue(10).withMaximum(30));
-	private Setting<Float> scale_  = register(Settings.floatBuilder("Scale").withMinimum(1.0f).withValue(2.0f).withMaximum(30.0f));
+	private Setting<Integer> range = register(Settings.integerBuilder("Range").withMinimum(0).withMaximum(50).withValue(10));
+	private Setting<Float> scale   = register(Settings.floatBuilder("Scale").withMinimum(0.5f).withMaximum(50f).withValue(3f).build());
 
-	private Setting<Boolean> health = register(Settings.b("Show Health", true));
-	private Setting<Boolean> echant = register(Settings.b("Show Enchants", true));
-	
-	public FontRenderer font_render_In = mc.fontRenderer;
-	public RenderItem render_item   = mc.getRenderItem();
-
-	public ItemStack[] array;
-	public ItemStack[] actual      = null;
-	public List<ItemStack> stacks  = new ArrayList();
-	public TurokEnchantManager[] enchants = {
-		new TurokEnchantManager(Enchantments.PROJECTILE_PROTECTION, "Ppr"),
-		new TurokEnchantManager(Enchantments.BANE_OF_ARTHROPODS, "Ban"),
-		new TurokEnchantManager(Enchantments.BLAST_PROTECTION, "Bla"),
-		new TurokEnchantManager(Enchantments.FIRE_PROTECTION, "Fpr"),
-		new TurokEnchantManager(Enchantments.FEATHER_FALLING, "Fea"),
-		new TurokEnchantManager(Enchantments.VANISHING_CURSE, "Van"),
-		new TurokEnchantManager(Enchantments.LUCK_OF_THE_SEA, "Luc"),
-		new TurokEnchantManager(Enchantments.AQUA_AFFINITY, "Aqu"),
-		new TurokEnchantManager(Enchantments.DEPTH_STRIDER, "Dep"),
-		new TurokEnchantManager(Enchantments.BINDING_CURSE, "Bin"),
-		new TurokEnchantManager(Enchantments.FROST_WALKER, "Fro"),
-		new TurokEnchantManager(Enchantments.RESPIRATION, "Res"),
-		new TurokEnchantManager(Enchantments.FIRE_ASPECT, "Fia"),
-		new TurokEnchantManager(Enchantments.PROTECTION, "Pro"),
-		new TurokEnchantManager(Enchantments.EFFICIENCY, "Eff"),
-		new TurokEnchantManager(Enchantments.UNBREAKING, "Unb"),
-		new TurokEnchantManager(Enchantments.SILK_TOUCH, "Sil"),
-		new TurokEnchantManager(Enchantments.SHARPNESS, "Sha"),
-		new TurokEnchantManager(Enchantments.KNOCKBACK, "Knb"),
-		new TurokEnchantManager(Enchantments.SWEEPING, "Swe"),
-		new TurokEnchantManager(Enchantments.LOOTING, "Loo"),
-		new TurokEnchantManager(Enchantments.FORTUNE, "For"),
-		new TurokEnchantManager(Enchantments.MENDING, "Men"),
-		new TurokEnchantManager(Enchantments.THORNS, "Thr"),
-		new TurokEnchantManager(Enchantments.POWER, "Pow"),
-		new TurokEnchantManager(Enchantments.PUNCH, "Pun"),
-		new TurokEnchantManager(Enchantments.FLAME, "Fla"),
-		new TurokEnchantManager(Enchantments.LURE, "Lur"),
-	};
+	FontRenderer render_Font = mc.fontRenderer;
+	RenderItem render_item   = mc.getRenderItem();
 
 	@Override
 	public void onWorldRender(RenderEvent event) {
@@ -83,242 +46,194 @@ public class NameTag extends Module {
 			return;
 		}
 
-		enable_gl();
-
 		if (mc.world != null) {
-			mc.world.loadedEntityList.stream()
+			GlStateManager.enableTexture2D();
+			GlStateManager.disableLighting();
+			GlStateManager.disableDepth();
 
-			.filter(EntityUtil::isPlayer)
-			.filter(player -> !EntityUtil.isFakeLocalPlayer(player))
-			.filter(player -> mc.player.getDistance(player) < range.getValue())
-			.sorted(Comparator.comparing(player -> - mc.player.getDistance(player)))
-			.forEach(this::drawStates);
+			mc.world.loadedEntityList.stream().filter(EntityUtil::isPlayer)
+											  .filter(player -> !EntityUtil.isFakeLocalPlayer(player))
+											  .filter(player -> (player instanceof EntityPlayer))
+											  .filter(player -> mc.player.getDistance(player) < range.getValue())
+											  .sorted(Comparator.comparing(player -> - mc.player.getDistance(player)))
+											  .forEach(this::name_tag);
+
+			GlStateManager.disableTexture2D();
+			RenderHelper.disableStandardItemLighting();
+			GlStateManager.enableLighting();
+			GlStateManager.enableDepth();
 		}
-
-		disable_gl();
 	}
 
-	public void drawStates(Entity player) {
-		String player_stats    = player.getName() + (health.getValue() ? " " + "|" + Math.round(((EntityLivingBase) player).getHealth() + (player instanceof EntityPlayer ? ((EntityPlayer) player).getAbsorptionAmount() : 0)) : "");
-		int width_player_stats = font_render_In.getStringWidth(player_stats) / 2;
+	public void name_tag(Entity player_entity) {
+		String tag_name = (player_entity.getName() +  " ");
+		String tag_life = (Integer.toString((int) ((EntityLivingBase) player_entity).getHealth()));
+		
+		int tag_name_width = render_Font.getStringWidth(tag_name) / 2;
+		int tag_life_width = tag_name_width + 5;
 
 		GlStateManager.pushMatrix();
 
-		Vec3d player_position = EntityUtil.getInterpolatedRenderPos(player, mc.getRenderPartialTicks());
+		Vec3d player_data_interp = EntityUtil.getInterpolatedRenderPos(player_entity, mc.getRenderPartialTicks());
 		
-		double x = player_position.x;
-		double y = player_position.y + player.height + 0.5f - (player.isSneaking() ? 0.25f : 0.0f);
-		double z = player_position.z;
+		float player_extra_y  = player_entity.height + 0.5F - (player_entity.isSneaking() ? 0.25f : 0.0f);
+		float player_view_x   = mc.getRenderManager().playerViewX;
+		float player_view_y   = mc.getRenderManager().playerViewY;
+		float player_distance = mc.player.getDistance(player_entity);
+		float player_math_cal = (player_distance / 8f) * (float) (Math.pow(1.2589254f, scale.getValue()));
+
+		double x = player_data_interp.x;
+		double y = player_data_interp.y + player_extra_y;
+		double z = player_data_interp.z;
 
 		GlStateManager.translate(x, y, z);
 
-		GlStateManager.rotate(- mc.getRenderManager().playerViewY, 0.0f, 1.0f, 0.0f);
-		GlStateManager.rotate((float) (mc.getRenderManager().options.thirdPersonView == 2 ? -1 : 1) * mc.getRenderManager().playerViewX, 1.0f, 0.0f, 0.0f);
+		GlStateManager.rotate(- player_view_y, 0.0f, 1.0f, 0.0f);
+		GlStateManager.rotate((float) (mc.getRenderManager().options.thirdPersonView == 2 ? -1 : 1) * player_view_x, 1.0f, 0.0f, 0.0f);
 
-		float distance = mc.player.getDistance(player);
-		float scale   = (distance / 8f) * (float) (Math.pow(1.2589254f, scale_.getValue()));
-
-		GlStateManager.scale(scale, scale, scale);
+		GlStateManager.scale(player_math_cal, player_math_cal, player_math_cal);
 		GlStateManager.scale(- 0.025f, - 0.025f, 0.025f);
 
 		GlStateManager.enableBlend();
 		GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
 		GlStateManager.disableTexture2D();
 
-		Tessellator tessellator      = Tessellator.getInstance();
-		BufferBuilder buffer_builder = tessellator.getBuffer();
+		Tessellator draw_tessellator = Tessellator.getInstance();
+		BufferBuilder bufferbuilder  = draw_tessellator.getBuffer();
 
-		GlStateManager.disableDepth();
+		glTranslatef(0, - 20, 0);
 
-		glTranslatef(0, -20, 0);
-
-		buffer_builder.begin(GL_QUADS, DefaultVertexFormats.POSITION_COLOR);
-
-		buffer_builder.pos(- width_player_stats - 1, 8, 0.0f).color(0.0f, 0.0f, 0.0f, 0.5f).endVertex();
-		buffer_builder.pos(- width_player_stats - 1, 19, 0.0f).color(0.0f, 0.0f, 0.0f, 0.5f).endVertex();
-		buffer_builder.pos(width_player_stats + 1, 19, 0.0f).color(0.0f, 0.0f, 0.0f, 0.5f).endVertex();
-		buffer_builder.pos(width_player_stats + 1, 8, 0.0f).color(0.0f, 0.0f, 0.0f, 0.5f).endVertex();
-
-		tessellator.draw();
-
-		buffer_builder.begin(GL_LINE_LOOP, DefaultVertexFormats.POSITION_COLOR);
-
-		buffer_builder.pos(- width_player_stats - 1, 8, 0.0d).color(.1f, .1f, .1f, .1f).endVertex();
-		buffer_builder.pos(- width_player_stats - 1, 19, 0.0d).color(.1f, .1f, .1f, .1f).endVertex();
-		buffer_builder.pos(width_player_stats + 1, 19, 0.0d).color(.1f, .1f, .1f, .1f).endVertex();
-		buffer_builder.pos(width_player_stats + 1, 8, 0.0d).color(.1f, .1f, .1f, .1f).endVertex();
-		
-		tessellator.draw();
+		draw(GL_QUADS, draw_tessellator, bufferbuilder, tag_name_width, 0.0f, 0.5f);
+		draw(GL_LINE_LOOP, draw_tessellator, bufferbuilder, tag_name_width, 0.1f, 0.1f);
 
 		GlStateManager.enableTexture2D();
 		GlStateManager.glNormal3f(0.0f, 1.0f, 0.0f);
 
-		if (!player.isSneaking()) {
-			int color = (Friends.isFriend(player.getName()) ? 0x00bfff : 0xffffff);
+		TurokColor color_life = new TurokColor(WidgetModuleFrame.color_module_r, 0, 0);
+		
+		render_Font.drawString(tag_name, - tag_name_width, 10, Friends.isFriend(player_entity.getName()) ? 0x11ee11 : 0xffffff);
+		render_Font.drawString(tag_life, tag_life_width, 10, color_life.hex());
 
-			font_render_In.drawString(player_stats, - width_player_stats, 10, color);
-		} else {
-			EntityPlayer player_ = (EntityPlayer) player;
+		GlStateManager.enableTexture2D();
 
-			InventoryPlayer inventory = player_.inventory;
+		draw_items((EntityPlayer) player_entity, 0, - (render_Font.FONT_HEIGHT + 1) - 20);
 
-			ItemStack player_main_hand = player_.getHeldItemMainhand(); // Main hand.
-			ItemStack player_off_hand  = player_.getHeldItemOffhand();  // Off Hand.
-			
-			ItemStack player_helmet     = inventory.armorItemInSlot(3); // Helmet.
-			ItemStack player_chestplace = inventory.armorItemInSlot(2); // Chestplace.
-			ItemStack player_leggins    = inventory.armorItemInSlot(1); // Leggins.
-			ItemStack player_boots      = inventory.armorItemInSlot(0); // Boots.
+		GlStateManager.glNormal3f(0.0f, 0.0f, 0.0f);
 
-			if (player_main_hand != null && player_off_hand != null) {
-				actual = new ItemStack[] {
-					player_main_hand,
-					player_off_hand,
-					player_helmet,
-					player_chestplace,
-					player_leggins,
-					player_boots
-				};
-			} else if ((player_main_hand == null && player_off_hand != null)) {
-				actual = new ItemStack[] {
-					player_off_hand,
-					player_helmet,
-					player_chestplace,
-					player_leggins,
-					player_boots
-				};
-			} else if (player_main_hand != null && player_off_hand == null) {
-				actual = new ItemStack[] {
-					player_main_hand,
-					player_helmet,
-					player_chestplace,
-					player_leggins,
-					player_boots
-				};
-			} else {
-				actual = new ItemStack[] {
-					player_helmet,
-					player_chestplace,
-					player_leggins,
-					player_boots
-				};
-			}
+		glTranslatef(0, 20, 0);
 
-			int count = (array = actual).length;
+		GlStateManager.scale(- 40, - 40, 40);
 
-			for (int int_ = 0; int_ < count; int_++) {
-				ItemStack array_update = array[int_];
+		GlStateManager.enableDepth();
+		GlStateManager.popMatrix();
+	}
 
-				if ((array_update != null) && (array_update.getItem() != null)) {
-					stacks.add(array_update);
-				}
-			}
+	public void draw(int type, Tessellator tessellator, BufferBuilder buffer, int width, float color, float alpha) {
+		buffer.begin(type, DefaultVertexFormats.POSITION_COLOR);
+		buffer.pos(- width - 1, 8, 0.0d).color(color, color, color, alpha).endVertex();
+		buffer.pos(- width - 1, 19, 0.0d).color(color, color, color, alpha).endVertex();
+		buffer.pos(width + 1, 19, 0.0d).color(color, color, color, alpha).endVertex();
+		buffer.pos(width + 1, 8, 0.0d).color(color, color, color, alpha).endVertex();
 
-			int width = 16 * stacks.size() / 2;
+		tessellator.draw();
+	}
 
-			int player_x = - width;
-			int player_y = - (font_render_In.FONT_HEIGHT + 1) - 20;
+	public void draw_armor(ItemStack stack, int x, int y) {
+		GlStateManager.pushMatrix();
+		GlStateManager.pushMatrix();
 
-			GlStateManager.disableDepth();
+		GlStateManager.translate(x - 3, y + 8, 0.0f);
+		GlStateManager.scale(0.3f, 0.3f, 0.3f);
+		GlStateManager.popMatrix();
 
-			for (ItemStack stack : stacks) {
-				player_x += 16;
+		render_item.zLevel = 200f;
 
-				GlStateManager.pushMatrix();
+		GlStateManager.disableDepth();
+		GlStateManager.enableTexture2D();
 
-				float scale1 = 0.3f;
+		render_item.renderItemAndEffectIntoGUI(stack, x, y);
+		render_item.renderItemOverlayIntoGUI(render_Font, stack, x, y, null);
 
-				GlStateManager.translate(player_x - 3, player_y + 8, 0.0f);
-				GlStateManager.scale(0.3f, 0.3f, 0.3f);
-				GlStateManager.popMatrix();
+		render_item.zLevel = 0.0f;
 
-				RenderHelper.enableGUIStandardItemLighting();
+		RenderHelper.disableStandardItemLighting();
+		GlStateManager.enableAlpha();
+		GlStateManager.disableBlend();
+		GlStateManager.disableLighting();
+		GlStateManager.popMatrix();
+	}
 
-				render_item.zLevel = - 100.0f;
+	public void draw_items(EntityPlayer player, int x, int y) {
+		ItemStack player_main_hand = player.getHeldItemMainhand();
+		ItemStack player_off_hand  = player.getHeldItemOffhand();
+		
+		InventoryPlayer get_inventory = player.inventory;
 
-				GlStateManager.disableDepth();
+		ItemStack player_helmet     = get_inventory.armorItemInSlot(3);
+		ItemStack player_chestplace = get_inventory.armorItemInSlot(2);
+		ItemStack player_leggins    = get_inventory.armorItemInSlot(1);
+		ItemStack player_boots      = get_inventory.armorItemInSlot(0);
 
-				render_item.renderItemIntoGUI(stack, player_x, player_y);
-				render_item.renderItemOverlayIntoGUI(font_render_In, stack, player_x, player_y, null);
+		ItemStack[] equipament = null;
 
-				GlStateManager.enableDepth();
-				GlStateManager.scale(0.75f, 0.75f, 0.75f);
+		if (player_main_hand != null && player_off_hand != null) {
+			equipament = new ItemStack[] {
+				player_main_hand,
+				player_off_hand,
+				player_helmet,
+				player_chestplace,
+				player_leggins,
+				player_boots
+			};
+		} else if (player_main_hand == null && player_off_hand != null) {
+			equipament = new ItemStack[] {
+				player_off_hand,
+				player_helmet,
+				player_chestplace,
+				player_leggins,
+				player_boots
+			};
+		} else if (player_main_hand != null && player_off_hand == null) {
+			equipament = new ItemStack[] {
+				player_main_hand,
+				player_helmet,
+				player_chestplace,
+				player_leggins,
+				player_boots
+			};
+		} else if ((player_main_hand == null && player_off_hand == null)) {
+			equipament = new ItemStack[] {
+				player_helmet,
+				player_chestplace,
+				player_leggins,
+				player_boots
+			};
+		}
 
-				if (stack.isItemStackDamageable()) {
-					float green = ((float) stack.getMaxDamage() - (float) stack.getItemDamage()) / (float) stack.getMaxDamage();
-					float red   = 1 - green;
+		List<ItemStack> stacks = new ArrayList();
 
-					int damage = 100 - (int) (red * 100);
+		ItemStack[] array;
 
-					GlStateManager.disableDepth();
+		int len = (array = equipament).length;
 
-					mc.fontRenderer.drawStringWithShadow(damage + "", player_x + 8 - mc.fontRenderer.getStringWidth(damage + "") / 2, player_y - 11, ColourHolder.toHex((int) (red * 255), (int) (green * 255), 0));
-					
-					GlStateManager.enableDepth();
-				}
+		for (int j_int = 0; j_int < len; j_int++) {
+			ItemStack int_ = array[j_int];
 
-				GlStateManager.scale(1.33f, 1.33f, 1.33f);
-
-				TurokEnchantManager[] array_1;
-
-				int count_1 = (array_1 = enchants).length; for (int int_ = 0; int_ < count_1; int_++) {
-					TurokEnchantManager enchant = array_1[int_];
-
-					int level = EnchantmentHelper.getEnchantmentLevel(enchant.get_enchant(), stack);
-
-					String level_display = "" + level;
-
-					if (level > 10) {
-						level_display = "10+";
-					}
-
-					if (level > 0) {
-						float scale_2 = 0.32F;
-
-						GlStateManager.translate(player_x - 1, player_y + 2, 0.0f);
-						GlStateManager.scale(0.42f, 0.42f, 0.42f);
-						GlStateManager.disableDepth();
-						GlStateManager.disableLighting();
-
-						TurokGL.refresh_color(255, 255, 255, 255);
-
-						font_render_In.drawString("\u00a7f" + enchant.get_name() + " " + level_display, 20 - font_render_In.getStringWidth("\u00a7f" + enchant.get_name() + " " + level_display) / 2, 0, Color.WHITE.getRGB(), true);
-					
-						TurokGL.refresh_color(255, 255, 255, 255);
-
-						GlStateManager.enableLighting();
-						GlStateManager.enableDepth();
-
-						GlStateManager.scale(2.42f, 2.42f, 2.42f);
-
-						GlStateManager.translate(- player_x + 1, - player_y, 0.0f);
-
-						player_y += (int) ((font_render_In.FONT_HEIGHT + 3) * 0.28f);
-					}
-				}
-
-				render_item.zLevel = 0.0f;
-
-				RenderHelper.disableStandardItemLighting();
-				GlStateManager.enableAlpha();
-				GlStateManager.disableBlend();
-				GlStateManager.disableLighting();
-				GlStateManager.popMatrix();
+			if ((int_ != null) && (int_.getItem() != null)) {
+				stacks.add(int_);				
 			}
 		}
-	}
 
-	public void enable_gl() {
-		GlStateManager.enableTexture2D();
-		GlStateManager.disableLighting();
+		int width = 16 * stacks.size() / 2;
+
+		x -= width;
+
 		GlStateManager.disableDepth();
-	}
 
-	public void disable_gl() {
-		RenderHelper.disableStandardItemLighting();
+		for (ItemStack stack : stacks) {
+			draw_armor(stack, x, y);
 
-		GlStateManager.disableTexture2D();
-		GlStateManager.enableLighting();
-		GlStateManager.enableDepth();
+			x += 16;
+		}
 	}
 }

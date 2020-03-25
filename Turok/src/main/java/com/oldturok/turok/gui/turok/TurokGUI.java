@@ -55,7 +55,11 @@ public class TurokGUI extends GUI {
     public static ArrayList<Frame> frames;
 
     public static Frame frame_users;
-    public static Frame frame_counts;
+    public static Frame frame_wattermark;
+    public static Frame frame_counts_totem;
+    public static Frame frame_counts_crystal;
+    public static Frame frame_counts_gapple;
+    public static Frame frame_counts_exp;
     public static Frame frame_array;
     public static Frame frame_coords;
 
@@ -237,6 +241,27 @@ public class TurokGUI extends GUI {
         users.setFontRenderer(fontRendererBig);
         users.setShadow(false);
 
+        // Wattermark.
+        frame_wattermark = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "We are Turok");
+        frame_wattermark.setCloseable(false);
+        frame_wattermark.setPinneable(true);
+        frame_wattermark.setMaximumWidth(600);
+
+        Label wattermark = new Label("");
+        wattermark.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
+
+            String name = "";           
+               
+            name = mc.player.getName();
+
+            wattermark.setText(ChatFormatting.RED + "We Are Turok!");
+        });
+
+        frame_wattermark.addChild(wattermark);
+        wattermark.setFontRenderer(fontRendererBig);
+        wattermark.setShadow(false);
+
         // array.
         frame_array = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Modules Array");
         frame_array.setCloseable(false);
@@ -258,72 +283,149 @@ public class TurokGUI extends GUI {
 
             float value = !on_nether ? 0.125f : 8;
 
-            int posX = (int) (mc.player.posX);
-            int posY = (int) (mc.player.posY);
-            int posZ = (int) (mc.player.posZ);
+            float posX = (float) (mc.player.posX);
+            float posY = (float) (mc.player.posY);
+            float posZ = (float) (mc.player.posZ);
 
-            int poshX = (int) (mc.player.posX * value);
-            int poshZ = (int) (mc.player.posZ * value);
+            float poshX = (float) (mc.player.posX * value);
+            float poshZ = (float) (mc.player.posZ * value);
 
             coords.setText("");
-            coords.addLine(ChatFormatting.RED  + String.format(poshX + "x " + posY + "y " + poshZ + "z"));
-            coords.addLine(ChatFormatting.BLUE + String.format(posX + "x " + posY + "y " + posZ + "z"));
+            coords.addLine(ChatFormatting.RED  + String.format(poshX + " - " + posY + " - " + poshZ));
+            coords.addLine(ChatFormatting.BLUE + String.format(posX + " - " +  posY + " - " + posZ));
         });
 
         frame_coords.addChild(coords);
         coords.setFontRenderer(fontRendererBig);
         coords.setShadow(false);
 
-        /// Turok Info.
-        frame_counts = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
-        frame_counts.setCloseable(false);
-        frame_counts.setPinneable(true);
-        frame_counts.setMaximumWidth(600);
+        /// Turok Totem.
+        frame_counts_totem = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
+        frame_counts_totem.setCloseable(false);
+        frame_counts_totem.setPinneable(true);
+        frame_counts_totem.setMaximumWidth(600);
 
-        Label count = new Label("");
-        count.addTickListener(() -> {
+        Label count_totem = new Label("");
+        count_totem.addTickListener(() -> {
             Minecraft mc = Minecraft.getMinecraft();
 
-            int totems     = 0;
-            int gapples    = 0;
-            int crystals   = 0;
-            int expbottles = 0;
+            int totems = 0;
 
             for (int items = 0; items < 45; items++) {
                 ItemStack itemStack = Wrapper.getMinecraft().player.inventory.getStackInSlot(items);
 
                 if (itemStack.getItem() == Items.TOTEM_OF_UNDYING) {
-                    gapples += itemStack.stackSize;
+                    totems += itemStack.stackSize;
                 }
+            }
+
+            count_totem.setText(ChatFormatting.RED + "Totems " + String.valueOf(totems));
+        });
+
+        frame_counts_totem.addChild(count_totem);
+        count_totem.setFontRenderer(fontRendererBig);
+        count_totem.setShadow(false);
+
+        // Turok Gapple.
+        frame_counts_gapple = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
+        frame_counts_gapple.setCloseable(false);
+        frame_counts_gapple.setPinneable(true);
+        frame_counts_gapple.setMaximumWidth(600);
+
+        Label count_gapple = new Label("");
+        count_gapple.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
+
+            int gapples = 0;
+
+            for (int items = 0; items < 45; items++) {
+                ItemStack itemStack = Wrapper.getMinecraft().player.inventory.getStackInSlot(items);
 
                 if (itemStack.getItem() == Items.GOLDEN_APPLE) {
                     gapples += itemStack.stackSize;
                 }
+            }
+
+            count_gapple.setText(ChatFormatting.RED + "Gapples " + String.valueOf(gapples));
+        });
+
+        frame_counts_gapple.addChild(count_gapple);
+        count_gapple.setFontRenderer(fontRendererBig);
+        count_gapple.setShadow(false);
+
+        // Turok Crystal.
+        frame_counts_crystal = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
+        frame_counts_crystal.setCloseable(false);
+        frame_counts_crystal.setPinneable(true);
+        frame_counts_crystal.setMaximumWidth(600);
+
+        Label count_crystal = new Label("");
+        count_crystal.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
+
+            int crystals = 0;
+
+            for (int items = 0; items < 45; items++) {
+                ItemStack itemStack = Wrapper.getMinecraft().player.inventory.getStackInSlot(items);
 
                 if (itemStack.getItem() == Items.END_CRYSTAL) {
                     crystals += itemStack.stackSize;
                 }
+            }
+
+            count_crystal.setText(ChatFormatting.RED + "Crystals " + String.valueOf(crystals));
+        });
+
+        frame_counts_crystal.addChild(count_crystal);
+        count_crystal.setFontRenderer(fontRendererBig);
+        count_crystal.setShadow(false);
+
+        // Turok EXP.
+        frame_counts_exp = new Frame(getTheme(), new Stretcherlayout(1), ChatFormatting.RED + "Turok Info");
+        frame_counts_exp.setCloseable(false);
+        frame_counts_exp.setPinneable(true);
+        frame_counts_exp.setMaximumWidth(600);
+
+        Label count_exp = new Label("");
+        count_exp.addTickListener(() -> {
+            Minecraft mc = Minecraft.getMinecraft();
+
+            int expbottles = 0;
+
+            for (int items = 0; items < 45; items++) {
+                ItemStack itemStack = Wrapper.getMinecraft().player.inventory.getStackInSlot(items);
 
                 if (itemStack.getItem() == Items.EXPERIENCE_BOTTLE) {
                     expbottles += itemStack.stackSize;
                 }
             }
 
-            count.setText(ChatFormatting.RED + "Turok Info");
-            count.addLine(ChatFormatting.RED + "Totems - "     + String.valueOf(totems));
-            count.addLine(ChatFormatting.RED + "Crystals - "   + String.valueOf(gapples));
-            count.addLine(ChatFormatting.RED + "Gapples - "    + String.valueOf(crystals));
-            count.addLine(ChatFormatting.RED + "EXPBottles - " + String.valueOf(expbottles));
+            count_exp.setText(ChatFormatting.RED + "EXPBottles " + String.valueOf(expbottles));
         });
 
-        frame_counts.addChild(count);
-        count.setFontRenderer(fontRendererBig);
-        count.setShadow(false);
+        frame_counts_exp.addChild(count_exp);
+        count_exp.setFontRenderer(fontRendererBig);
+        count_exp.setShadow(false);
+
+        frame_users.setY(60);
+        frame_coords.setY(70);
+        frame_array.setY(90);
+        frame_wattermark.setY(100);
+
+        frame_counts_totem.setY(10);
+        frame_counts_crystal.setY(20);
+        frame_counts_gapple.setY(30);
+        frame_counts_exp.setY(40);
 
         addChild(frame_users);
         addChild(frame_coords);
         addChild(frame_array);
-        addChild(frame_counts);
+        addChild(frame_wattermark);
+
+        addChild(frame_counts_totem);
+        addChild(frame_counts_crystal);
+        addChild(frame_counts_gapple);
+        addChild(frame_counts_exp);
     }
 
     public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
