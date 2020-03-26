@@ -6,7 +6,7 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokFriends;
 import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.TurokChat;
 
@@ -91,7 +91,7 @@ public class Aura extends Module {
             if (((EntityLivingBase) target).getHealth() <= 0) continue;
             if (waitMode.getValue().equals(WaitMode.DYNAMIC) && ((EntityLivingBase) target).hurtTime != 0) continue;
             if (!ignoreWalls.getValue() && (!mc.player.canEntityBeSeen(target) && !canEntityFeetBeSeen(target))) continue;
-            if (attackPlayers.getValue() && target instanceof EntityPlayer && !Friends.isFriend(target.getName())) {
+            if (attackPlayers.getValue() && target instanceof EntityPlayer && !TurokFriends.is_friend(target.getName())) {
                 attack(target);
                 return;
             } else {

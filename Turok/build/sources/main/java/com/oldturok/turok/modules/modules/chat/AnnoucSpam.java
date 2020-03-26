@@ -40,7 +40,7 @@ public class AnnoucSpam extends Module {
 	private Setting<Integer> delay = register(Settings.integerBuilder("Delay").withRange(2000, 10000).withValue(2000).build());
 
 	private Setting<Boolean> walk   = register(Settings.b("Walk", false));
-	private Setting<Boolean> combat = register(Settings.b("Combat Modules", false));
+	private Setting<Boolean> break_ = register(Settings.b("Break", false));
 
 	public int tick;
 	public int no_spam;
@@ -64,6 +64,8 @@ public class AnnoucSpam extends Module {
 	public float stable_health;
 	public float health;
 	public float damage;
+
+	public int count = 0;
 
 	public static ArrayList<Module> combat_modules = new ArrayList<>();
 
@@ -116,59 +118,35 @@ public class AnnoucSpam extends Module {
 		tick += tick_.getValue();
 
 		if (tick >= delay.getValue()) {
-			if (send_m) {
-				if (block_break) {
-					breaked_block(type_block);
+			StringBuilder annoyer = new StringBuilder();
 
-					block_break = false;
+			if (walk.getValue()) {
+				if (send_m) {
+					annoyer.append("Im walking in " + data + ", ");
+
+					count++;
 				} else {
-					if (walk.getValue()) {
-						send("I walked " + Integer.toString(moved) + ", thanks Turok.");
-					}
+					annoyer.append("Im just stoped in " + data + ", ");
 				}
-			} else {
-				if (block_break) {
-					breaked_block(type_block);
-
-					block_break = false;
-				} else {
-					if (combat.getValue()) {
-						active_module_combat();
-
-						if (combat_actived) {
-							send("I actived " + type_module + ", thanks Turok");
-
-							type_module    = "null";
-							combat_actived = false;
-						}
-
-					} else {
-						if (walk.getValue()) {
-							send("Im just stoped, thanks Turok " + data);
-						}
-					}
-				}
-
-				reset_var();
 			}
 
-			tick = 0;
+			if (break_.getValue()) {
+				if (block_break) {
+					if (count == 0) {
+						annoyer.append("I breaked " + type_block + ", ");
+					} else {
+						annoyer.append("breaked " + type_block + ", ");
+					}
+				}
+			}
+
+			annoyer.append("thanks Turok.");
+			send(annoyer.toString());
 		}
 	}
 
 	public void breaked_block(String block) {
 		send("I breaked " + block + ", thanks Turok.");
-	}
-
-	public void active_module_combat() {
-		for (Module combat : combat_modules) {
-			if (ModuleManager.isModuleEnabled(combat.getName())) {
-				if (combat.getCategory().equals("Turok Combat")) {
-					type_module    = combat.getName();
-					combat_actived = true;
-				}
-			}
-		}
 	}
 
 	@Override

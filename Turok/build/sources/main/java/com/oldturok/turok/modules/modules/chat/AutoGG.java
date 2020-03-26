@@ -5,9 +5,6 @@ import com.oldturok.turok.module.Module;
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
 
-import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
-import com.oldturok.turok.module.modules.combat.TurokInsaneAura;
-
 import com.oldturok.turok.event.events.PacketEvent;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.setting.Settings;
@@ -30,10 +27,6 @@ import java.util.Objects;
 @Module.Info(name = "AutoGG", description = "When you kill auto say.", category = Module.Category.TUROK_CHAT)
 public class AutoGG extends Module {
 	private ConcurrentHashMap<String, Integer> target_players = null;
-	private Setting<Boolean> doom_mode = register(Settings.b("Doom Fucking Mode", false));
-
-	private TurokCrystalAura function_turokcrystalaura  = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
-	private TurokInsaneAura function_turokcrystalaura_2 = (TurokInsaneAura) ModuleManager.getModuleByName("TurokInsaneAura");
 
 	@Override
 	public void onEnable() {
@@ -87,7 +80,7 @@ public class AutoGG extends Module {
 
 		if (!(cpacketUseEntity.getAction().equals(CPacketUseEntity.Action.ATTACK))) return;
 
-		if (!(ModuleManager.getModuleByName("TurokInsaneAura").isEnabled() | ModuleManager.getModuleByName("TurokCrystalAura").isEnabled())) return;
+		if (!(ModuleManager.getModuleByName("TurokInsaneAura").isDisabled() || ModuleManager.getModuleByName("TurokInsaneAura").isDisabled())) return;
 
 		Entity target_entity = cpacketUseEntity.getEntityFromWorld(mc.world);
 		if (!EntityUtil.isPlayer(target_entity)) return;
@@ -123,11 +116,7 @@ public class AutoGG extends Module {
 
 		StringBuilder msg = new StringBuilder();
 
-		if (doom_mode.getValue()) {
-			msg.append("D o o m s h o p   M o t h e r f u c k " + name + ", thanks Turok!");
-		} else {
-			msg.append("GG " + name + ", we had a good pvp, thanks Turok.");
-		}
+		msg.append("GG " + name + ", we had a good pvp, thanks Turok.");
 
 		String msg_ = msg.toString().replaceAll("\u00A7", "");
 

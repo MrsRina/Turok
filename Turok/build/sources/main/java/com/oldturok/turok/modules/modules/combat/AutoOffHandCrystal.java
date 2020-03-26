@@ -12,7 +12,7 @@ import net.minecraft.init.Items;
 
 // Rina.
 // aa.
-@Module.Info(name = "AutoOffHandCrystal", description = "Auto off hand crystal.", category = Module.Category.TUROK_COMBAT)
+@Module.Info(name = "AutoOffHandCrystal Not Working", description = "Auto off hand crystal.", category = Module.Category.TUROK_HIDDEN)
 public class AutoOffHandCrystal extends Module {
 	private Setting<Boolean> disable = register(Settings.b("Auto Gapple/Totem Disable", true));
 

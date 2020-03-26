@@ -7,7 +7,7 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokFriends;
 import com.oldturok.turok.TurokMessage;
 import com.oldturok.turok.TurokChat;
 
@@ -334,7 +334,7 @@ public class FastAutoTrap extends Module {
                 continue;
             }
 
-            if (Friends.isFriend(target.getName())) {
+            if (TurokFriends.is_friend(target.getName())) {
                 continue;
             }
 

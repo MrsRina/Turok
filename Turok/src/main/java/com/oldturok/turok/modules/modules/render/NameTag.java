@@ -7,7 +7,7 @@ import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.util.TurokColor;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokFriends;
 
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -113,7 +113,7 @@ public class NameTag extends Module {
 
 		TurokColor color_life = new TurokColor(WidgetModuleFrame.color_module_r, 0, 0);
 		
-		render_Font.drawString(tag_name, - tag_name_width, 10, Friends.isFriend(player_entity.getName()) ? 0x11ee11 : 0xffffff);
+		render_Font.drawString(tag_name, - tag_name_width, 10, TurokFriends.is_friend(player_entity.getName()) ? 0x11ee11 : 0xffffff);
 		render_Font.drawString(tag_life, tag_life_width, 10, color_life.hex());
 
 		GlStateManager.enableTexture2D();

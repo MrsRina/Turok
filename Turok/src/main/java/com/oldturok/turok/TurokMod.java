@@ -5,7 +5,6 @@ import com.oldturok.turok.gui.rgui.component.container.use.Frame;
 import com.oldturok.turok.gui.rgui.component.AlignedComponent;
 import com.oldturok.turok.gui.rgui.util.ContainerHelper;
 import com.oldturok.turok.gui.rgui.component.Component;
-import com.oldturok.turok.setting.config.Configuration;
 import com.oldturok.turok.event.ForgeEventProcessor;
 import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.gui.rgui.util.Docking;
@@ -17,7 +16,8 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Wrapper;
-import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokFriends;
+import com.oldturok.turok.TurokConfig;
 import com.oldturok.turok.TurokChat;
 import com.oldturok.TurokRPC;
 
@@ -61,6 +61,7 @@ public class TurokMod {
 
     private static final String TUROK_CONFIG_FRAMES = "Frames.json";
     private static final String TUROK_CONFIG_BINDS  = "Binds.json";
+    private static final String TUROK_FRIENDS_LIST  = "Friends.json";
     private static final String TUROK_CONFIG_FOLDER = "Turok/";
 
     public static final Logger turok_log = LogManager.getLogger("turok");
@@ -70,7 +71,7 @@ public class TurokMod {
     public TurokChatManager turok_chat_manager;
     public TurokGUI gui_manager;
 
-    private Setting<JsonObject> guiStateSetting = Settings.custom("gui", new JsonObject(), new Converter<JsonObject, JsonObject>() {
+    public Setting<JsonObject> frames_data = Settings.custom("frames", new JsonObject(), new Converter<JsonObject, JsonObject>() {
         @Override
         protected JsonObject doForward(JsonObject jsonObject) {
             return jsonObject;
@@ -113,7 +114,7 @@ public class TurokMod {
 
         SettingsRegister.register("prefix", TurokChat.prefix);
 
-        Friends.initFriends();
+        TurokFriends.init_friends_list();
 
         load_config();
 
@@ -141,9 +142,11 @@ public class TurokMod {
     public static void load_configs() throws IOException {
         String turok_frames_name = TUROK_CONFIG_FOLDER + TUROK_CONFIG_FRAMES;
         String turok_binds_name  = TUROK_CONFIG_FOLDER + TUROK_CONFIG_BINDS;
+        String turok_frinds_name = TUROK_CONFIG_FOLDER + TUROK_FRIENDS_LIST;
 
         Path turok_config_frames = Paths.get(turok_frames_name);
         Path turok_config_binds  = Paths.get(turok_binds_name);
+        Path turok_friends_list  = Paths.get(turok_frinds_name); 
         
         Path folder_bind = Paths.get(TUROK_CONFIG_FOLDER);
 
@@ -158,10 +161,16 @@ public class TurokMod {
         if (!Files.exists(turok_config_binds)) {
             Files.createFile(turok_config_binds);
         }
-        
-        Configuration.loadConfiguration(turok_config_binds);
 
-        JsonObject gui = TurokMod.INSTANCE.guiStateSetting.getValue();
+        if (!Files.exists(turok_friends_list)) {
+            Files.createFile(turok_friends_list);
+        }
+        
+        TurokConfig.load_frames(turok_config_frames);
+        TurokConfig.load_binds(turok_config_binds);
+        TurokConfig.load_friends(turok_friends_list);
+
+        JsonObject gui = TurokMod.INSTANCE.frames_data.getValue();
         for (Map.Entry<String, JsonElement> entry : gui.entrySet()) {
             Optional<Component> optional = TurokMod.INSTANCE.gui_manager.getChildren().stream().filter(component -> component instanceof Frame).filter(component -> ((Frame) component).getTitle().equals(entry.getKey())).findFirst();
             
@@ -217,11 +226,16 @@ public class TurokMod {
             object.add(frame.getTitle(), frame_object);
         });
 
-        TurokMod.INSTANCE.guiStateSetting.setValue(object);
+        TurokMod.INSTANCE.frames_data.setValue(object);
 
-        Path file_bind = Paths.get(TUROK_CONFIG_FOLDER + TUROK_CONFIG_BINDS);
+        Path file_frames  = Paths.get(TUROK_CONFIG_FOLDER + TUROK_CONFIG_FRAMES);
+        Path file_bind    = Paths.get(TUROK_CONFIG_FOLDER + TUROK_CONFIG_BINDS);
+        Path file_friends = Paths.get(TUROK_CONFIG_FOLDER + TUROK_FRIENDS_LIST);
 
-        Configuration.saveConfiguration(file_bind);
+        TurokConfig.save_frames(file_frames, true);
+        TurokConfig.save_binds(file_bind, false);
+        TurokConfig.save_friends(file_friends);
+
         ModuleManager.getModules().forEach(Module::destroy);
     }
 

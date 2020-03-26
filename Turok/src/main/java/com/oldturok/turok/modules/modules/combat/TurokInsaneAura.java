@@ -56,7 +56,7 @@ import com.oldturok.turok.util.EntityUtil;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.TurokMessage;
-import com.oldturok.turok.util.Friends;
+import com.oldturok.turok.TurokFriends;
 import com.oldturok.turok.util.Wrapper;
 import com.oldturok.turok.TurokChat;
 
@@ -213,7 +213,7 @@ public class TurokInsaneAura extends Module {
         List<BlockPos> blocks = find_crystal_blocks();
         List<Entity> entities = new ArrayList<Entity>();
 
-        entities.addAll((Collection<? extends Entity>) mc.world.playerEntities.stream().filter(entityPlayer -> !Friends.isFriend(entityPlayer.getName())).collect(Collectors.toList()));
+        entities.addAll((Collection<? extends Entity>) mc.world.playerEntities.stream().filter(entityPlayer -> !TurokFriends.is_friend(entityPlayer.getName())).collect(Collectors.toList()));
 
         BlockPos q = null;
         double damage = 0.5;

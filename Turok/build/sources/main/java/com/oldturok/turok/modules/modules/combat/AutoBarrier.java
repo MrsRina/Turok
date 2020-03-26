@@ -75,7 +75,6 @@ public class AutoBarrier extends Module {
 
     @Override
     protected void onEnable() {
-
         if (mc.player == null) {
             this.disable();
             return;
@@ -90,7 +89,6 @@ public class AutoBarrier extends Module {
 
     @Override
     protected void onDisable() {
-
         if (mc.player == null) {
             return;
         }
@@ -113,6 +111,10 @@ public class AutoBarrier extends Module {
 
     @Override
     public void onUpdate() {
+        if (no_animation.getValue()) {
+            mc.player.connection.sendPacket(new CPacketAnimation(mc.player.getActiveHand()));
+        }
+
         if (mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
             return;
         }
@@ -246,10 +248,6 @@ public class AutoBarrier extends Module {
 
         if (rotate.getValue()) {
             faceVectorPacketInstant(hitVec);
-        }
-
-        if (no_animation.getValue()) {
-            mc.player.connection.sendPacket(new CPacketAnimation(mc.player.getActiveHand()));
         }
 
         mc.playerController.processRightClickBlock(mc.player, mc.world, neighbour, opposite, hitVec, EnumHand.MAIN_HAND);

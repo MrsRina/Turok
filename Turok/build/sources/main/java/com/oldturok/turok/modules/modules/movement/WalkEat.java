@@ -12,7 +12,7 @@ public class WalkEat extends Module {
 	@EventHandler
 	private Listener<InputUpdateEvent> eventListener = new Listener<>(event -> {
 		if (mc.player.isHandActive() && !mc.player.isRiding()) {
-			event.getMovementInput().moveStrafe *= 5;
+			event.getMovementInput().moveStrafe  *= 5;
 			event.getMovementInput().moveForward *= 5;
 		}
 	});

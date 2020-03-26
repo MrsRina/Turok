@@ -22,7 +22,14 @@ import java.awt.*;
 public class TurokHUD extends Module {
 	private static RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
 
-	private Setting<Boolean> armor_hud  = register(Settings.b("Show Armor HUD", true));
+	private Setting<Boolean> wattermark_hud = register(Settings.b("Show Wattermark HUD", true));
+	private Setting<Boolean> users_hud      = register(Settings.b("Show Users HUD", true));
+	private Setting<Boolean> coords_hud     = register(Settings.b("Show Coords HUD", true));
+	private Setting<Boolean> totem_hud      = register(Settings.b("Show Totem HUD", true));
+	private Setting<Boolean> gapple_hud     = register(Settings.b("Show Gapple HUD", true));
+	private Setting<Boolean> crystal_hud    = register(Settings.b("Show Crystal HUD", true));
+	private Setting<Boolean> exp_hud        = register(Settings.b("Show Bottle XP HUD", true));
+	private Setting<Boolean> armor_hud      = register(Settings.b("Show Armor HUD", true));
 	
 	// Array.
 	public Setting<Boolean> array_rgb = register(Settings.b("Array RGB", true));
@@ -50,6 +57,14 @@ public class TurokHUD extends Module {
 			WidgetActiveModules.r = array_r.getValue();
 			WidgetActiveModules.g = array_g.getValue();
 			WidgetActiveModules.b = array_b.getValue();
+		}
+
+		if (wattermark_hud.getValue()) {
+			TurokGUI.frame_wattermark.setX(0);
+			TurokGUI.frame_wattermark.setY(0);
+		} else {
+			TurokGUI.frame_wattermark.setX(12000);
+			TurokGUI.frame_wattermark.setY(12000);
 		}
 
 		enable();
