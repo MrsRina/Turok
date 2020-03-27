@@ -6,8 +6,8 @@ import com.oldturok.turok.TurokChat;
 import com.oldturok.turok.TurokMod;
 
 // Rina.
-public class TurokPrefix extends TurokChat {
-	public TurokPrefix() {
+public class TurokHelp extends TurokChat {
+	public TurokHelp() {
 		super("help", "Get description module.");
 	}
 

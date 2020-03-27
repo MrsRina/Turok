@@ -18,9 +18,9 @@ public class TurokPos extends TurokChat {
 			msg += message[i] + " ";
 		}
 
-		int posX = mc.player.posX;
-		int posY = mc.player.posY;
-		int posZ = mc.player.posZ;
+		int posX = (int) mc.player.posX;
+		int posY = (int) mc.player.posY;
+		int posZ = (int) mc.player.posZ;
 		
 		if (msg.equals("")) {
 			TurokMessage.send_error_msg("For send a custom message with pos in the end. '-sendpos BASEEEEE!! foound!!! !! (pos)'");
