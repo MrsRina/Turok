@@ -24,13 +24,19 @@ public class BlockHighlight extends Module {
 	private Setting<Integer> color_b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(200));
 	private Setting<Integer> color_a = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(70));
 	private Setting<Boolean> rgb     = register(Settings.b("RGB", false));
-	private Setting<Boolean> outline = register(Settings.b("Outline", true));
+
+	private Setting<TypeDraw> type = register(Settings.e("Draw Type", TypeDraw.OUTLINE));
 	
 	public RayTraceResult result;
 
 	int r;
 	int g;
 	int b;
+
+	int prepare;
+	int mask;
+
+	boolean type_;
 
 	@Override
 	public void onUpdate() {
@@ -57,6 +63,26 @@ public class BlockHighlight extends Module {
 		if (result == null) {
 			return;
 		}
+
+		switch (type.getValue()) {
+			case OUTLINE : {
+				prepare = GL11.GL_LINES;
+				mask    = GeometryMasks.Line.ALL;
+
+				type_ = true;
+
+				break;
+			}
+
+			case BOX : {
+				prepare = GL11.GL_QUADS;
+				mask    = GeometryMasks.Quad.ALL;
+
+				type_ = false;
+
+				break;
+			}
+		}
 	}
 
 	@Override
@@ -73,21 +99,9 @@ public class BlockHighlight extends Module {
 			BlockPos pos = result.getBlockPos();
 			IBlockState block_state = mc.world.getBlockState(pos);
 
-			int prepare = 0;
-			int mask = 0;
-
-
-			if (outline.getValue()) {
-				prepare = GL11.GL_LINES;
-				mask = GeometryMasks.Line.ALL;
-			} else {
-				prepare = GL11.GL_QUADS;
-				mask = GeometryMasks.Quad.ALL;
-			}
-
 			TurokTessellator.prepare(prepare);
 
-			if (outline.getValue()) {
+			if (type_) {
 				TurokTessellator.drawLines(pos, r, g, b, color_a.getValue(), mask);
 			} else {
 				TurokTessellator.drawBox(pos, r, g, b, color_a.getValue(), mask);
@@ -95,5 +109,10 @@ public class BlockHighlight extends Module {
 
 			TurokTessellator.release();
 		}
+	}
+
+	public enum TypeDraw {
+		OUTLINE,
+		BOX
 	}
 }

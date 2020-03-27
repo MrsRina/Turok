@@ -117,6 +117,8 @@ public class TurokMod {
 
         TurokMod.turok_log.info("Maping binds.");
 
+        TurokChatCommand.turok_update_commands();
+
         ModuleManager.updateLookup();
         ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
 

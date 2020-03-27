@@ -8,13 +8,23 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.Style;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 // Rina.
 public class TurokChatManager {
-	public ArrayList<TurokChat> command_list = new ArrayList<TurokChat>();
+	public static ArrayList<TurokChat> command_list = new ArrayList<TurokChat>();
+	static HashMap<String, TurokChat> lookup        = new HashMap<>();
 
 	public final String prefix;
 	public final Style format;
+
+	public static void update_chat_to_accept_commands() {
+		lookup.clear();
+
+		for (TurokChat commands :  command_list) {
+			lookup.put(commands.get_name().toLowerCase(), commands);
+		}
+	}
 
 	public TurokChatManager(String prefix_, Style format_) {
 		prefix = prefix_;
@@ -37,5 +47,13 @@ public class TurokChatManager {
 
 	public boolean ContainsPrefix(String message) {
 		return message.startsWith(prefix);
+	}
+
+	public static ArrayList<TurokChat> get_commands() {
+		return command_list;
+	}
+
+	public static TurokChat get_command(String cmd) {
+		return lookup.get(cmd.toLowerCase());
 	}
 }

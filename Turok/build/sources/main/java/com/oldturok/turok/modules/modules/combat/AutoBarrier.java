@@ -34,8 +34,7 @@ import static com.oldturok.turok.util.BlockInteractionHelper.canBeClicked;
 // Update by Rina 09/03/20.
 @Module.Info(name = "AutoBarrier", description = "Auto barrier using obsidians.", category = Module.Category.TUROK_COMBAT)
 public class AutoBarrier extends Module {
-
-    private Setting<Mode> mode = register(Settings.e("Mode", Mode.FULL));
+    private Setting<Mode> mode             = register(Settings.e("Mode", Mode.FULL));
     private Setting<Boolean> triggerable   = register(Settings.b("Triggerable", true));
     private Setting<Integer> timeoutTicks  = register(Settings.integerBuilder("TimeoutTicks").withMinimum(1).withValue(13).withMaximum(100).withVisibility(b -> triggerable.getValue()).build());
     private Setting<Integer> blocksPerTick = register(Settings.integerBuilder("BlocksPerTick").withMinimum(1).withValue(4).withMaximum(9).build());
@@ -264,16 +263,17 @@ public class AutoBarrier extends Module {
 
             ItemStack stack = mc.player.inventory.getStackInSlot(i);
 
-            if (stack == ItemStack.EMPTY || !(stack.getItem() instanceof ItemBlock)) {
-                continue;
-            }
+            if (stack != ItemStack.EMPTY) {
+                if (stack.getItem() instanceof ItemBlock) {
+                    Block block = ((ItemBlock)stack.getItem()).getBlock();
 
-            Block block = ((ItemBlock) stack.getItem()).getBlock();
-            if (block instanceof BlockObsidian) {
-                slot = i;
-                break;
-            }
+                    if (block instanceof BlockObsidian) {
+                        slot = i;
 
+                        break;
+                    }
+                }
+            }
         }
 
         return slot;

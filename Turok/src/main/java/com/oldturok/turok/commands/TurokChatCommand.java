@@ -14,10 +14,14 @@ import net.minecraft.util.text.Style;
 
 // Rina.
 public class TurokChatCommand {
-	public TurokChatManager chat_manager;
+	public static TurokChatManager chat_manager;
 
 	public TurokChatCommand() {
 		chat_manager = new TurokChatManager(TurokMod.TUROK_CHAT_PREFIX, new Style().setColor(TextFormatting.GRAY));
+	}
+
+	public static void turok_update_commands() {
+		chat_manager.update_chat_to_accept_commands();
 	}
 
 	@SubscribeEvent

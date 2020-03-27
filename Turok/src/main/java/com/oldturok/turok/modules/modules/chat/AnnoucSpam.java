@@ -144,6 +144,8 @@ public class AnnoucSpam extends Module {
 			send(annoyer.toString());
 
 			annoyer.setLength(0);
+
+			tick = 0;
 		}
 	}
 

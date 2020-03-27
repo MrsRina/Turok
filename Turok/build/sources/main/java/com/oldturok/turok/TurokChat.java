@@ -22,4 +22,12 @@ public class TurokChat {
 	public boolean Get_Message(String[] message) {
 		return false;
 	}
+
+	public String get_description() {
+		return this.description;
+	}
+
+	public String get_name() {
+		return this.name;
+	}
 }
