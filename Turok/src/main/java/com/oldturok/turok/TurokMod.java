@@ -8,7 +8,7 @@ import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.event.ForgeEventProcessor;
 import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.gui.rgui.util.Docking;
-import com.oldturok.turok.util.TurokChatManager;
+import com.oldturok.turok.commands.TurokChatCommand;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.gui.turok.TurokGUI;
@@ -68,7 +68,7 @@ public class TurokMod {
 
     public static final EventBus EVENT_BUS = new EventManager();
 
-    public TurokChatManager turok_chat_manager;
+    public TurokChatCommand turok_chat_manager;
     public TurokGUI gui_manager;
 
     public Setting<JsonObject> frames_data = Settings.custom("frames", new JsonObject(), new Converter<JsonObject, JsonObject>() {
@@ -102,6 +102,7 @@ public class TurokMod {
         ModuleManager.getModules().stream().filter(module -> module.alwaysListening).forEach(EVENT_BUS::subscribe);
         
         MinecraftForge.EVENT_BUS.register(new ForgeEventProcessor());
+        MinecraftForge.EVENT_BUS.register(turok_chat_manager = new TurokChatCommand());
         
         LagCompensator.INSTANCE = new LagCompensator();
 
@@ -109,10 +110,6 @@ public class TurokMod {
 
         gui_manager = new TurokGUI();
         gui_manager.initializeGUI();
-
-        turok_chat_manager = new TurokChatManager();
-
-        SettingsRegister.register("prefix", TurokChat.prefix);
 
         TurokFriends.init_friends_list();
 
@@ -249,9 +246,5 @@ public class TurokMod {
 
     public TurokGUI get_gui_manager() {
         return gui_manager;
-    }
-
-    public TurokChatManager get_chat_manager() {
-        return turok_chat_manager;
     }
 }

@@ -142,6 +142,8 @@ public class AnnoucSpam extends Module {
 
 			annoyer.append("thanks Turok.");
 			send(annoyer.toString());
+
+			annoyer.setLength(0);
 		}
 	}
 

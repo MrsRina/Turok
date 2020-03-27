@@ -5,6 +5,7 @@ import com.oldturok.turok.TurokMod;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 
+import net.minecraft.network.play.client.CPacketChatMessage;
 import net.minecraft.util.text.TextComponentBase;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.client.Minecraft;
@@ -15,6 +16,10 @@ import java.util.regex.Pattern;
 // Rina.
 public class TurokMessage {
 	public static Minecraft mc = Minecraft.getMinecraft();
+
+	public static void user_send_msg(String msg) {
+		mc.player.connection.sendPacket(new CPacketChatMessage(msg));
+	}
 
 	public static void send_msg(String msg) {
 		mc.player.sendMessage(new ChatMessage(msg));
