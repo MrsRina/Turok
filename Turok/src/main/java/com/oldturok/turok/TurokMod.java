@@ -59,8 +59,8 @@ public class TurokMod {
 
     public static String TUROK_CHAT_PREFIX = "-";
 
-    private static final String TUROK_CONFIG_FRAMES = "Frames.json";
-    private static final String TUROK_CONFIG_BINDS  = "Binds.json";
+    private static final String TUROK_CONFIG_FRAMES = "HUD.json";
+    private static final String TUROK_CONFIG_BINDS  = "FriendAndConfigs.json";
     private static final String TUROK_FRIENDS_LIST  = "Friends.json";
     private static final String TUROK_CONFIG_FOLDER = "Turok/";
 
@@ -161,14 +161,9 @@ public class TurokMod {
         if (!Files.exists(turok_config_binds)) {
             Files.createFile(turok_config_binds);
         }
-
-        if (!Files.exists(turok_friends_list)) {
-            Files.createFile(turok_friends_list);
-        }
         
         TurokConfig.load_frames(turok_config_frames);
         TurokConfig.load_binds(turok_config_binds);
-        TurokConfig.load_friends(turok_friends_list);
 
         JsonObject gui = TurokMod.INSTANCE.frames_data.getValue();
         for (Map.Entry<String, JsonElement> entry : gui.entrySet()) {
@@ -230,11 +225,9 @@ public class TurokMod {
 
         Path file_frames  = Paths.get(TUROK_CONFIG_FOLDER + TUROK_CONFIG_FRAMES);
         Path file_bind    = Paths.get(TUROK_CONFIG_FOLDER + TUROK_CONFIG_BINDS);
-        Path file_friends = Paths.get(TUROK_CONFIG_FOLDER + TUROK_FRIENDS_LIST);
 
         TurokConfig.save_frames(file_frames, true);
         TurokConfig.save_binds(file_bind, false);
-        TurokConfig.save_friends(file_friends);
 
         ModuleManager.getModules().forEach(Module::destroy);
     }

@@ -11,7 +11,7 @@ import com.oldturok.turok.util.TurokGL; // TurokGL.
 
 // Update by Rina 09/03/20.
 // CickGUI is P.
-@Module.Info(name = "clickGUI", category = Module.Category.TUROK_HIDDEN)
+@Module.Info(name = "GUI", category = Module.Category.TUROK_HIDDEN)
 public class GUI extends Module {
     public GUI() {
         getBind().setKey(TurokMod.TUROK_GUI_BUTTON);

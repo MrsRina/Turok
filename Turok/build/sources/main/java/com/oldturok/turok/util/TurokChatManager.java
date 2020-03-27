@@ -31,6 +31,8 @@ public class TurokChatManager {
 					chat_commands.add(command);
 				} catch (Exception exc) {
 					exc.printStackTrace();
+
+					System.err.println("Couldn't initiate command " + class_l.getSimpleName() + "! Err: " + exc.getClass().getSimpleName() + ", message: " + exc.getMessage());
 				}
 			}
 		}

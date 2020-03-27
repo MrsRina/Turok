@@ -52,11 +52,12 @@ public class TurokConfig {
 				continue;
 			}
 
-			if (!(setting_register.getName().equals("friends") && !(setting_register.getName().equals("frames")))) {
-				object.add(entry.getKey(), (JsonElement) ((Convertable) setting_register).converter().convert(setting_register.getValue()));
+			object.add(entry.getKey(), (JsonElement) ((Convertable) setting_register).converter().convert(setting_register.getValue()));
+
+			if (setting_register.getName().equals("frames")) {
+				object.remove(entry.getKey());
 			}
 		}
-
 
 		return object;
 	}
@@ -162,6 +163,8 @@ public class TurokConfig {
 
 			if (setting_register.getName().equals("friends")) {
 				object.add(entry.getKey(), (JsonElement) ((Convertable) setting_register).converter().convert(setting_register.getValue()));
+			} else {
+				object.remove(entry.getKey());
 			}
 		}
 
