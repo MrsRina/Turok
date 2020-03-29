@@ -17,11 +17,19 @@ public class TurokChatCommand {
 	public static TurokChatManager chat_manager;
 
 	public TurokChatCommand() {
-		chat_manager = new TurokChatManager(TurokMod.TUROK_CHAT_PREFIX, new Style().setColor(TextFormatting.GRAY));
+		chat_manager = new TurokChatManager(new Style().setColor(TextFormatting.GRAY));
 	}
 
 	public static void turok_update_commands() {
 		chat_manager.update_chat_to_accept_commands();
+	}
+
+	public void set_prefix(String new_prefix) {
+		chat_manager.set_prefix(new_prefix);
+	}
+
+	public String get_prefix() {
+		return chat_manager.get_prefix();
 	}
 
 	@SubscribeEvent
@@ -40,7 +48,7 @@ public class TurokChatCommand {
 
 			if (!command_us && chat_manager.ContainsPrefix(event.getMessage())) {
 				
-				TurokMessage.send_client_msg("Use command help for get hElP.");
+				TurokMessage.send_client_msg("Use command help or talk with Rina.");
 
 				command_us = false;
 			}

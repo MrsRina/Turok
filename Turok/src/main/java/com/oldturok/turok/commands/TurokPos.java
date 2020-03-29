@@ -23,7 +23,7 @@ public class TurokPos extends TurokChat {
 		int posZ = (int) mc.player.posZ;
 		
 		if (msg.equals("")) {
-			TurokMessage.send_error_msg("For send a custom message with pos in the end. '-sendpos BASEEEEE!! foound!!! !! (pos)'");
+			TurokMessage.send_client_msg("For send a custom message with pos in the end. '-sendpos BASEEEEE!! foound!!! !! (pos)'");
 		} else {
 			TurokMessage.user_send_msg(msg + " " + Integer.toString(posX) + " " + Integer.toString(posY) + " " + Integer.toString(posZ));
 		}

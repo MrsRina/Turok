@@ -40,7 +40,7 @@ minecraft {
     version = project.forgeVersion
     runDir = 'run'
     mappings = project.mcpVersion
-    coreMod = 'com.oldturok.turok.mixin.MixinLoaderForge'
+    coreMod = 'com.MixinLoaderForge'
     makeObfSourceJar = false
 }
 
@@ -124,7 +124,7 @@ shadowJar {
 
 mixin {
     defaultObfuscationEnv searge
-    add sourceSets.main, 'mixins.turok.refmap.json'
+    add sourceSets.main, 'turok.mixins.refmap.json'
 }
 
 reobf {
@@ -137,11 +137,11 @@ reobf {
 jar {
     manifest {
         attributes(
-                'MixinConfigs': 'mixins.turok.json',
+                'MixinConfigs': 'turok.mixins.json',
                 'tweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
                 'TweakOrder': 0,
                 'FMLCorePluginContainsFMLMod': 'true',
-                'FMLCorePlugin': 'com.oldturok.turok.mixin.MixinLoaderForge',
+                'FMLCorePlugin': 'com.MixinLoaderForge',
                 'ForceLoadAsMod': 'true',
                 'FMLAT': 'turok_at.cfg'
         )

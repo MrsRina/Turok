@@ -14,8 +14,8 @@ import com.oldturok.turok.setting.impl.BooleanSetting;
 import com.oldturok.turok.gui.turok.Stretcherlayout;
 import com.oldturok.turok.setting.impl.EnumSetting;
 import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.util.TurokBind;
 import com.oldturok.turok.module.Module;
-import com.oldturok.turok.util.Bind;
 
 // Rina.
 import com.oldturok.turok.util.TurokMath; // TurokMath;
@@ -64,7 +64,7 @@ public class SettingsPanel extends OrganisedContainer {
                 boolean is_boolean = setting instanceof BooleanSetting;
                 boolean is_enum    = setting instanceof EnumSetting;
 
-                if (setting.getValue() instanceof Bind) {
+                if (setting.getValue() instanceof TurokBind) {
                     addChild(new BindButton("Bind", module));
                 }
 

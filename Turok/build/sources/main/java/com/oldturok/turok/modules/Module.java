@@ -5,7 +5,7 @@ import com.oldturok.turok.event.events.RenderEvent;
 import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
-import com.oldturok.turok.util.Bind;
+import com.oldturok.turok.util.TurokBind;
 import com.oldturok.turok.TurokMod;
 
 import net.minecraft.client.Minecraft;
@@ -22,13 +22,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Module {
-    private final String originalName = getAnnotation().name();
+    private final String originalName  = getAnnotation().name();
     private final Setting<String> name = register(Settings.s("Name", originalName));
-    private final String description = getAnnotation().description();
-    private final Category category = getAnnotation().category();
-    private Setting<Bind> bind = register(Settings.custom("Bind", Bind.none(), new BindConverter()).build());
-    private Setting<Boolean> enabled = register(Settings.booleanBuilder("Enabled").withVisibility(aBoolean -> false).withValue(false).build());
+    private final String description   = getAnnotation().description();
+    private final Category category    = getAnnotation().category();
+
+    private Setting<TurokBind> bind    = register(Settings.custom("Bind", TurokBind.none(), new BindConverter()).build());
+    private Setting<Boolean> enabled   = register(Settings.booleanBuilder("Enabled").withVisibility(aBoolean -> false).withValue(false).build());
+
     public boolean alwaysListening;
+
     protected static final Minecraft mc = Minecraft.getMinecraft();
 
     public List<Setting> settingList = new ArrayList<>();
@@ -49,7 +52,7 @@ public class Module {
     public void onRender() {}
     public void onWorldRender(RenderEvent event) {}
 
-    public Bind getBind() {
+    public TurokBind getBind() {
         return bind.getValue();
     }
 
@@ -182,25 +185,31 @@ public class Module {
     }
 
 
-    private class BindConverter extends Converter<Bind, JsonElement> {
+    private class BindConverter extends Converter<TurokBind, JsonElement> {
         @Override
-        protected JsonElement doForward(Bind bind) {
+        protected JsonElement doForward(TurokBind bind) {
             return new JsonPrimitive(bind.toString());
         }
 
         @Override
-        protected Bind doBackward(JsonElement jsonElement) {
+        protected TurokBind doBackward(JsonElement jsonElement) {
             String s = jsonElement.getAsString();
-            if (s.equalsIgnoreCase("None")) return Bind.none();
-            boolean ctrl = false, alt = false, shift = false;
+
+            if (s.equalsIgnoreCase("None")) {
+                return TurokBind.none();
+            }
 
             int key = -1;
+
             try {
                 key = Keyboard.getKeyIndex(s.toUpperCase());
             } catch (Exception ignored) {}
 
-            if (key == 0) return Bind.none();
-            return new Bind(ctrl, alt, shift, key);
+            if (key == 0) {
+                return TurokBind.none();
+            }
+
+            return new TurokBind(key);
         }
     }
 }

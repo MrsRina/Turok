@@ -17,12 +17,16 @@ import java.util.regex.Pattern;
 public class TurokMessage {
 	public static Minecraft mc = Minecraft.getMinecraft();
 
-	public static void user_send_msg(String msg) {
-		mc.player.connection.sendPacket(new CPacketChatMessage(msg));
+	public static void user_send_msg(String message) {
+		if (mc.player != null) {
+			mc.player.connection.sendPacket(new CPacketChatMessage(message));
+		}
 	}
 
-	public static void send_msg(String msg) {
-		mc.player.sendMessage(new ChatMessage(msg));
+	public static void send_msg(String message) {
+		if (mc.player != null) {
+			mc.player.sendMessage(new ChatMessage(message));
+		}
 	}
 
 	public static void send_client_msg(String message) {
@@ -30,7 +34,7 @@ public class TurokMessage {
 	}
 
 	public static void send_error_msg(String message) {
-		send_msg(TurokMod.TUROK_MOD_NAME + ": " + ChatFormatting.RED + message);
+		send_msg(TurokMod.TUROK_MOD_NAME + " - " + ChatFormatting.RED + message);
 	}
 
 	public static class ChatMessage extends TextComponentBase {

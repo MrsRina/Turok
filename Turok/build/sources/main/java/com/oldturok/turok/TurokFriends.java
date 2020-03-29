@@ -2,23 +2,28 @@ package com.oldturok.turok;
 
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
+
+import net.minecraft.client.network.NetworkPlayerInfo;
+import net.minecraft.client.Minecraft;
+
+import com.mojang.util.UUIDTypeAdapter;
+
 import com.google.common.base.Converter;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
-import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-import java.net.URLConnection;
-import java.io.BufferedReader;
-import java.util.ArrayList;
-import java.util.UUID;
-import java.net.URL;
+import java.util.*;
+import java.net.*;
+import java.io.*;
 
 public class TurokFriends {
-	public static final TurokFriends INSTANC = new TurokFriends();
+	public static final TurokFriends INSTANCE = new TurokFriends();
 
 	public static Setting<ArrayList<Friend>> list_friends;
+
+	public static Minecraft mc = Minecraft.getMinecraft();
 
 	public TurokFriends() {}
 
@@ -28,6 +33,86 @@ public class TurokFriends {
 
 	public static Boolean is_friend(String name) {
 		return list_friends.getValue().stream().anyMatch(friend -> friend.user_name.equalsIgnoreCase(name));
+	}
+
+	public static Friend add_friend(String name) {
+		ArrayList<NetworkPlayerInfo> info_map = new ArrayList<NetworkPlayerInfo> (mc.getConnection().getPlayerInfoMap());
+		NetworkPlayerInfo profile             = info_map.stream().filter(networkPlayerInfo -> networkPlayerInfo.getGameProfile().getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+
+		if (profile == null) {
+			String uuid_name = request_uuid("[\"" + name + "\"]");
+
+			if (uuid_name == null || uuid_name.isEmpty()) {
+				return null;
+			} else {
+				JsonElement element = new JsonParser().parse(uuid_name);
+
+				if (element.getAsJsonArray().size() == 0) {
+					return null;
+				} else {
+					try {
+						String id   = element.getAsJsonArray().get(0).getAsJsonObject().get("id").getAsString();
+						String user = element.getAsJsonArray().get(0).getAsJsonObject().get("name").getAsString();
+
+						Friend friend = new Friend(user, UUIDTypeAdapter.fromString(id));
+
+						return friend;
+					} catch (Exception exc) {
+						exc.printStackTrace();
+
+						return null;
+					}
+				}
+			}
+		}
+
+		Friend friend_ = new Friend(profile.getGameProfile().getName(), profile.getGameProfile().getId());
+
+		return null;
+	}
+
+	public static String request_uuid(String data) {
+		try {
+			String query = "https://api.mojang.com/profiles/minecraft";
+			String json  = data;
+
+			URL url = new URL(query);
+
+			HttpURLConnection connect = (HttpURLConnection) url.openConnection();
+
+			connect.setConnectTimeout(5000);
+
+			connect.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+
+			connect.setDoOutput(true);
+			connect.setDoInput(true);
+
+			connect.setRequestMethod("POST");
+
+			OutputStream output = connect.getOutputStream();
+			output.write(json.getBytes("UTF-8"));
+			output.close();
+
+			InputStream input = new BufferedInputStream(connect.getInputStream());
+
+			String return_ = convert_to(input);
+
+			input.close();
+
+			connect.disconnect();
+
+			return return_;
+		} catch (Exception exc) {
+			return null;
+		}
+	}
+
+	public static String convert_to(InputStream input) {
+		Scanner scanned = new Scanner(input).useDelimiter("\\A");
+
+		String resp = scanned.hasNext() ? scanned.next() : "/";
+
+		return resp;
 	}
 
 	public static class FriendListConverter extends Converter<ArrayList<Friend>, JsonElement> {
@@ -104,7 +189,7 @@ public class TurokFriends {
 
 				return buffer.toString();
 			} catch (Exception exc) {
-			return null;
+				return null;
 			}
 		}
 	}

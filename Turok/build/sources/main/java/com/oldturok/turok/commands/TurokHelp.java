@@ -31,10 +31,12 @@ public class TurokHelp extends TurokChat {
 				try {
 					TurokMessage.send_client_msg("Name: " + ModuleManager.getModuleByName(what).getName());
 					TurokMessage.send_client_msg("Category: " + ModuleManager.getModuleByName(what).getCategory());
-					TurokMessage.send_client_msg("Description : " + ModuleManager.getModuleByName(what).getDescription());
+					TurokMessage.send_client_msg("Description: " + ModuleManager.getModuleByName(what).getDescription());
 				} catch (Exception exc) {
 					TurokMessage.send_error_msg("You need write a real module.");
 				}
+			} else {
+				TurokMessage.send_error_msg("Try use only -help.");
 			}
 		}
 
@@ -46,13 +48,17 @@ public class TurokHelp extends TurokChat {
 					TurokMessage.send_client_msg("Commands: " + commands.get_name());
 				}
 			} else if (help.equals("modules")) {
-				TurokMessage.send_client_msg("-help commmand command_name | for get help command.");
+				TurokMessage.send_client_msg("-help command command_name | for get help command.");
+			} else {
+				TurokMessage.send_error_msg("Try use only -help.");
 			}
-		} else if (message.length == 0) {
-			TurokMessage.send_client_msg("-help commmands | for get a list commands.");
-
-			TurokMessage.send_client_msg("-help module module_name | for get help module.");
-			TurokMessage.send_client_msg("-help commmand command_name | for get help command.");
+		} else if (message.length > 0) {
+			TurokMessage.send_client_msg("-----------------");
+			TurokMessage.send_client_msg("-help module name");
+			TurokMessage.send_client_msg("-");
+			TurokMessage.send_client_msg("-help command name");
+			TurokMessage.send_client_msg("-");
+			TurokMessage.send_client_msg("-help commands");
 		} 
 	
 		return true;

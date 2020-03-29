@@ -6,9 +6,10 @@ import com.oldturok.turok.gui.rgui.component.AlignedComponent;
 import com.oldturok.turok.gui.rgui.util.ContainerHelper;
 import com.oldturok.turok.gui.rgui.component.Component;
 import com.oldturok.turok.event.ForgeEventProcessor;
+import com.oldturok.turok.commands.TurokChatCommand;
 import com.oldturok.turok.setting.SettingsRegister;
 import com.oldturok.turok.gui.rgui.util.Docking;
-import com.oldturok.turok.commands.TurokChatCommand;
+import com.oldturok.turok.util.TurokChatManager;
 import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.util.LagCompensator;
 import com.oldturok.turok.gui.turok.TurokGUI;
@@ -95,39 +96,53 @@ public class TurokMod {
 		// By Rina.
 		//
 
-        TurokMod.turok_log.info("\n\nTurok Started.");
+        TurokMod.turok_log.info("\n\n----------- Turok Loading Configs -----------");
 
         ModuleManager.initialize();
+        TurokMod.turok_log.info("Starting modules and util loader.");
 
+        TurokMod.turok_log.info("Loading: Modules util. - State: Init.");
         ModuleManager.getModules().stream().filter(module -> module.alwaysListening).forEach(EVENT_BUS::subscribe);
         
         MinecraftForge.EVENT_BUS.register(new ForgeEventProcessor());
+        TurokMod.turok_log.info("Loading: ForgeEvents util. - State: Loaded.");
+
         MinecraftForge.EVENT_BUS.register(turok_chat_manager = new TurokChatCommand());
+        SettingsRegister.register("chatprefix", TurokChatManager.prefix);
+        TurokMod.turok_log.info("Loading: TurokChatManager util. - State: Loaded.");
         
         LagCompensator.INSTANCE = new LagCompensator();
+        TurokMod.turok_log.info("Loading: LagCompensator util. - State: Loaded.");
 
         Wrapper.init();
+        TurokMod.turok_log.info("Loading: Wrapper util. - State: Loaded.");
 
         gui_manager = new TurokGUI();
         gui_manager.initializeGUI();
+        TurokMod.turok_log.info("Loading: TurokGUI util. - State: Loaded.");
 
         TurokFriends.init_friends_list();
+        TurokMod.turok_log.info("Loading: TurokFriends util. - State: Loaded.");
 
         load_config();
-
-        TurokMod.turok_log.info("Maping binds.");
+        TurokMod.turok_log.info("Loading: TurokConfig util. - State: Loaded.");
 
         TurokChatCommand.turok_update_commands();
+        TurokMod.turok_log.info("Finishing load: TurokChatManager util. - State: Loaded.");
 
         ModuleManager.updateLookup();
         ModuleManager.getModules().stream().filter(Module::isEnabled).forEach(Module::enable);
+        TurokMod.turok_log.info("Finishing load: Modules util. - State: Loaded.");
 
         TurokRPC.start();
+        TurokMod.turok_log.info("Loading: TurokRPC util. - State: Loaded.");
 
         ModuleManager.getModuleByName("FreeCamera").disable();
         ModuleManager.getModuleByName("TurokHUD").enable();
+        TurokMod.turok_log.info("Disabling buggy modules.");
 
-        TurokMod.turok_log.info("Welcome to Turok.");
+        TurokMod.turok_log.info("TurokLoadUtil loaded 10.");
+        TurokMod.turok_log.info("Turok started no problems.");
     }
 
     public static void load_config() {

@@ -100,7 +100,7 @@ public class ModuleManager {
     public static void onBind(int eventKey) {
         if (eventKey == 0) return;
         modules.forEach(module -> {
-            if (module.getBind().isDown(eventKey)) {
+            if (module.getBind().keydown(eventKey)) {
                 module.toggle();
             }
         });

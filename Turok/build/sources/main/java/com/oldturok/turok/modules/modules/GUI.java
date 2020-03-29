@@ -14,7 +14,7 @@ import com.oldturok.turok.util.TurokGL; // TurokGL.
 @Module.Info(name = "GUI", category = Module.Category.TUROK_HIDDEN)
 public class GUI extends Module {
     public GUI() {
-        getBind().setKey(TurokMod.TUROK_GUI_BUTTON);
+        getBind().set_key(TurokMod.TUROK_GUI_BUTTON);
     }
 
     @Override
