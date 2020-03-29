@@ -2,6 +2,7 @@ package com.oldturok.turok;
 
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
+import com.oldturok.turok.TurokMessage;
 
 import net.minecraft.client.network.NetworkPlayerInfo;
 import net.minecraft.client.Minecraft;
@@ -18,12 +19,15 @@ import java.util.*;
 import java.net.*;
 import java.io.*;
 
+// Rina.
 public class TurokFriends {
 	public static final TurokFriends INSTANCE = new TurokFriends();
 
 	public static Setting<ArrayList<Friend>> list_friends;
 
 	public static Minecraft mc = Minecraft.getMinecraft();
+
+	public static int error;
 
 	public TurokFriends() {}
 
@@ -43,12 +47,12 @@ public class TurokFriends {
 			String uuid_name = request_uuid("[\"" + name + "\"]");
 
 			if (uuid_name == null || uuid_name.isEmpty()) {
-				return null;
+				error++;
 			} else {
 				JsonElement element = new JsonParser().parse(uuid_name);
 
 				if (element.getAsJsonArray().size() == 0) {
-					return null;
+					error++;
 				} else {
 					try {
 						String id   = element.getAsJsonArray().get(0).getAsJsonObject().get("id").getAsString();
@@ -60,15 +64,17 @@ public class TurokFriends {
 					} catch (Exception exc) {
 						exc.printStackTrace();
 
-						return null;
+						error++;
 					}
 				}
 			}
+
+			return null;
 		}
 
 		Friend friend_ = new Friend(profile.getGameProfile().getName(), profile.getGameProfile().getId());
 
-		return null;
+		return friend_;
 	}
 
 	public static String request_uuid(String data) {

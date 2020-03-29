@@ -7,7 +7,7 @@ import com.oldturok.turok.TurokMod;
 // Rina.
 public class TurokPrefix extends TurokChat {
 	public TurokPrefix() {
-		super("prefix", "Change prefix.");
+		super("prefix", "-prefix new_prefix | For change prefix no?");
 	}
 
 	@Override
@@ -21,7 +21,7 @@ public class TurokPrefix extends TurokChat {
 	
 			TurokMessage.send_client_msg("The new character is " + TurokMod.get_instance().turok_chat_manager.get_prefix());
 		} else {
-			TurokMessage.send_client_msg("Set a new character using 'prefix [character]'.");
+			TurokMessage.send_client_msg("For change prefix. lol");
 		}
 	
 		return true;

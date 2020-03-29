@@ -7,10 +7,8 @@ import com.oldturok.turok.TurokMod;
 
 public class TurokFriend extends TurokChat {
 	public TurokFriend() {
-		super("friend", "Turok users friends!");
+		super("friend", "-friend add/del/remove name | For add or remove friend.");
 	}
-
-	String friend_string = "";
 
 	@Override
 	public boolean Get_Message(String[] message) {
@@ -23,14 +21,18 @@ public class TurokFriend extends TurokChat {
 					TurokFriends.Friend friend = TurokFriends.add_friend(friend_request);
 
 					if (friend == null) {
-						TurokMessage.send_error_msg("Turok friends got a error current get uuid, try again or other name.");
+						TurokMessage.send_error_msg("Turok friends got a error with UUID request: 0x0" + TurokFriends.error);
 					} else {
+						TurokMessage.send_client_msg("0x0" + TurokFriends.error);
+					
 						TurokFriends.INSTANCE.list_friends.getValue().add(friend);
 
 						TurokMessage.send_client_msg(friend_request + "is your new friend!");
 					}
+
+					TurokFriends.error = 0;
 				}).start();
-			} else if (type.equals("del") || type.equals("delete") || type.equals("remove")) {
+			} else if (type.equals("del") || type.equals("remove")) {
 				if (!(TurokFriends.is_friend(friend_request))) {
 					TurokMessage.send_error_msg("He is NOT his friend.");
 				} else {
@@ -45,23 +47,8 @@ public class TurokFriend extends TurokChat {
 			}
 		}
 
-		if (message.length > 1) {
-			String type = message[1];
-
-			if (type.equals("list")) {
-				if (TurokFriends.INSTANCE.list_friends.getValue().isEmpty()) {
-					TurokMessage.send_client_msg("You have 0 friends. lol");
-				} else {
-					for (TurokFriends.Friend friend : TurokFriends.INSTANCE.list_friends.getValue()) {
-						friend_string += (friend.get_user_name() + ", ");
-					}
-
-					friend_string = friend_string.substring(0, friend_string.length() - 2);
-
-					TurokMessage.send_client_msg("Your friends are: " + friend_string);
-				}
-			}
-
+		if (message.length == 0) {
+			TurokMessage.send_client_msg("For add friend or remove friend.");
 		}
 
 		return true;

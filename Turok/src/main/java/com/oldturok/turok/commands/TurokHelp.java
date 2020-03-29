@@ -11,7 +11,7 @@ import java.util.ArrayList;
 // Rina.
 public class TurokHelp extends TurokChat {
 	public TurokHelp() {
-		super("help", "Get help lol.");
+		super("help", "-help commands/command/module module:name/command:name.");
 	}
 
 	@Override
@@ -35,8 +35,6 @@ public class TurokHelp extends TurokChat {
 				} catch (Exception exc) {
 					TurokMessage.send_error_msg("You need write a real module.");
 				}
-			} else {
-				TurokMessage.send_error_msg("Try use only -help.");
 			}
 		}
 
@@ -60,7 +58,7 @@ public class TurokHelp extends TurokChat {
 			TurokMessage.send_client_msg("-");
 			TurokMessage.send_client_msg("-help commands");
 		} 
-	
+
 		return true;
 	}
 }

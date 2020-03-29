@@ -34,6 +34,7 @@ public class TurokChatManager {
 
 		command_list.add(new TurokFriend());
 		command_list.add(new TurokHelp());
+		command_list.add(new TurokListFriends());
 		command_list.add(new TurokPos());
 		command_list.add(new TurokPrefix());
 	}

@@ -7,7 +7,7 @@ import com.oldturok.turok.TurokMod;
 // Rina.
 public class TurokPos extends TurokChat {
 	public TurokPos() {
-		super("pos", "Send pos into end message.");
+		super("pos", "-pos [leak leak base!@! We are turok!] | For send into end a pos.");
 	}
 
 	@Override
