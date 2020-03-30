@@ -75,10 +75,10 @@ public class TurokRPC {
 								}
 							} else {
 								if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled()) {
-									if (crystalfunction.render_ent == null) {
+									if (crystalfunction.player_target == null) {
 										event_1 = "TurokCrystalAura on...";
 									} else {
-										event_1 = "crystaling " + crystalfunction.render_ent.getName();
+										event_1 = "crystaling " + crystalfunction.player_target;
 									}
 								} else {
 									event_1 = "relaxing in " +  mc.world.getBiome(mc.player.getPosition()).getBiomeName();

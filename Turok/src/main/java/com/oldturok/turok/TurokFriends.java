@@ -158,7 +158,7 @@ public class TurokFriends {
 		public static String user_name_uuid(UUID uuid, String saved) {
 			String src = get_source("https://sessionserver.mojang.com/session/minecraft/profile/" + uuid.toString());
 
-			if (src == null) {
+			if (src == null || src.isEmpty()) {
 				return saved;
 			}
 
