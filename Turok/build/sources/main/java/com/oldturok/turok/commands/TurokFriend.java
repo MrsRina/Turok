@@ -27,7 +27,7 @@ public class TurokFriend extends TurokChat {
 					
 						TurokFriends.INSTANCE.list_friends.getValue().add(friend);
 
-						TurokMessage.send_client_msg(friend_request + "is your new friend!");
+						TurokMessage.send_client_msg(friend_request + " is your new friend!");
 					}
 
 					TurokFriends.error = 0;

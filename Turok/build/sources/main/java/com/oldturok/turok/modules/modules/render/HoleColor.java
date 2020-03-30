@@ -9,7 +9,7 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 
-import static com.oldturok.turok.module.modules.combat.TurokCrystalAura.get_player_pos;
+import static com.oldturok.turok.module.modules.combat.TurokCrystalAura.player_pos;
 
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.block.Block;
@@ -79,7 +79,7 @@ public class HoleColor extends Module {
 		int range_ = (int) Math.ceil(range.getValue());
 
 		TurokCrystalAura crystal_function = (TurokCrystalAura) ModuleManager.getModuleByName("TurokCrystalAura");
-		List<BlockPos> block_pos = crystal_function.get_sphere(get_player_pos(), range_, range_, false, true, 0);
+		List<BlockPos> block_pos          = crystal_function.get_sphere(player_pos(), range_, range_, false, true, 0);
 
 		for (BlockPos pos : block_pos) {
 			if (!mc.world.getBlockState(pos).getBlock().equals(Blocks.AIR)) continue;

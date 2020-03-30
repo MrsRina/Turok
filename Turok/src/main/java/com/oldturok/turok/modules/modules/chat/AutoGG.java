@@ -80,7 +80,7 @@ public class AutoGG extends Module {
 
 		if (!(cpacketUseEntity.getAction().equals(CPacketUseEntity.Action.ATTACK))) return;
 
-		if (!(ModuleManager.getModuleByName("TurokInsaneAura").isDisabled() || ModuleManager.getModuleByName("TurokInsaneAura").isDisabled())) return;
+		if (!(ModuleManager.getModuleByName("TurokCrystalAura").isDisabled())) return;
 
 		Entity target_entity = cpacketUseEntity.getEntityFromWorld(mc.world);
 		if (!EntityUtil.isPlayer(target_entity)) return;

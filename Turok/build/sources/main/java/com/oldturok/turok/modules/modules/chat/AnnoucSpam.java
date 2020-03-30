@@ -34,7 +34,7 @@ import java.util.*;
 import java.time.*;
 
 // Rina.
-@Module.Info(name = "AnnoucSpam", description = "For spam annouc.", category = Module.Category.TUROK_CHAT)
+@Module.Info(name = "AnnoucSpamDontUse", description = "For spam annouc.", category = Module.Category.TUROK_CHAT)
 public class AnnoucSpam extends Module {
 	private Setting<Integer> tick_ = register(Settings.integerBuilder("Tick").withRange(1, 50).withValue(10).build());
 	private Setting<Integer> delay = register(Settings.integerBuilder("Delay").withRange(2000, 10000).withValue(2000).build());
@@ -122,20 +122,24 @@ public class AnnoucSpam extends Module {
 
 			if (walk.getValue()) {
 				if (send_m) {
-					annoyer.append("Im walking in " + data + ", ");
+					annoyer.append("Im walking in " + data + " and ");
 
-					count++;
+					count = 1;
 				} else {
-					annoyer.append("Im just stoped in " + data + ", ");
+					annoyer.append("Im just stoped in " + data + " and ");
 				}
 			}
 
 			if (break_.getValue()) {
 				if (block_break) {
-					if (count == 0) {
+					if (count == 1) {
 						annoyer.append("I breaked " + type_block + ", ");
+
+						block_break = false;
 					} else {
 						annoyer.append("breaked " + type_block + ", ");
+
+						block_break = false;
 					}
 				}
 			}

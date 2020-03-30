@@ -1,7 +1,6 @@
 package com.oldturok;
 
 import com.oldturok.turok.module.modules.combat.TurokCrystalAura;
-import com.oldturok.turok.module.modules.combat.TurokInsaneAura;
 import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 
@@ -75,8 +74,12 @@ public class TurokRPC {
 									event_1 = "low health";
 								}
 							} else {
-								if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled() || ModuleManager.getModuleByName("TurokInsaneAura").isEnabled()) {
-									event_1 = "crystaling...";
+								if (ModuleManager.getModuleByName("TurokCrystalAura").isEnabled()) {
+									if (crystalfunction.render_ent == null) {
+										event_1 = "TurokCrystalAura on...";
+									} else {
+										event_1 = "crystaling " + crystalfunction.render_ent.getName();
+									}
 								} else {
 									event_1 = "relaxing in " +  mc.world.getBiome(mc.player.getPosition()).getBiomeName();
 								}

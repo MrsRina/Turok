@@ -47,8 +47,6 @@ public class TurokHelp extends TurokChat {
 				}
 			} else if (help.equals("modules")) {
 				TurokMessage.send_client_msg("-help command command_name | for get help command.");
-			} else {
-				TurokMessage.send_error_msg("Try use only -help.");
 			}
 		} else if (message.length > 0) {
 			TurokMessage.send_client_msg("-----------------");

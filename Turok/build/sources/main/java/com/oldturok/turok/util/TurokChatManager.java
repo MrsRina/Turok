@@ -37,6 +37,7 @@ public class TurokChatManager {
 		command_list.add(new TurokListFriends());
 		command_list.add(new TurokPos());
 		command_list.add(new TurokPrefix());
+		command_list.add(new TurokToggle());
 	}
 
 	public String[] GetArgs(String message) {
