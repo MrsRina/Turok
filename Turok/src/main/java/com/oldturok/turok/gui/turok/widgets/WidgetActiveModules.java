@@ -10,6 +10,8 @@ import com.oldturok.turok.module.ModuleManager;
 import com.oldturok.turok.module.Module;
 import com.oldturok.turok.util.Wrapper;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
+
 import org.lwjgl.opengl.GL11;
 
 import java.util.function.Function;
@@ -61,7 +63,7 @@ public class WidgetActiveModules extends AbstractComponentUI<ActiveModules> {
 
         mods.stream().forEach(module -> {
             String module_info = module.getHudInfo();
-            String module_name = module.getName() + (module_info == null? "" : " - " + module_info);
+            String module_name = module.getName() + (module_info == null? "" : " " + ChatFormatting.GRAY + module_info);
             
             int module_width  = renderer.getStringWidth(module_name);
             int module_height = renderer.getFontHeight() + 1;

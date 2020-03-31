@@ -138,7 +138,10 @@ public class TurokMod {
         TurokMod.turok_log.info("Loading: TurokRPC util. - State: Loaded.");
 
         ModuleManager.getModuleByName("FreeCamera").disable();
-        ModuleManager.getModuleByName("TurokHUD").enable();
+
+        if (ModuleManager.getModuleByName("TurokHUD").isEnabled()) {
+            ModuleManager.getModuleByName("TurokHUD").enable();
+        }
         TurokMod.turok_log.info("Disabling buggy modules.");
 
         TurokMod.turok_log.info("TurokLoadUtil loaded 10.");

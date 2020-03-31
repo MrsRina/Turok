@@ -136,4 +136,9 @@ public class AutoReplace extends Module {
 
 		return full_inventory;
 	}
+
+	@Override
+	public String getHudInfo() {
+		return String.valueOf(stack_value.getValue());
+	}
 }

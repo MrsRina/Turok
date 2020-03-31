@@ -1,6 +1,7 @@
 package com.oldturok.turok.module.modules.render;
 
 import com.oldturok.turok.gui.turok.widgets.WidgetActiveModules;
+import com.oldturok.turok.gui.turok.widgets.WidgetModuleFrame;
 import com.oldturok.turok.gui.turok.TurokGUI;
 import com.oldturok.turok.util.ColourHolder;
 import com.oldturok.turok.setting.Settings;
@@ -22,20 +23,37 @@ import java.awt.*;
 public class TurokHUD extends Module {
 	private static RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
 
-	private Setting<Boolean> wattermark_hud = register(Settings.b("Show Wattermark HUD", true));
-	private Setting<Boolean> users_hud      = register(Settings.b("Show Users HUD", true));
-	private Setting<Boolean> coords_hud     = register(Settings.b("Show Coords HUD", true));
-	private Setting<Boolean> totem_hud      = register(Settings.b("Show Totem HUD", true));
-	private Setting<Boolean> gapple_hud     = register(Settings.b("Show Gapple HUD", true));
-	private Setting<Boolean> crystal_hud    = register(Settings.b("Show Crystal HUD", true));
-	private Setting<Boolean> exp_hud        = register(Settings.b("Show Bottle XP HUD", true));
-	private Setting<Boolean> armor_hud      = register(Settings.b("Show Armor HUD", true));
+	private Setting<Boolean> effect_pinnable = register(Settings.b("Show Pin Effect", true));
+	private Setting<Boolean> wattermark_hud  = register(Settings.b("Show Wattermark HUD", true));
+	private Setting<Boolean> users_hud       = register(Settings.b("Show Users HUD", true));
+	private Setting<Boolean> coords_hud      = register(Settings.b("Show Coords HUD", true));
+	private Setting<Boolean> totem_hud       = register(Settings.b("Show Totem HUD", true));
+	private Setting<Boolean> gapple_hud      = register(Settings.b("Show Gapple HUD", true));
+	private Setting<Boolean> crystal_hud     = register(Settings.b("Show Crystal HUD", true));
+	private Setting<Boolean> exp_hud         = register(Settings.b("Show Bottle XP HUD", true));
+	private Setting<Boolean> armor_hud       = register(Settings.b("Show Armor HUD", true));
 	
 	// Array.
 	public Setting<Boolean> array_rgb = register(Settings.b("Array RGB", true));
 	public Setting<Integer> array_r   = register(Settings.integerBuilder("Array Red").withMinimum(1).withMaximum(255).withValue(255));
 	public Setting<Integer> array_g   = register(Settings.integerBuilder("Array Green").withMinimum(1).withMaximum(255).withValue(255));
 	public Setting<Integer> array_b   = register(Settings.integerBuilder("Array Blue").withMinimum(1).withMaximum(255).withValue(255));
+
+	boolean wattermark_enable;
+	boolean users_enable;
+	boolean coords_enable;
+	boolean totem_enable;
+	boolean gapple_enable;
+	boolean crystal_enable;
+	boolean exp_enable;
+
+	int wattermark_tick;
+	int users_tick;
+	int coords_tick;
+	int totem_tick;
+	int gapple_tick;
+	int crystal_tick;
+	int exp_tick;
 
 	@Override
 	public void onDisable() {
@@ -59,15 +77,170 @@ public class TurokHUD extends Module {
 			WidgetActiveModules.b = array_b.getValue();
 		}
 
-		if (wattermark_hud.getValue()) {
-			TurokGUI.frame_wattermark.setX(0);
-			TurokGUI.frame_wattermark.setY(0);
+		if (effect_pinnable.getValue()) {
+			WidgetModuleFrame.effect = true;
 		} else {
+			WidgetModuleFrame.effect = false;
+		}
+
+		if (wattermark_enable) {
+			wattermark_tick += 1;
+
+			if (wattermark_tick >= 5) {
+				wattermark_tick = 6;
+			} else {
+				TurokGUI.frame_wattermark.setX(0);
+				TurokGUI.frame_wattermark.setY(10);
+			}
+		} else {
+			wattermark_tick = 0;
+
 			TurokGUI.frame_wattermark.setX(12000);
 			TurokGUI.frame_wattermark.setY(12000);
 		}
 
+		if (users_enable) {
+			users_tick += 1;
+
+			if (users_tick >= 5) {
+				users_tick = 6;
+			} else {
+				TurokGUI.frame_users.setX(0);
+				TurokGUI.frame_users.setY(50);
+			}
+		} else {
+			users_tick = 0;
+
+			TurokGUI.frame_users.setX(12000);
+			TurokGUI.frame_users.setY(12000);
+		}
+
+		if (coords_enable) {
+			coords_tick += 1;
+
+			if (coords_tick >= 5) {
+				coords_tick = 6;
+			} else {
+				TurokGUI.frame_coords.setX(0);
+				TurokGUI.frame_coords.setY(100);
+			}
+		} else {
+			coords_tick = 0;
+
+			TurokGUI.frame_coords.setX(12000);
+			TurokGUI.frame_coords.setY(12000);
+		}
+
+		if (totem_enable) {
+			totem_tick += 1;
+
+			if (totem_tick >= 5) {
+				totem_tick = 6;
+			} else {
+				TurokGUI.frame_counts_totem.setX(0);
+				TurokGUI.frame_counts_totem.setY(200);
+			}
+		} else {
+			totem_tick = 0;
+
+			TurokGUI.frame_counts_totem.setX(12000);
+			TurokGUI.frame_counts_totem.setY(12000);
+		}
+
+		if (gapple_enable) {
+			gapple_tick += 1;
+
+			if (gapple_tick >= 5) {
+				gapple_tick = 6;
+			} else {
+				TurokGUI.frame_counts_gapple.setX(0);
+				TurokGUI.frame_counts_gapple.setY(300);
+			}
+		} else {
+			gapple_tick = 0;
+
+			TurokGUI.frame_counts_gapple.setX(12000);
+			TurokGUI.frame_counts_gapple.setY(12000);
+		}
+
+		if (crystal_enable) {
+			crystal_tick += 1;
+
+			if (crystal_tick >= 5) {
+				crystal_tick = 6;
+			} else {
+				TurokGUI.frame_counts_crystal.setX(0);
+				TurokGUI.frame_counts_crystal.setY(400);
+			}
+		} else {
+			crystal_tick = 0;
+
+			TurokGUI.frame_counts_crystal.setX(12000);
+			TurokGUI.frame_counts_crystal.setY(12000);
+		}
+
+		if (exp_enable) {
+			exp_tick += 1;
+
+			if (exp_tick >= 5) {
+				exp_tick = 6;
+			} else {
+				TurokGUI.frame_counts_exp.setX(0);
+				TurokGUI.frame_counts_exp.setY(500);
+			}
+		} else {
+			exp_tick = 0;
+
+			TurokGUI.frame_counts_exp.setX(12000);
+			TurokGUI.frame_counts_exp.setY(12000);
+		}
+
+		compare();
 		enable();
+	}
+
+	public void compare() {
+		if (wattermark_hud.getValue()) {
+			wattermark_enable = true;
+		} else {
+			wattermark_enable = false;
+		}
+
+		if (users_hud.getValue()) {
+			users_enable = true;
+		} else {
+			users_enable = false;
+		}
+
+		if (coords_hud.getValue()) {
+			coords_enable = true;
+		} else {
+			coords_enable = false;
+		}
+
+		if (totem_hud.getValue()) {
+			totem_enable = true;
+		} else {
+			totem_enable = false;
+		}
+
+		if (gapple_hud.getValue()) {
+			gapple_enable = true;
+		} else {
+			gapple_enable = false;
+		}
+
+		if (crystal_hud.getValue()) {
+			crystal_enable = true;
+		} else {
+			crystal_enable = false;
+		}
+
+		if (exp_hud.getValue()) {
+			exp_enable = true;
+		} else {
+			exp_enable = false;
+		}
 	}
 
 	@Override

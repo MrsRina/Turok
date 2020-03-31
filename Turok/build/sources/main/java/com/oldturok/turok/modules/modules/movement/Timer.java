@@ -18,4 +18,9 @@ public class Timer extends Module {
 	public void onUpdate() {
 		mc.timer.tickLength = (50.0f / ticks_speed_value.getValue());
 	}
+
+	@Override
+	public String getHudInfo() {
+		return String.valueOf(ticks_speed_value.getValue());
+	}
 }

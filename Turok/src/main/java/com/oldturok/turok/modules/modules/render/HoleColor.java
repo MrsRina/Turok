@@ -35,10 +35,10 @@ public class HoleColor extends Module {
 
 	private Setting<Double> range = register(Settings.d("Range", 10.0d));
 
-	private Setting<Integer> color_r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> color_g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> color_b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> a       = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Integer> color_r = register(Settings.integerBuilder("Color Red").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> color_g = register(Settings.integerBuilder("Color Green").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> color_b = register(Settings.integerBuilder("Color Blue").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> a       = register(Settings.integerBuilder("Alpha Color").withMinimum(0).withMaximum(255).withValue(255));
 	private Setting<Boolean> rgb     = register(Settings.b("RGB", true));
 
 	private Setting<TypeHole> type = register(Settings.e("Hole Type", TypeHole.OUTLINE));

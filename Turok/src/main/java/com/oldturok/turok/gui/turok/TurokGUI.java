@@ -54,14 +54,14 @@ public class TurokGUI extends GUI {
 
     public static ArrayList<Frame> frames;
 
-    public static Frame frame_users;
     public static Frame frame_wattermark;
+    public static Frame frame_users;
+    public static Frame frame_coords;
     public static Frame frame_counts_totem;
-    public static Frame frame_counts_crystal;
     public static Frame frame_counts_gapple;
+    public static Frame frame_counts_crystal;
     public static Frame frame_counts_exp;
     public static Frame frame_array;
-    public static Frame frame_coords;
 
     public static int x = 10;
     public static int y = 10;

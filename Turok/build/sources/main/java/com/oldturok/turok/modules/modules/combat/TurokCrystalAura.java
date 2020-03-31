@@ -38,6 +38,8 @@ import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.awt.*;
+import java.io.*;
 
 import me.zero.alpine.listener.EventHandler;
 import me.zero.alpine.listener.Listener;
@@ -62,11 +64,15 @@ import com.oldturok.turok.TurokChat;
 
 import org.lwjgl.opengl.GL11;
 
-// Update by Rina 04/03/20.
-// A TurokCA for pings more highs >> 250 ms..
-// By Rina.
+//
+// This ca was made by Rina!
+// The original own of this base modify is 086!
+// I make somes modifcations and well : ).
+// I think that its good.
+//
 @Module.Info(name = "TurokCrystalAura", description = "A aura for break crystals, fast and good for high ping.", category = Module.Category.TUROK_COMBAT)
 public class TurokCrystalAura extends Module {
+    private Setting<Boolean> rgb           = register(Settings.b("Color RGB", false));
    	private Setting<Boolean> ant_fraqueza  = register(Settings.b("Anti Weakness", false));
     private Setting<Boolean> auto_switch   = register(Settings.b("Auto Switch"));
     private Setting<Boolean> ray_trace     = register(Settings.b("Ray Trace", false));
@@ -106,6 +112,10 @@ public class TurokCrystalAura extends Module {
 
     int prepare;
     int mask;
+
+    int r;
+    int g;
+    int b;
 
     Boolean type_;
 
@@ -237,7 +247,7 @@ public class TurokCrystalAura extends Module {
         List<BlockPos> blocks = find_crystal_blocks();
         List<Entity> entities = new ArrayList<Entity>();
 
-        entities.addAll((Collection<? extends Entity>) mc.world.playerEntities.stream().filter(entityPlayer -> !TurokFriends.is_friend(entityPlayer.getName())).collect(Collectors.toList()));
+        entities.addAll(mc.world.playerEntities.stream().filter(entityPlayer -> !TurokFriends.is_friend(entityPlayer.getName())).collect(Collectors.toList()));
 
         BlockPos q = null;
         double damage = 0;
@@ -335,13 +345,30 @@ public class TurokCrystalAura extends Module {
 
     @Override
     public void onWorldRender(RenderEvent event) {
+    	float[] tick_color = {(System.currentTimeMillis() % (360 * 32)) / (360f * 32)};
+		int color_rgb      = Color.HSBtoRGB(tick_color[0], 1, 1);
+
+		tick_color[0] += 0.1f;
+
         if (render != null && player_target != null) {
             TurokTessellator.prepare(prepare);
 
+			if (rgb.getValue()) {
+				r = ((color_rgb >> 16) & 0xFF);
+				g = ((color_rgb >> 8) & 0xFF);
+				b = (color_rgb & 0xFF);
+			} else {
+				r = cor_red.getValue();
+				g = cor_green.getValue();
+				b = cor_blue.getValue();
+			}
+
+			Color type_color = new Color(r, g, b, cor_alfa.getValue());
+
             if (type_) {
-                TurokTessellator.drawLines(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
+                TurokTessellator.drawLines(render, type_color.getRGB(), mask);
             } else {
-                TurokTessellator.drawBox(render, cor_red.getValue(), cor_green.getValue(), cor_blue.getValue(), cor_alfa.getValue(), mask);
+                TurokTessellator.drawBox(render, type_color.getRGB(), mask);
             }
 
             TurokTessellator.release();

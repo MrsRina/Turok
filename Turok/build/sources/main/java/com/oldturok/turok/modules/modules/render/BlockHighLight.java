@@ -19,13 +19,13 @@ import java.awt.*;
 // Rina.
 @Module.Info(name = "BlockHighlight", description = "For you see better the block on split.", category = Module.Category.TUROK_RENDER)
 public class BlockHighlight extends Module {
-	private Setting<Integer> color_r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(200));
-	private Setting<Integer> color_g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(200));
-	private Setting<Integer> color_b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(200));
-	private Setting<Integer> color_a = register(Settings.integerBuilder("Alpha").withMinimum(0).withMaximum(255).withValue(70));
+	private Setting<Integer> color_r = register(Settings.integerBuilder("Color Red").withMinimum(0).withMaximum(255).withValue(200));
+	private Setting<Integer> color_g = register(Settings.integerBuilder("Color Green").withMinimum(0).withMaximum(255).withValue(200));
+	private Setting<Integer> color_b = register(Settings.integerBuilder("Color Blue").withMinimum(0).withMaximum(255).withValue(200));
+	private Setting<Integer> color_a = register(Settings.integerBuilder("Alpha Color").withMinimum(0).withMaximum(255).withValue(70));
 	private Setting<Boolean> rgb     = register(Settings.b("RGB", false));
 
-	private Setting<TypeDraw> type = register(Settings.e("Draw Type", TypeDraw.OUTLINE));
+	private Setting<TypeDraw> type = register(Settings.e("Type Draw", TypeDraw.OUTLINE));
 	
 	public RayTraceResult result;
 

@@ -25,9 +25,9 @@ import java.awt.*;
 // Rina.
 @Module.Info(name = "EyeTrack", description = "A eye track or eye finder.", category = Module.Category.TUROK_RENDER)
 public class EyeTrack extends Module {
-	private Setting<Integer> color_r = register(Settings.integerBuilder("Red").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> color_g = register(Settings.integerBuilder("Green").withMinimum(0).withMaximum(255).withValue(0));
-	private Setting<Integer> color_b = register(Settings.integerBuilder("Blue").withMinimum(0).withMaximum(255).withValue(255));
+	private Setting<Integer> color_r = register(Settings.integerBuilder("Color Red").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> color_g = register(Settings.integerBuilder("Color Green").withMinimum(0).withMaximum(255).withValue(0));
+	private Setting<Integer> color_b = register(Settings.integerBuilder("Color Blue").withMinimum(0).withMaximum(255).withValue(255));
 	private Setting<Boolean> rgb     = register(Settings.b("RGB", false));
 
 	int r;
