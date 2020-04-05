@@ -10,7 +10,6 @@ public class TurokPrefix extends TurokChat {
 		super("prefix", "-prefix new_prefix | For change prefix no?");
 	}
 
-	@Override
 	public boolean Get_Message(String[] message) {
 		if (message.length > 1) {
 			String prefix = message[1];

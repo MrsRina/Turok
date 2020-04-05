@@ -10,7 +10,6 @@ public class TurokPos extends TurokChat {
 		super("pos", "-pos [leak leak base!@! We are turok!] | For send into end a pos.");
 	}
 
-	@Override
 	public boolean Get_Message(String[] message) {
 		String msg = "";
 

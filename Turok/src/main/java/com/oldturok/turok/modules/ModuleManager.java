@@ -22,7 +22,6 @@ import java.util.Set;
 
 public class ModuleManager {
     public static ArrayList<Module> modules = new ArrayList<>();
-
     static HashMap<String, Module> lookup = new HashMap<>();
 
     public static void updateLookup() {

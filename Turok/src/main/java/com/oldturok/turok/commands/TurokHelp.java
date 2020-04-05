@@ -14,7 +14,6 @@ public class TurokHelp extends TurokChat {
 		super("help", "-help commands/command/module module:name/command:name.");
 	}
 
-	@Override
 	public boolean Get_Message(String[] message) {
 		if (message.length > 2) {
 			String help = message[1];

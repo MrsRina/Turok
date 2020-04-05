@@ -11,7 +11,6 @@ public class TurokListFriends extends TurokChat {
 
 	String friend_string = "";
 
-	@Override
 	public boolean Get_Message(String[] message) {
 		if (message.length > 0) {
 			if (TurokFriends.INSTANCE.list_friends.getValue().isEmpty()) {

@@ -116,7 +116,7 @@ public class AutoGG extends Module {
 
 		StringBuilder msg = new StringBuilder();
 
-		msg.append("GG " + name + ", we had a good pvp, thanks Turok.");
+		msg.append("GG " + name + ", good fight well played, thanks Turok.");
 
 		String msg_ = msg.toString().replaceAll("\u00A7", "");
 

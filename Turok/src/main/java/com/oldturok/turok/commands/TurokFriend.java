@@ -10,7 +10,6 @@ public class TurokFriend extends TurokChat {
 		super("friend", "-friend add/del/remove name | For add or remove friend.");
 	}
 
-	@Override
 	public boolean Get_Message(String[] message) {
 		if (message.length > 2) {
 			String type           = message[1];
