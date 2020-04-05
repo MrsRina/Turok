@@ -10,7 +10,7 @@ import com.oldturok.turok.setting.Settings;
 import com.oldturok.turok.setting.Setting;
 import com.oldturok.turok.module.Module;
 
-// Rina.
+// Update by Rina.
 // Modify.
 @Module.Info(name = "TurokElytraFly", description = "A Turok module for get fly into elytra.", category = Module.Category.TUROK_MOVEMENT)
 public class TurokElytraFly extends Module {

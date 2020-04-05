@@ -13,7 +13,6 @@ public class TurokToggle extends TurokChat {
 		super("t", "-t module | For toggle module.");
 	}
 
-	@Override
 	public boolean Get_Message(String[] message) {
 		if (message.length > 1) {
 			String module = message[1];

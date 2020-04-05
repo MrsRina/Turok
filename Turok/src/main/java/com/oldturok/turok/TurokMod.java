@@ -54,7 +54,7 @@ import java.io.*;
 public class TurokMod {
     public static final String TUROK_MOD_ID      = "turok";
     public static final String TUROK_MOD_NAME    = "\u1d1b\u1d1c\u0280\u0473\u1d0b";
-    public static final String TUROK_MOD_VERSION = "0.4.1";
+    public static final String TUROK_MOD_VERSION = "0.5";
 
     public static final int TUROK_GUI_BUTTON  = Keyboard.KEY_P;
 
@@ -107,8 +107,9 @@ public class TurokMod {
         MinecraftForge.EVENT_BUS.register(new ForgeEventProcessor());
         TurokMod.turok_log.info("Loading: ForgeEvents util. - State: Loaded.");
 
-        MinecraftForge.EVENT_BUS.register(turok_chat_manager = new TurokChatCommand());
         SettingsRegister.register("chatprefix", TurokChatManager.prefix);
+
+        MinecraftForge.EVENT_BUS.register(turok_chat_manager = new TurokChatCommand());
         TurokMod.turok_log.info("Loading: TurokChatManager util. - State: Loaded.");
         
         LagCompensator.INSTANCE = new LagCompensator();
@@ -139,9 +140,10 @@ public class TurokMod {
 
         ModuleManager.getModuleByName("FreeCamera").disable();
 
-        if (ModuleManager.getModuleByName("TurokHUD").isEnabled()) {
+        if (ModuleManager.getModuleByName("TurokHUD").isDisabled()) {
             ModuleManager.getModuleByName("TurokHUD").enable();
         }
+
         TurokMod.turok_log.info("Disabling buggy modules.");
 
         TurokMod.turok_log.info("TurokLoadUtil loaded 10.");

@@ -41,7 +41,6 @@ public class AutoBarrier extends Module {
     private Setting<Integer> tickDelay     = register(Settings.integerBuilder("TickDelay").withMinimum(0).withValue(0).withMaximum(10).build());
     private Setting<Boolean> rotate        = register(Settings.b("Rotate", true));
     private Setting<Boolean> infoMessage   = register(Settings.b("InfoMessage", false));
-    private Setting<Boolean> no_animation  = register(Settings.b("No Place Animation", true));
 
     private int offsetStep = 0;
     private int delayStep = 0;
@@ -110,10 +109,6 @@ public class AutoBarrier extends Module {
 
     @Override
     public void onUpdate() {
-        if (no_animation.getValue()) {
-            mc.player.connection.sendPacket(new CPacketAnimation(mc.player.getActiveHand()));
-        }
-
         if (mc.player == null || ModuleManager.isModuleEnabled("Freecam")) {
             return;
         }

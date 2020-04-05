@@ -16,13 +16,13 @@ public class FastCE extends Module {
 
 	@Override
 	public void onUpdate() {
-		Item itemMainHand = mc.player.getHeldItemMainhand().getItem();
+		Item itemMainHand     = mc.player.getHeldItemMainhand().getItem();
 		Item itemONotMainHand = mc.player.getHeldItemOffhand().getItem();
 
-		boolean expInMainHand = itemMainHand instanceof ItemExpBottle;
+		boolean expInMainHand    = itemMainHand instanceof ItemExpBottle;
 		boolean expNotInMainHand = itemONotMainHand instanceof ItemExpBottle;
 
-		boolean crystalInMainHand = itemMainHand instanceof ItemEndCrystal;
+		boolean crystalInMainHand    = itemMainHand instanceof ItemEndCrystal;
 		boolean crystalNotInMainHand = itemONotMainHand instanceof ItemEndCrystal;
 
 		if (crystal.getValue()) {

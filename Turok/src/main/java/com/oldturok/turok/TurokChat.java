@@ -19,7 +19,7 @@ public class TurokChat {
 		this.description = description;
 	}
 
-	public boolean get_message(String[] message) {
+	public boolean Get_Message(String[] message) {
 		return false;
 	}
 

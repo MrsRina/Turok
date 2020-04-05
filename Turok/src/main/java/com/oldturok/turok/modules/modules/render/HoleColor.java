@@ -26,11 +26,11 @@ import java.io.*;
 public class HoleColor extends Module {
 	private ConcurrentHashMap<BlockPos, Boolean> safe_holes;
 	private final BlockPos[] barrier_ = {
-		new BlockPos(0, -1, 0),
-		new BlockPos(0, 0, -1),
-		new BlockPos(1, 0, 0),
-		new BlockPos(0, 0, 1),
-		new BlockPos(-1, 0, 0)
+		new BlockPos( 0, -1,  0),
+		new BlockPos( 0,  0, -1),
+		new BlockPos( 1,  0,  0),
+		new BlockPos( 0,  0,  1),
+		new BlockPos(-1,  0,  0)
 	};
 
 	private Setting<Double> range = register(Settings.d("Range", 10.0d));
@@ -98,7 +98,9 @@ public class HoleColor extends Module {
 				}
 			}
 
-			if (safe) safe_holes.put(pos, bedrock);
+			if (safe) {
+				safe_holes.put(pos, bedrock);
+			}
 		}
 	}
 

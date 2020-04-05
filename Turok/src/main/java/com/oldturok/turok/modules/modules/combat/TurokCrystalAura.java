@@ -72,18 +72,18 @@ import org.lwjgl.opengl.GL11;
 //
 @Module.Info(name = "TurokCrystalAura", description = "A aura for break crystals, fast and good for high ping.", category = Module.Category.TUROK_COMBAT)
 public class TurokCrystalAura extends Module {
-    private Setting<Boolean> rgb           = register(Settings.b("Color RGB", false));
-   	private Setting<Boolean> ant_fraqueza  = register(Settings.b("Anti Weakness", false));
+    private Setting<Boolean> rgb           = register(Settings.b("Color RGB", true));
+   	private Setting<Boolean> ant_fraqueza  = register(Settings.b("Anti Weakness", true));
     private Setting<Boolean> auto_switch   = register(Settings.b("Auto Switch"));
-    private Setting<Boolean> ray_trace     = register(Settings.b("Ray Trace", false));
-    private Setting<Boolean> dois_cristais = register(Settings.b("Dual Place", false));
+    private Setting<Boolean> ray_trace     = register(Settings.b("Ray Trace", true));
+    private Setting<Boolean> dois_cristais = register(Settings.b("Dual Place", true));
 
     private Setting<Integer> dano_minimo = register(Settings.integerBuilder("Damage for Place").withMinimum(0).withMaximum(10).withValue(2));
 
-    private Setting<Integer> colocar_distancia = register(Settings.integerBuilder("Place Range").withMinimum(0).withMaximum(6).withValue(4));
+    private Setting<Integer> colocar_distancia = register(Settings.integerBuilder("Place Range").withMinimum(0).withMaximum(6).withValue(5));
     private Setting<Integer> quebrar_distancia = register(Settings.integerBuilder("Break Range").withMinimum(0).withMaximum(16).withValue(6));
 
-    private Setting<Integer> tempo_de_ataque = register(Settings.integerBuilder("Break Tick").withMinimum(0).withMaximum(10).withValue(2));
+    private Setting<Integer> tempo_de_ataque = register(Settings.integerBuilder("Break Tick").withMinimum(0).withMaximum(10).withValue(0));
 
     private Setting<Integer> cor_red   = register(Settings.integerBuilder("Color Red").withMinimum(0).withMaximum(255).withValue(200));
     private Setting<Integer> cor_green = register(Settings.integerBuilder("Color Green").withMinimum(0).withMaximum(255).withValue(200));
@@ -468,7 +468,7 @@ public class TurokCrystalAura extends Module {
     }
 
     private static float get_damage_multiplied(float damage) {
-        int diff = TurokCrystalAura.mc.world.getDifficulty().getId();
+        int diff = mc.world.getDifficulty().getId();
         return damage * ((diff == 0) ? 0.0f : ((diff == 2) ? 1.0f : ((diff == 1) ? 0.5f : 1.5f)));
     }
 

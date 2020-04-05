@@ -41,9 +41,11 @@ public class TurokChatCommand {
 
 		if (msg_args.length > 0) {
 			for (TurokChat chat : chat_manager.command_list) {
-				if (chat_manager.GetArgs(event.getMessage())[0].equalsIgnoreCase(chat.name)) {
-					command_us = chat.Get_Message(chat_manager.GetArgs(event.getMessage()));
-				}
+				try {
+					if (chat_manager.GetArgs(event.getMessage())[0].equalsIgnoreCase(chat.name)) {
+						command_us = chat.Get_Message(chat_manager.GetArgs(event.getMessage()));
+					}
+				} catch (Exception exc) {} // Gay!?
 			}
 
 			if (!command_us && chat_manager.ContainsPrefix(event.getMessage())) {

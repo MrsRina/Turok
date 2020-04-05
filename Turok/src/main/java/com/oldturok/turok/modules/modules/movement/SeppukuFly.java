@@ -27,7 +27,7 @@ import java.util.List;
 //
 // About this code, is not a paste, i modify somethings and the seppuku is public.
 // Thanks Memmez for source.
-// The seppuku is a good fly, i cant make a better.
+// The seppuku is a good fly, I cant make a better.
 // Enjoy.
 //
 

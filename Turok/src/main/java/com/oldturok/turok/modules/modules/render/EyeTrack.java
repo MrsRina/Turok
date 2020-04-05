@@ -60,8 +60,11 @@ public class EyeTrack extends Module {
 
 	private void drawLine(EntityLivingBase event_) {
 		RayTraceResult result = event_.rayTrace(6, Minecraft.getMinecraft().getRenderPartialTicks());
-		if (result == null) 
+	
+		if (result == null) {
 			return;
+		}
+
 		Vec3d eyes = event_.getPositionEyes(Minecraft.getMinecraft().getRenderPartialTicks());
 
 		GlStateManager.enableDepth();

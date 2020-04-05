@@ -2,7 +2,7 @@ package com.oldturok.turok.module.modules.movement;
 
 import com.oldturok.turok.module.Module;
 
-// Update by Rina 09/03/20.
+// Rina.
 @Module.Info(name = "Sprint", description = "Make you run!", category = Module.Category.TUROK_PLAYER)
 public class Sprint extends Module {
 

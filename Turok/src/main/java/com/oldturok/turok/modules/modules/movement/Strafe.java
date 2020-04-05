@@ -11,6 +11,7 @@ import net.minecraftforge.client.event.InputUpdateEvent;
 import net.minecraft.util.math.MathHelper;
 
 // Rina.
+// Shit shit shit.
 @Module.Info(name = "Strafe", description = "Strafe: only one speed for jump motion.", category = Module.Category.TUROK_HIDDEN)
 public class Strafe extends Module {
 	float player_forward;
@@ -47,6 +48,7 @@ public class Strafe extends Module {
 				}
 			}
 		}
+
 		mc.player.motionX = ((player_forward * 0.2000f) * Math.cos(Math.toRadians((player_yaw + 90.0f))) + (player_strafe * 0.2000f) * Math.sin(Math.toRadians((player_yaw + 90.0f))));
 		mc.player.motionZ = ((player_forward * 0.2000f) * Math.sin(Math.toRadians((player_yaw + 90.0f))) - (player_strafe * 0.2000f) * Math.cos(Math.toRadians((player_yaw + 90.0f))));
 	}

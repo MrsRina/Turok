@@ -16,28 +16,26 @@ import net.minecraft.item.ItemStack;
 
 import java.awt.*;
 
-// TurokHUD = Rina.
-// ArmorHUD = Rina.
-// Others   = Rina.
+// Made by Rina, ArmorHUD by default owner.
 @Module.Info(name = "TurokHUD", description = "Turok HUD, ask for Rina.", category = Module.Category.TUROK_RENDER)
 public class TurokHUD extends Module {
 	private static RenderItem itemRender = Minecraft.getMinecraft().getRenderItem();
 
-	private Setting<Boolean> effect_pinnable = register(Settings.b("Show Pin Effect", true));
-	private Setting<Boolean> wattermark_hud  = register(Settings.b("Show Wattermark HUD", true));
-	private Setting<Boolean> users_hud       = register(Settings.b("Show Users HUD", true));
-	private Setting<Boolean> coords_hud      = register(Settings.b("Show Coords HUD", true));
-	private Setting<Boolean> totem_hud       = register(Settings.b("Show Totem HUD", true));
-	private Setting<Boolean> gapple_hud      = register(Settings.b("Show Gapple HUD", true));
-	private Setting<Boolean> crystal_hud     = register(Settings.b("Show Crystal HUD", true));
-	private Setting<Boolean> exp_hud         = register(Settings.b("Show Bottle XP HUD", true));
-	private Setting<Boolean> armor_hud       = register(Settings.b("Show Armor HUD", true));
+	private Setting<Boolean> effect_pinnable = register(Settings.b("Effect", true));
+	private Setting<Boolean> wattermark_hud  = register(Settings.b("Wattermark", true));
+	private Setting<Boolean> users_hud       = register(Settings.b("Users", true));
+	private Setting<Boolean> coords_hud      = register(Settings.b("Coords", true));
+	private Setting<Boolean> totem_hud       = register(Settings.b("Totems", true));
+	private Setting<Boolean> gapple_hud      = register(Settings.b("Gapples", true));
+	private Setting<Boolean> crystal_hud     = register(Settings.b("Crystals", true));
+	private Setting<Boolean> exp_hud         = register(Settings.b("BottlesXp", true));
+	private Setting<Boolean> armor_hud       = register(Settings.b("ArmorHUD", true));
 	
 	// Array.
-	public Setting<Boolean> array_rgb = register(Settings.b("Array RGB", true));
-	public Setting<Integer> array_r   = register(Settings.integerBuilder("Array Red").withMinimum(1).withMaximum(255).withValue(255));
-	public Setting<Integer> array_g   = register(Settings.integerBuilder("Array Green").withMinimum(1).withMaximum(255).withValue(255));
-	public Setting<Integer> array_b   = register(Settings.integerBuilder("Array Blue").withMinimum(1).withMaximum(255).withValue(255));
+	public Setting<Boolean> array_rgb = register(Settings.b("ArrayRGB", true));
+	public Setting<Integer> array_r   = register(Settings.integerBuilder("ArrayRed").withMinimum(1).withMaximum(255).withValue(255));
+	public Setting<Integer> array_g   = register(Settings.integerBuilder("ArrayGreen").withMinimum(1).withMaximum(255).withValue(255));
+	public Setting<Integer> array_b   = register(Settings.integerBuilder("ArrayBlue").withMinimum(1).withMaximum(255).withValue(255));
 
 	boolean wattermark_enable;
 	boolean users_enable;
