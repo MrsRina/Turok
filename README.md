@@ -25,4 +25,9 @@ https://discord.gg/C5w7pHq - B.O.P.E - My new client not KAMI, a new base from 0
 - Alpacaman.
 - Skylock - doomshop mota fuck.
 - BigDaddy!
+- Megyn.
+- Memez.
+- huh!
+- eE.
+- huh.
 - Sorry if I forget.
