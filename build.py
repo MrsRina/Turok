@@ -8,7 +8,7 @@ class Compile:
 		
 		import shutil
 		try:
-			shutil.copyfile("Turok/build/libs/turok-b0.4-release.jar", os.getenv("APPDATA") + "\\.minecraft\\mods\\turok-b0.4-release.jar")
+			shutil.copyfile("Turok/build/libs/turok-0.5-release.jar", os.getenv("APPDATA") + "\\.minecraft\\mods\\turok-client-0.5.jar")
 			os.system("start C:/Users/Public/Desktop/Minecraft_Launcher")
 			print("Copiadokkk")
 		except:

@@ -1,0 +1,220 @@
+{
+  "mappings": {
+    "com/turok_mixins/TurokNetworkManager": {
+      "sendPacket(Lnet/minecraft/network/Packet;)V": "Lnet/minecraft/network/NetworkManager;func_179290_a(Lnet/minecraft/network/Packet;)V",
+      "exceptionCaught": "Lnet/minecraft/network/NetworkManager;exceptionCaught(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Throwable;)V",
+      "channelRead0": "Lnet/minecraft/network/NetworkManager;channelRead0(Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/Packet;)V"
+    },
+    "com/turok_mixins/TurokEntityPig": {
+      "canBeSteered": "Lnet/minecraft/entity/passive/EntityPig;func_82171_bF()Z"
+    },
+    "com/turok_mixins/TurokRenderGlobal": {
+      "renderBlockLayer(Lnet/minecraft/util/BlockRenderLayer;)V": "Lnet/minecraft/client/renderer/RenderGlobal;func_174982_a(Lnet/minecraft/util/BlockRenderLayer;)V"
+    },
+    "com/turok_mixins/TurokBlockSoulSand": {
+      "onEntityCollision": "Lnet/minecraft/block/BlockSoulSand;func_180634_a(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/entity/Entity;)V"
+    },
+    "com/turok_mixins/TurokModelBoat": {
+      "render": "Lnet/minecraft/client/model/ModelBoat;func_78088_a(Lnet/minecraft/entity/Entity;FFFFFF)V"
+    },
+    "com/turok_mixins/TurokEntity": {
+      "move": "Lnet/minecraft/entity/Entity;func_70091_d(Lnet/minecraft/entity/MoverType;DDD)V",
+      "applyEntityCollision": "Lnet/minecraft/entity/Entity;func_70108_f(Lnet/minecraft/entity/Entity;)V",
+      "Lnet/minecraft/entity/Entity;addVelocity(DDD)V": "Lnet/minecraft/entity/Entity;func_70024_g(DDD)V",
+      "Lnet/minecraft/entity/Entity;isSneaking()Z": "Lnet/minecraft/entity/Entity;func_70093_af()Z"
+    },
+    "com/turok_mixins/TurokBlockLiquid": {
+      "modifyAcceleration": "Lnet/minecraft/block/BlockLiquid;func_176197_a(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/Vec3d;"
+    },
+    "com/turok_mixins/TurokEntityLlama": {
+      "canBeSteered": "Lnet/minecraft/entity/passive/EntityLlama;func_82171_bF()Z"
+    },
+    "com/turok_mixins/TurokEntityPlayerSP": {
+      "move": "Lnet/minecraft/client/entity/EntityPlayerSP;func_70091_d(Lnet/minecraft/entity/MoverType;DDD)V",
+      "onLivingUpdate": "Lnet/minecraft/client/entity/EntityPlayerSP;func_70636_d()V",
+      "Lnet/minecraft/client/entity/EntityPlayerSP;closeScreen()V": "Lnet/minecraft/client/entity/EntityPlayerSP;func_71053_j()V",
+      "Lnet/minecraft/client/Minecraft;displayGuiScreen(Lnet/minecraft/client/gui/GuiScreen;)V": "Lnet/minecraft/client/Minecraft;func_147108_a(Lnet/minecraft/client/gui/GuiScreen;)V"
+    },
+    "com/turok_mixins/TurokEntityRenderer": {
+      "hurtCameraEffect": "Lnet/minecraft/client/renderer/EntityRenderer;func_78482_e(F)V",
+      "updateLightmap": "Lnet/minecraft/client/renderer/EntityRenderer;func_78472_g(F)V",
+      "Lnet/minecraft/client/multiplayer/WorldClient;rayTraceBlocks(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;": "Lnet/minecraft/client/multiplayer/WorldClient;func_72933_a(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;",
+      "Lnet/minecraft/client/entity/EntityPlayerSP;isPotionActive(Lnet/minecraft/potion/Potion;)Z": "Lnet/minecraft/client/entity/EntityPlayerSP;func_70644_a(Lnet/minecraft/potion/Potion;)Z",
+      "orientCamera": "Lnet/minecraft/client/renderer/EntityRenderer;func_78467_g(F)V",
+      "Lnet/minecraft/client/renderer/EntityRenderer;getNightVisionBrightness(Lnet/minecraft/entity/EntityLivingBase;F)F": "Lnet/minecraft/client/renderer/EntityRenderer;func_180438_a(Lnet/minecraft/entity/EntityLivingBase;F)F"
+    },
+    "com/turok_mixins/TurokGuiScreen": {
+      "renderToolTip": "Lnet/minecraft/client/gui/GuiScreen;func_146285_a(Lnet/minecraft/item/ItemStack;II)V"
+    },
+    "com/turok_mixins/TurokPlayerControllerMP": {
+      "onPlayerDamageBlock": "Lnet/minecraft/client/multiplayer/PlayerControllerMP;func_180512_c(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z",
+      "Lnet/minecraft/block/state/IBlockState;getPlayerRelativeBlockHardness(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)F": "Lnet/minecraft/block/state/IBlockState;func_185903_a(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)F"
+    },
+    "com/turok_mixins/TurokC00Handshake": {
+      "writePacketData": "Lnet/minecraft/network/handshake/client/C00Handshake;func_148840_b(Lnet/minecraft/network/PacketBuffer;)V"
+    },
+    "com/turok_mixins/TurokNetHandlerPlayClient": {
+      "handleChunkData": "Lnet/minecraft/client/network/NetHandlerPlayClient;func_147263_a(Lnet/minecraft/network/play/server/SPacketChunkData;)V",
+      "Lnet/minecraft/world/chunk/Chunk;read(Lnet/minecraft/network/PacketBuffer;IZ)V": "Lnet/minecraft/world/chunk/Chunk;func_186033_a(Lnet/minecraft/network/PacketBuffer;IZ)V"
+    },
+    "com/turok_mixins/TurokRenderPlayer": {
+      "renderEntityName": "Lnet/minecraft/client/renderer/entity/RenderPlayer;func_188296_a(Lnet/minecraft/client/entity/AbstractClientPlayer;DDDLjava/lang/String;D)V"
+    },
+    "com/turok_mixins/TurokStateImplementation": {
+      "addCollisionBoxToList": "Lnet/minecraft/block/state/BlockStateContainer$StateImplementation;func_185908_a(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V",
+      "Lnet/minecraft/block/Block;addCollisionBoxToList(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V": "Lnet/minecraft/block/Block;func_185477_a(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V"
+    },
+    "com/turok_mixins/TurokMinecraft": {
+      "Lnet/minecraft/client/Minecraft;displayCrashReport(Lnet/minecraft/crash/CrashReport;)V": "Lnet/minecraft/client/Minecraft;func_71377_b(Lnet/minecraft/crash/CrashReport;)V",
+      "run": "Lnet/minecraft/client/Minecraft;func_99999_d()V",
+      "shutdown": "Lnet/minecraft/client/Minecraft;func_71400_g()V",
+      "displayGuiScreen": "Lnet/minecraft/client/Minecraft;func_147108_a(Lnet/minecraft/client/gui/GuiScreen;)V"
+    }
+  },
+  "data": {
+    "notch": {
+      "com/turok_mixins/TurokNetworkManager": {
+        "sendPacket(Lnet/minecraft/network/Packet;)V": "Lgw;a(Lht;)V",
+        "exceptionCaught": "Lgw;exceptionCaught(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Throwable;)V",
+        "channelRead0": "Lgw;a(Lio/netty/channel/ChannelHandlerContext;Lht;)V"
+      },
+      "com/turok_mixins/TurokEntityPig": {
+        "canBeSteered": "Laad;cV()Z"
+      },
+      "com/turok_mixins/TurokRenderGlobal": {
+        "renderBlockLayer(Lnet/minecraft/util/BlockRenderLayer;)V": "Lbuy;a(Lamm;)V"
+      },
+      "com/turok_mixins/TurokBlockSoulSand": {
+        "onEntityCollision": "Latx;a(Lamu;Let;Lawt;Lvg;)V"
+      },
+      "com/turok_mixins/TurokModelBoat": {
+        "render": "Lbpj;a(Lvg;FFFFFF)V"
+      },
+      "com/turok_mixins/TurokEntity": {
+        "move": "Lvg;a(Lvv;DDD)V",
+        "applyEntityCollision": "Lvg;i(Lvg;)V",
+        "Lnet/minecraft/entity/Entity;addVelocity(DDD)V": "Lvg;f(DDD)V",
+        "Lnet/minecraft/entity/Entity;isSneaking()Z": "Lvg;aU()Z"
+      },
+      "com/turok_mixins/TurokBlockLiquid": {
+        "modifyAcceleration": "Laru;a(Lamu;Let;Lvg;Lbhe;)Lbhe;"
+      },
+      "com/turok_mixins/TurokEntityLlama": {
+        "canBeSteered": "Laas;cV()Z"
+      },
+      "com/turok_mixins/TurokEntityPlayerSP": {
+        "move": "Lbud;a(Lvv;DDD)V",
+        "onLivingUpdate": "Lbud;n()V",
+        "Lnet/minecraft/client/entity/EntityPlayerSP;closeScreen()V": "Lbud;p()V",
+        "Lnet/minecraft/client/Minecraft;displayGuiScreen(Lnet/minecraft/client/gui/GuiScreen;)V": "Lbib;a(Lblk;)V"
+      },
+      "com/turok_mixins/TurokEntityRenderer": {
+        "hurtCameraEffect": "Lbuq;d(F)V",
+        "updateLightmap": "Lbuq;g(F)V",
+        "Lnet/minecraft/client/multiplayer/WorldClient;rayTraceBlocks(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;": "Lbsb;a(Lbhe;Lbhe;)Lbhc;",
+        "Lnet/minecraft/client/entity/EntityPlayerSP;isPotionActive(Lnet/minecraft/potion/Potion;)Z": "Lbud;a(Luz;)Z",
+        "orientCamera": "Lbuq;f(F)V",
+        "Lnet/minecraft/client/renderer/EntityRenderer;getNightVisionBrightness(Lnet/minecraft/entity/EntityLivingBase;F)F": "Lbuq;a(Lvp;F)F"
+      },
+      "com/turok_mixins/TurokGuiScreen": {
+        "renderToolTip": "Lblk;a(Laip;II)V"
+      },
+      "com/turok_mixins/TurokPlayerControllerMP": {
+        "onPlayerDamageBlock": "Lbsa;b(Let;Lfa;)Z",
+        "Lnet/minecraft/block/state/IBlockState;getPlayerRelativeBlockHardness(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)F": "Lawt;a(Laed;Lamu;Let;)F"
+      },
+      "com/turok_mixins/TurokC00Handshake": {
+        "writePacketData": "Lmd;b(Lgy;)V"
+      },
+      "com/turok_mixins/TurokNetHandlerPlayClient": {
+        "handleChunkData": "Lbrz;a(Lje;)V",
+        "Lnet/minecraft/world/chunk/Chunk;read(Lnet/minecraft/network/PacketBuffer;IZ)V": "Laxw;a(Lgy;IZ)V"
+      },
+      "com/turok_mixins/TurokRenderPlayer": {
+        "renderEntityName": "Lcct;a(Lbua;DDDLjava/lang/String;D)V"
+      },
+      "com/turok_mixins/TurokStateImplementation": {
+        "addCollisionBoxToList": "Lawu$a;a(Lamu;Let;Lbhb;Ljava/util/List;Lvg;Z)V",
+        "Lnet/minecraft/block/Block;addCollisionBoxToList(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V": "Laow;a(Lawt;Lamu;Let;Lbhb;Ljava/util/List;Lvg;Z)V"
+      },
+      "com/turok_mixins/TurokMinecraft": {
+        "Lnet/minecraft/client/Minecraft;displayCrashReport(Lnet/minecraft/crash/CrashReport;)V": "Lbib;c(Lb;)V",
+        "run": "Lbib;a()V",
+        "shutdown": "Lbib;n()V",
+        "displayGuiScreen": "Lbib;a(Lblk;)V"
+      }
+    },
+    "searge": {
+      "com/turok_mixins/TurokNetworkManager": {
+        "sendPacket(Lnet/minecraft/network/Packet;)V": "Lnet/minecraft/network/NetworkManager;func_179290_a(Lnet/minecraft/network/Packet;)V",
+        "exceptionCaught": "Lnet/minecraft/network/NetworkManager;exceptionCaught(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Throwable;)V",
+        "channelRead0": "Lnet/minecraft/network/NetworkManager;channelRead0(Lio/netty/channel/ChannelHandlerContext;Lnet/minecraft/network/Packet;)V"
+      },
+      "com/turok_mixins/TurokEntityPig": {
+        "canBeSteered": "Lnet/minecraft/entity/passive/EntityPig;func_82171_bF()Z"
+      },
+      "com/turok_mixins/TurokRenderGlobal": {
+        "renderBlockLayer(Lnet/minecraft/util/BlockRenderLayer;)V": "Lnet/minecraft/client/renderer/RenderGlobal;func_174982_a(Lnet/minecraft/util/BlockRenderLayer;)V"
+      },
+      "com/turok_mixins/TurokBlockSoulSand": {
+        "onEntityCollision": "Lnet/minecraft/block/BlockSoulSand;func_180634_a(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/entity/Entity;)V"
+      },
+      "com/turok_mixins/TurokModelBoat": {
+        "render": "Lnet/minecraft/client/model/ModelBoat;func_78088_a(Lnet/minecraft/entity/Entity;FFFFFF)V"
+      },
+      "com/turok_mixins/TurokEntity": {
+        "move": "Lnet/minecraft/entity/Entity;func_70091_d(Lnet/minecraft/entity/MoverType;DDD)V",
+        "applyEntityCollision": "Lnet/minecraft/entity/Entity;func_70108_f(Lnet/minecraft/entity/Entity;)V",
+        "Lnet/minecraft/entity/Entity;addVelocity(DDD)V": "Lnet/minecraft/entity/Entity;func_70024_g(DDD)V",
+        "Lnet/minecraft/entity/Entity;isSneaking()Z": "Lnet/minecraft/entity/Entity;func_70093_af()Z"
+      },
+      "com/turok_mixins/TurokBlockLiquid": {
+        "modifyAcceleration": "Lnet/minecraft/block/BlockLiquid;func_176197_a(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/Vec3d;"
+      },
+      "com/turok_mixins/TurokEntityLlama": {
+        "canBeSteered": "Lnet/minecraft/entity/passive/EntityLlama;func_82171_bF()Z"
+      },
+      "com/turok_mixins/TurokEntityPlayerSP": {
+        "move": "Lnet/minecraft/client/entity/EntityPlayerSP;func_70091_d(Lnet/minecraft/entity/MoverType;DDD)V",
+        "onLivingUpdate": "Lnet/minecraft/client/entity/EntityPlayerSP;func_70636_d()V",
+        "Lnet/minecraft/client/entity/EntityPlayerSP;closeScreen()V": "Lnet/minecraft/client/entity/EntityPlayerSP;func_71053_j()V",
+        "Lnet/minecraft/client/Minecraft;displayGuiScreen(Lnet/minecraft/client/gui/GuiScreen;)V": "Lnet/minecraft/client/Minecraft;func_147108_a(Lnet/minecraft/client/gui/GuiScreen;)V"
+      },
+      "com/turok_mixins/TurokEntityRenderer": {
+        "hurtCameraEffect": "Lnet/minecraft/client/renderer/EntityRenderer;func_78482_e(F)V",
+        "updateLightmap": "Lnet/minecraft/client/renderer/EntityRenderer;func_78472_g(F)V",
+        "Lnet/minecraft/client/multiplayer/WorldClient;rayTraceBlocks(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;": "Lnet/minecraft/client/multiplayer/WorldClient;func_72933_a(Lnet/minecraft/util/math/Vec3d;Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/RayTraceResult;",
+        "Lnet/minecraft/client/entity/EntityPlayerSP;isPotionActive(Lnet/minecraft/potion/Potion;)Z": "Lnet/minecraft/client/entity/EntityPlayerSP;func_70644_a(Lnet/minecraft/potion/Potion;)Z",
+        "orientCamera": "Lnet/minecraft/client/renderer/EntityRenderer;func_78467_g(F)V",
+        "Lnet/minecraft/client/renderer/EntityRenderer;getNightVisionBrightness(Lnet/minecraft/entity/EntityLivingBase;F)F": "Lnet/minecraft/client/renderer/EntityRenderer;func_180438_a(Lnet/minecraft/entity/EntityLivingBase;F)F"
+      },
+      "com/turok_mixins/TurokGuiScreen": {
+        "renderToolTip": "Lnet/minecraft/client/gui/GuiScreen;func_146285_a(Lnet/minecraft/item/ItemStack;II)V"
+      },
+      "com/turok_mixins/TurokPlayerControllerMP": {
+        "onPlayerDamageBlock": "Lnet/minecraft/client/multiplayer/PlayerControllerMP;func_180512_c(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/EnumFacing;)Z",
+        "Lnet/minecraft/block/state/IBlockState;getPlayerRelativeBlockHardness(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)F": "Lnet/minecraft/block/state/IBlockState;func_185903_a(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)F"
+      },
+      "com/turok_mixins/TurokC00Handshake": {
+        "writePacketData": "Lnet/minecraft/network/handshake/client/C00Handshake;func_148840_b(Lnet/minecraft/network/PacketBuffer;)V"
+      },
+      "com/turok_mixins/TurokNetHandlerPlayClient": {
+        "handleChunkData": "Lnet/minecraft/client/network/NetHandlerPlayClient;func_147263_a(Lnet/minecraft/network/play/server/SPacketChunkData;)V",
+        "Lnet/minecraft/world/chunk/Chunk;read(Lnet/minecraft/network/PacketBuffer;IZ)V": "Lnet/minecraft/world/chunk/Chunk;func_186033_a(Lnet/minecraft/network/PacketBuffer;IZ)V"
+      },
+      "com/turok_mixins/TurokRenderPlayer": {
+        "renderEntityName": "Lnet/minecraft/client/renderer/entity/RenderPlayer;func_188296_a(Lnet/minecraft/client/entity/AbstractClientPlayer;DDDLjava/lang/String;D)V"
+      },
+      "com/turok_mixins/TurokStateImplementation": {
+        "addCollisionBoxToList": "Lnet/minecraft/block/state/BlockStateContainer$StateImplementation;func_185908_a(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V",
+        "Lnet/minecraft/block/Block;addCollisionBoxToList(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V": "Lnet/minecraft/block/Block;func_185477_a(Lnet/minecraft/block/state/IBlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/entity/Entity;Z)V"
+      },
+      "com/turok_mixins/TurokMinecraft": {
+        "Lnet/minecraft/client/Minecraft;displayCrashReport(Lnet/minecraft/crash/CrashReport;)V": "Lnet/minecraft/client/Minecraft;func_71377_b(Lnet/minecraft/crash/CrashReport;)V",
+        "run": "Lnet/minecraft/client/Minecraft;func_99999_d()V",
+        "shutdown": "Lnet/minecraft/client/Minecraft;func_71400_g()V",
+        "displayGuiScreen": "Lnet/minecraft/client/Minecraft;func_147108_a(Lnet/minecraft/client/gui/GuiScreen;)V"
+      }
+    }
+  }
+}
