@@ -283,12 +283,12 @@ public class TurokGUI extends GUI {
 
             float value = !on_nether ? 0.125f : 8;
 
-            float posX = (float) (mc.player.posX);
-            float posY = (float) (mc.player.posY);
-            float posZ = (float) (mc.player.posZ);
+            int posX = (int) (mc.player.posX);
+            int posY = (int) (mc.player.posY);
+            int posZ = (int) (mc.player.posZ);
 
-            float poshX = (float) (mc.player.posX * value);
-            float poshZ = (float) (mc.player.posZ * value);
+            int poshX = (int) (mc.player.posX * value);
+            int poshZ = (int) (mc.player.posZ * value);
 
             coords.setText("");
             coords.addLine(ChatFormatting.RED  + String.format(poshX + " - " + posY + " - " + poshZ));
