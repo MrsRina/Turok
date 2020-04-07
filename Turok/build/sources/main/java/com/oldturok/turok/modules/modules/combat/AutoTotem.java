@@ -40,9 +40,7 @@ public class AutoTotem extends Module {
 
 		count = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.TOTEM_OF_UNDYING).mapToInt(ItemStack::getCount).sum();
 
-		if (mc.player.getHeldItemOffhand().getItem() == Items.TOTEM_OF_UNDYING) {
-			count++;
-		} else {
+		if (mc.player.getHeldItemOffhand().getItem() != Items.TOTEM_OF_UNDYING) {
 			if (move) {
 				mc.playerController.windowClick(0, 45, 0, ClickType.PICKUP, mc.player);
 				move = false;

@@ -24,8 +24,6 @@ public class AutoGapple extends Module {
 	public void onEnable() {
 		if (totem_disable.getValue()) {
 			ModuleManager.getModuleByName("AutoTotem").disable();
-		} else {
-			return;
 		}
 	}
 
@@ -33,8 +31,6 @@ public class AutoGapple extends Module {
 	public void onDisable() {
 		if (totem_disable.getValue()) {
 			ModuleManager.getModuleByName("AutoTotem").enable();
-		} else {
-			return;
 		}
 	}
 
@@ -67,9 +63,7 @@ public class AutoGapple extends Module {
 
 		count = mc.player.inventory.mainInventory.stream().filter(itemStack -> itemStack.getItem() == Items.GOLDEN_APPLE).mapToInt(ItemStack::getCount).sum();
 
-		if (mc.player.getHeldItemOffhand().getItem() == Items.GOLDEN_APPLE) {
-			return;
-		} else {
+		if (mc.player.getHeldItemOffhand().getItem() != Items.GOLDEN_APPLE) {
 			if (move) {
 				mc.playerController.windowClick(0, 45, 0, ClickType.PICKUP, mc.player);
 				move = false;
