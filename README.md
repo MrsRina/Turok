@@ -14,6 +14,9 @@ No! We are Turoks! No better than others or bad.
 # Thanks for all and users for protect Turok!
 https://discord.gg/C5w7pHq - B.O.P.E - My new client not KAMI, a new base from 0.
 
+# last update:
+https://anonfile.com/x7w588m7o0/turok-client-0.5_jar - not saving its a good config for the ca.
+
 # Somes names.
 - D4ark.
 - Rina. ?
